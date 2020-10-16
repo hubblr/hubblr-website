@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import FullSizeSection from "./fullSizeSection";
 
 import SectionScrollBar from "./sectionScrollBar";
-//import DoubleDownArrowImages from "./doubleDownArrowImages";
 
 function MainSection({children}) {
   return (
