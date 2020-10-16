@@ -16,6 +16,6 @@ FullSizeSection.displayName = 'FullSizeSection';
 
 FullSizeSection.propTypes = {
   children: PropTypes.node,
-};
+}
 
 export default FullSizeSection;

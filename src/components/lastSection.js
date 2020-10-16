@@ -9,7 +9,6 @@ function LastSection({children}) {
       <div
         className={"relative h-full"}
       >
-
         <div
           className={"flex items-center justify-center h-full"}
         >
