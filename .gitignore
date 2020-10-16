@@ -1,6 +1,9 @@
 # Based on gatsby-starter-default's .gitignore
 # https://github.com/gatsbyjs/gatsby-starter-default/blob/master/.gitignore
 
+#idea files
+.idea
+
 # Logs
 logs
 *.log
