@@ -1,14 +1,12 @@
 import React from "react";
-import hubblrIcon from "../images/hubblr-icon.png";
-import LongArrowGradientButton from "./longArrowGradientBorderButton";
+import HubblrImage from "./hubblrImage";
+import GradientBorderButtonLongArrow from "./gradientBorderButtonLongArrow";
 
 function IntroductionContent() {
   return (
     <div>
-      <img
-        src={hubblrIcon}
-        alt={'hubblr icon'}
-        className={"w-32 mb-12"}
+      <HubblrImage
+        className={"w-40 mb-12"}
       />
       <h1 className={"mb-10 text-6xl font-black leading-none"}>
         Developing our digital
@@ -24,7 +22,7 @@ function IntroductionContent() {
       <div
         className={"mb-40"}
       >
-        <LongArrowGradientButton
+        <GradientBorderButtonLongArrow
           buttonText={"Jetzt kontaktieren"}
           borderWidth={"3px"}
         />

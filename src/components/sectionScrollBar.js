@@ -2,13 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import SectionScrollBarLine from "./sectionScrollBarLine";
-import DoubleDownArrowImages from "./doubleDownArrowImages";
-import DoubleUpArrowImages from "./doubleUpArrowImages";
+import ArrowImageDownDouble from "./arrowImageDownDouble";
 
 function SectionScrollBar(props) {
   const arrowImages = props.lowerFlexGrow
-    ? <DoubleDownArrowImages/>
-    : <DoubleUpArrowImages/>;
+    ? <ArrowImageDownDouble
+      widthClass={"w-full"}
+    />
+    : <ArrowImageDownDouble
+      widthClass={"w-full"}
+      rotationDegree={180}
+    />;
 
   return (
     <div

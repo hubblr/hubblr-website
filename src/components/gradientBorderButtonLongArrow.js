@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import BaseGradientBorderButton from "./baseGradientBorderButton";
+import GradientBorderButtonBase from "./gradientBorderButtonBase";
 import arrowSvg from '../images/longArrow/long-arrow.svg';
 
-const LongArrowGradientButton = (props) => {
+function GradientBorderButtonLongArrow(props) {
   return (
-    <BaseGradientBorderButton
+    <GradientBorderButtonBase
       buttonText={props.buttonText}
       borderWidth={props.borderWidth}
+      gapClass={"gap-3"}
       onClick={props.onClick}
     >
       <img
@@ -15,14 +16,14 @@ const LongArrowGradientButton = (props) => {
         alt={''}
         className={'w-22'}
       />
-    </BaseGradientBorderButton>
+    </GradientBorderButtonBase>
   )
 }
 
-LongArrowGradientButton.propTypes = {
+GradientBorderButtonLongArrow.propTypes = {
   buttonText: PropTypes.string,
   borderWidth: PropTypes.string,
   onClick: PropTypes.func,
 }
 
-export default LongArrowGradientButton;
+export default GradientBorderButtonLongArrow;

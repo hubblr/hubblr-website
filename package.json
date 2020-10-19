@@ -4,6 +4,7 @@
   "version": "4.0.0",
   "author": "Taylor Bryant <taylor@bryant.io>",
   "dependencies": {
+    "framer-motion": "^2.9.1",
     "gatsby": "2.24.77",
     "gatsby-plugin-manifest": "2.4.34",
     "gatsby-plugin-offline": "3.2.31",

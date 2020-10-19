@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-const BaseGradientBorderButton = (props) => {
+const GradientBorderButtonBase = (props) => {
   return (
     <button
       className={'rounded-lg'}
@@ -11,7 +11,7 @@ const BaseGradientBorderButton = (props) => {
       onClick={props.onClick}
     >
       <div
-        className={'flex items-center gap-3 bg-gray-800 rounded-lg px-8 py-3 bg-clip-padding'}
+        className={`flex items-center ${props.gapClass} bg-gray-800 rounded-lg px-8 py-3 bg-clip-padding`}
         style={{
           border: `solid ${props.borderWidth} transparent`,
           boxSizing: 'border-box',
@@ -28,11 +28,16 @@ const BaseGradientBorderButton = (props) => {
   );
 }
 
-BaseGradientBorderButton.propTypes = {
+GradientBorderButtonBase.defaultProps = {
+  gapClass: "gap-0",
+}
+
+GradientBorderButtonBase.propTypes = {
   buttonText: PropTypes.string,
   borderWidth: PropTypes.string,
+  gapClass: PropTypes.string,
   onClick: PropTypes.func,
   children: PropTypes.node,
 }
 
-export default BaseGradientBorderButton;
+export default GradientBorderButtonBase;
