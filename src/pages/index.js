@@ -1,7 +1,7 @@
 import React from "react";
 import IntroductionSection from "../components/introductionSection";
-import MainSection from "../components/mainSection";
-import LastSection from "../components/lastSection";
+import SoftwareLaboratorySection from "../components/softwareLaboratorySection";
+import VenturesSection from "../components/venturesSection";
 
 function IndexPage() {
   return (
@@ -9,9 +9,8 @@ function IndexPage() {
       className={"bg-black text-white font-sans"}
     >
       <IntroductionSection/>
-      <MainSection/>
-      <MainSection/>
-      <LastSection/>
+      <SoftwareLaboratorySection/>
+      <VenturesSection/>
     </div>
   );
 }

@@ -4,7 +4,22 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['"Open Sans"', 'Helvetica', 'Arial', 'sans-serif']
+        'sans': ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
+      },
+      fontSize: {
+        '7xl': '5rem',
+      },
+      inset: {
+        '3': '3rem',
+        '1/2': '50%',
+      },
+      spacing: {
+        '1/2': '50%',
+        '96': '24rem',
+        'huge': '80rem',
+      },
+      rotate: {
+        '270': '270deg',
       }
     },
   },

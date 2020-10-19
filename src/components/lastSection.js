@@ -1,18 +1,23 @@
 import React from "react";
+import PropTypes from "prop-types";
 import FullSizeSection from "./fullSizeSection";
 import SectionScrollBar from "./sectionScrollBar";
 
-function LastSection() {
+function LastSection({children}) {
   return (
     <FullSizeSection>
       <div
         className={"relative h-full"}
       >
 
-        {/*content goes here*/}
+        <div
+          className={"flex items-center justify-center h-full"}
+        >
+          {children}
+        </div>
 
         <div
-          className={"absolute h-full"}
+          className={"absolute h-full inset-0"}
         >
           <SectionScrollBar
             upperFlexGrow={1}
@@ -23,6 +28,10 @@ function LastSection() {
       </div>
     </FullSizeSection>
   )
+}
+
+LastSection.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 export default LastSection;
