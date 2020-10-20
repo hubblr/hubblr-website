@@ -2,97 +2,122 @@ import React from "react";
 import MainSection from "./mainSection";
 import LightningImage from "./lightningImage";
 import SectionHeading from "./sectionHeading";
-import ConceptCard from "./conceptCard";
-import HubblrImage from "./hubblrImage";
-import GradientBorderButtonShortArrow from "./gradientBorderButtonShortArrow";
+import MainContentCard from "./mainContentCard";
+import NavigationLinkHubblrIcon from "./navigationLinkHubblrIcon";
+import GradientBorderButtonAppShortArrow from "./gradientBorderButtonAppShortArrow";
 
 const SoftwareLaboratorySection = () => {
   return (
     <MainSection
-      height={"200vh"}
+      height={"250vh"}
       transformElements={[
         {
           element: <LightningImage/>,
           positionClass: "top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2",
-          transform: {
-            cssProp: "opacity",
-            range: [0, 1],
-            scrollPercentageStart: 10,
-            scrollPercentageEnd: 30,
-          }
+          transforms: [
+            {
+              cssProp: "opacity",
+              range: [0, 1],
+              scrollPercentageStart: 20,
+              scrollPercentageEnd: 40,
+            }
+          ]
         },
         {
           element: <SectionHeading
             heading={"Software Laboratory"}
           />,
-          positionClass: "top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2",
-          transform: {
-            cssProp: "opacity",
-            range: [0, 1],
-            scrollPercentageStart: 30,
-            scrollPercentageEnd: 60,
-          }
+          positionClass: "top-1/2 left-1/2",
+          transforms: [
+            {
+              cssProp: "opacity",
+              range: [0, 1],
+              scrollPercentageStart: 40,
+              scrollPercentageEnd: 70,
+            },
+            {
+              cssProp: "top",
+              range: ['50%', '20%'],
+              scrollPercentageStart: 40,
+              scrollPercentageEnd: 70,
+            },
+            {
+              cssProp: "scale",
+              range: [1, 0.5],
+              scrollPercentageStart: 40,
+              scrollPercentageEnd: 70,
+            },
+          ]
         },
         {
-          element: <HubblrImage
-            className={"w-32"}
-          />,
-          positionClass: "top-3 left-1/2 -translate-x-1/2",
-          transform: {
-            cssProp: "opacity",
-            range: [0, 1],
-            scrollPercentageStart: 30,
-            scrollPercentageEnd: 60,
-          }
+          element: <NavigationLinkHubblrIcon/>,
+          positionClass: "top-3 left-1/2 -translate-x-1/2 z-10",
+          transforms: [
+            {
+              cssProp: "opacity",
+              range: [0, 1],
+              scrollPercentageStart: 40,
+              scrollPercentageEnd: 70,
+            }
+          ]
         },
         {
-          element: <GradientBorderButtonShortArrow
+          element: <GradientBorderButtonAppShortArrow
             buttonText={"Kontaktieren"}
-            borderWidth={"3px"}
+            theme={"dark"}
           />,
-          positionClass: "top-3 right-3",
-          transform: {
-            cssProp: "opacity",
-            range: [0, 1],
-            scrollPercentageStart: 30,
-            scrollPercentageEnd: 60,
-          }
+          positionClass: "top-3 right-3 z-10",
+          transforms: [
+            {
+              cssProp: "opacity",
+              range: [0, 1],
+              scrollPercentageStart: 40,
+              scrollPercentageEnd: 70,
+            }
+          ]
         },
         {
-          element: <ConceptCard
-            title={"Software Laboratory"}
-            description={"Gemeinsam konzipieren, entwickeln und testen wir Ihr " +
-              "digitales Projekt"}
-            tabledConcepts={[
-              {
-                title: "Konzept & Design",
-                content: "Projektplanung und Beratung zur Umsetzung, " +
-                  "Technologieberatung sowie User-Interface Design der Anwendung."
-              },
-              {
-                title: "Prototyping & User-Testing",
-                content: "Nutzer-zentriertes Testing und itterative Gestaltung des" +
+          element: <MainContentCard
+            conceptCardDescription={{
+              title: "Software Laboratory",
+              description: "Gemeinsam konzipieren, entwickeln und testen wir Ihr " +
+                "digitales Projekt",
+              tabledConcepts: [
+                {
+                  title: "Konzept & Design",
+                  content: "Projektplanung und Beratung zur Umsetzung, " +
+                    "Technologieberatung sowie User-Interface Design der Anwendung."
+                },
+                {
+                  title: "Prototyping & User-Testing",
+                  content: "Nutzer-zentriertes Testing und itterative Gestaltung des" +
                   " Projektes während der Design und Entwicklungs-Phase."
-              },
-              {
-                title: "Softwareentwicklung",
-                content: "Mit Ihrem Entwicklungsteam oder vollständig autark " +
+                },
+                {
+                  title: "Softwareentwicklung",
+                  content: "Mit Ihrem Entwicklungsteam oder vollständig autark " +
                   "entwickelt unser interdisziplinäres Team das Projekt."
-              },
-              {
-                title: "Hosting & Support",
-                content: "Verlassen Sie sich auf einen sicheren und zuverlässigen" +
+                },
+                {
+                  title: "Hosting & Support",
+                  content: "Verlassen Sie sich auf einen sicheren und zuverlässigen" +
                   " Betrieb Ihres Projektes."
-              }
-            ]}
+                },
+              ],
+            }}
+            navigationButtonInfo={{
+              text: "Zum Laboratory"
+            }}
           />,
           positionClass: "top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2",
-          transform: {
-            cssProp: "opacity",
-            range: [0, 1],
-            scrollPercentageStart: 60,
-            scrollPercentageEnd: 90,
-          }
+          transforms: [
+            {
+              cssProp: "opacity",
+              range: [0, 1],
+              scrollPercentageStart: 60,
+              scrollPercentageEnd: 70,
+            }
+          ]
         }
       ]}
     />

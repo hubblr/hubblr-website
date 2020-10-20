@@ -1,6 +1,6 @@
 import React from "react";
 import HubblrImage from "./hubblrImage";
-import GradientBorderButtonLongArrow from "./gradientBorderButtonLongArrow";
+import GradientBorderButtonAppLongArrow from "./gradientBorderButtonAppLongArrow";
 
 function IntroductionContent() {
   return (
@@ -22,9 +22,9 @@ function IntroductionContent() {
       <div
         className={"mb-40"}
       >
-        <GradientBorderButtonLongArrow
+        <GradientBorderButtonAppLongArrow
           buttonText={"Jetzt kontaktieren"}
-          borderWidth={"3px"}
+          theme={"dark"}
         />
       </div>
     </div>

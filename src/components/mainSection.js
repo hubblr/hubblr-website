@@ -2,7 +2,14 @@ import React, {useLayoutEffect, useState} from "react";
 import PropTypes from "prop-types";
 import FullSizeSection from "./fullSizeSection";
 import SectionScrollBar from "./sectionScrollBar";
-import {motion, useViewportScroll, useTransform} from "framer-motion";
+import {motion, useTransform, useViewportScroll} from "framer-motion";
+
+function templateTransform({x, y, scale}) {
+  x = x ? x : '-50%';
+  y = y ? y: '-50%';
+  scale = scale ? scale : 1;
+  return `translateX(${x}) translateY(${y}) scale(${scale})`;
+}
 
 const MainSection = (props) => {
   //ref to get client rect of full section
@@ -15,6 +22,8 @@ const MainSection = (props) => {
 
   //set section y-scroll percentages
   useLayoutEffect(() => {
+    console.log('USE LAYOUT EFFECT!')
+
     //get window information
     const fullSectionRect = fullSectionRef.current.getBoundingClientRect();
     const scrollY = window.pageYOffset || document.documentElement.scrollTop;
@@ -25,6 +34,9 @@ const MainSection = (props) => {
     const clientHeight = document.body.clientHeight;
     const fullSectionScrollStart = offsetStart / clientHeight;
     const fullSectionScrollEnd = offsetEnd / clientHeight;
+
+    console.log('SCROLL START:', fullSectionScrollStart)
+
     const fullSectionScrollStep =
       (fullSectionScrollEnd - fullSectionScrollStart)/100;
 
@@ -35,17 +47,29 @@ const MainSection = (props) => {
 
   //translate given transform info into motion transforms
   const {scrollYProgress} = useViewportScroll();
-  props.transformElements.forEach(elementInfo => {
+
+  const createMotionTransform = (transformInfo) => {
     //find page scroll percentages for the specific transform
     const {range, scrollPercentageStart, scrollPercentageEnd} =
-      elementInfo.transform;
+      transformInfo;
     const transformStart = sectionScrollPercentageStart +
       sectionScrollStep * scrollPercentageStart;
     const transformEnd = sectionScrollPercentageStart +
       sectionScrollStep * scrollPercentageEnd;
-    //create and append motion transform
-    elementInfo.motionTransform = useTransform(scrollYProgress,
+    return useTransform(scrollYProgress,
       [transformStart, transformEnd], range);
+  }
+
+  props.transformElements.forEach(elementInfo => {
+    //create and append motion transforms
+    elementInfo.styleProp = {};
+    if (!elementInfo.transforms || !Array.isArray(elementInfo.transforms)) {
+      return;
+    }
+    elementInfo.transforms.forEach(transformInfo => {
+      elementInfo.styleProp[transformInfo.cssProp] =
+        createMotionTransform(transformInfo);
+    })
   });
 
   return (
@@ -65,16 +89,15 @@ const MainSection = (props) => {
             {props.transformElements.map((elementInfo, i) => {
               const {element,
                 positionClass,
-                transform: {cssProp},
-                motionTransform
+                styleProp
               } = elementInfo;
+
               return (
                 <motion.div
                   key={i}
+                  transformTemplate={templateTransform}
                   className={`absolute transform ${positionClass}`}
-                  style={{
-                    [cssProp]: motionTransform,
-                  }}
+                  style={styleProp}
                 >
                   {element}
                 </motion.div>
@@ -97,7 +120,6 @@ const MainSection = (props) => {
 }
 
 MainSection.propTypes = {
-  children: PropTypes.node,
   height: PropTypes.string,
   transformElements: PropTypes.array,
 }
