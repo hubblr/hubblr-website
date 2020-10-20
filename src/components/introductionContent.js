@@ -4,7 +4,7 @@ import GradientBorderButtonAppLongArrow from "./gradientBorderButtonAppLongArrow
 
 function IntroductionContent() {
   return (
-    <div>
+    <>
       <HubblrImage
         className={"w-40 mb-12"}
       />
@@ -19,15 +19,11 @@ function IntroductionContent() {
         entwickeln wir in 3 Sparten herausstechende Projekte.
       </h2>
 
-      <div
-        className={"mb-40"}
-      >
-        <GradientBorderButtonAppLongArrow
-          buttonText={"Jetzt kontaktieren"}
-          theme={"dark"}
-        />
-      </div>
-    </div>
+      <GradientBorderButtonAppLongArrow
+        buttonText={"Jetzt kontaktieren"}
+        theme={"dark"}
+      />
+    </>
   );
 }
 

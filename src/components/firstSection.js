@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types"
-import FullSizeSection from "./fullSizeSection";
 
 import SectionScrollBar from "./sectionScrollBar";
 
 function FirstSection({children}) {
   return (
-    <FullSizeSection>
+    <div
+      className={"w-full h-3/4 px-16"}
+    >
       <div
         className={"flex flex-col h-full pt-12"}
       >
@@ -21,7 +22,7 @@ function FirstSection({children}) {
           />
         </div>
       </div>
-    </FullSizeSection>
+    </div>
   );
 }
 
