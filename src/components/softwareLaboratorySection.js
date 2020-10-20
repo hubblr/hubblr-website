@@ -3,8 +3,6 @@ import MainSection from "./mainSection";
 import LightningImage from "./lightningImage";
 import SectionHeading from "./sectionHeading";
 import MainContentCard from "./mainContentCard";
-import NavigationLinkHubblrIcon from "./navigationLinkHubblrIcon";
-import GradientBorderButtonAppShortArrow from "./gradientBorderButtonAppShortArrow";
 
 const SoftwareLaboratorySection = () => {
   return (
@@ -12,7 +10,7 @@ const SoftwareLaboratorySection = () => {
       height={"250vh"}
       transformElements={[
         {
-          element: <LightningImage/>,
+          wrappedElement: <LightningImage/>,
           positionClass: "top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2",
           transforms: [
             {
@@ -24,7 +22,7 @@ const SoftwareLaboratorySection = () => {
           ]
         },
         {
-          element: <SectionHeading
+          wrappedElement: <SectionHeading
             heading={"Software Laboratory"}
           />,
           positionClass: "top-1/2 left-1/2",
@@ -50,34 +48,7 @@ const SoftwareLaboratorySection = () => {
           ]
         },
         {
-          element: <NavigationLinkHubblrIcon/>,
-          positionClass: "top-3 left-1/2 -translate-x-1/2 z-10",
-          transforms: [
-            {
-              cssProp: "opacity",
-              range: [0, 1],
-              scrollPercentageStart: 40,
-              scrollPercentageEnd: 70,
-            }
-          ]
-        },
-        {
-          element: <GradientBorderButtonAppShortArrow
-            buttonText={"Kontaktieren"}
-            theme={"dark"}
-          />,
-          positionClass: "top-3 right-3 z-10",
-          transforms: [
-            {
-              cssProp: "opacity",
-              range: [0, 1],
-              scrollPercentageStart: 40,
-              scrollPercentageEnd: 70,
-            }
-          ]
-        },
-        {
-          element: <MainContentCard
+          wrappedElement: <MainContentCard
             conceptCardDescription={{
               title: "Software Laboratory",
               description: "Gemeinsam konzipieren, entwickeln und testen wir Ihr " +

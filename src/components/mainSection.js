@@ -1,65 +1,34 @@
-import React, {useLayoutEffect, useState} from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import ScrollAnimatedElement from "./scrollAnimatedElement";
 import FullSizeSection from "./fullSizeSection";
 import SectionScrollBar from "./sectionScrollBar";
-import {motion, useTransform, useViewportScroll} from "framer-motion";
+import useScrollPercentages from "./useScrollPercentages";
 
-function templateTransform({x, y, scale}) {
-  x = x ? x : '-50%';
-  y = y ? y: '-50%';
-  scale = scale ? scale : 1;
-  return `translateX(${x}) translateY(${y}) scale(${scale})`;
-}
-
-const MainSection = (props) => {
+function MainSection(props) {
   //ref to get client rect of full section
   const fullSectionRef = React.createRef();
 
-  //control animations by scroll y-percentage of the section (NOT the full page!)
-  const [sectionScrollPercentageStart, setSectionScrollPercentageStart] =
-    useState(0);
-  const [sectionScrollStep, setSectionScrollStep] = useState(1);
+  //hook for section y-scroll breakpoints (skip percentage end)
+  const [sectionScrollPercentageStart, ,sectionScrollStep] =
+    useScrollPercentages(fullSectionRef);
 
-  //set section y-scroll percentages
-  useLayoutEffect(() => {
-    console.log('USE LAYOUT EFFECT!')
-
-    //get window information
-    const fullSectionRect = fullSectionRef.current.getBoundingClientRect();
-    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-    const offsetStart = fullSectionRect.top + scrollY;
-    const offsetEnd = offsetStart + fullSectionRect.height;
-
-    //calculate y-percentage start and end points
-    const clientHeight = document.body.clientHeight;
-    const fullSectionScrollStart = offsetStart / clientHeight;
-    const fullSectionScrollEnd = offsetEnd / clientHeight;
-
-    console.log('SCROLL START:', fullSectionScrollStart)
-
-    const fullSectionScrollStep =
-      (fullSectionScrollEnd - fullSectionScrollStart)/100;
-
-    //update state
-    setSectionScrollPercentageStart(fullSectionScrollStart);
-    setSectionScrollStep(fullSectionScrollStep);
-  })
-
-  //translate given transform info into motion transforms
-  const {scrollYProgress} = useViewportScroll();
-
-  const createMotionTransform = (transformInfo) => {
-    //find page scroll percentages for the specific transform
-    const {range, scrollPercentageStart, scrollPercentageEnd} =
+  //helper function to infer page scroll breakpoints for the current animation
+  const calcAnimationScrollBreakpoints = (transformInfo) => {
+    //start and end here refer to the animation's breakpoints
+    const {scrollPercentageStart, scrollPercentageEnd} =
       transformInfo;
     const transformStart = sectionScrollPercentageStart +
       sectionScrollStep * scrollPercentageStart;
     const transformEnd = sectionScrollPercentageStart +
       sectionScrollStep * scrollPercentageEnd;
-    return useTransform(scrollYProgress,
-      [transformStart, transformEnd], range);
+    return {
+      start: transformStart,
+      end: transformEnd,
+    }
   }
 
+  //bind motionValues to associated style properties
   props.transformElements.forEach(elementInfo => {
     //create and append motion transforms
     elementInfo.styleProp = {};
@@ -67,9 +36,10 @@ const MainSection = (props) => {
       return;
     }
     elementInfo.transforms.forEach(transformInfo => {
-      elementInfo.styleProp[transformInfo.cssProp] =
-        createMotionTransform(transformInfo);
-    })
+      //use helper function to create motionValues
+      transformInfo.scrollPercentageBreakpoints =
+        calcAnimationScrollBreakpoints(transformInfo);
+    });
   });
 
   return (
@@ -87,20 +57,13 @@ const MainSection = (props) => {
             className={"relative h-full"}
           >
             {props.transformElements.map((elementInfo, i) => {
-              const {element,
-                positionClass,
-                styleProp
-              } = elementInfo;
-
               return (
-                <motion.div
+                <ScrollAnimatedElement
                   key={i}
-                  transformTemplate={templateTransform}
-                  className={`absolute transform ${positionClass}`}
-                  style={styleProp}
-                >
-                  {element}
-                </motion.div>
+                  wrappedElement={elementInfo.wrappedElement}
+                  positionClass={elementInfo.positionClass}
+                  transforms={elementInfo.transforms}
+                />
               )
             })}
 

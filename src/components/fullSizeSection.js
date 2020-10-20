@@ -12,7 +12,7 @@ const FullSizeSection = React.forwardRef(({children}, ref) => {
   )
 })
 
-FullSizeSection.displayName = 'FullSizeSection';
+FullSizeSection.displayName = "FullSizeSection";
 
 FullSizeSection.propTypes = {
   children: PropTypes.node,
