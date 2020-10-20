@@ -18,9 +18,15 @@ module.exports = {
         '96': '24rem',
         'huge': '80rem',
       },
+      margin: {
+        '-10px': '-10px',
+      },
       rotate: {
         '270': '270deg',
-      }
+      },
+      zIndex: {
+        '-10': '-10',
+      },
     },
   },
   variants: {},
