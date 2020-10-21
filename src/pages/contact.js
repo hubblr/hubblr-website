@@ -1,54 +1,32 @@
-import React from "react";
-import DarkLayout from "../components/pageLayouts/darkLayout";
-import FullSizeSection from "../components/pageSectionBases/fullSizeSection";
-import HubblrImage from "../components/imageComponents/hubblrImage";
-import BusinessCard from "../components/businessCard/businessCard";
-import ContactForm from "../components/contactForm/contactForm";
-import HubblrPageLinks from "../components/links/hubblrPageLinks";
+import React from 'react';
+import ContactLayout from '../components/pageLayouts/ContactLayout.jsx';
+import HubblrImage from '../components/imageComponents/HubblrImage.jsx';
+import BusinessCardContactPage from '../components/businessCard/BusinessCardContactPage.jsx';
+import ContactPageForm from '../components/contactPageContent/ContactPageForm.jsx';
+import HubblrPageLinks from '../components/links/HubblrPageLinks.jsx';
 
 function ContactPage() {
   return (
-    <DarkLayout>
-      <FullSizeSection>
-        <div
-          className="w-full flex flex-col items-center"
-        >
-          <HubblrImage
-            className="w-20"
-          />
-          <h1
-            className="text-6xl font-extrabold"
-          >
-            {"Let's talk!"}
-          </h1>
-          <div
-            className="w-full flex gap-16"
-          >
-            <div
-              className="flex-grow flex-basis-0"
-            >
-              <BusinessCard
-                image={<img
-                  alt={"Cedric Bals Image"}
-                />}
-                name="Cedric Bals"
-                position="CEO"
-                actionName="Termin planen"
-              >
-
-              </BusinessCard>
-            </div>
-            <div
-              className="flex-grow-2 flex-basis-0"
-            >
-              <ContactForm/>
-            </div>
+    <ContactLayout>
+      <div className="h-full flex flex-col items-center">
+        <div className="mb-8">
+          <HubblrImage className="w-20" />
+        </div>
+        <h1 className="mb-8 text-6xl font-extrabold">{"Let's talk!"}</h1>
+        <div className={`w-full mb-56 flex-grow flex flex-row gap-16`}>
+          <div className="flex-grow flex-basis-0">
+            <BusinessCardContactPage />
+          </div>
+          <div className="flex-grow-2 flex-basis-0">
+            <ContactPageForm />
           </div>
         </div>
-        <HubblrPageLinks/>
-      </FullSizeSection>
-    </DarkLayout>
-  )
+        <div className="w-full">
+          <HubblrPageLinks />
+        </div>
+      </div>
+    </ContactLayout>
+  );
 }
 
 export default ContactPage;

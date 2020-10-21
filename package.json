@@ -14,7 +14,8 @@
     "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-helmet": "6.1.0"
+    "react-helmet": "6.1.0",
+    "uuid": "^8.3.1"
   },
   "keywords": [
     "gatsby",
@@ -57,4 +58,8 @@
   "bugs": {
     "url": "https://github.com/taylorbryant/gatsby-starter-tailwind/issues"
   },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true
+  }
 }

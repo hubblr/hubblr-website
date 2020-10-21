@@ -1,4 +1,4 @@
-@import url("../fonts/OpenSans/stylesheet.css");
+@import url('../fonts/OpenSans/stylesheet.css');
 
 /*! purgecss start ignore */
 @tailwind base;
@@ -8,7 +8,7 @@
 @tailwind utilities;
 
 @layer utilities {
-    .flex-basis-0 {
-        flex-basis: 0;
-    }
+  .flex-basis-0 {
+    flex-basis: 0;
+  }
 }

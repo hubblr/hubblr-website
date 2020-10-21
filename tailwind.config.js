@@ -1,32 +1,32 @@
 // See https://tailwindcss.com/docs/configuration for details
 module.exports = {
-  purge: ["./src/**/*.js"],
+  purge: ['./src/**/*.js'],
   theme: {
     extend: {
       flexGrow: {
-        '2': 2,
+        2: '2',
       },
       fontFamily: {
-        'sans': ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
+        sans: ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
       },
       fontSize: {
         '7xl': '5rem',
       },
       inset: {
-        '3': '3rem',
+        3: '3rem',
         '1/2': '50%',
       },
       margin: {
         '-10px': '-10px',
       },
       rotate: {
-        '270': '270deg',
+        270: '270deg',
       },
       spacing: {
         '1/2': '50%',
         '3/4': '75%',
-        '96': '24rem',
-        'huge': '80rem',
+        96: '24rem',
+        huge: '80rem',
       },
       zIndex: {
         '-10': '-10',
@@ -35,5 +35,5 @@ module.exports = {
   },
   variants: {},
   // https://github.com/tailwindcss/custom-forms
-  plugins: [require("@tailwindcss/custom-forms")],
+  plugins: [require('@tailwindcss/custom-forms')],
 };

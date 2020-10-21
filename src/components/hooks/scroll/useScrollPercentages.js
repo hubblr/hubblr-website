@@ -1,4 +1,4 @@
-import {useLayoutEffect, useState} from "react";
+import { useLayoutEffect, useState } from 'react';
 
 function useScrollPercentages(contentRef) {
   const [scrollPercentageStart, setScrollPercentageStart] = useState(0);
@@ -17,14 +17,13 @@ function useScrollPercentages(contentRef) {
     const contentScrollPercentageStart = offsetStart / clientHeight;
     const contentScrollPercentageEnd = offsetEnd / clientHeight;
     //derive 1/100 scroll step between start and end
-    const contentScrollStep =
-      (contentScrollPercentageEnd - contentScrollPercentageStart)/100;
+    const contentScrollStep = (contentScrollPercentageEnd - contentScrollPercentageStart) / 100;
 
     //update state
     setScrollPercentageStart(contentScrollPercentageStart);
     setScrollPercentageEnd(contentScrollPercentageEnd);
     setScrollStep(contentScrollStep);
-  })
+  });
 
   return [scrollPercentageStart, scrollPercentageEnd, scrollStep];
 }
