@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types"
-import arrowImage from '../images/shortArrow/short-arrow-down.svg';
+import arrowImage from '../../images/shortArrow/short-arrow-down.svg';
 
 function ArrowImageDown(props) {
   const transformClasses = props.rotationDegree

@@ -1,9 +1,10 @@
 import React, {useState} from "react";
-import NavBarTop from "../components/NavBarTop";
-import IntroductionSection from "../components/introductionSection";
-import SoftwareLaboratorySection from "../components/softwareLaboratorySection";
-import VenturesSection from "../components/venturesSection";
-import useScrollPercentages from "../components/useScrollPercentages";
+import NavBarTop from "../components/navBar/NavBarTop";
+import IntroductionSection from "../components/pageSections/introductionSection";
+import SoftwareLaboratorySection from "../components/pageSections/softwareLaboratorySection";
+import ConsultingSection from "../components/pageSections/consultingSection";
+import VenturesSection from "../components/pageSections/venturesSection";
+import useScrollPercentages from "../components/hooks/scroll/useScrollPercentages";
 import {useViewportScroll} from "framer-motion";
 
 /* scrollYProgress appears to be ahead of actual scroll position. As a remedy,
@@ -38,6 +39,7 @@ function IndexPage() {
         {navbar}
       </div>
       <SoftwareLaboratorySection/>
+      <ConsultingSection/>
       <VenturesSection/>
     </div>
   );

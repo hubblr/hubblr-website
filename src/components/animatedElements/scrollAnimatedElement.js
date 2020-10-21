@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {arrayOfLength} from "../helpers/customPropChecks";
+import {arrayOfLength} from "../../helpers/customPropChecks";
 import {motion, useTransform, useViewportScroll} from "framer-motion";
 
 function templateCssTransform({x, y, scale}) {

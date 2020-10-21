@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import GradientBorderButtonApp from "./gradientBorderButtonApp";
-import blackArrowSvg from '../images/longArrow/long-arrow-black.svg';
-import whiteArrowSvg from '../images/longArrow/long-arrow-white.svg';
+import blackArrowSvg from '../../images/longArrow/long-arrow-black.svg';
+import whiteArrowSvg from '../../images/longArrow/long-arrow-white.svg';
 
 function GradientBorderButtonAppLongArrow(props) {
   let arrowSvg;
