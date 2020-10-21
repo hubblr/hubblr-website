@@ -3,6 +3,9 @@ module.exports = {
   purge: ["./src/**/*.js"],
   theme: {
     extend: {
+      flexGrow: {
+        '2': 2,
+      },
       fontFamily: {
         'sans': ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
       },
@@ -13,17 +16,17 @@ module.exports = {
         '3': '3rem',
         '1/2': '50%',
       },
-      spacing: {
-        '1/2': '50%',
-        '3/4': '75%',
-        '96': '24rem',
-        'huge': '80rem',
-      },
       margin: {
         '-10px': '-10px',
       },
       rotate: {
         '270': '270deg',
+      },
+      spacing: {
+        '1/2': '50%',
+        '3/4': '75%',
+        '96': '24rem',
+        'huge': '80rem',
       },
       zIndex: {
         '-10': '-10',

@@ -6,3 +6,9 @@
 
 /*! purgecss end ignore */
 @tailwind utilities;
+
+@layer utilities {
+    .flex-basis-0 {
+        flex-basis: 0;
+    }
+}

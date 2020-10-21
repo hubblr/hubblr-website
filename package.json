@@ -22,7 +22,6 @@
     "tailwindcss",
     "purgecss"
   ],
-  "license": "MIT",
   "scripts": {
     "analyze:lint": "eslint --ext .jsx --ext .js .",
     "analyze:prettier": "prettier --list-different \"**/*.{css,js,jsx,json,md}\"",
@@ -57,5 +56,5 @@
   },
   "bugs": {
     "url": "https://github.com/taylorbryant/gatsby-starter-tailwind/issues"
-  }
+  },
 }

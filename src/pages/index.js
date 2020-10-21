@@ -1,9 +1,14 @@
 import React, {useState} from "react";
-import NavBarTop from "../components/navBar/NavBarTop";
+//page layout
+import DarkLayout from "../components/pageLayouts/darkLayout";
+//sections to compose page of
 import IntroductionSection from "../components/pageSections/introductionSection";
 import SoftwareLaboratorySection from "../components/pageSections/softwareLaboratorySection";
 import ConsultingSection from "../components/pageSections/consultingSection";
 import VenturesSection from "../components/pageSections/venturesSection";
+//fixed elements
+import NavBarTop from "../components/navBar/NavBarTop";
+//scroll behavior
 import useScrollPercentages from "../components/hooks/scroll/useScrollPercentages";
 import {useViewportScroll} from "framer-motion";
 
@@ -29,9 +34,7 @@ function IndexPage() {
   const navbar = showFixedNavbar ? <NavBarTop/> : null;
 
   return (
-    <div
-      className={"bg-black text-white font-sans"}
-    >
+    <DarkLayout>
       <div>
         <IntroductionSection
           ref={introContentRef}
@@ -41,7 +44,7 @@ function IndexPage() {
       <SoftwareLaboratorySection/>
       <ConsultingSection/>
       <VenturesSection/>
-    </div>
+    </DarkLayout>
   );
 }
 
