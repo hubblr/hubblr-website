@@ -1,5 +1,5 @@
 import React from "react";
-import lightningImage from '../images/lightning/lightning.svg';
+import lightningImage from '../../images/lightning/lightning.svg';
 
 function LightningImage() {
   return (

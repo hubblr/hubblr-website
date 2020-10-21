@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import hubblrIcon from "../images/hubblr-icon.png";
+import hubblrIcon from "../../images/hubblr-icon.png";
 
 function HubblrImage(props) {
   return (

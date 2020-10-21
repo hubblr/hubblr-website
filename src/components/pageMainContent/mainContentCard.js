@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import DesignAdvertisementHeader from "./designAdvertisementHeader";
 import ConceptCard from "./conceptCard";
-import GradientBorderButtonAppLongArrow from "./gradientBorderButtonAppLongArrow";
+import GradientBorderButtonAppLongArrow from "../gradientBorderButtons/gradientBorderButtonAppLongArrow";
 
 function MainContentCard({conceptCardDescription, navigationButtonInfo}) {
   return (

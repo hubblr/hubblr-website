@@ -1,6 +1,6 @@
 import React from "react";
 import NavigationLinkHubblrIcon from "./navigationLinkHubblrIcon";
-import GradientBorderButtonAppShortArrow from "./gradientBorderButtonAppShortArrow";
+import GradientBorderButtonAppShortArrow from "../gradientBorderButtons/gradientBorderButtonAppShortArrow";
 
 function NavBarTop() {
   return (

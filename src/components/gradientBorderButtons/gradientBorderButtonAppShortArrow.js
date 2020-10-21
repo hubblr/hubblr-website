@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import GradientBorderButtonApp from "./gradientBorderButtonApp";
-import ArrowImageDown from "./arrowImageDown";
+import ArrowImageDown from "../imageComponents/arrowImageDown";
 
 function GradientBorderButtonAppShortArrow(props) {
   return (

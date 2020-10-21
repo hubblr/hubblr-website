@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ScrollAnimatedElement from "./scrollAnimatedElement";
+import ScrollAnimatedElement from "../animatedElements/scrollAnimatedElement";
 import FullSizeSection from "./fullSizeSection";
-import SectionScrollBar from "./sectionScrollBar";
-import useScrollPercentages from "./useScrollPercentages";
+import useScrollPercentages from "../hooks/scroll/useScrollPercentages";
 
-function MainSection(props) {
+function MainSectionAnimated(props) {
   //ref to get client rect of full section
   const fullSectionRef = React.createRef();
 
@@ -70,10 +69,7 @@ function MainSection(props) {
             <div
               className={"absolute h-full inset-0"}
             >
-              <SectionScrollBar
-                upperFlexGrow={4}
-                lowerFlexGrow={1}
-              />
+              {props.scrollBar}
             </div>
           </div>
         </FullSizeSection>
@@ -82,9 +78,10 @@ function MainSection(props) {
   )
 }
 
-MainSection.propTypes = {
+MainSectionAnimated.propTypes = {
   height: PropTypes.string,
+  scrollBar: PropTypes.node,
   transformElements: PropTypes.array,
 }
 
-export default MainSection;
+export default MainSectionAnimated;
