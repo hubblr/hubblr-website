@@ -1,6 +1,6 @@
 import React from 'react';
-import BusinessCard from './BusinessCard.jsx';
-import CedricBalsImage from '../imageComponents/CedricBalsImage.jsx';
+import BusinessCard from './BusinessCard';
+import CedricBalsImage from '../imageComponents/CedricBalsImage';
 
 function BusinessCardContactPage() {
   return (
@@ -12,7 +12,7 @@ function BusinessCardContactPage() {
     >
       <h2 className="text-center text-4xl leading-8">30-Minuten Online-Austausch planen</h2>
       <h3 className="text-center text-xl leading-7">
-        {'"Erzählen Sie mir mehr von Ihrem Projekt! Ich freue mich, Sie kennenzulernen."'}
+        Erzählen Sie mir mehr von Ihrem Projekt! Ich freue mich, Sie kennenzulernen.
       </h3>
     </BusinessCard>
   );

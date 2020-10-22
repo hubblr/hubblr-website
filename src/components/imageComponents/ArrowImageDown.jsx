@@ -8,9 +8,14 @@ function ArrowImageDown({ rotationDegree, widthClass }) {
   return <img src={arrowImage} alt="arrow down" className={`${widthClass} ${transformClasses}`} />;
 }
 
+ArrowImageDown.defaultProps = {
+  widthClass: '',
+  rotationDegree: 0,
+};
+
 ArrowImageDown.propTypes = {
-  rotationDegree: PropTypes.number,
   widthClass: PropTypes.string,
+  rotationDegree: PropTypes.number,
 };
 
 export default ArrowImageDown;

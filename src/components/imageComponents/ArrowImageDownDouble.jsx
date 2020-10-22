@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ArrowImageDown from './ArrowImageDown.jsx';
+import ArrowImageDown from './ArrowImageDown';
 
 function ArrowImageDownDouble({ rotationDegree, widthClass }) {
   const singleArrowImage = (
@@ -15,9 +15,14 @@ function ArrowImageDownDouble({ rotationDegree, widthClass }) {
   );
 }
 
+ArrowImageDownDouble.defaultProps = {
+  widthClass: '',
+  rotationDegree: 0,
+};
+
 ArrowImageDownDouble.propTypes = {
-  rotationDegree: PropTypes.number,
   widthClass: PropTypes.string,
+  rotationDegree: PropTypes.number,
 };
 
 export default ArrowImageDownDouble;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HubblrGradientBorderButtonWFull from "../gradientBorderButtons/HubblrGradientBorderButtonWFull.jsx";
-import LongArrowImage from "../imageComponents/LongArrowImage.jsx";
+import HubblrGradientBorderButtonWFull from '../gradientBorderButtons/HubblrGradientBorderButtonWFull';
+import LongArrowImage from '../imageComponents/LongArrowImage';
 
 function BusinessCard({ children, image, name, position, actionName }) {
   return (
@@ -14,22 +14,23 @@ function BusinessCard({ children, image, name, position, actionName }) {
           <p className="text-base">{position}</p>
         </div>
       </div>
-      <HubblrGradientBorderButtonWFull
-        image={<LongArrowImage theme={'dark'}/>}
-        theme={'dark'}
-      >
+      <HubblrGradientBorderButtonWFull image={<LongArrowImage theme="dark" />} theme="dark">
         {actionName}
       </HubblrGradientBorderButtonWFull>
     </div>
   );
 }
 
+BusinessCard.defaultProps = {
+  children: null,
+};
+
 BusinessCard.propTypes = {
   children: PropTypes.node,
-  image: PropTypes.node,
-  name: PropTypes.string,
-  position: PropTypes.string,
-  actionName: PropTypes.string,
+  image: PropTypes.node.isRequired,
+  name: PropTypes.string.isRequired,
+  position: PropTypes.string.isRequired,
+  actionName: PropTypes.string.isRequired,
 };
 
 export default BusinessCard;

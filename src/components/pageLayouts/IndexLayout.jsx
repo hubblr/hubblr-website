@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DarkLayout from './DarkLayout.jsx';
+import DarkLayout from './DarkLayout';
 
 function IndexLayout({ children }) {
   return <DarkLayout additionalStyles="px-16">{children}</DarkLayout>;
 }
 
 IndexLayout.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
 
 export default IndexLayout;

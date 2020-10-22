@@ -1,11 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import blackArrowSvg from '../../images/longArrow/long-arrow-black.svg';
 import whiteArrowSvg from '../../images/longArrow/long-arrow-white.svg';
 
-function LongArrowImage({
-  theme
-}) {
+function LongArrowImage({ theme }) {
   let arrowSvg;
   switch (theme) {
     case 'light':
@@ -17,17 +15,11 @@ function LongArrowImage({
       break;
   }
 
-  return (
-    <img
-      src={arrowSvg}
-      alt="long arrow"
-      className="w-22"
-    />
-  )
+  return <img src={arrowSvg} alt="long arrow" className="w-22" />;
 }
 
 LongArrowImage.propTypes = {
   theme: PropTypes.oneOf(['dark', 'light']).isRequired,
-}
+};
 
 export default LongArrowImage;

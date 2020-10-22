@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DesignAdvertisementHeaderPill from './DesignAdvertisementHeaderPill.jsx';
+import DesignAdvertisementHeaderPill from './DesignAdvertisementHeaderPill';
 
 function DesignAdvertisementHeader({ targetCustomers }) {
   return (
@@ -24,7 +24,7 @@ function DesignAdvertisementHeader({ targetCustomers }) {
 }
 
 DesignAdvertisementHeader.propTypes = {
-  targetCustomers: PropTypes.arrayOf(PropTypes.string),
+  targetCustomers: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default DesignAdvertisementHeader;

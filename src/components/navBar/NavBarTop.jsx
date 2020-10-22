@@ -1,7 +1,7 @@
 import React from 'react';
-import NavigationLinkHubblrIcon from './NavigationLinkHubblrIcon.jsx';
-import HubblrGradientBorderButtonBase from "../gradientBorderButtons/HubblrGradientBorderButtonBase.jsx";
-import ArrowImageDown from "../imageComponents/ArrowImageDown.jsx";
+import NavigationButtonHubblrIcon from './NavigationButtonHubblrIcon';
+import HubblrGradientBorderButtonBase from '../gradientBorderButtons/HubblrGradientBorderButtonBase';
+import ArrowImageDown from '../imageComponents/ArrowImageDown';
 
 function NavBarTop() {
   return (
@@ -12,9 +12,9 @@ function NavBarTop() {
           backdropFilter: 'blur(40px)',
         }}
       />
-      <div className={'relative flex justify-center'}>
-        <NavigationLinkHubblrIcon />
-        <div className={'absolute right-0 top-1/2 transform -translate-y-1/2'}>
+      <div className="relative flex justify-center">
+        <NavigationButtonHubblrIcon />
+        <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
           <HubblrGradientBorderButtonBase
             image={<ArrowImageDown rotationDegree={270} widthClass="w-5" />}
             addedFlexClasses="gap-1"

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Seo from '../components/seo/Seo.jsx';
+import Seo from '../components/seo/Seo';
 
 function NotFoundPage() {
   return (

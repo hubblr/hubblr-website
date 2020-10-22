@@ -1,5 +1,5 @@
 import React from 'react';
-import PageLinks from './PageLinks.jsx';
+import PageLinks from './PageLinks';
 
 function HubblrPageLinks() {
   return (

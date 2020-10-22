@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HubblrMainContentSectionAnimated from './HubblrMainContentSectionAnimated.jsx';
-import SectionScrollBar from '../sectionScrollBar/SectionScrollBar.jsx';
+import HubblrMainContentSectionAnimated from './HubblrMainContentSectionAnimated';
+import SectionScrollBar from '../sectionScrollBar/SectionScrollBar';
 
 function HubblrLastContentSectionAnimated({ fadeInImage, contentTitle, mainContentDescription }) {
   return (
@@ -14,8 +14,14 @@ function HubblrLastContentSectionAnimated({ fadeInImage, contentTitle, mainConte
   );
 }
 
+HubblrLastContentSectionAnimated.defaultProps = {
+  fadeInImage: null,
+  contentTitle: '',
+  mainContentDescription: null,
+};
+
 HubblrLastContentSectionAnimated.propTypes = {
-  fadeInImage: PropTypes.node,
+  fadeInImage: PropTypes.element,
   contentTitle: PropTypes.string,
   mainContentDescription: PropTypes.shape({
     title: PropTypes.string,

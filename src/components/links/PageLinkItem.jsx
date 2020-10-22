@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-//TODO: change to actual navigation, not just styling
+// TODO: change to actual navigation, not just styling
 function PageLinkItem({ children, notificationNumber }) {
   const notificationDiv =
-    notificationNumber && notificationNumber > 0 ? (
+    notificationNumber > 0 ? (
       <div className="bg-white text-black rounded-full text-sm font-bold w-5 h-5 text-center table-cell align-middle">
         {notificationNumber}
       </div>
@@ -18,8 +18,12 @@ function PageLinkItem({ children, notificationNumber }) {
   );
 }
 
+PageLinkItem.defaultProps = {
+  notificationNumber: 0,
+};
+
 PageLinkItem.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.string.isRequired,
   notificationNumber: PropTypes.number,
 };
 

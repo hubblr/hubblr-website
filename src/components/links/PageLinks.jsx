@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PageLinkItem from './PageLinkItem.jsx';
+import PageLinkItem from './PageLinkItem';
 
 function PageLinks({ links }) {
   return (
@@ -22,7 +22,7 @@ PageLinks.propTypes = {
       text: PropTypes.string,
       notificationNumber: PropTypes.number,
     })
-  ),
+  ).isRequired,
 };
 
 export default PageLinks;

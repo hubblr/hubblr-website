@@ -14,6 +14,7 @@ function GradientBorderButtonBase({
 }) {
   return (
     <button
+      type="button"
       className={`${widthClass} rounded-lg`}
       style={{
         background: `linear-gradient(to right, ${gradientColors.join(',')})`,
@@ -36,8 +37,17 @@ function GradientBorderButtonBase({
   );
 }
 
+GradientBorderButtonBase.defaultProps = {
+  widthClass: '',
+  paddingClasses: '',
+  textColorClass: 'text-black',
+  backgroundColorClass: 'text-white',
+  addedFlexClasses: '',
+  onClick: null,
+};
+
 GradientBorderButtonBase.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   borderWidth: PropTypes.string.isRequired,
   widthClass: PropTypes.string,
   paddingClasses: PropTypes.string,

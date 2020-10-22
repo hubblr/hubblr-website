@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SectionScrollBar from '../sectionScrollBar/SectionScrollBar.jsx';
+import SectionScrollBar from '../sectionScrollBar/SectionScrollBar';
 
 function FirstSection({ children }) {
   return (

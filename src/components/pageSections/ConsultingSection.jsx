@@ -1,6 +1,6 @@
 import React from 'react';
-import HubblrMiddleContentSectionAnimated from '../pageSectionBases/HubblrMiddleContentSectionAnimated.jsx';
-import ConsultingIllustrationImage from '../imageComponents/ConsultingIllustrationImage.jsx';
+import HubblrMiddleContentSectionAnimated from '../pageSectionBases/HubblrMiddleContentSectionAnimated';
+import ConsultingIllustrationImage from '../imageComponents/ConsultingIllustrationImage';
 
 function ConsultingSection() {
   return (

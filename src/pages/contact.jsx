@@ -1,9 +1,9 @@
 import React from 'react';
-import ContactLayout from '../components/pageLayouts/ContactLayout.jsx';
-import HubblrImage from '../components/imageComponents/HubblrImage.jsx';
-import BusinessCardContactPage from '../components/businessCard/BusinessCardContactPage.jsx';
-import ContactPageForm from '../components/contactPageContent/ContactPageForm.jsx';
-import HubblrPageLinks from '../components/links/HubblrPageLinks.jsx';
+import ContactLayout from '../components/pageLayouts/ContactLayout';
+import HubblrImage from '../components/imageComponents/HubblrImage';
+import BusinessCardContactPage from '../components/businessCard/BusinessCardContactPage';
+import ContactPageForm from '../components/contactPageContent/ContactPageForm';
+import HubblrPageLinks from '../components/links/HubblrPageLinks';
 
 function ContactPage() {
   return (
@@ -12,8 +12,8 @@ function ContactPage() {
         <div className="mb-8">
           <HubblrImage className="w-20" />
         </div>
-        <h1 className="mb-8 text-6xl font-extrabold">{"Let's talk!"}</h1>
-        <div className={`w-full mb-56 flex-grow flex flex-row gap-16`}>
+        <h1 className="mb-8 text-6xl font-extrabold">Let‘s talk!</h1>
+        <div className="w-full mb-56 flex-grow flex flex-row gap-16">
           <div className="flex-grow flex-basis-0">
             <BusinessCardContactPage />
           </div>

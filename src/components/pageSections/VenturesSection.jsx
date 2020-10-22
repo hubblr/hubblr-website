@@ -1,6 +1,6 @@
 import React from 'react';
-import HubblrLastContentSectionAnimated from '../pageSectionBases/HubblrLastContentSectionAnimated.jsx';
-import VenturesArrowImage from '../imageComponents/VenturesArrowImage.jsx';
+import HubblrLastContentSectionAnimated from '../pageSectionBases/HubblrLastContentSectionAnimated';
+import VenturesArrowImage from '../imageComponents/VenturesArrowImage';
 
 function VenturesSection() {
   return (
@@ -9,7 +9,7 @@ function VenturesSection() {
       contentTitle="Digital Ventures"
       mainContentDescription={{
         title: 'Solution Assessment',
-        description: 'Wie glauben an Visionär*innen. Gemeinsam verändern wir ' + 'die Welt.',
+        description: 'Wie glauben an Visionär*innen. Gemeinsam verändern wir die Welt.',
         tabledConcepts: [
           {
             title: 'Investment & Gründung',

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DesignAdvertisementHeader from './DesignAdvertisementHeader.jsx';
-import ConceptCard from './ConceptCard.jsx';
-import IndexGradientBorderButtonLongArrow from '../gradientBorderButtons/IndexGradientBorderButtonLongArrow.jsx';
+import DesignAdvertisementHeader from './DesignAdvertisementHeader';
+import ConceptCard from './ConceptCard';
+import IndexGradientBorderButtonLongArrow from '../gradientBorderButtons/IndexGradientBorderButtonLongArrow';
 
 function MainContentCard({ conceptCardDescription, navigationButtonInfo }) {
   return (
@@ -23,7 +23,7 @@ function MainContentCard({ conceptCardDescription, navigationButtonInfo }) {
           tabledConcepts={conceptCardDescription.tabledConcepts}
         />
       </div>
-      <IndexGradientBorderButtonLongArrow theme="light" >
+      <IndexGradientBorderButtonLongArrow theme="light">
         {navigationButtonInfo.text}
       </IndexGradientBorderButtonLongArrow>
     </div>
@@ -31,8 +31,8 @@ function MainContentCard({ conceptCardDescription, navigationButtonInfo }) {
 }
 
 MainContentCard.propTypes = {
-  conceptCardDescription: PropTypes.object,
-  navigationButtonInfo: PropTypes.object,
+  conceptCardDescription: PropTypes.object.isRequired,
+  navigationButtonInfo: PropTypes.object.isRequired,
 };
 
 export default MainContentCard;

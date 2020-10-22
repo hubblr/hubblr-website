@@ -6,6 +6,10 @@ function HubblrImage({ className }) {
   return <img src={hubblrIcon} alt="hubblr icon" className={className} />;
 }
 
+HubblrImage.defaultProps = {
+  className: '',
+};
+
 HubblrImage.propTypes = {
   className: PropTypes.string,
 };

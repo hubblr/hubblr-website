@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function ConceptCard({ title, description, tabledConcepts }) {
+function ConceptCard({ title: cardTitle, description, tabledConcepts }) {
   const nrColumns = tabledConcepts.length;
-  const titleDivs = tabledConcepts.map(({ title }) => {
+  const titleDivs = tabledConcepts.map(({ title: conceptTitle }) => {
     return (
-      <div className="font-bold text-lg" key={title}>
-        {title}
+      <div className="font-bold text-lg" key={conceptTitle}>
+        {conceptTitle}
       </div>
     );
   });
@@ -17,7 +17,7 @@ function ConceptCard({ title, description, tabledConcepts }) {
   return (
     <div className="w-huge h-96 flex flex-col bg-white text-black p-8 rounded-lg">
       <div className="w-1/2 flex-grow">
-        <h3 className="text-xl text-purple-700 font-bold mb-3">{title.toUpperCase()}</h3>
+        <h3 className="text-xl text-purple-700 font-bold mb-3">{cardTitle.toUpperCase()}</h3>
         <h2 className="text-3xl font-bold leading-7">{description}</h2>
       </div>
 
@@ -36,9 +36,14 @@ function ConceptCard({ title, description, tabledConcepts }) {
 }
 
 ConceptCard.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  tabledConcepts: PropTypes.array,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  tabledConcepts: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      content: PropTypes.string,
+    })
+  ).isRequired,
 };
 
 export default ConceptCard;

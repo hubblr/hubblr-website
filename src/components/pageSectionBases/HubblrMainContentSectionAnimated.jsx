@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MainSectionAnimated from './MainSectionAnimated.jsx';
-import SectionHeading from '../pageMainContent/SectionHeading.jsx';
-import MainContentCard from '../pageMainContent/MainContentCard.jsx';
+import MainSectionAnimated from './MainSectionAnimated';
+import SectionHeading from '../pageMainContent/SectionHeading';
+import MainContentCard from '../pageMainContent/MainContentCard';
 
 function HubblrMainContentSectionAnimated({
   scrollBar,
@@ -79,9 +79,16 @@ function HubblrMainContentSectionAnimated({
   );
 }
 
+HubblrMainContentSectionAnimated.defaultProps = {
+  scrollBar: null,
+  fadeInImage: null,
+  contentTitle: '',
+  mainContentDescription: null,
+};
+
 HubblrMainContentSectionAnimated.propTypes = {
-  scrollBar: PropTypes.node,
-  fadeInImage: PropTypes.node,
+  scrollBar: PropTypes.element,
+  fadeInImage: PropTypes.element,
   contentTitle: PropTypes.string,
   mainContentDescription: PropTypes.shape({
     title: PropTypes.string,

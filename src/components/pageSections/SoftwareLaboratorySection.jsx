@@ -1,6 +1,6 @@
 import React from 'react';
-import HubblrMiddleContentSectionAnimated from '../pageSectionBases/HubblrMiddleContentSectionAnimated.jsx';
-import LightningImage from '../imageComponents/LightningImage.jsx';
+import HubblrMiddleContentSectionAnimated from '../pageSectionBases/HubblrMiddleContentSectionAnimated';
+import LightningImage from '../imageComponents/LightningImage';
 
 function SoftwareLaboratorySection() {
   return (
@@ -9,7 +9,7 @@ function SoftwareLaboratorySection() {
       contentTitle="Software Laboratory"
       mainContentDescription={{
         title: 'Software Laboratory',
-        description: 'Gemeinsam konzipieren, entwickeln und testen wir Ihr ' + 'digitales Projekt',
+        description: 'Gemeinsam konzipieren, entwickeln und testen wir Ihr digitales Projekt',
         tabledConcepts: [
           {
             title: 'Konzept & Design',

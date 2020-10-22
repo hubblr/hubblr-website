@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { arrayOfLength2 } from '../../util/propTypes';
 import { motion, useTransform, useViewportScroll } from 'framer-motion';
+import { arrayOfLength2 } from '../../util/propTypes';
 
 function templateCssTransform({ x = '-50%', y = '-50%', scale = 1 }) {
   return `translateX(${x}) translateY(${y}) scale(${scale})`;
 }
 
 function ScrollAnimatedElement({ wrappedElement, positionClass, transforms }) {
-  //create motionValues translated from y-scroll progress
+  // create motionValues translated from y-scroll progress
   const { scrollYProgress } = useViewportScroll();
   const animationStyles = {};
-  transforms &&
+  if (transforms) {
     transforms.forEach(({ cssProp, scrollPercentageBreakpoints, range }) => {
       animationStyles[cssProp] = useTransform(
         scrollYProgress,
@@ -19,6 +19,7 @@ function ScrollAnimatedElement({ wrappedElement, positionClass, transforms }) {
         range
       );
     });
+  }
 
   return (
     <motion.div
@@ -32,8 +33,8 @@ function ScrollAnimatedElement({ wrappedElement, positionClass, transforms }) {
 }
 
 ScrollAnimatedElement.propTypes = {
-  wrappedElement: PropTypes.node,
-  positionClass: PropTypes.string,
+  wrappedElement: PropTypes.node.isRequired,
+  positionClass: PropTypes.string.isRequired,
   transforms: PropTypes.arrayOf(
     PropTypes.shape({
       cssProp: PropTypes.string,
@@ -43,7 +44,7 @@ ScrollAnimatedElement.propTypes = {
         end: PropTypes.number,
       }),
     })
-  ),
+  ).isRequired,
 };
 
 export default ScrollAnimatedElement;

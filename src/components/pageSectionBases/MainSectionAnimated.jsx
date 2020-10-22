@@ -1,21 +1,21 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import ScrollAnimatedElement from '../animatedElements/ScrollAnimatedElement.jsx';
-import FullSizeSection from './FullSizeSection.jsx';
+import { v4 as uuidv4 } from 'uuid';
+import ScrollAnimatedElement from '../animatedElements/ScrollAnimatedElement';
+import FullSizeSection from './FullSizeSection';
 import useScrollPercentages from '../hooks/scroll/useScrollPercentages';
 import { arrayOfLength2 } from '../../util/propTypes';
-import { v4 as uuidv4 } from 'uuid';
 
 function MainSectionAnimated({ height, scrollBar, transformElements }) {
-  //ref to get client rect of full section
+  // ref to get client rect of full section
   const fullSectionRef = useRef();
 
-  //hook for section y-scroll breakpoints (skip percentage end)
+  // hook for section y-scroll breakpoints (skip percentage end)
   const [sectionScrollPercentageStart, , sectionScrollStep] = useScrollPercentages(fullSectionRef);
 
-  //helper function to infer page scroll breakpoints for the current animation
+  // helper function to infer page scroll breakpoints for the current animation
   const calcAnimationScrollBreakpoints = (transformInfo) => {
-    //start and end here refer to the animation's breakpoints
+    // start and end here refer to the animation's breakpoints
     const { scrollPercentageStart, scrollPercentageEnd } = transformInfo;
     const transformStart = sectionScrollPercentageStart + sectionScrollStep * scrollPercentageStart;
     const transformEnd = sectionScrollPercentageStart + sectionScrollStep * scrollPercentageEnd;
@@ -25,33 +25,46 @@ function MainSectionAnimated({ height, scrollBar, transformElements }) {
     };
   };
 
-  //bind motionValues to associated style properties
+  // bind motionValues to associated style properties
+  const fullTransformInfos = [];
   transformElements.forEach((elementInfo) => {
-    //create and append motion transforms
-    elementInfo.styleProp = {};
+    const fullElementInfo = {
+      wrappedElement: elementInfo.wrappedElement,
+      positionClass: elementInfo.positionClass,
+    };
+    // create and append motion transforms
+    fullElementInfo.transforms = [];
     if (!elementInfo.transforms || !Array.isArray(elementInfo.transforms)) {
       return;
     }
     elementInfo.transforms.forEach((transformInfo) => {
-      //use helper function to create motionValues
-      transformInfo.scrollPercentageBreakpoints = calcAnimationScrollBreakpoints(transformInfo);
+      const relevantTransformInfo = {
+        cssProp: transformInfo.cssProp,
+        range: transformInfo.range,
+      };
+      // use helper function to create motionValues
+      relevantTransformInfo.scrollPercentageBreakpoints = calcAnimationScrollBreakpoints(
+        transformInfo
+      );
+      fullElementInfo.transforms.push(relevantTransformInfo);
     });
+    fullTransformInfos.push(fullElementInfo);
   });
 
   return (
     <div
       ref={fullSectionRef}
       style={{
-        height: height,
+        height,
       }}
     >
       <div className="sticky top-0">
         <FullSizeSection>
           <div className="relative h-full">
-            {transformElements.map(({ wrappedElement, positionClass, transforms }) => {
+            {fullTransformInfos.map(({ wrappedElement, positionClass, transforms }) => {
               return (
                 <ScrollAnimatedElement
-                  //difficult to create unique string from object properties, so use this
+                  // difficult to create unique string from object properties, so use this
                   key={uuidv4()}
                   wrappedElement={wrappedElement}
                   positionClass={positionClass}
@@ -59,7 +72,7 @@ function MainSectionAnimated({ height, scrollBar, transformElements }) {
                 />
               );
             })}
-            <div className={'absolute h-full inset-0'}>{scrollBar}</div>
+            <div className="absolute h-full inset-0">{scrollBar}</div>
           </div>
         </FullSizeSection>
       </div>
@@ -67,12 +80,16 @@ function MainSectionAnimated({ height, scrollBar, transformElements }) {
   );
 }
 
+MainSectionAnimated.defaultProps = {
+  scrollBar: null,
+};
+
 MainSectionAnimated.propTypes = {
-  height: PropTypes.string,
-  scrollBar: PropTypes.node,
+  height: PropTypes.string.isRequired,
+  scrollBar: PropTypes.element,
   transformElements: PropTypes.arrayOf(
     PropTypes.shape({
-      wrappedElement: PropTypes.node,
+      wrappedElement: PropTypes.element,
       positionClass: PropTypes.string,
       transforms: PropTypes.arrayOf(
         PropTypes.shape({
@@ -83,7 +100,7 @@ MainSectionAnimated.propTypes = {
         })
       ),
     })
-  ),
+  ).isRequired,
 };
 
 export default MainSectionAnimated;
