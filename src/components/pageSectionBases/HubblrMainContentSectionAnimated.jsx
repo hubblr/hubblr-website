@@ -17,7 +17,9 @@ function HubblrMainContentSectionAnimated({
       transformElements={[
         {
           wrappedElement: fadeInImage,
-          positionClass: 'top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2',
+          motionWrapperStyling: {
+            positionClass: 'top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2',
+          },
           transforms: [
             {
               cssProp: 'opacity',
@@ -29,7 +31,9 @@ function HubblrMainContentSectionAnimated({
         },
         {
           wrappedElement: <SectionHeading heading={contentTitle} />,
-          positionClass: 'top-1/2 left-1/2',
+          motionWrapperStyling: {
+            positionClass: 'top-1/2 left-1/2',
+          },
           transforms: [
             {
               cssProp: 'opacity',
@@ -64,7 +68,10 @@ function HubblrMainContentSectionAnimated({
               }}
             />
           ),
-          positionClass: 'top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2',
+          motionWrapperStyling: {
+            positionClass: 'top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2',
+            dimensionClasses: 'h-1/2',
+          },
           transforms: [
             {
               cssProp: 'opacity',

@@ -26,6 +26,7 @@ module.exports = {
         '1/2': '50%',
         '3/4': '75%',
         96: '24rem',
+        larger: '50rem',
         huge: '80rem',
       },
       zIndex: {

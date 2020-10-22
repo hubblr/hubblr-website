@@ -15,7 +15,7 @@ function ConceptCard({ title: cardTitle, description, tabledConcepts }) {
   });
 
   return (
-    <div className="w-huge h-96 flex flex-col bg-white text-black p-8 rounded-lg">
+    <div className="w-huge h-full flex flex-col bg-white text-black p-8 rounded-lg">
       <div className="w-1/2 flex-grow">
         <h3 className="text-xl text-purple-700 font-bold mb-3">{cardTitle.toUpperCase()}</h3>
         <h2 className="text-3xl font-bold leading-7">{description}</h2>

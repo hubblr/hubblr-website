@@ -7,7 +7,7 @@ function templateCssTransform({ x = '-50%', y = '-50%', scale = 1 }) {
   return `translateX(${x}) translateY(${y}) scale(${scale})`;
 }
 
-function ScrollAnimatedElement({ wrappedElement, positionClass, transforms }) {
+function ScrollAnimatedElement({ wrappedElement, wrapperStyleClasses, transforms }) {
   // create motionValues translated from y-scroll progress
   const { scrollYProgress } = useViewportScroll();
   const animationStyles = {};
@@ -24,7 +24,7 @@ function ScrollAnimatedElement({ wrappedElement, positionClass, transforms }) {
   return (
     <motion.div
       transformTemplate={templateCssTransform}
-      className={`absolute transform ${positionClass}`}
+      className={`absolute transform ${wrapperStyleClasses}`}
       style={animationStyles}
     >
       {wrappedElement}
@@ -32,9 +32,13 @@ function ScrollAnimatedElement({ wrappedElement, positionClass, transforms }) {
   );
 }
 
+ScrollAnimatedElement.defaultProps = {
+  wrapperStyleClasses: '',
+};
+
 ScrollAnimatedElement.propTypes = {
   wrappedElement: PropTypes.node.isRequired,
-  positionClass: PropTypes.string.isRequired,
+  wrapperStyleClasses: PropTypes.string,
   transforms: PropTypes.arrayOf(
     PropTypes.shape({
       cssProp: PropTypes.string,

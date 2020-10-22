@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="716px" height="194px" viewBox="0 0 716 194" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>8E444041-CCE3-47B8-9786-6A14891B726F</title>
+    <defs>
+        <linearGradient x1="1.56032636%" y1="49.7500002%" x2="98.302318%" y2="49.7500002%" id="linearGradient-1">
+            <stop stop-color="#BDFFF4" offset="0%"></stop>
+            <stop stop-color="#44CED8" offset="27.8381774%"></stop>
+            <stop stop-color="#0DA2FF" offset="72.5961538%"></stop>
+            <stop stop-color="#8D00FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="components" transform="translate(-87.000000, -254.000000)" fill="#FFFFFF" stroke="url(#linearGradient-1)" stroke-width="6.5">
+            <path d="M637.760027,257.699621 L802.41024,431.486376 L189.842108,444.275227 L98.4031797,365.765313 L118.378525,276.280083 L637.760027,257.699621 Z" id="Headliner-Box" transform="translate(448.500000, 351.000000) scale(-1, -1) translate(-448.500000, -351.000000) "></path>
+        </g>
+    </g>
+</svg>

@@ -30,7 +30,7 @@ function MainSectionAnimated({ height, scrollBar, transformElements }) {
   transformElements.forEach((elementInfo) => {
     const fullElementInfo = {
       wrappedElement: elementInfo.wrappedElement,
-      positionClass: elementInfo.positionClass,
+      motionWrapperStyling: elementInfo.motionWrapperStyling,
     };
     // create and append motion transforms
     fullElementInfo.transforms = [];
@@ -61,13 +61,19 @@ function MainSectionAnimated({ height, scrollBar, transformElements }) {
       <div className="sticky top-0">
         <FullSizeSection>
           <div className="relative h-full">
-            {fullTransformInfos.map(({ wrappedElement, positionClass, transforms }) => {
+            {fullTransformInfos.map(({ wrappedElement, motionWrapperStyling, transforms }) => {
               return (
                 <ScrollAnimatedElement
                   // difficult to create unique string from object properties, so use this
                   key={uuidv4()}
                   wrappedElement={wrappedElement}
-                  positionClass={positionClass}
+                  wrapperStyleClasses={`${
+                    motionWrapperStyling.positionClass ? motionWrapperStyling.positionClass : ''
+                  } ${
+                    motionWrapperStyling.dimensionClasses
+                      ? motionWrapperStyling.dimensionClasses
+                      : ''
+                  }`}
                   transforms={transforms}
                 />
               );
@@ -90,7 +96,10 @@ MainSectionAnimated.propTypes = {
   transformElements: PropTypes.arrayOf(
     PropTypes.shape({
       wrappedElement: PropTypes.element,
-      positionClass: PropTypes.string,
+      motionWrapperStyling: PropTypes.shape({
+        positionClass: PropTypes.string,
+        dimensionClasses: PropTypes.string,
+      }),
       transforms: PropTypes.arrayOf(
         PropTypes.shape({
           cssProp: PropTypes.string,
