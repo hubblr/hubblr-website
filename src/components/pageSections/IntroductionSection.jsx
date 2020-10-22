@@ -1,7 +1,7 @@
 import React from 'react';
 import FirstSection from '../pageSectionBases/FirstSection.jsx';
 import HubblrImage from '../imageComponents/HubblrImage.jsx';
-import GradientBorderButtonAppLongArrow from '../gradientBorderButtons/GradientBorderButtonAppLongArrow.jsx';
+import IndexGradientBorderButtonLongArrow from '../gradientBorderButtons/IndexGradientBorderButtonLongArrow.jsx';
 
 const IntroductionSection = React.forwardRef((props, contentRef) => {
   return (
@@ -17,7 +17,9 @@ const IntroductionSection = React.forwardRef((props, contentRef) => {
           endlich auch auf der Welt zu sehen, entwickeln wir in 3 Sparten herausstechende Projekte.
         </h2>
 
-        <GradientBorderButtonAppLongArrow buttonText="Jetzt kontaktieren" theme="dark" />
+        <IndexGradientBorderButtonLongArrow theme="dark" >
+          Jetzt kontaktieren
+        </IndexGradientBorderButtonLongArrow>
       </div>
     </FirstSection>
   );

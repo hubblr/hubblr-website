@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GradientBorderButtonAppLongArrow from '../gradientBorderButtons/GradientBorderButtonAppLongArrow.jsx';
+import HubblrGradientBorderButtonWFull from "../gradientBorderButtons/HubblrGradientBorderButtonWFull.jsx";
+import LongArrowImage from "../imageComponents/LongArrowImage.jsx";
 
 function BusinessCard({ children, image, name, position, actionName }) {
   return (
@@ -13,7 +14,12 @@ function BusinessCard({ children, image, name, position, actionName }) {
           <p className="text-base">{position}</p>
         </div>
       </div>
-      <GradientBorderButtonAppLongArrow buttonText={actionName} />
+      <HubblrGradientBorderButtonWFull
+        image={<LongArrowImage theme={'dark'}/>}
+        theme={'dark'}
+      >
+        {actionName}
+      </HubblrGradientBorderButtonWFull>
     </div>
   );
 }

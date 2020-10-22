@@ -3,24 +3,26 @@ import PropTypes from 'prop-types';
 
 function GradientBorderButtonBase({
   children,
-  buttonText,
   borderWidth,
+  widthClass,
+  paddingClasses,
   textColorClass,
   backgroundColorClass,
-  gapClass,
+  gradientColors,
+  addedFlexClasses,
   onClick,
 }) {
   return (
     <button
-      className="rounded-lg"
+      className={`${widthClass} rounded-lg`}
       style={{
-        background: 'linear-gradient(to right, lightblue, teal, blue, purple)',
+        background: `linear-gradient(to right, ${gradientColors.join(',')})`,
       }}
       onClick={onClick}
     >
       <div
         className={
-          `flex items-center ${gapClass} rounded-lg px-8 py-3 ` +
+          `flex items-center ${addedFlexClasses} rounded-lg ${paddingClasses} ` +
           `bg-clip-padding ${textColorClass} ${backgroundColorClass}`
         }
         style={{
@@ -28,24 +30,21 @@ function GradientBorderButtonBase({
           boxSizing: 'border-box',
         }}
       >
-        <span className="text-lg">{buttonText}</span>
         {children}
       </div>
     </button>
   );
 }
 
-GradientBorderButtonBase.defaultProps = {
-  gapClass: 'gap-0',
-};
-
 GradientBorderButtonBase.propTypes = {
   children: PropTypes.node,
-  buttonText: PropTypes.string,
-  borderWidth: PropTypes.string,
+  borderWidth: PropTypes.string.isRequired,
+  widthClass: PropTypes.string,
+  paddingClasses: PropTypes.string,
   textColorClass: PropTypes.string,
   backgroundColorClass: PropTypes.string,
-  gapClass: PropTypes.string,
+  gradientColors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  addedFlexClasses: PropTypes.string,
   onClick: PropTypes.func,
 };
 

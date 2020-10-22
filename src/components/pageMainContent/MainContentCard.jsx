@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DesignAdvertisementHeader from './DesignAdvertisementHeader.jsx';
 import ConceptCard from './ConceptCard.jsx';
-import GradientBorderButtonAppLongArrow from '../gradientBorderButtons/GradientBorderButtonAppLongArrow.jsx';
+import IndexGradientBorderButtonLongArrow from '../gradientBorderButtons/IndexGradientBorderButtonLongArrow.jsx';
 
 function MainContentCard({ conceptCardDescription, navigationButtonInfo }) {
   return (
@@ -23,7 +23,9 @@ function MainContentCard({ conceptCardDescription, navigationButtonInfo }) {
           tabledConcepts={conceptCardDescription.tabledConcepts}
         />
       </div>
-      <GradientBorderButtonAppLongArrow buttonText={navigationButtonInfo.text} theme="light" />
+      <IndexGradientBorderButtonLongArrow theme="light" >
+        {navigationButtonInfo.text}
+      </IndexGradientBorderButtonLongArrow>
     </div>
   );
 }
