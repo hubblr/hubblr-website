@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import DefaultLink from './DefaultLink';
 
-// TODO: change to actual navigation, not just styling
 function PageLinkItem({ children, notificationNumber }) {
   const notificationDiv =
     notificationNumber > 0 ? (
@@ -11,10 +11,12 @@ function PageLinkItem({ children, notificationNumber }) {
     ) : null;
 
   return (
-    <div className="flex items-center gap-1">
-      <div className="underline text-lg">{children}</div>
-      {notificationDiv}
-    </div>
+    <DefaultLink>
+      <div className="flex items-center gap-1">
+        <div className="underline text-lg">{children}</div>
+        {notificationDiv}
+      </div>
+    </DefaultLink>
   );
 }
 

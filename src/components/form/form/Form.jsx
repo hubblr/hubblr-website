@@ -77,13 +77,14 @@ class Form extends React.Component {
   }
 
   render() {
-    const { onSubmit, children, onSubmitValidationFailed } = this.props;
+    const { onSubmit, children, onSubmitValidationFailed, formStyles } = this.props;
     const { validationErrors } = this.state;
 
     return (
       <FormInputContext.Provider value={this.formContextValue}>
         <FormValidationErrorsContext.Provider value={validationErrors}>
           <form
+            className={formStyles}
             onSubmit={(e) => {
               e.preventDefault();
               e.stopPropagation();
@@ -110,11 +111,13 @@ Form.propTypes = {
     PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
   ),
   onSubmitValidationFailed: PropTypes.func,
+  formStyles: PropTypes.string,
 };
 
 Form.defaultProps = {
   serverValidationErrors: {},
   onSubmitValidationFailed: () => {},
+  formStyles: '',
 };
 
 export default Form;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormValidationErrorsContext } from './Form';
-import withContext from '../../util/hoc/withContext';
+import withContext from '../../../util/withContext';
 
 const ValidationError = ({ fieldName, validationErrors }) => {
   if (!validationErrors[fieldName]) {

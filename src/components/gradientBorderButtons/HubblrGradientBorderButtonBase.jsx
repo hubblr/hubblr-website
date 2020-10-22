@@ -4,6 +4,7 @@ import GradientBorderButtonBase from './GradientBorderButtonBase';
 
 function HubblrGradientBorderButtonBase({
   children,
+  isSubmitButton,
   image,
   widthClass,
   paddingClasses,
@@ -27,6 +28,7 @@ function HubblrGradientBorderButtonBase({
 
   return (
     <GradientBorderButtonBase
+      isSubmitButton={isSubmitButton}
       borderWidth="3px"
       gradientColors={['yellow', 'orange', 'red', 'magenta']}
       widthClass={widthClass}
@@ -43,6 +45,7 @@ function HubblrGradientBorderButtonBase({
 }
 
 HubblrGradientBorderButtonBase.defaultProps = {
+  isSubmitButton: false,
   image: null,
   widthClass: '',
   addedFlexClasses: '',
@@ -52,6 +55,7 @@ HubblrGradientBorderButtonBase.defaultProps = {
 
 HubblrGradientBorderButtonBase.propTypes = {
   children: PropTypes.string.isRequired,
+  isSubmitButton: PropTypes.bool,
   image: PropTypes.element,
   widthClass: PropTypes.string,
   paddingClasses: PropTypes.string,

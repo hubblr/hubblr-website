@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 function GradientBorderButtonBase({
   children,
+  isSubmitButton,
   borderWidth,
   widthClass,
   paddingClasses,
@@ -14,7 +15,7 @@ function GradientBorderButtonBase({
 }) {
   return (
     <button
-      type="button"
+      type={isSubmitButton ? 'submit' : 'button'}
       className={`${widthClass} rounded-lg`}
       style={{
         background: `linear-gradient(to right, ${gradientColors.join(',')})`,
@@ -38,6 +39,7 @@ function GradientBorderButtonBase({
 }
 
 GradientBorderButtonBase.defaultProps = {
+  isSubmitButton: false,
   widthClass: '',
   paddingClasses: '',
   textColorClass: 'text-black',
@@ -48,6 +50,7 @@ GradientBorderButtonBase.defaultProps = {
 
 GradientBorderButtonBase.propTypes = {
   children: PropTypes.node.isRequired,
+  isSubmitButton: PropTypes.bool,
   borderWidth: PropTypes.string.isRequired,
   widthClass: PropTypes.string,
   paddingClasses: PropTypes.string,

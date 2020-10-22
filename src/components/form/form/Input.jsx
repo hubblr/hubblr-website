@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { isEmpty } from 'validator';
-import { debounce } from '../../util/helpers';
-import withContext from '../../util/hoc/withContext';
+import isEmpty from 'validator/es/lib/isEmpty';
+import { debounce } from '../../../util/helpers';
+import withContext from '../../../util/withContext';
 import { FormInputContext, FormValidationErrorsContext } from './Form';
 import ValidationError from './ValidationError';
 
@@ -133,7 +133,7 @@ class Input extends React.Component {
 
     const { showPlaceholderHint, isValueEmpty, touched, type } = this.state;
 
-    const isValid = name in validationErrors === false;
+    const isValid = !(name in validationErrors);
 
     let validationClasses = '';
     if (onValidate && touched) {
