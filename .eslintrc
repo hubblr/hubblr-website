@@ -1,26 +1,44 @@
 {
-  // https://eslint.org/docs/user-guide/configuring#specifying-environments
-  "env": {
-    "browser": true,
-    "node": true
-  },
-  // https://github.com/babel/babel-eslint
+  "extends": ["airbnb", "prettier"],
   "parser": "babel-eslint",
-  "rules": {
-    // https://eslint.org/docs/2.0.0/rules/strict
-    "strict": 0
-  },
+  "plugins": ["react", "prettier"],
   "settings": {
-    "react": {
-      "version": "detect"
+    "import/resolver": {
+      "babel-module": {}
     }
   },
-  "extends": [
-    // https://eslint.org/docs/rules/
-    "eslint:recommended",
-    // https://github.com/yannickcr/eslint-plugin-react#recommended
-    "plugin:react/recommended",
-    // https://github.com/benmosher/eslint-plugin-import
-    "plugin:import/recommended"
-  ]
+  "rules": {
+    "linebreak-style": ["off"],
+    "max-len": [
+      "off",
+      {
+        "code": 120
+      }
+    ],
+    "import/no-extraneous-dependencies": "off",
+    "jsx-a11y/label-has-for": [
+      1,
+      {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }
+    ],
+    "jsx-a11y/label-has-associated-control": "off",
+    "react/forbid-prop-types": "off",
+    "react/prop-types": [
+      2,
+      {
+        "ignore": ["children"]
+      }
+    ],
+    "react/sort-comp": "warn",
+    // mark some rules as warning for now
+    "react/jsx-props-no-spreading": "warn",
+    "react/static-property-placement": "warn",
+    "react/state-in-constructor": "warn",
+    "jsx-a11y/control-has-associated-label": "warn",
+    // add prettier rules
+    "prettier/prettier": "error"
+  }
 }
