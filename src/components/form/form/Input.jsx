@@ -113,10 +113,12 @@ class Input extends React.Component {
 
   render() {
     const {
+      useTextarea,
       placeholder,
       inputClasses,
       groupClassNames,
       labelClassNames,
+      invalidInputClassNames,
       textSize,
       onValidate,
       inputRef,
@@ -140,9 +142,36 @@ class Input extends React.Component {
       if (isValid === true) {
         validationClasses += 'is-valid';
       } else {
-        validationClasses += 'not-valid';
+        validationClasses += `not-valid ${invalidInputClassNames}`;
       }
     }
+
+    const inputElement = useTextarea ? (
+      <textarea
+        name={name}
+        value={value}
+        placeholder={placeholder}
+        className={`resize-none w-full ${inputClasses} ${validationClasses} ${
+          showPlaceholderHint ? 'placeholder-hint-visible' : ''
+        } ${!isValueEmpty ? 'filled' : ''}`}
+        ref={inputRef}
+        onBlur={() => (typeof value !== 'string' || isEmpty(value) ? this.validateInput() : null)}
+        {...otherProps}
+      />
+    ) : (
+      <input
+        type={type}
+        name={name}
+        value={value}
+        placeholder={placeholder}
+        className={`w-full ${inputClasses} ${validationClasses} ${
+          showPlaceholderHint ? 'placeholder-hint-visible' : ''
+        } ${!isValueEmpty ? 'filled' : ''}`}
+        ref={inputRef}
+        onBlur={() => (typeof value !== 'string' || isEmpty(value) ? this.validateInput() : null)}
+        {...otherProps}
+      />
+    );
 
     return (
       <div className={`input-group size-${textSize} ${groupClassNames}`}>
@@ -151,18 +180,7 @@ class Input extends React.Component {
         >
           {label || placeholder}
         </div>
-        <input
-          type={type}
-          name={name}
-          value={value}
-          placeholder={placeholder}
-          className={`w-full ${inputClasses} ${validationClasses} ${
-            showPlaceholderHint ? 'placeholder-hint-visible' : ''
-          } ${!isValueEmpty ? 'filled' : ''}`}
-          ref={inputRef}
-          onBlur={() => (typeof value !== 'string' || isEmpty(value) ? this.validateInput() : null)}
-          {...otherProps}
-        />
+        {inputElement}
         <ValidationError fieldName={name} />
       </div>
     );
@@ -170,11 +188,13 @@ class Input extends React.Component {
 }
 
 Input.propTypes = {
+  useTextarea: PropTypes.bool,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   inputClasses: PropTypes.string,
   groupClassNames: PropTypes.string,
   labelClassNames: PropTypes.string,
+  invalidInputClassNames: PropTypes.string,
   textSize: PropTypes.string,
   type: PropTypes.string,
   onValidate: PropTypes.func,
@@ -198,9 +218,11 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
+  useTextarea: false,
   inputClasses: '',
   groupClassNames: '',
   labelClassNames: '',
+  invalidInputClassNames: '',
   textSize: 'lg',
   onValidate: undefined,
   onEnter: undefined,

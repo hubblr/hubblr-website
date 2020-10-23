@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ErrorHint from './ErrorHint';
 import { FormValidationErrorsContext } from './Form';
 import withContext from '../../../util/withContext';
 
@@ -7,8 +8,7 @@ const ValidationError = ({ fieldName, validationErrors }) => {
   if (!validationErrors[fieldName]) {
     return null;
   }
-
-  return <p className="text-xs text-red mt-2">{validationErrors[fieldName]}</p>;
+  return <ErrorHint hintPointerSize="0.75rem">{validationErrors[fieldName]}</ErrorHint>;
 };
 
 ValidationError.propTypes = {
