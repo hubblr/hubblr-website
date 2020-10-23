@@ -12,6 +12,9 @@ module.exports = {
       fontSize: {
         '7xl': '5rem',
       },
+      height: {
+        '1/8': '12.5%',
+      },
       inset: {
         3: '3rem',
         '1/2': '50%',

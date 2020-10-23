@@ -14,7 +14,8 @@ function ContactPageForm() {
       <Input
         placeholder={placeholder}
         labelClassNames="hidden"
-        inputClasses={fieldClasses}
+        inputClasses={`h-full ${fieldClasses}`}
+        groupClassNames="flex-basis-0 flex-grow"
         name={name}
         maxLength={32}
         value={value}
@@ -40,7 +41,7 @@ function ContactPageForm() {
           window.console.log(parsePhoneNumberFromString(phoneNumber));
         }}
       >
-        <div className="flex-grow flex flex-col justify-between mb-12">
+        <div className="flex-grow flex flex-col justify-between gap-6 pb-12">
           {createClassedInput({
             valueSetter: setName,
             placeholder: 'IHR NAME*',
@@ -65,7 +66,11 @@ function ContactPageForm() {
               return isMobilePhone(v) || 'Bitte geben Sie eine valide Telefonnummer ein!';
             },
           })}
-          <Textarea placeholder="WIE KÖNNEN WIR HELFEN?*" inputClassName={`h-24 ${fieldClasses}`} />
+          <Textarea
+            placeholder="WIE KÖNNEN WIR HELFEN?*"
+            className="flex-basis-0 flex-grow-2"
+            inputClassName={`h-full ${fieldClasses}`}
+          />
         </div>
         <div className="w-full flex justify-center">
           <HubblrGradientBorderButtonBase
