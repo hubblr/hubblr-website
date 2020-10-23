@@ -2,9 +2,10 @@ import React from 'react';
 import HubblrLastContentSectionAnimated from '../pageSectionBases/HubblrLastContentSectionAnimated';
 import VenturesArrowImage from '../imageComponents/VenturesArrowImage';
 
-function VenturesSection() {
+const VenturesSection = React.forwardRef((props, sectionRef) => {
   return (
     <HubblrLastContentSectionAnimated
+      ref={sectionRef}
       fadeInImage={<VenturesArrowImage />}
       contentTitle="Digital Ventures"
       mainContentDescription={{
@@ -43,6 +44,6 @@ function VenturesSection() {
       }}
     />
   );
-}
+});
 
 export default VenturesSection;

@@ -3,16 +3,19 @@ import PropTypes from 'prop-types';
 import HubblrMainContentSectionAnimated from './HubblrMainContentSectionAnimated';
 import SectionScrollBar from '../sectionScrollBar/SectionScrollBar';
 
-function HubblrLastContentSectionAnimated({ fadeInImage, contentTitle, mainContentDescription }) {
-  return (
-    <HubblrMainContentSectionAnimated
-      scrollBar={<SectionScrollBar upperFlexGrow={1} lowerFlexGrow={0} />}
-      fadeInImage={fadeInImage}
-      contentTitle={contentTitle}
-      mainContentDescription={mainContentDescription}
-    />
-  );
-}
+const HubblrLastContentSectionAnimated = React.forwardRef(
+  ({ fadeInImage, contentTitle, mainContentDescription }, sectionRef) => {
+    return (
+      <HubblrMainContentSectionAnimated
+        ref={sectionRef}
+        scrollBar={<SectionScrollBar upperFlexGrow={1} lowerFlexGrow={0} />}
+        fadeInImage={fadeInImage}
+        contentTitle={contentTitle}
+        mainContentDescription={mainContentDescription}
+      />
+    );
+  }
+);
 
 HubblrLastContentSectionAnimated.defaultProps = {
   fadeInImage: null,

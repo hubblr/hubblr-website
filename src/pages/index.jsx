@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useLocation, navigate } from '@reach/router';
 // page layout
 import { useViewportScroll } from 'framer-motion';
 import DarkLayout from '../components/pageLayouts/DarkLayout';
@@ -16,15 +17,83 @@ import useScrollPercentages from '../components/hooks/scroll/useScrollPercentage
  * delay the navbar trigger by a sensible amount. */
 const graceYProgress = 0.02;
 
+function getSectionAnimationEnd(sectionRef) {
+  const { height } = sectionRef.current.getBoundingClientRect();
+  const pageY = sectionRef.current.offsetTop;
+  return pageY + height - window.innerHeight;
+}
+
+function scrollToEndOfSection(sectionRef) {
+  const animationEnd = getSectionAnimationEnd(sectionRef);
+  window.scroll(0, animationEnd);
+}
+
 function IndexPage() {
+  const { scrollY, scrollYProgress } = useViewportScroll();
+  const location = useLocation();
+  const introContentRef = useRef();
+  const softwareLabSectionRef = useRef();
+  const consultingSectionRef = useRef();
+  const venturesSectionRef = useRef();
+  useEffect(() => {
+    const softwareLabInfo = {
+      ref: softwareLabSectionRef,
+      hash: '#softwareLaboratory',
+    };
+    const consultingInfo = {
+      ref: consultingSectionRef,
+      hash: '#consulting',
+    };
+    const venturesInfo = {
+      ref: venturesSectionRef,
+      hash: '#ventures',
+    };
+    const order = [softwareLabInfo, consultingInfo, venturesInfo];
+    const revOrder = order.reverse();
+
+    // navigation after scroll breakpoints
+    scrollY.onChange((curY) => {
+      let nextHash = '';
+      revOrder.forEach(({ ref, hash }) => {
+        if (nextHash) {
+          return;
+        }
+        if (curY >= getSectionAnimationEnd(ref)) {
+          nextHash = hash;
+        }
+      });
+      if (nextHash !== location.hash) {
+        location.hash = nextHash;
+        if (nextHash) {
+          navigate(nextHash);
+        } else {
+          navigate('/');
+        }
+      }
+    });
+
+    // scrolling based on hash on very first page load
+    switch (location.hash) {
+      case '#softwareLaboratory':
+        scrollToEndOfSection(softwareLabSectionRef);
+        break;
+      case '#consulting':
+        scrollToEndOfSection(consultingSectionRef);
+        break;
+      case '#ventures':
+        scrollToEndOfSection(venturesSectionRef);
+        break;
+      default:
+        break;
+    }
+  }, []);
+
   const [showFixedNavbar, setShowFixedNavbar] = useState(false);
-  const introContentRef = React.createRef();
 
   // hook for intro content y-scroll breakpoints (omit percentage start + step)
   const [, introContentScrollPercentageEnd] = useScrollPercentages(introContentRef);
 
   // only show navbar if user has scrolled past scroll percentage endpoint
-  const { scrollYProgress } = useViewportScroll();
   // TODO: maybe this does not have to be watched / might want to debounce
   scrollYProgress.onChange((yProg) => {
     setShowFixedNavbar(yProg > introContentScrollPercentageEnd + graceYProgress);
@@ -37,9 +106,10 @@ function IndexPage() {
         <IntroductionSection ref={introContentRef} />
         {navbar}
       </div>
-      <SoftwareLaboratorySection />
-      <ConsultingSection />
-      <VenturesSection />
+      <SoftwareLaboratorySection ref={softwareLabSectionRef} />
+      <ConsultingSection ref={consultingSectionRef} />
+      <VenturesSection ref={venturesSectionRef} />
+      {/* eslint-disable-next-line jsx-a11y/anchor-has-content,jsx-a11y/anchor-is-valid */}
     </DarkLayout>
   );
 }

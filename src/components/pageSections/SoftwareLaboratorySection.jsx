@@ -2,9 +2,10 @@ import React from 'react';
 import HubblrMiddleContentSectionAnimated from '../pageSectionBases/HubblrMiddleContentSectionAnimated';
 import LightningImage from '../imageComponents/LightningImage';
 
-function SoftwareLaboratorySection() {
+const SoftwareLaboratorySection = React.forwardRef((props, sectionRef) => {
   return (
     <HubblrMiddleContentSectionAnimated
+      ref={sectionRef}
       fadeInImage={<LightningImage />}
       contentTitle="Software Laboratory"
       mainContentDescription={{
@@ -40,6 +41,6 @@ function SoftwareLaboratorySection() {
       }}
     />
   );
-}
+});
 
 export default SoftwareLaboratorySection;

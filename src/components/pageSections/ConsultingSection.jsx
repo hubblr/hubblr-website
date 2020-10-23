@@ -2,9 +2,10 @@ import React from 'react';
 import HubblrMiddleContentSectionAnimated from '../pageSectionBases/HubblrMiddleContentSectionAnimated';
 import ConsultingIllustrationImage from '../imageComponents/ConsultingIllustrationImage';
 
-function ConsultingSection() {
+const ConsultingSection = React.forwardRef((props, sectionRef) => {
   return (
     <HubblrMiddleContentSectionAnimated
+      ref={sectionRef}
       fadeInImage={<ConsultingIllustrationImage />}
       contentTitle="Solution Assessment"
       mainContentDescription={{
@@ -42,6 +43,6 @@ function ConsultingSection() {
       }}
     />
   );
-}
+});
 
 export default ConsultingSection;
