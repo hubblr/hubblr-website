@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DarkLayout from './DarkLayout';
 
 function IndexLayout({ children }) {
-  return <DarkLayout additionalStyles="px-16">{children}</DarkLayout>;
+  return <DarkLayout additionalStyles="px-12">{children}</DarkLayout>;
 }
 
 IndexLayout.propTypes = {

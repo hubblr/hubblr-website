@@ -1,22 +1,18 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuid } from 'uuid';
 
-function SectionHeading({ heading }) {
+const SectionHeading = forwardRef(({ heading }, ref) => {
   const words = heading.split(' ');
 
   return (
-    <div className="flex flex-col items-center text-7xl font-bold">
-      {words.map((word, i) => {
-        return (
-          <p key={uuidv4()} className={`${i > 0 ? '-mt-8' : ''}`}>
-            {word}
-          </p>
-        );
+    <div ref={ref} className="text-center text-4xl font-bold">
+      {words.map((word) => {
+        return <div key={uuid()}>{word}</div>;
       })}
     </div>
   );
-}
+});
 
 SectionHeading.propTypes = {
   heading: PropTypes.string.isRequired,

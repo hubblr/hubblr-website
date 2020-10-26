@@ -1,10 +1,10 @@
 import React from 'react';
-import HubblrMiddleContentSectionAnimated from '../pageSectionBases/HubblrMiddleContentSectionAnimated';
+import HubblrMainContentSection from '../pageSectionBases/HubblrMainContentSection';
 import LightningImage from '../imageComponents/LightningImage';
 
 const SoftwareLaboratorySection = React.forwardRef((props, sectionRef) => {
   return (
-    <HubblrMiddleContentSectionAnimated
+    <HubblrMainContentSection
       ref={sectionRef}
       fadeInImage={<LightningImage />}
       contentTitle="Software Laboratory"
@@ -37,8 +37,8 @@ const SoftwareLaboratorySection = React.forwardRef((props, sectionRef) => {
               ' Betrieb Ihres Projektes.',
           },
         ],
-        navButtonTitle: 'Zum Laboratory',
       }}
+      navigation="Zum Laboratory"
     />
   );
 });

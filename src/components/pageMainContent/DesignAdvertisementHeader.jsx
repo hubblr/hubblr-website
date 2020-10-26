@@ -3,11 +3,17 @@ import PropTypes from 'prop-types';
 import DesignAdvertisementHeaderPill from './DesignAdvertisementHeaderPill';
 
 function DesignAdvertisementHeader({ targetCustomers }) {
+  const colorClassEnd = 'gray-800';
+  const textClass = 'text-white';
+
   return (
     <div className="relative flex justify-end gap-6">
       {targetCustomers.map((targetName) => {
         return (
-          <DesignAdvertisementHeaderPill key={targetName}>
+          <DesignAdvertisementHeaderPill
+            key={targetName}
+            colorStyles={`${textClass} bg-${colorClassEnd}`}
+          >
             {targetName}
           </DesignAdvertisementHeaderPill>
         );
@@ -17,7 +23,7 @@ function DesignAdvertisementHeader({ targetCustomers }) {
           <p>designed</p>
           <p>for</p>
         </div>
-        <div className="flex-grow border-b-4 border-white" />
+        <div className={`flex-grow border-b-4 border-${colorClassEnd}`} />
       </div>
     </div>
   );

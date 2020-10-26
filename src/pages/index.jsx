@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, navigate } from '@reach/router';
 // page layout
 import { useViewportScroll } from 'framer-motion';
-import DarkLayout from '../components/pageLayouts/DarkLayout';
+import IndexLayout from '../components/pageLayouts/IndexLayout';
 // sections to compose page of
 import IntroductionSection from '../components/pageSections/IntroductionSection';
 import SoftwareLaboratorySection from '../components/pageSections/SoftwareLaboratorySection';
@@ -15,7 +15,7 @@ import useScrollPercentages from '../components/hooks/scroll/useScrollPercentage
 
 /* scrollYProgress appears to be ahead of actual scroll position. As a remedy,
  * delay the navbar trigger by a sensible amount. */
-const graceYProgress = 0.02;
+const graceYProgress = 0.01;
 
 function getSectionAnimationEnd(sectionRef) {
   const { height } = sectionRef.current.getBoundingClientRect();
@@ -101,16 +101,17 @@ function IndexPage() {
   const navbar = showFixedNavbar ? <NavBarTop /> : null;
 
   return (
-    <DarkLayout>
-      <div>
-        <IntroductionSection ref={introContentRef} />
-        {navbar}
-      </div>
-      <SoftwareLaboratorySection ref={softwareLabSectionRef} />
-      <ConsultingSection ref={consultingSectionRef} />
-      <VenturesSection ref={venturesSectionRef} />
-      {/* eslint-disable-next-line jsx-a11y/anchor-has-content,jsx-a11y/anchor-is-valid */}
-    </DarkLayout>
+    <>
+      <IndexLayout>
+        <div>
+          <IntroductionSection ref={introContentRef} />
+        </div>
+        <SoftwareLaboratorySection ref={softwareLabSectionRef} />
+        <ConsultingSection ref={consultingSectionRef} />
+        <VenturesSection ref={venturesSectionRef} />
+      </IndexLayout>
+      {navbar}
+    </>
   );
 }
 
