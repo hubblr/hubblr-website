@@ -5,12 +5,12 @@ function NavigationButtonHubblrIcon() {
   return (
     <button
       type="button"
-      className="cursor-pointer"
+      className="cursor-pointer h-full"
       onClick={() => {
         window.scroll(0, 0);
       }}
     >
-      <HubblrImage className="w-32" />
+      <HubblrImage className="h-full" />
     </button>
   );
 }

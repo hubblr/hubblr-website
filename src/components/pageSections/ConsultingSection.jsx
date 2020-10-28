@@ -1,11 +1,11 @@
 import React from 'react';
-import HubblrMiddleContentSectionAnimated from '../pageSectionBases/HubblrMiddleContentSectionAnimated';
+import HubblrMainContentSection from '../pageSectionBases/HubblrMainContentSection';
 import ConsultingIllustrationImage from '../imageComponents/ConsultingIllustrationImage';
 
-const ConsultingSection = React.forwardRef((props, sectionRef) => {
+const ConsultingSection = React.forwardRef((props, ref) => {
   return (
-    <HubblrMiddleContentSectionAnimated
-      ref={sectionRef}
+    <HubblrMainContentSection
+      ref={ref}
       fadeInImage={<ConsultingIllustrationImage />}
       contentTitle="Solution Assessment"
       mainContentDescription={{
@@ -39,8 +39,8 @@ const ConsultingSection = React.forwardRef((props, sectionRef) => {
               'oder Einführung modernerer Technologien.',
           },
         ],
-        navButtonTitle: 'Jetzt kontaktieren',
       }}
+      navigation="Jetzt kontaktieren"
     />
   );
 });

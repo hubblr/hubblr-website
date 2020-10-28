@@ -1,11 +1,12 @@
 import React from 'react';
-import HubblrLastContentSectionAnimated from '../pageSectionBases/HubblrLastContentSectionAnimated';
+import HubblrMainContentSection from '../pageSectionBases/HubblrMainContentSection';
 import VenturesArrowImage from '../imageComponents/VenturesArrowImage';
 
-const VenturesSection = React.forwardRef((props, sectionRef) => {
+const VenturesSection = React.forwardRef((props, ref) => {
   return (
-    <HubblrLastContentSectionAnimated
-      ref={sectionRef}
+    <HubblrMainContentSection
+      ref={ref}
+      sectionType="last"
       fadeInImage={<VenturesArrowImage />}
       contentTitle="Digital Ventures"
       mainContentDescription={{
@@ -40,8 +41,8 @@ const VenturesSection = React.forwardRef((props, sectionRef) => {
               'du dein Projekt voran.',
           },
         ],
-        navButtonTitle: 'Jetzt kontaktieren',
       }}
+      navigation="Jetzt kontaktieren"
     />
   );
 });

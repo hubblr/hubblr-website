@@ -1,21 +1,26 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import AnimatedSectionDesktop from './AnimatedSectionDesktop';
+import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
 
 const HubblrMainContentSection = forwardRef(
-  (
-    { sectionType, fadeInImage, contentTitle, mainContentDescription, navigation },
-    fullSectionRef
-  ) => {
+  ({ sectionType, fadeInImage, contentTitle, mainContentDescription, navigation }, ref) => {
     return (
-      <AnimatedSectionDesktop
-        sectionType={sectionType}
-        ref={fullSectionRef}
-        fadeInImage={fadeInImage}
-        contentTitle={contentTitle}
-        mainContentDescription={mainContentDescription}
-        navigation={navigation}
-      />
+      <>
+        <DesktopQuery>
+          <AnimatedSectionDesktop
+            sectionType={sectionType}
+            ref={ref}
+            fadeInImage={fadeInImage}
+            contentTitle={contentTitle}
+            mainContentDescription={mainContentDescription}
+            navigation={navigation}
+          />
+        </DesktopQuery>
+        <MobileAndTabletQuery>
+          <div ref={ref}>On Mobile? Too bad :(</div>
+        </MobileAndTabletQuery>
+      </>
     );
   }
 );

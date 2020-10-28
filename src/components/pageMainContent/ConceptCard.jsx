@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import HeadlinerBox from './HeadlinerBox';
 
@@ -7,21 +7,18 @@ function ConceptCard({ title: cardTitle, description, tabledConcepts }) {
   const headlineTextContainerRef = useRef();
   const headlinerImgContainerRef = useRef();
 
-  let containerHeight = '';
-  if (headlinerImgContainerRef.current && headlinerImgContainerRef.current) {
-    const {
-      height: textContainerHeight,
-      top: startYTextContainer,
-    } = headlineTextContainerRef.current.getBoundingClientRect();
-    const endYTextContainer = startYTextContainer + textContainerHeight;
-    const {
-      height: imgContainerHeight,
-      top: startYImgContainer,
-    } = headlinerImgContainerRef.current.getBoundingClientRect();
-    const endYImgContainer = startYImgContainer + imgContainerHeight;
-    const endYContainer = Math.max(endYTextContainer, endYImgContainer);
-    containerHeight = endYContainer - startYTextContainer;
-  }
+  const [containerHeight, setContainerHeight] = useState(0);
+  useEffect(() => {
+    if (headlinerImgContainerRef.current && headlinerImgContainerRef.current) {
+      const {
+        top: startYTextContainer,
+        bottom: endYTextContainer,
+      } = headlineTextContainerRef.current.getBoundingClientRect();
+      const { bottom: endYImgContainer } = headlinerImgContainerRef.current.getBoundingClientRect();
+      const endYContainer = Math.max(endYTextContainer, endYImgContainer);
+      setContainerHeight(endYContainer - startYTextContainer);
+    }
+  });
 
   // create grid contents
   const nrColumns = tabledConcepts.length;

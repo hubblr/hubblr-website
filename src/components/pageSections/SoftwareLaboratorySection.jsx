@@ -2,10 +2,10 @@ import React from 'react';
 import HubblrMainContentSection from '../pageSectionBases/HubblrMainContentSection';
 import LightningImage from '../imageComponents/LightningImage';
 
-const SoftwareLaboratorySection = React.forwardRef((props, sectionRef) => {
+const SoftwareLaboratorySection = React.forwardRef((props, ref) => {
   return (
     <HubblrMainContentSection
-      ref={sectionRef}
+      ref={ref}
       fadeInImage={<LightningImage />}
       contentTitle="Software Laboratory"
       mainContentDescription={{

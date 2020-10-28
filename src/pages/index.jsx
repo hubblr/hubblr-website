@@ -1,67 +1,117 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, navigate } from '@reach/router';
-// page layout
 import { useViewportScroll } from 'framer-motion';
 import IndexLayout from '../components/pageLayouts/IndexLayout';
-// sections to compose page of
 import IntroductionSection from '../components/pageSections/IntroductionSection';
 import SoftwareLaboratorySection from '../components/pageSections/SoftwareLaboratorySection';
 import ConsultingSection from '../components/pageSections/ConsultingSection';
 import VenturesSection from '../components/pageSections/VenturesSection';
-// fixed elements
 import NavBarTop from '../components/navBar/NavBarTop';
-// scroll behavior
-import useScrollPercentages from '../components/hooks/scroll/useScrollPercentages';
-
-/* scrollYProgress appears to be ahead of actual scroll position. As a remedy,
- * delay the navbar trigger by a sensible amount. */
-const graceYProgress = 0.01;
-
-function getSectionAnimationEnd(sectionRef) {
-  const { height } = sectionRef.current.getBoundingClientRect();
-  const pageY = sectionRef.current.offsetTop;
-  return pageY + height - window.innerHeight;
-}
-
-function scrollToEndOfSection(sectionRef) {
-  const animationEnd = getSectionAnimationEnd(sectionRef);
-  window.scroll(0, animationEnd);
-}
+import useYPositions from '../components/hooks/scroll/useYPositions';
+import useWindowSize from '../components/hooks/window/useWindowSize';
+import IndexPageContext from '../context/IndexPageContext';
+import measureHiddenElement from '../util/measureHiddenElement';
 
 function IndexPage() {
-  const { scrollY, scrollYProgress } = useViewportScroll();
   const location = useLocation();
-  const introContentRef = useRef();
-  const softwareLabSectionRef = useRef();
-  const consultingSectionRef = useRef();
-  const venturesSectionRef = useRef();
-  useEffect(() => {
-    const softwareLabInfo = {
-      ref: softwareLabSectionRef,
-      hash: '#softwareLaboratory',
-    };
-    const consultingInfo = {
-      ref: consultingSectionRef,
-      hash: '#consulting',
-    };
-    const venturesInfo = {
-      ref: venturesSectionRef,
-      hash: '#ventures',
-    };
-    const order = [softwareLabInfo, consultingInfo, venturesInfo];
-    const revOrder = order.reverse();
 
-    // navigation after scroll breakpoints
-    scrollY.onChange((curY) => {
+  const [, windowHeight] = useWindowSize();
+  const { scrollY } = useViewportScroll();
+
+  // find navbar height to pass in provider
+  const introContentRef = useRef();
+  const navBarRef = useRef();
+  const [navBarHeight, setNavBarHeight] = useState();
+  if (!navBarHeight && navBarRef.current) {
+    setNavBarHeight(measureHiddenElement(navBarRef.current).height);
+  }
+  const [showNavBar, setShowNavbar] = useState(false);
+  const [, introContentScrollEnd] = useYPositions(introContentRef);
+  useEffect(() => {
+    const unscubscribeScroll = scrollY.onChange((y) => {
+      setShowNavbar(y > introContentScrollEnd);
+    });
+    return () => {
+      unscubscribeScroll();
+    };
+  });
+
+  // software lab section
+  const softwareLabSectionRef = useRef();
+  const [, softwareLabSectionEndY] = useYPositions(softwareLabSectionRef);
+  const softwareLabContentContainerRef = useRef();
+  // consulting section
+  const consultingSectionRef = useRef();
+  const [, consultingSectionEndY] = useYPositions(consultingSectionRef);
+  const consultingContentContainerRef = useRef();
+  // ventures section
+  const venturesSectionRef = useRef();
+  const [, venturesSectionEndY] = useYPositions(venturesSectionRef);
+  const venturesContentContainerRef = useRef();
+  const softwareLabInfo = {
+    endY: softwareLabSectionEndY - windowHeight,
+    hash: '#softwareLaboratory',
+  };
+  const consultingInfo = {
+    endY: consultingSectionEndY - windowHeight,
+    hash: '#consulting',
+  };
+  const venturesInfo = {
+    fullY: venturesSectionEndY,
+    endY: venturesSectionEndY - windowHeight,
+    hash: '#ventures',
+  };
+  const order = [softwareLabInfo, consultingInfo, venturesInfo];
+  const orderLen = order.length;
+
+  // jump to location set in hash
+  const [mustJump, setMustJump] = useState(true);
+  const [allRendered, setAllRendered] = useState(false);
+  const [renderWaiterStarted, setRenderWaiterStarted] = useState(false);
+  function applyScroll() {
+    if (!location.hash) {
+      setMustJump(false);
+    }
+    if (!mustJump) {
+      return;
+    }
+    if (!allRendered) {
+      if (renderWaiterStarted) {
+        return;
+      }
+      // need to wait for all children to be rendered and fully updated, otherwise positions are off
+      setTimeout(() => {
+        setAllRendered(true);
+      }, 1);
+      setRenderWaiterStarted(true);
+      return;
+    }
+    // scrolling based on hash on very first page load
+    for (let i = 0; i < orderLen; i += 1) {
+      const { endY, hash: sectionHash } = order[i];
+      if (location.hash === sectionHash) {
+        window.scrollTo(0, endY);
+        setMustJump(false);
+        break;
+      }
+    }
+  }
+  useEffect(() => {
+    applyScroll();
+  });
+
+  // update location on scroll
+  const revOrder = order.reverse();
+  useEffect(() => {
+    const unsubscribeY = scrollY.onChange((curY) => {
       let nextHash = '';
-      revOrder.forEach(({ ref, hash }) => {
-        if (nextHash) {
-          return;
+      for (let i = 0; i < orderLen; i += 1) {
+        const { endY, hash: sectionHash } = revOrder[i];
+        if (endY > 0 && curY >= endY) {
+          nextHash = sectionHash;
+          break;
         }
-        if (curY >= getSectionAnimationEnd(ref)) {
-          nextHash = hash;
-        }
-      });
+      }
       if (nextHash !== location.hash) {
         location.hash = nextHash;
         if (nextHash) {
@@ -71,46 +121,39 @@ function IndexPage() {
         }
       }
     });
-
-    // scrolling based on hash on very first page load
-    switch (location.hash) {
-      case '#softwareLaboratory':
-        scrollToEndOfSection(softwareLabSectionRef);
-        break;
-      case '#consulting':
-        scrollToEndOfSection(consultingSectionRef);
-        break;
-      case '#ventures':
-        scrollToEndOfSection(venturesSectionRef);
-        break;
-      default:
-        break;
-    }
-  }, []);
-
-  const [showFixedNavbar, setShowFixedNavbar] = useState(false);
-
-  // hook for intro content y-scroll breakpoints (omit percentage start + step)
-  const [, introContentScrollPercentageEnd] = useScrollPercentages(introContentRef);
-
-  // only show navbar if user has scrolled past scroll percentage endpoint
-  // TODO: maybe this does not have to be watched / might want to debounce
-  scrollYProgress.onChange((yProg) => {
-    setShowFixedNavbar(yProg > introContentScrollPercentageEnd + graceYProgress);
+    return () => {
+      unsubscribeY();
+    };
   });
-  const navbar = showFixedNavbar ? <NavBarTop /> : null;
 
   return (
     <>
       <IndexLayout>
-        <div>
-          <IntroductionSection ref={introContentRef} />
-        </div>
-        <SoftwareLaboratorySection ref={softwareLabSectionRef} />
-        <ConsultingSection ref={consultingSectionRef} />
-        <VenturesSection ref={venturesSectionRef} />
+        <IndexPageContext.Provider value={navBarHeight}>
+          <div>
+            <IntroductionSection ref={introContentRef} />
+          </div>
+          <SoftwareLaboratorySection
+            ref={{
+              fullSectionRef: softwareLabSectionRef,
+              contentContainerRef: softwareLabContentContainerRef,
+            }}
+          />
+          <ConsultingSection
+            ref={{
+              fullSectionRef: consultingSectionRef,
+              contentContainerRef: consultingContentContainerRef,
+            }}
+          />
+          <VenturesSection
+            ref={{
+              fullSectionRef: venturesSectionRef,
+              contentContainerRef: venturesContentContainerRef,
+            }}
+          />
+        </IndexPageContext.Provider>
       </IndexLayout>
-      {navbar}
+      <NavBarTop className={`${showNavBar ? '' : 'hidden'}`} ref={navBarRef} />
     </>
   );
 }

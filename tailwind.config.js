@@ -13,6 +13,7 @@ module.exports = {
         '7xl': '5rem',
       },
       height: {
+        '1/2': '50%',
         '1/8': '12.5%',
       },
       inset: {
@@ -34,10 +35,11 @@ module.exports = {
       },
       zIndex: {
         '-10': '-10',
+        '-5': '-5',
       },
     },
   },
   variants: {},
-  // https://github.com/tailwindcss/custom-forms
+  // eslint-disable-next-line global-require
   plugins: [require('@tailwindcss/custom-forms')],
 };

@@ -18,7 +18,7 @@ function DesignAdvertisementHeader({ targetCustomers }) {
           </DesignAdvertisementHeaderPill>
         );
       })}
-      <div className="absolute -z-10 bottom-1/2 flex gap-4 w-full">
+      <div className="absolute -z-5 bottom-1/2 flex gap-4 w-full">
         <div className="-mb-10px text-2xl font-extrabold flex flex-col items-end">
           <p>designed</p>
           <p>for</p>
