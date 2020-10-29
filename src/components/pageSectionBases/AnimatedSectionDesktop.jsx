@@ -62,7 +62,7 @@ const AnimatedSectionDesktop = forwardRef(
     });
 
     return (
-      <div className="relative" ref={fullSectionRef} style={{ height: fullSectionHeight }}>
+      <div className="relative z-10" ref={fullSectionRef} style={{ height: fullSectionHeight }}>
         <div
           ref={contentContainerRef}
           className="sticky top-0  w-full flex flex-col items-center"

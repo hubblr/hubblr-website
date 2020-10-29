@@ -1,25 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import HeadlinerBox from './HeadlinerBox';
+import HeadlinerBoxImageDesktop from '../imageComponents/HeadlinerBoxImageDesktop';
 
-function ConceptCard({ title: cardTitle, description, tabledConcepts }) {
-  // make sure that its container fits the headliner box
-  const headlineTextContainerRef = useRef();
-  const headlinerImgContainerRef = useRef();
-
-  const [containerHeight, setContainerHeight] = useState(0);
-  useEffect(() => {
-    if (headlinerImgContainerRef.current && headlinerImgContainerRef.current) {
-      const {
-        top: startYTextContainer,
-        bottom: endYTextContainer,
-      } = headlineTextContainerRef.current.getBoundingClientRect();
-      const { bottom: endYImgContainer } = headlinerImgContainerRef.current.getBoundingClientRect();
-      const endYContainer = Math.max(endYTextContainer, endYImgContainer);
-      setContainerHeight(endYContainer - startYTextContainer);
-    }
-  });
-
+function ConceptCard({ title: cardTitle, description, tabledConcepts, padding }) {
   // create grid contents
   const nrColumns = tabledConcepts.length;
   const titleDivs = tabledConcepts.map(({ title: conceptTitle }) => {
@@ -38,16 +21,27 @@ function ConceptCard({ title: cardTitle, description, tabledConcepts }) {
   });
 
   return (
-    <div className="w-full h-full flex flex-col justify-between gap-6 bg-white text-black p-8 rounded-lg">
+    <div className="w-full h-full flex flex-col justify-between bg-white text-black rounded-lg">
       <div
+        className="grid"
         style={{
-          height: containerHeight,
+          gridTemplateRows: `max-content ${padding}`,
+          gridTemplateColumns: `50% ${padding}`,
         }}
       >
-        <div className="relative w-1/2" ref={headlineTextContainerRef}>
-          <h3 className="text-xl text-purple-700 font-bold mb-3">{cardTitle.toUpperCase()}</h3>
-          <h2 className="text-3xl font-bold leading-7">{description}</h2>
-          <HeadlinerBox ref={headlinerImgContainerRef} scaleFactor={1.5} />
+        <div className="row-start-1 col-start-1">
+          <div
+            style={{
+              paddingLeft: padding,
+              paddingTop: padding,
+            }}
+          >
+            <h3 className="text-xl text-purple-700 font-bold mb-3">{cardTitle.toUpperCase()}</h3>
+            <h2 className="text-3xl font-bold leading-7">{description}</h2>
+          </div>
+        </div>
+        <div className="row-start-1 col-start-1 row-end-3 col-end-3">
+          <HeadlinerBoxImageDesktop className="h-full w-full" />
         </div>
       </div>
 
@@ -56,6 +50,8 @@ function ConceptCard({ title: cardTitle, description, tabledConcepts }) {
         style={{
           gridTemplateColumns: `repeat(${nrColumns}, minmax(0, 1fr))`,
           gridTemplateRows: 'repeat(2, auto)',
+          padding,
+          paddingTop: 0,
         }}
       >
         {titleDivs}
@@ -74,6 +70,11 @@ ConceptCard.propTypes = {
       content: PropTypes.string,
     })
   ).isRequired,
+  padding: PropTypes.string,
+};
+
+ConceptCard.defaultProps = {
+  padding: '2rem',
 };
 
 export default ConceptCard;
