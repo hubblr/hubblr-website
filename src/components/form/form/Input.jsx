@@ -200,10 +200,7 @@ Input.propTypes = {
   onValidate: PropTypes.func,
   onEnter: PropTypes.func,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  inputRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
-  ]),
+  inputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })]),
   label: PropTypes.string,
   formInputContext: PropTypes.shape({
     registerComponentValidator: PropTypes.func.isRequired,

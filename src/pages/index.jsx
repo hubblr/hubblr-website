@@ -52,7 +52,7 @@ function IndexPage() {
   const consultingContentContainerRef = useRef();
   // ventures section
   const venturesSectionRef = useRef();
-  // const [, venturesSectionEndY] = useYPositions(venturesSectionRef);
+  const [, venturesSectionEndY] = useYPositions(venturesSectionRef);
   const venturesContentContainerRef = useRef();
   const softwareLabInfo = {
     ref: softwareLabSectionRef,
@@ -66,7 +66,7 @@ function IndexPage() {
   };
   const venturesInfo = {
     ref: venturesSectionRef,
-    endY: Math.floor(document.body.clientHeight - windowHeight - 1),
+    endY: Math.floor(venturesSectionEndY - windowHeight - 1),
     hash: '#ventures',
   };
   const order = [softwareLabInfo, consultingInfo, venturesInfo];
