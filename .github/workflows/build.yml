@@ -27,4 +27,4 @@ jobs:
       
       # Execute project build
       - name: Gatsby Build
-        run: gatsby build
+        run: npx gatsby build
