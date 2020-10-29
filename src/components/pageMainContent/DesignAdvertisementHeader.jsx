@@ -1,36 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DesignAdvertisementHeaderPill from './DesignAdvertisementHeaderPill';
+import DesignAdvertisementHeaderDivider from './DesignAdvertisementHeaderDivider';
 
-function DesignAdvertisementHeader({ targetCustomers }) {
-  const colorClassEnd = 'gray-800';
+function DesignAdvertisementHeader({ className, targetCustomers }) {
   const textClass = 'text-white';
 
   return (
-    <div className="relative flex justify-end gap-6">
-      {targetCustomers.map((targetName) => {
-        return (
-          <DesignAdvertisementHeaderPill
-            key={targetName}
-            colorStyles={`${textClass} bg-${colorClassEnd}`}
-          >
-            {targetName}
-          </DesignAdvertisementHeaderPill>
-        );
-      })}
-      <div className="absolute -z-5 bottom-1/2 flex gap-4 w-full">
-        <div className="-mb-10px text-2xl font-extrabold flex flex-col items-end">
-          <p>designed</p>
-          <p>for</p>
-        </div>
-        <div className={`flex-grow border-b-4 border-${colorClassEnd}`} />
+    <div className={`overflow-x-auto flex items-center ${className}`}>
+      <div className="text-2xl font-extrabold flex flex-col items-end mr-2">
+        <p>designed</p>
+        <p>for</p>
+      </div>
+      <DesignAdvertisementHeaderDivider className="flex-grow" />
+      <div className="flex items-center">
+        {targetCustomers.map((targetName, i) => {
+          const divider =
+            i < targetCustomers.length - 1 ? <DesignAdvertisementHeaderDivider /> : null;
+          return (
+            <>
+              <DesignAdvertisementHeaderPill
+                key={targetName}
+                colorStyles={`${textClass} bg-gray-800`}
+              >
+                {targetName}
+              </DesignAdvertisementHeaderPill>
+              {divider}
+            </>
+          );
+        })}
       </div>
     </div>
   );
 }
 
 DesignAdvertisementHeader.propTypes = {
+  className: PropTypes.string,
   targetCustomers: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
+DesignAdvertisementHeader.defaultProps = {
+  className: '',
 };
 
 export default DesignAdvertisementHeader;

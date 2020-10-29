@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function DesignAdvertisementHeaderPill({ children, colorStyles }) {
-  return <div className={`${colorStyles} text-lg p-3 rounded-full`}>{children}</div>;
+  return (
+    <div className={`${colorStyles} text-lg p-3 rounded-full whitespace-no-wrap`}>{children}</div>
+  );
 }
 
 DesignAdvertisementHeaderPill.propTypes = {

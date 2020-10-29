@@ -8,6 +8,7 @@ const ConsultingSection = React.forwardRef((props, ref) => {
       ref={ref}
       fadeInImage={<ConsultingIllustrationImage />}
       contentTitle="Solution Assessment"
+      targetCustomers={['Business Angels', 'Mittelständische Unternehmen', 'Startups']}
       mainContentDescription={{
         title: 'Solution Assessment',
         description: 'Wir beurteilen die technische Entwicklung bestehender Produkte',

@@ -8,6 +8,7 @@ const SoftwareLaboratorySection = React.forwardRef((props, ref) => {
       ref={ref}
       fadeInImage={<LightningImage />}
       contentTitle="Software Laboratory"
+      targetCustomers={['Mittelständische Unternehmen', 'Großunternehmen', 'Post-Seed Startups']}
       mainContentDescription={{
         title: 'Software Laboratory',
         description: 'Gemeinsam konzipieren, entwickeln und testen wir Ihr digitales Projekt',

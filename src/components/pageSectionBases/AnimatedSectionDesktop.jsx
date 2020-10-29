@@ -2,6 +2,7 @@ import React, { forwardRef, useLayoutEffect, useRef, useState, useContext } from
 import PropTypes from 'prop-types';
 import { motion, useTransform, useViewportScroll } from 'framer-motion';
 import SectionHeading from '../pageMainContent/SectionHeading';
+import DesignAdvertisementHeader from '../pageMainContent/DesignAdvertisementHeader';
 import MainContentCard from '../pageMainContent/MainContentCard';
 import IndexGradientBorderButtonLongArrow from '../gradientBorderButtons/IndexGradientBorderButtonLongArrow';
 import createScrollBarForSection from '../sectionScrollBar/createScrollBarForSection';
@@ -11,7 +12,10 @@ import useWindowSize from '../hooks/window/useWindowSize';
 import { desktopScrollAnimations } from '../../animation/scrollAnimationDescriptions';
 
 const AnimatedSectionDesktop = forwardRef(
-  ({ sectionType, fadeInImage, contentTitle, mainContentDescription, navigation }, refs) => {
+  (
+    { sectionType, fadeInImage, contentTitle, targetCustomers, mainContentDescription, navigation },
+    refs
+  ) => {
     // break down provided refs
     let { fullSectionRef, contentContainerRef } = refs;
     fullSectionRef = fullSectionRef || useRef();
@@ -62,10 +66,10 @@ const AnimatedSectionDesktop = forwardRef(
     });
 
     return (
-      <div className="relative z-10" ref={fullSectionRef} style={{ height: fullSectionHeight }}>
+      <div className="relative" ref={fullSectionRef} style={{ height: fullSectionHeight }}>
         <div
           ref={contentContainerRef}
-          className="sticky top-0  w-full flex flex-col items-center"
+          className="relative z-40 sticky top-0  w-full flex flex-col items-center"
           style={{ paddingTop }}
         >
           <div className="w-10/12 max-w-6xl">
@@ -76,7 +80,11 @@ const AnimatedSectionDesktop = forwardRef(
               className="flex flex-col items-center mt-4"
               style={transforms.mainContentCard}
             >
-              <MainContentCard conceptCardDescription={mainContentDescription} />
+              <DesignAdvertisementHeader
+                className="w-full mb-6"
+                targetCustomers={targetCustomers}
+              />
+              <MainContentCard mainContentDescription={mainContentDescription} className="mb-4" />
               <div className="mb-4">
                 <IndexGradientBorderButtonLongArrow theme="light">
                   {navigation}
@@ -103,6 +111,7 @@ AnimatedSectionDesktop.propTypes = {
   sectionType: PropTypes.oneOf(['middle', 'last']),
   fadeInImage: PropTypes.node.isRequired,
   contentTitle: PropTypes.string.isRequired,
+  targetCustomers: PropTypes.arrayOf(PropTypes.string),
   mainContentDescription: PropTypes.shape({
     title: PropTypes.string,
     description: PropTypes.string,
@@ -118,6 +127,7 @@ AnimatedSectionDesktop.propTypes = {
 
 AnimatedSectionDesktop.defaultProps = {
   sectionType: 'middle',
+  targetCustomers: [],
 };
 
 export default AnimatedSectionDesktop;

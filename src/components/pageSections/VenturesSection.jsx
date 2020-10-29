@@ -9,6 +9,7 @@ const VenturesSection = React.forwardRef((props, ref) => {
       sectionType="last"
       fadeInImage={<VenturesArrowImage />}
       contentTitle="Digital Ventures"
+      targetCustomers={['Pre-Seed Startups']}
       mainContentDescription={{
         title: 'Solution Assessment',
         description: 'Wie glauben an Visionär*innen. Gemeinsam verändern wir die Welt.',

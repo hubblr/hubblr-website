@@ -1,25 +1,25 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import AnimatedSectionDesktop from './AnimatedSectionDesktop';
+// eslint-disable-next-line no-unused-vars
 import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
 
 const HubblrMainContentSection = forwardRef(
-  ({ sectionType, fadeInImage, contentTitle, mainContentDescription, navigation }, ref) => {
+  (
+    { sectionType, fadeInImage, contentTitle, targetCustomers, mainContentDescription, navigation },
+    ref
+  ) => {
     return (
       <>
-        <DesktopQuery>
-          <AnimatedSectionDesktop
-            sectionType={sectionType}
-            ref={ref}
-            fadeInImage={fadeInImage}
-            contentTitle={contentTitle}
-            mainContentDescription={mainContentDescription}
-            navigation={navigation}
-          />
-        </DesktopQuery>
-        <MobileAndTabletQuery>
-          <div ref={ref}>On Mobile? Too bad :(</div>
-        </MobileAndTabletQuery>
+        <AnimatedSectionDesktop
+          sectionType={sectionType}
+          ref={ref}
+          fadeInImage={fadeInImage}
+          contentTitle={contentTitle}
+          targetCustomers={targetCustomers}
+          mainContentDescription={mainContentDescription}
+          navigation={navigation}
+        />
       </>
     );
   }
@@ -29,6 +29,7 @@ HubblrMainContentSection.propTypes = {
   sectionType: PropTypes.oneOf(['middle', 'last']),
   fadeInImage: PropTypes.node.isRequired,
   contentTitle: PropTypes.string.isRequired,
+  targetCustomers: PropTypes.arrayOf(PropTypes.string),
   mainContentDescription: PropTypes.shape({
     title: PropTypes.string,
     description: PropTypes.string,
@@ -44,6 +45,7 @@ HubblrMainContentSection.propTypes = {
 
 HubblrMainContentSection.defaultProps = {
   sectionType: 'middle',
+  targetCustomers: [],
 };
 
 export default HubblrMainContentSection;
