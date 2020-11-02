@@ -7,7 +7,7 @@ function useClientWidth(givenRef) {
     if (ref.current) {
       setClientWidth(ref.current.clientWidth);
     }
-  }, [ref.current, ref.current?.clientWidth]);
+  }, [ref, ref.current, ref.current?.clientWidth]);
   return [clientWidth, ref];
 }
 

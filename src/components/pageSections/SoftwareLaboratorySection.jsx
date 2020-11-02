@@ -1,12 +1,12 @@
 import React from 'react';
 import HubblrMainContentSection from '../pageSectionBases/HubblrMainContentSection';
-import LightningImage from '../imageComponents/LightningImage';
+import LightningImageBackground from '../imageComponents/LightningImageBackground';
 
 const SoftwareLaboratorySection = React.forwardRef((props, ref) => {
   return (
     <HubblrMainContentSection
       ref={ref}
-      fadeInImage={<LightningImage />}
+      fadeInImage={<LightningImageBackground />}
       contentTitle="Software Laboratory"
       targetCustomers={['Mittelständische Unternehmen', 'Großunternehmen', 'Post-Seed Startups']}
       mainContentDescription={{

@@ -1,12 +1,12 @@
 import React from 'react';
 import HubblrMainContentSection from '../pageSectionBases/HubblrMainContentSection';
-import ConsultingIllustrationImage from '../imageComponents/ConsultingIllustrationImage';
+import ConsultingIllustrationImageBackground from '../imageComponents/ConsultingIllustrationImageBackground';
 
 const ConsultingSection = React.forwardRef((props, ref) => {
   return (
     <HubblrMainContentSection
       ref={ref}
-      fadeInImage={<ConsultingIllustrationImage />}
+      fadeInImage={<ConsultingIllustrationImageBackground />}
       contentTitle="Solution Assessment"
       targetCustomers={['Business Angels', 'Mittelständische Unternehmen', 'Startups']}
       mainContentDescription={{

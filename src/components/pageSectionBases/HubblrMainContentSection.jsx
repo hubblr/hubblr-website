@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import AnimatedSectionDesktop from './AnimatedSectionDesktop';
-// eslint-disable-next-line no-unused-vars
+import AnimatedSectionMobile from './AnimatedSectionMobile';
 import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
 
 const HubblrMainContentSection = forwardRef(
@@ -11,15 +11,28 @@ const HubblrMainContentSection = forwardRef(
   ) => {
     return (
       <>
-        <AnimatedSectionDesktop
-          sectionType={sectionType}
-          ref={ref}
-          fadeInImage={fadeInImage}
-          contentTitle={contentTitle}
-          targetCustomers={targetCustomers}
-          mainContentDescription={mainContentDescription}
-          navigation={navigation}
-        />
+        <DesktopQuery>
+          <AnimatedSectionDesktop
+            sectionType={sectionType}
+            ref={ref}
+            fadeInImage={fadeInImage}
+            contentTitle={contentTitle}
+            targetCustomers={targetCustomers}
+            mainContentDescription={mainContentDescription}
+            navigation={navigation}
+          />
+        </DesktopQuery>
+        <MobileAndTabletQuery>
+          <AnimatedSectionMobile
+            sectionType={sectionType}
+            ref={ref}
+            navigation={navigation}
+            fadeInImage={fadeInImage}
+            mainContentDescription={mainContentDescription}
+            contentTitle={contentTitle}
+            targetCustomers={targetCustomers}
+          />
+        </MobileAndTabletQuery>
       </>
     );
   }

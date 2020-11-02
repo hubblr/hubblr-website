@@ -9,17 +9,15 @@ import createScrollBarForSection from '../sectionScrollBar/createScrollBarForSec
 import useYPositions from '../hooks/scroll/useYPositions';
 import IndexPageContext from '../../context/IndexPageContext';
 import useWindowSize from '../hooks/window/useWindowSize';
+import useFullScrollSectionHeight from '../hooks/scroll/useFullScrollSectionHeight';
 import { desktopScrollAnimations } from '../../animation/scrollAnimationDescriptions';
+import HubblrPageLinks from '../links/HubblrPageLinks';
 
 const AnimatedSectionDesktop = forwardRef(
   (
     { sectionType, fadeInImage, contentTitle, targetCustomers, mainContentDescription, navigation },
-    refs
+    { fullSectionRef = useRef(), contentContainerRef = useRef }
   ) => {
-    // break down provided refs
-    let { fullSectionRef, contentContainerRef } = refs;
-    fullSectionRef = fullSectionRef || useRef();
-    contentContainerRef = contentContainerRef || useRef();
     // get required dimension info
     const [, windowHeight] = useWindowSize();
     const { animationAreaHeight } = desktopScrollAnimations;
@@ -27,13 +25,7 @@ const AnimatedSectionDesktop = forwardRef(
     const paddingTop = useContext(IndexPageContext);
 
     // derive the full section height
-    const [fullSectionHeight, setFullSectionHeight] = useState(0);
-    useLayoutEffect(() => {
-      if (contentContainerRef.current) {
-        const { height: containerHeight } = contentContainerRef.current.getBoundingClientRect();
-        setFullSectionHeight(Math.round(containerHeight + animationAreaHeight));
-      }
-    });
+    const fullSectionHeight = useFullScrollSectionHeight(animationAreaHeight, contentContainerRef);
 
     // finish scroll animation info: calculate top offsets of sectionHeading at start of animation
     const [topOffsetSectionHeading, setTopOffsetSectionHeading] = useState(0);
@@ -66,43 +58,43 @@ const AnimatedSectionDesktop = forwardRef(
     });
 
     return (
-      <div className="relative" ref={fullSectionRef} style={{ height: fullSectionHeight }}>
-        <div
-          ref={contentContainerRef}
-          className="relative z-40 sticky top-0  w-full flex flex-col items-center"
-          style={{ paddingTop }}
-        >
-          <div className="w-10/12 max-w-6xl">
-            <motion.div className="relative z-10" style={transforms.sectionHeading}>
-              <SectionHeading ref={sectionHeadingRef} heading={contentTitle} />
-            </motion.div>
+      <>
+        <div className="relative" ref={fullSectionRef} style={{ height: fullSectionHeight }}>
+          <div
+            ref={contentContainerRef}
+            className="relative z-40 sticky top-0  w-full flex flex-col items-center"
+            style={{ paddingTop }}
+          >
+            <div className="w-10/12 max-w-6xl">
+              <motion.div className="relative z-10" style={transforms.sectionHeading}>
+                <SectionHeading ref={sectionHeadingRef} heading={contentTitle} />
+              </motion.div>
+              <motion.div
+                className="flex flex-col items-center mt-4"
+                style={transforms.mainContentCard}
+              >
+                <DesignAdvertisementHeader className="mb-6" targetCustomers={targetCustomers} />
+                <MainContentCard mainContentDescription={mainContentDescription} className="mb-4" />
+                <div className="mb-4">
+                  <IndexGradientBorderButtonLongArrow theme="light">
+                    {navigation}
+                  </IndexGradientBorderButtonLongArrow>
+                </div>
+              </motion.div>
+            </div>
             <motion.div
-              className="flex flex-col items-center mt-4"
-              style={transforms.mainContentCard}
+              className="absolute -z-10 w-full h-screen transform inset-0 flex justify-center items-center"
+              style={{
+                ...transforms.fadeInImage,
+              }}
             >
-              <DesignAdvertisementHeader
-                className="w-full mb-6"
-                targetCustomers={targetCustomers}
-              />
-              <MainContentCard mainContentDescription={mainContentDescription} className="mb-4" />
-              <div className="mb-4">
-                <IndexGradientBorderButtonLongArrow theme="light">
-                  {navigation}
-                </IndexGradientBorderButtonLongArrow>
-              </div>
+              {fadeInImage}
             </motion.div>
           </div>
-          <motion.div
-            className="absolute -z-10 w-full h-screen transform inset-0 flex justify-center items-center"
-            style={{
-              ...transforms.fadeInImage,
-            }}
-          >
-            {fadeInImage}
-          </motion.div>
+          <div className="absolute h-full inset-0">{createScrollBarForSection(sectionType)}</div>
         </div>
-        <div className="absolute h-full inset-0">{createScrollBarForSection(sectionType)}</div>
-      </div>
+        {sectionType === 'last' && <HubblrPageLinks />}
+      </>
     );
   }
 );

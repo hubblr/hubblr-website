@@ -1,13 +1,13 @@
 import React from 'react';
 import HubblrMainContentSection from '../pageSectionBases/HubblrMainContentSection';
-import VenturesArrowImage from '../imageComponents/VenturesArrowImage';
+import VenturesArrowImageBackground from '../imageComponents/VenturesArrowImageBackground';
 
 const VenturesSection = React.forwardRef((props, ref) => {
   return (
     <HubblrMainContentSection
       ref={ref}
       sectionType="last"
-      fadeInImage={<VenturesArrowImage />}
+      fadeInImage={<VenturesArrowImageBackground />}
       contentTitle="Digital Ventures"
       targetCustomers={['Pre-Seed Startups']}
       mainContentDescription={{

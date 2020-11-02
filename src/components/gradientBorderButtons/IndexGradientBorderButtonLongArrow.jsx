@@ -3,13 +3,20 @@ import PropTypes from 'prop-types';
 import HubblrGradientBorderButtonBase from './HubblrGradientBorderButtonBase';
 import LongArrowImage from '../imageComponents/LongArrowImage';
 
-function IndexGradientBorderButtonLongArrow({ children, theme, onClick }) {
+function IndexGradientBorderButtonLongArrow({
+  children,
+  addedFlexClasses,
+  theme,
+  onClick,
+  widthClass,
+}) {
   return (
     <HubblrGradientBorderButtonBase
       image={<LongArrowImage theme={theme} />}
-      addedFlexClasses="gap-3"
+      addedFlexClasses={`gap-3 ${addedFlexClasses}`}
       theme={theme}
       onClick={onClick}
+      widthClass={widthClass}
     >
       {children}
     </HubblrGradientBorderButtonBase>
@@ -17,13 +24,17 @@ function IndexGradientBorderButtonLongArrow({ children, theme, onClick }) {
 }
 
 IndexGradientBorderButtonLongArrow.defaultProps = {
+  addedFlexClasses: '',
   onClick: null,
+  widthClass: '',
 };
 
 IndexGradientBorderButtonLongArrow.propTypes = {
   children: PropTypes.string.isRequired,
+  addedFlexClasses: PropTypes.string,
   theme: PropTypes.oneOf(['dark', 'light']).isRequired,
   onClick: PropTypes.func,
+  widthClass: PropTypes.string,
 };
 
 export default IndexGradientBorderButtonLongArrow;

@@ -1,9 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import PageLinks from './PageLinks';
 
-function HubblrPageLinks() {
+function HubblrPageLinks({ className }) {
   return (
     <PageLinks
+      className={className}
       links={[
         {
           text: 'Impressum',
@@ -28,5 +30,13 @@ function HubblrPageLinks() {
     />
   );
 }
+
+HubblrPageLinks.propTypes = {
+  className: PropTypes.string,
+};
+
+HubblrPageLinks.defaultProps = {
+  className: '',
+};
 
 export default HubblrPageLinks;

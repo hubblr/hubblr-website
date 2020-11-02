@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
-function DesignAdvertisementHeaderPill({ children, colorStyles }) {
+const DesignAdvertisementHeaderPill = forwardRef(({ children, colorStyles }, ref) => {
   return (
-    <div className={`${colorStyles} text-lg p-3 rounded-full whitespace-no-wrap`}>{children}</div>
+    <div ref={ref} className={`${colorStyles} text-lg p-3 rounded-full whitespace-no-wrap`}>
+      {children}
+    </div>
   );
-}
+});
 
 DesignAdvertisementHeaderPill.propTypes = {
   children: PropTypes.node.isRequired,
