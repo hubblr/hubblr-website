@@ -2,7 +2,7 @@ import React, { forwardRef, useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import SectionHeading from '../pageMainContent/SectionHeading';
-import DesignAdvertisementHeader from '../pageMainContent/DesignAdvertisementHeader';
+// import DesignAdvertisementHeader from '../pageMainContent/DesignAdvertisementHeader';
 import MainContentCard from '../pageMainContent/MainContentCard';
 import IndexGradientBorderButtonLongArrow from '../gradientBorderButtons/IndexGradientBorderButtonLongArrow';
 import HubblrPageLinks from '../links/HubblrPageLinks';
@@ -58,7 +58,7 @@ const AnimatedSectionMobile = forwardRef(
               <SectionHeading heading={contentTitle} />
             </motion.div>
           </motion.div>
-          <DesignAdvertisementHeader targetCustomers={targetCustomers} />
+          {/* <DesignAdvertisementHeader targetCustomers={targetCustomers} /> */}
           <MainContentCard mainContentDescription={mainContentDescription}>
             <IndexGradientBorderButtonLongArrow
               theme="light"
