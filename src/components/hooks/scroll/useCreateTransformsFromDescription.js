@@ -1,24 +1,27 @@
+import { useRef } from 'react';
 import { useTransform, useViewportScroll } from 'framer-motion';
 import useYPositions from './useYPositions';
 
-function useCreateTransformsFromDescriptions(animationAreaRef, animationDescriptions) {
+function useCreateTransformsFromDescription(animationAreaHeight, transformDescription, givenRef) {
+  const fullSectionRef = givenRef || useRef();
+  // preparation
   const { scrollY } = useViewportScroll();
-  const [animationAreaStartY, sectionEndY] = useYPositions(animationAreaRef);
-  const animationAreaEndY = sectionEndY - window.innerHeight;
-  const step = (animationAreaEndY - animationAreaStartY) / 100;
+  const [animationAreaStartY] = useYPositions(fullSectionRef);
+  const animationAreaStep = animationAreaHeight / 100;
 
-  const allTransforms = {};
-  Object.entries(animationDescriptions).forEach(([key, propDescriptions]) => {
+  // create the transforms
+  const transforms = {};
+  Object.entries(transformDescription).forEach(([key, propDescriptions]) => {
     const propTransforms = {};
     Object.entries(propDescriptions).forEach(([prop, { inputPercentages, outputRange }]) => {
       const inputBreakpoints = inputPercentages.map((percentage) => {
-        return animationAreaStartY + step * percentage;
+        return animationAreaStartY + animationAreaStep * percentage;
       });
       propTransforms[prop] = useTransform(scrollY, inputBreakpoints, outputRange);
     });
-    allTransforms[key] = propTransforms;
+    transforms[key] = propTransforms;
   });
-  return allTransforms;
+  return transforms;
 }
 
-export default useCreateTransformsFromDescriptions;
+export default useCreateTransformsFromDescription;

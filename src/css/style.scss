@@ -3,7 +3,6 @@
 /*! purgecss start ignore */
 @tailwind base;
 @tailwind components;
-
 /*! purgecss end ignore */
 @tailwind utilities;
 
@@ -12,3 +11,5 @@
     flex-basis: 0;
   }
 }
+
+@import "index/all";

@@ -10,7 +10,6 @@ import NavBarTop from '../components/navBar/NavBarTop';
 import useYPositions from '../components/hooks/scroll/useYPositions';
 import useWindowSize from '../components/hooks/window/useWindowSize';
 import IndexPageContext from '../context/IndexPageContext';
-import measureHiddenElement from '../util/measureHiddenElement';
 
 function getSectionAnimationEnd(sectionRef) {
   const height = sectionRef.current.clientHeight;
@@ -24,13 +23,8 @@ function IndexPage() {
   const [, windowHeight] = useWindowSize();
   const { scrollY } = useViewportScroll();
 
-  // find navbar height to pass in provider
+  // decide when to show navbar
   const introContentRef = useRef();
-  const navBarRef = useRef();
-  const [navBarHeight, setNavBarHeight] = useState();
-  if (!navBarHeight && navBarRef.current) {
-    setNavBarHeight(measureHiddenElement(navBarRef.current).height);
-  }
   const [showNavBar, setShowNavbar] = useState(false);
   const [, introContentScrollEnd] = useYPositions(introContentRef);
   useEffect(() => {
@@ -113,32 +107,34 @@ function IndexPage() {
   });
 
   return (
-    <>
+    <IndexPageContext.Provider
+      value={{
+        navBarSizeClass: '20', // refers to the tailwind class
+      }}
+    >
       <IndexLayout>
-        <IndexPageContext.Provider value={navBarHeight}>
-          <IntroductionSection ref={introContentRef} />
-          <SoftwareLaboratorySection
-            ref={{
-              fullSectionRef: softwareLabSectionRef,
-              contentContainerRef: softwareLabContentContainerRef,
-            }}
-          />
-          <ConsultingSection
-            ref={{
-              fullSectionRef: consultingSectionRef,
-              contentContainerRef: consultingContentContainerRef,
-            }}
-          />
-          <VenturesSection
-            ref={{
-              fullSectionRef: venturesSectionRef,
-              contentContainerRef: venturesContentContainerRef,
-            }}
-          />
-        </IndexPageContext.Provider>
+        <IntroductionSection ref={introContentRef} />
+        <SoftwareLaboratorySection
+          ref={{
+            fullSectionRef: softwareLabSectionRef,
+            contentContainerRef: softwareLabContentContainerRef,
+          }}
+        />
+        <ConsultingSection
+          ref={{
+            fullSectionRef: consultingSectionRef,
+            contentContainerRef: consultingContentContainerRef,
+          }}
+        />
+        <VenturesSection
+          ref={{
+            fullSectionRef: venturesSectionRef,
+            contentContainerRef: venturesContentContainerRef,
+          }}
+        />
       </IndexLayout>
-      <NavBarTop className={`${showNavBar ? '' : 'hidden'}`} ref={navBarRef} />
-    </>
+      <NavBarTop className={`${showNavBar ? '' : 'hidden'}`} />
+    </IndexPageContext.Provider>
   );
 }
 

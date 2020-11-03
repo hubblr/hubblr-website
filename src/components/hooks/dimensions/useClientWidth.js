@@ -5,6 +5,7 @@ function useClientWidth(givenRef) {
   const [clientWidth, setClientWidth] = useState(0);
   useLayoutEffect(() => {
     if (ref.current) {
+      console.log(ref.current);
       setClientWidth(ref.current.clientWidth);
     }
   }, [ref, ref.current, ref.current?.clientWidth]);

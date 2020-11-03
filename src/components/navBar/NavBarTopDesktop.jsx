@@ -1,23 +1,19 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useContext } from 'react';
 import PropTypes from 'prop-types';
 import NavigationButtonHubblrIcon from './NavigationButtonHubblrIcon';
 import HubblrGradientBorderButtonBase from '../gradientBorderButtons/HubblrGradientBorderButtonBase';
 import ArrowImageDown from '../imageComponents/ArrowImageDown';
+import IndexPageContext from '../../context/IndexPageContext';
 
 const NavBarTopDesktop = forwardRef(({ className }, ref) => {
+  const { navBarSizeClass } = useContext(IndexPageContext);
+
   return (
     <div
       ref={ref}
-      className={`box-border fixed top-0 w-full z-40 p-5 ${className} `}
-      style={{ height: '107px' }}
+      className={`box-border fixed top-0 h-${navBarSizeClass} w-full z-40 p-5 ${className} `}
     >
-      <div
-        className="absolute w-full inset-0"
-        style={{
-          backgroundColor: 'rgba(29, 29, 31, 0.72)',
-          backdropFilter: 'blur(2px)',
-        }}
-      />
+      <div className="absolute w-full inset-0 navbar-background-blur" />
       <div className="relative flex justify-center h-full">
         <NavigationButtonHubblrIcon />
         <div className="absolute right-0 top-1/2 transform -translate-y-1/2">

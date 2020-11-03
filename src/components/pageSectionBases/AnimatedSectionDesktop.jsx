@@ -1,15 +1,16 @@
 import React, { forwardRef, useLayoutEffect, useRef, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { motion, useTransform, useViewportScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 import SectionHeading from '../pageMainContent/SectionHeading';
 import DesignAdvertisementHeader from '../pageMainContent/DesignAdvertisementHeader';
 import MainContentCard from '../pageMainContent/MainContentCard';
 import IndexGradientBorderButtonLongArrow from '../gradientBorderButtons/IndexGradientBorderButtonLongArrow';
 import createScrollBarForSection from '../sectionScrollBar/createScrollBarForSection';
-import useYPositions from '../hooks/scroll/useYPositions';
+import useCreateTransformsFromDescription from '../hooks/scroll/useCreateTransformsFromDescription';
 import IndexPageContext from '../../context/IndexPageContext';
 import useWindowSize from '../hooks/window/useWindowSize';
 import useFullScrollSectionHeight from '../hooks/scroll/useFullScrollSectionHeight';
+import usePaddingTop from '../hooks/dimensions/usePaddingTop';
 import { desktopScrollAnimations } from '../../animation/scrollAnimationDescriptions';
 import HubblrPageLinks from '../links/HubblrPageLinks';
 
@@ -18,11 +19,11 @@ const AnimatedSectionDesktop = forwardRef(
     { sectionType, fadeInImage, contentTitle, targetCustomers, mainContentDescription, navigation },
     { fullSectionRef = useRef(), contentContainerRef = useRef }
   ) => {
+    const { navBarSizeClass } = useContext(IndexPageContext);
+    const [paddingTop] = usePaddingTop(contentContainerRef);
     // get required dimension info
     const [, windowHeight] = useWindowSize();
     const { animationAreaHeight } = desktopScrollAnimations;
-    const animationAreaStep = animationAreaHeight / 100;
-    const paddingTop = useContext(IndexPageContext);
 
     // derive the full section height
     const fullSectionHeight = useFullScrollSectionHeight(animationAreaHeight, contentContainerRef);
@@ -37,33 +38,23 @@ const AnimatedSectionDesktop = forwardRef(
         setTopOffsetSectionHeading(sectionHeadingOffset);
       }
     });
-    desktopScrollAnimations.sectionHeading.top.outputRange = [
+    desktopScrollAnimations.transforms.sectionHeading.top.outputRange = [
       `${topOffsetSectionHeading || '0'} px`,
       '0px',
     ];
 
-    // create transforms based on description
-    const [animationAreaStartY] = useYPositions(fullSectionRef);
-    const { scrollY } = useViewportScroll();
-    const transforms = {};
-    Object.entries(desktopScrollAnimations).forEach(([key, propDescriptions]) => {
-      const propTransforms = {};
-      Object.entries(propDescriptions).forEach(([prop, { inputPercentages, outputRange }]) => {
-        const inputBreakpoints = inputPercentages.map((percentage) => {
-          return animationAreaStartY + animationAreaStep * percentage;
-        });
-        propTransforms[prop] = useTransform(scrollY, inputBreakpoints, outputRange);
-      });
-      transforms[key] = propTransforms;
-    });
+    const transforms = useCreateTransformsFromDescription(
+      animationAreaHeight,
+      desktopScrollAnimations.transforms,
+      fullSectionRef
+    );
 
     return (
       <>
         <div className="relative" ref={fullSectionRef} style={{ height: fullSectionHeight }}>
           <div
             ref={contentContainerRef}
-            className="relative z-40 sticky top-0  w-full flex flex-col items-center"
-            style={{ paddingTop }}
+            className={`relative z-40 sticky top-0  w-full flex flex-col items-center pt-${navBarSizeClass}`}
           >
             <div className="w-10/12 max-w-6xl">
               <motion.div className="relative z-10" style={transforms.sectionHeading}>

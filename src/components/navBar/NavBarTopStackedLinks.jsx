@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import NavBarTopHR from './NavBarTopHR';
+import IndexPageContext from '../../context/IndexPageContext';
 
 function NavBarTopStackedLinks({ content, className }) {
+  const { navBarSizeClass } = useContext(IndexPageContext);
+
   return (
-    <div key={uuidv4()} className={className}>
+    <div className={className}>
       {content.map(({ text, linkImage }, i) => {
         return (
-          <div>
+          <div key={uuidv4()}>
             {i === 0 && <NavBarTopHR />}
-            <div className="h-20 flex justify-center items-center p-3 text-white">
+            <div className={`h-${navBarSizeClass} flex justify-center items-center p-3 text-white`}>
               <div className="h-16 -mr-3">{linkImage}</div>
               <div className="text-lg font-bold">{text}</div>
             </div>
