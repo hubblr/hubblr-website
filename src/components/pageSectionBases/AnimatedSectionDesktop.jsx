@@ -64,7 +64,10 @@ const AnimatedSectionDesktop = forwardRef(
                 className="flex flex-col items-center mt-4"
                 style={transforms.mainContentCard}
               >
-                {/* <DesignAdvertisementHeader className="mb-6" targetCustomers={targetCustomers} /> */}
+                {
+                  /* <DesignAdvertisementHeader className="mb-6" targetCustomers={targetCustomers} /> */
+                  console.log(targetCustomers)
+                }
                 <MainContentCard mainContentDescription={mainContentDescription} className="mb-4" />
                 <div className="mb-4">
                   <IndexGradientBorderButtonLongArrow theme="light">

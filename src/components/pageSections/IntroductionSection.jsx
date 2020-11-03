@@ -18,16 +18,14 @@ const IntroductionSection = React.forwardRef((props, contentRef) => {
         </div>
       </MobileAndTabletQuery>
       <DesktopQuery>
-        <div className="w-full h-3/4 px-12 pt-20">
-          <div className="flex flex-col h-full">
-            <div ref={contentRef} className="mb-40">
+        <div className="flex flex-col min-h-screen w-full px-12 pt-20">
+          <div className="flex flex-col justify-center flex-grow">
+            <div>
               <IntroductionSectionContent />
             </div>
-
-            <div className="flex-grow">
-              <SectionScrollBar upperFlexGrow={0} lowerFlexGrow={1} />
-            </div>
           </div>
+
+          <SectionScrollBar upperFlexGrow={0} lowerFlexGrow={0} lowerClassNames="h-16" />
         </div>
       </DesktopQuery>
     </>
