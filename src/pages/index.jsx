@@ -116,9 +116,7 @@ function IndexPage() {
     <>
       <IndexLayout>
         <IndexPageContext.Provider value={navBarHeight}>
-          <div>
-            <IntroductionSection ref={introContentRef} />
-          </div>
+          <IntroductionSection ref={introContentRef} />
           <SoftwareLaboratorySection
             ref={{
               fullSectionRef: softwareLabSectionRef,

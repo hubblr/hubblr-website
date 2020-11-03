@@ -10,7 +10,7 @@ const HubblrMainContentSection = forwardRef(
     ref
   ) => {
     return (
-      <>
+      <div className="px-2 md:px-12">
         <DesktopQuery>
           <AnimatedSectionDesktop
             sectionType={sectionType}
@@ -33,7 +33,7 @@ const HubblrMainContentSection = forwardRef(
             targetCustomers={targetCustomers}
           />
         </MobileAndTabletQuery>
-      </>
+      </div>
     );
   }
 );

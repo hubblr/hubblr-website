@@ -1,27 +1,36 @@
 import React from 'react';
-import FirstSection from '../pageSectionBases/FirstSection';
-import HubblrImage from '../imageComponents/HubblrImage';
-import IndexGradientBorderButtonLongArrow from '../gradientBorderButtons/IndexGradientBorderButtonLongArrow';
+import IntroductionSectionContent from './IntroductionSectionContent';
+import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
+import SectionScrollBar from '../sectionScrollBar/SectionScrollBar';
+import ArrowImageDownDouble from '../imageComponents/ArrowImageDownDouble';
 
 const IntroductionSection = React.forwardRef((props, contentRef) => {
   return (
-    <FirstSection>
-      <div ref={contentRef} className="mb-40">
-        <HubblrImage className="w-40 mb-12" />
-        <h1 className="mb-10 text-6xl font-black leading-none">
-          Developing our digital world of tomorrow
-        </h1>
+    <>
+      <MobileAndTabletQuery>
+        <div className="flex flex-col justify-between w-full h-screen px-10 pt-20">
+          <div ref={contentRef}>
+            <IntroductionSectionContent />
+          </div>
+          <div className="w-full flex justify-center">
+            <ArrowImageDownDouble />
+          </div>
+        </div>
+      </MobileAndTabletQuery>
+      <DesktopQuery>
+        <div className="w-full h-3/4 px-12 pt-20">
+          <div className="flex flex-col h-full">
+            <div ref={contentRef} className="mb-40">
+              <IntroductionSectionContent />
+            </div>
 
-        <h2 className="mb-12 text-2xl font-light leading-tight">
-          Um Nutzer-Zentrierte und innovative Softwareprodukte mit der Aufschrift “Made in Germany”
-          endlich auch auf der Welt zu sehen, entwickeln wir in 3 Sparten herausstechende Projekte.
-        </h2>
-
-        <IndexGradientBorderButtonLongArrow theme="dark">
-          Jetzt kontaktieren
-        </IndexGradientBorderButtonLongArrow>
-      </div>
-    </FirstSection>
+            <div className="flex-grow">
+              <SectionScrollBar upperFlexGrow={0} lowerFlexGrow={1} />
+            </div>
+          </div>
+        </div>
+      </DesktopQuery>
+    </>
   );
 });
 
