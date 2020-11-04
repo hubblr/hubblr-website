@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import DesignAdvertisementHeaderPill from './DesignAdvertisementHeaderPill';
 import DesignAdvertisementHeaderDivider from './DesignAdvertisementHeaderDivider';
@@ -12,22 +12,28 @@ function DesignAdvertisementHeader({ className, targetCustomers }) {
   // eslint-disable-next-line no-unused-vars
   const [frontTextWidth, frontTextRef] = useClientWidth();
   // eslint-disable-next-line no-unused-vars
-  const [growingDividerWidth, growingDividerRef] = useClientWidth();
-  const contentWidths = [];
+  const [growingDividerWidth, setGrowingDividerWidth] = useState(0);
+  const contentWidths = useRef(Array(targetCustomers.length));
+  const dividerWidths = useRef(Array(targetCustomers.length - 1));
+  const createContentWidthSetter = (i) => (width) => {
+    contentWidths[i] = width;
+  };
+  const createDividerWidthSetter = (i) => (width) => {
+    dividerWidths[i] = width;
+  };
+
   // create the content
   const backContent = targetCustomers.map((targetName, i) => {
-    const [pillWidth, pillRef] = useClientWidth();
-    contentWidths.push(pillWidth);
-    const dividerRef = useRef();
     const divider =
-      i < targetCustomers.length - 1 ? <DesignAdvertisementHeaderDivider ref={dividerRef} /> : null;
-    if (divider) {
-      const [dividerWidth] = useClientWidth(dividerRef);
-      contentWidths.push(dividerWidth);
-    }
+      i < targetCustomers.length - 1 ? (
+        <DesignAdvertisementHeaderDivider setWidth={createDividerWidthSetter(i)} />
+      ) : null;
     return (
       <div key={targetName} className="flex items-center">
-        <DesignAdvertisementHeaderPill ref={pillRef} colorStyles="text-white bg-gray-800">
+        <DesignAdvertisementHeaderPill
+          setWidth={createContentWidthSetter(i)}
+          colorStyles="text-white bg-gray-800"
+        >
           {targetName}
         </DesignAdvertisementHeaderPill>
         {divider}
@@ -49,7 +55,10 @@ function DesignAdvertisementHeader({ className, targetCustomers }) {
           <p>designed</p>
           <p>for</p>
         </div>
-        <DesignAdvertisementHeaderDivider ref={growingDividerRef} className="lg:flex-grow" />
+        <DesignAdvertisementHeaderDivider
+          setWidth={setGrowingDividerWidth}
+          className="lg:flex-grow"
+        />
         <div className="flex items-center">{backContent}</div>
       </div>
       <MobileAndTabletQuery>
