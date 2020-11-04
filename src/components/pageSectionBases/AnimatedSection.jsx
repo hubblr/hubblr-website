@@ -1,6 +1,5 @@
 import React, { forwardRef, useContext, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
 import IndexPageContext from '../../context/IndexPageContext';
 import AnimationAreaContext from '../../context/AnimationAreaContext';
 import useYPositions from '../hooks/scroll/useYPositions';
@@ -34,14 +33,9 @@ const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) =
       animationAreaStep: height / 100,
     };
   }, [isLg]);
-  const bufferRef = useRef();
-  const fullSectionHeight = useFullScrollSectionHeight(animationAreaHeight, [
-    contentContainerRef,
-    bufferRef,
-  ]);
+  const fullSectionHeight = useFullScrollSectionHeight(animationAreaHeight, [contentContainerRef]);
 
-  const [bufferStyles, setBufferStyles] = useState();
-  console.log(bufferStyles);
+  const [, setBufferStyles] = useState();
 
   return (
     <AnimationAreaContext.Provider
@@ -60,7 +54,6 @@ const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) =
           height: fullSectionHeight,
         }}
       >
-        <motion.div ref={bufferRef} style={bufferStyles} />
         <div
           ref={contentContainerRef}
           className={`overflow-hidden sticky top-0 w-full flex flex-col items-center pt-${navBarSizeClass}`}

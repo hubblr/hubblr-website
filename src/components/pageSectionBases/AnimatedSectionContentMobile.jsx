@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useLayoutEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import usePaddingTop from '../hooks/styleQueries/usePaddingTop';
@@ -114,7 +114,7 @@ function AnimatedSectionContentMobile({
     animationAreaStep,
     mobileScrollAnimations.transforms.buffer.paddingBottom
   );
-  useEffect(() => {
+  useLayoutEffect(() => {
     const bufferTransforms = {
       paddingBottom: bufferPaddingBottom,
     };

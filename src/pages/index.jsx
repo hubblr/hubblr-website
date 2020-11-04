@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect, useEffect, useRef } from 'react';
-import { useLocation, navigate } from '@reach/router';
+import { useLocation } from '@reach/router';
 import { useViewportScroll } from 'framer-motion';
 import IndexLayout from '../components/pageLayouts/IndexLayout';
 import IntroductionSection from '../components/pageSections/IntroductionSection';
@@ -94,9 +94,9 @@ function IndexPage() {
       if (nextHash !== location.hash) {
         location.hash = nextHash;
         if (nextHash) {
-          navigate(nextHash);
+          // navigate('/');
         } else {
-          navigate('/');
+          // navigate('/');
         }
       }
     });
