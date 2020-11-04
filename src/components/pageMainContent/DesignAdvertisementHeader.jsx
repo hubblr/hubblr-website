@@ -7,10 +7,14 @@ import LongArrowImage from '../imageComponents/LongArrowImage';
 import useClientWidth from '../hooks/dimensions/useClientWidth';
 
 function DesignAdvertisementHeader({ className, targetCustomers }) {
+  // eslint-disable-next-line no-unused-vars
   const [containerWidth, containerRef] = useClientWidth();
+  // eslint-disable-next-line no-unused-vars
   const [frontTextWidth, frontTextRef] = useClientWidth();
+  // eslint-disable-next-line no-unused-vars
   const [growingDividerWidth, growingDividerRef] = useClientWidth();
   const contentWidths = [];
+  // create the content
   const backContent = targetCustomers.map((targetName, i) => {
     const [pillWidth, pillRef] = useClientWidth();
     contentWidths.push(pillWidth);
@@ -32,7 +36,7 @@ function DesignAdvertisementHeader({ className, targetCustomers }) {
   });
 
   // initial push of the header
-  const frontTextLeftMargin = containerWidth - frontTextWidth - growingDividerWidth - 20;
+  // const frontTextLeftMargin = containerWidth - frontTextWidth - growingDividerWidth - 20;
 
   return (
     <>
@@ -40,7 +44,7 @@ function DesignAdvertisementHeader({ className, targetCustomers }) {
         <div
           ref={frontTextRef}
           className="text-2xl font-extrabold flex flex-col items-end mr-2"
-          style={{ marginLeft: frontTextLeftMargin }}
+          style={{ marginLeft: '90%' }}
         >
           <p>designed</p>
           <p>for</p>

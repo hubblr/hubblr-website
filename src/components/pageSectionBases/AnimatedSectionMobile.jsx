@@ -12,26 +12,61 @@ import useFullScrollSectionHeight from '../hooks/scroll/useFullScrollSectionHeig
 import IndexPageContext from '../../context/IndexPageContext';
 import useClientHeight from '../hooks/dimensions/useClientHeight';
 import useCreateTransformsFromDescription from '../hooks/scroll/useCreateTransformsFromDescription';
-// import usePaddingTop from '../hooks/dimensions/usePaddingTop';
+import usePaddingTop from '../hooks/styleQueries/usePaddingTop';
+import useWindowSize from '../hooks/window/useWindowSize';
 
 const AnimatedSectionMobile = forwardRef(
   (
-    // eslint-disable-next-line no-unused-vars
     { sectionType, fadeInImage, contentTitle, targetCustomers, mainContentDescription, navigation },
-    { fullSectionRef = useRef(), contentContainerRef = useRef }
+    { fullSectionRef, contentContainerRef }
   ) => {
     const { navBarSizeClass } = useContext(IndexPageContext);
-    // const [paddingTop] = usePaddingTop(contentContainerRef);
+    const [, windowHeight] = useWindowSize();
+    const [paddingTop] = usePaddingTop(contentContainerRef);
     const { animationAreaHeight } = mobileScrollAnimations;
-    const fullSectionHeight = useFullScrollSectionHeight(animationAreaHeight, contentContainerRef);
+    const bufferRef = useRef();
+    const fullSectionHeight = useFullScrollSectionHeight(animationAreaHeight, [
+      contentContainerRef,
+      bufferRef,
+    ]);
 
     // finish transform descriptions
+    // top of initial content
+    const usedScreenHeight = windowHeight - paddingTop;
+    mobileScrollAnimations.transforms.initialContent.y.outputRange = [
+      `${usedScreenHeight / 7}px`,
+      '0px',
+    ];
+    // margin top of section heading
     const [imageWrapperHeight, imageWrapperRef] = useClientHeight();
     mobileScrollAnimations.transforms.sectionHeading.marginTop.outputRange = [
       '0',
       `-${imageWrapperHeight / 2}px`,
     ];
+    // to keep size of section correct, buffer negative margin
+    mobileScrollAnimations.transforms.buffer = {
+      paddingBottom: {
+        inputPercentages:
+          mobileScrollAnimations.transforms.sectionHeading.marginTop.inputPercentages,
+        outputRange: ['0', `${imageWrapperHeight / 2}px`],
+      },
+    };
+    // top of section heading
+    const fadeInScales = mobileScrollAnimations.transforms.fadeInImage.scale.outputRange;
+    const originalHeight = imageWrapperHeight * fadeInScales[1];
+    const scaledHeight = imageWrapperHeight * fadeInScales[0];
+    mobileScrollAnimations.transforms.sectionHeading.y.outputRange = [
+      `${scaledHeight - originalHeight}px`,
+      '0px',
+    ];
+    // top of main content card
+    // TODO: fix hack
+    mobileScrollAnimations.transforms.mainContentCard.y.outputRange = [
+      `${usedScreenHeight / 2}px`,
+      '0px',
+    ];
 
+    // create transforms
     const transforms = useCreateTransformsFromDescription(
       animationAreaHeight,
       mobileScrollAnimations.transforms,
@@ -46,28 +81,37 @@ const AnimatedSectionMobile = forwardRef(
           height: fullSectionHeight,
         }}
       >
+        <motion.div ref={bufferRef} style={transforms.buffer} />
         <div
           ref={contentContainerRef}
-          className={`sticky top-0 w-full flex flex-col items-center pt-${navBarSizeClass}`}
+          className={`overflow-hidden sticky top-0 w-full flex flex-col items-center pt-${navBarSizeClass}`}
         >
-          <motion.div className="w-1/2" style={transforms.initialContent}>
-            <div ref={imageWrapperRef} className="w-full flex justify-center">
+          <motion.div className="relative w-1/2 flex flex-col" style={transforms.initialContent}>
+            <motion.div
+              ref={imageWrapperRef}
+              className="w-full flex justify-center origin-center-top"
+              style={transforms.fadeInImage}
+            >
               {fadeInImage}
-            </div>
-            <motion.div style={transforms.sectionHeading}>
+            </motion.div>
+            <motion.div className="relative origin-center-top" style={transforms.sectionHeading}>
               <SectionHeading heading={contentTitle} />
             </motion.div>
           </motion.div>
-          <DesignAdvertisementHeader targetCustomers={targetCustomers} />
-          <MainContentCard mainContentDescription={mainContentDescription}>
-            <IndexGradientBorderButtonLongArrow
-              theme="light"
-              addedFlexClasses="justify-center"
-              widthClass="w-full"
-            >
-              {navigation}
-            </IndexGradientBorderButtonLongArrow>
-          </MainContentCard>
+          <motion.div style={transforms.designAdvertisementHeader}>
+            <DesignAdvertisementHeader targetCustomers={targetCustomers} />
+          </motion.div>
+          <motion.div className="relative" style={transforms.mainContentCard}>
+            <MainContentCard mainContentDescription={mainContentDescription}>
+              <IndexGradientBorderButtonLongArrow
+                theme="light"
+                addedFlexClasses="justify-center"
+                widthClass="w-full"
+              >
+                {navigation}
+              </IndexGradientBorderButtonLongArrow>
+            </MainContentCard>
+          </motion.div>
           {sectionType === 'last' ? (
             <HubblrPageLinks className="justify-center" />
           ) : (

@@ -33,6 +33,9 @@ module.exports = {
         larger: '50rem',
         huge: '80rem',
       },
+      transformOrigin: {
+        'center-top': 'center top',
+      },
       zIndex: {
         '-10': '-10',
         '-5': '-5',

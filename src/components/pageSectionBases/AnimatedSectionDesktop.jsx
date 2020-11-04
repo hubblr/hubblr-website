@@ -10,14 +10,14 @@ import useCreateTransformsFromDescription from '../hooks/scroll/useCreateTransfo
 import IndexPageContext from '../../context/IndexPageContext';
 import useWindowSize from '../hooks/window/useWindowSize';
 import useFullScrollSectionHeight from '../hooks/scroll/useFullScrollSectionHeight';
-import usePaddingTop from '../hooks/dimensions/usePaddingTop';
-import { desktopScrollAnimations } from '../../animation/scrollAnimationDescriptions';
+import usePaddingTop from '../hooks/styleQueries/usePaddingTop';
+import { desktopScrollAnimations } from '../../animation/scrollAnimationDescriptionDesktop';
 import HubblrPageLinks from '../links/HubblrPageLinks';
 
 const AnimatedSectionDesktop = forwardRef(
   (
     { sectionType, fadeInImage, contentTitle, targetCustomers, mainContentDescription, navigation },
-    { fullSectionRef = useRef(), contentContainerRef = useRef }
+    { fullSectionRef, contentContainerRef }
   ) => {
     const { navBarSizeClass } = useContext(IndexPageContext);
     const [paddingTop] = usePaddingTop(contentContainerRef);
@@ -26,7 +26,9 @@ const AnimatedSectionDesktop = forwardRef(
     const { animationAreaHeight } = desktopScrollAnimations;
 
     // derive the full section height
-    const fullSectionHeight = useFullScrollSectionHeight(animationAreaHeight, contentContainerRef);
+    const fullSectionHeight = useFullScrollSectionHeight(animationAreaHeight, [
+      contentContainerRef,
+    ]);
 
     // finish scroll animation info: calculate top offsets of sectionHeading at start of animation
     const [topOffsetSectionHeading, setTopOffsetSectionHeading] = useState(0);
@@ -54,7 +56,7 @@ const AnimatedSectionDesktop = forwardRef(
         <div className="relative" ref={fullSectionRef} style={{ height: fullSectionHeight }}>
           <div
             ref={contentContainerRef}
-            className={`relative z-40 sticky top-0  w-full flex flex-col items-center pt-${navBarSizeClass}`}
+            className={`overflow-hidden relative z-40 sticky top-0  w-full flex flex-col items-center pt-${navBarSizeClass}`}
           >
             <div className="w-10/12 max-w-6xl">
               <motion.div className="relative z-10" style={transforms.sectionHeading}>
