@@ -1,7 +1,6 @@
-import { useState, useRef, useLayoutEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 
-function usePaddingTop(givenRef) {
-  const ref = givenRef || useRef();
+function usePaddingTop(ref) {
   const [paddingTop, setPaddingTop] = useState(0);
   useLayoutEffect(() => {
     if (ref.current) {
@@ -9,8 +8,8 @@ function usePaddingTop(givenRef) {
         parseFloat(window.getComputedStyle(ref.current, null).getPropertyValue('padding-top'))
       );
     }
-  }, [ref, ref.current, ref.current?.clientHeight]);
-  return [paddingTop, ref];
+  }, [ref, ref.current?.clientHeight]);
+  return paddingTop;
 }
 
 export default usePaddingTop;

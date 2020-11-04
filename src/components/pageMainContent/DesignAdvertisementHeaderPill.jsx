@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import useClientWidth from '../hooks/dimensions/useClientWidth';
 
 function DesignAdvertisementHeaderPill({ children, colorStyles, setWidth }) {
-  const [pillWidth, pillRef] = useClientWidth();
+  const pillRef = useRef();
+  const pillWidth = useClientWidth(pillRef);
   useEffect(() => {
     setWidth(pillWidth);
   }, [pillWidth, setWidth]);

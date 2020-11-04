@@ -1,15 +1,14 @@
-import { useState, useRef, useLayoutEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 
-function useClientRect(givenRef) {
-  const ref = givenRef || useRef();
+function useClientRect(ref) {
   const [dimensions, setDimensions] = useState({});
   useLayoutEffect(() => {
     if (ref.current) {
       setDimensions(ref.current.getBoundingClientRect());
     }
-  }, [ref.current]);
+  }, [ref]);
 
-  return [ref, dimensions];
+  return dimensions;
 }
 
 export default useClientRect;

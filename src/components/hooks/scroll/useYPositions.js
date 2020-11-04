@@ -10,7 +10,7 @@ function useYPositions(ref) {
       const { height } = ref.current.getBoundingClientRect();
       setEnd(start + height);
     }
-  });
+  }, [ref, start]);
   return [start, end];
 }
 

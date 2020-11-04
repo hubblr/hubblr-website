@@ -16,7 +16,7 @@ const desktopScrollAnimations = {
         inputPercentages: [50, 90],
         outputRange: [1.5, 1],
       },
-      top: {
+      y: {
         inputPercentages: [50, 90],
         // output range is calculated by component
       },

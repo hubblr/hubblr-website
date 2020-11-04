@@ -7,19 +7,25 @@ import LongArrowImage from '../imageComponents/LongArrowImage';
 import useClientWidth from '../hooks/dimensions/useClientWidth';
 
 function DesignAdvertisementHeader({ className, targetCustomers }) {
+  const containerRef = useRef();
   // eslint-disable-next-line no-unused-vars
-  const [containerWidth, containerRef] = useClientWidth();
+  const containerWidth = useClientWidth(containerRef);
+  const frontTextRef = useRef();
   // eslint-disable-next-line no-unused-vars
-  const [frontTextWidth, frontTextRef] = useClientWidth();
+  const frontTextWidth = useClientWidth(frontTextRef);
   // eslint-disable-next-line no-unused-vars
   const [growingDividerWidth, setGrowingDividerWidth] = useState(0);
   const contentWidths = useRef(Array(targetCustomers.length));
   const dividerWidths = useRef(Array(targetCustomers.length - 1));
   const createContentWidthSetter = (i) => (width) => {
-    contentWidths[i] = width;
+    if (containerWidth.current) {
+      contentWidths.current[i] = width;
+    }
   };
   const createDividerWidthSetter = (i) => (width) => {
-    dividerWidths[i] = width;
+    if (dividerWidths.current) {
+      dividerWidths.current[i] = width;
+    }
   };
 
   // create the content

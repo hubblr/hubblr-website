@@ -11,18 +11,21 @@ import mobileScrollAnimations from '../../animation/scrollAnimationDescriptionMo
 import useFullScrollSectionHeight from '../hooks/scroll/useFullScrollSectionHeight';
 import IndexPageContext from '../../context/IndexPageContext';
 import useClientHeight from '../hooks/dimensions/useClientHeight';
-import useCreateTransformsFromDescription from '../hooks/scroll/useCreateTransformsFromDescription';
+import useCreateTransformFromDescription from '../hooks/scroll/useCreateTransformFromDescription';
 import usePaddingTop from '../hooks/styleQueries/usePaddingTop';
 import useWindowSize from '../hooks/window/useWindowSize';
+import useYPositions from '../hooks/scroll/useYPositions';
 
 const AnimatedSectionMobile = forwardRef(
   (
     { sectionType, fadeInImage, contentTitle, targetCustomers, mainContentDescription, navigation },
     { fullSectionRef, contentContainerRef }
   ) => {
+    console.log('force rerender');
+
     const { navBarSizeClass } = useContext(IndexPageContext);
     const [, windowHeight] = useWindowSize();
-    const [paddingTop] = usePaddingTop(contentContainerRef);
+    const paddingTop = usePaddingTop(contentContainerRef);
     const { animationAreaHeight } = mobileScrollAnimations;
     const bufferRef = useRef();
     const fullSectionHeight = useFullScrollSectionHeight(animationAreaHeight, [
@@ -38,7 +41,8 @@ const AnimatedSectionMobile = forwardRef(
       '0px',
     ];
     // margin top of section heading
-    const [imageWrapperHeight, imageWrapperRef] = useClientHeight();
+    const imageWrapperRef = useRef();
+    const imageWrapperHeight = useClientHeight(imageWrapperRef);
     mobileScrollAnimations.transforms.sectionHeading.marginTop.outputRange = [
       '0',
       `-${imageWrapperHeight / 2}px`,
@@ -60,18 +64,65 @@ const AnimatedSectionMobile = forwardRef(
       '0px',
     ];
     // top of main content card
-    // TODO: fix hack
+    // TODO: fix with more precise value
     mobileScrollAnimations.transforms.mainContentCard.y.outputRange = [
       `${usedScreenHeight / 2}px`,
       '0px',
     ];
 
     // create transforms
-    const transforms = useCreateTransformsFromDescription(
-      animationAreaHeight,
-      mobileScrollAnimations.transforms,
-      fullSectionRef
-    );
+    const [animationAreaStartY] = useYPositions(fullSectionRef);
+    const animationAreaStep = animationAreaHeight / 100;
+    const bufferTransforms = {
+      paddingBottom: useCreateTransformFromDescription(
+        animationAreaStartY,
+        animationAreaStep,
+        mobileScrollAnimations.transforms.buffer.paddingBottom
+      ),
+    };
+    const initialContentTransforms = {
+      y: useCreateTransformFromDescription(
+        animationAreaStartY,
+        animationAreaStep,
+        mobileScrollAnimations.transforms.initialContent.y
+      ),
+    };
+    const fadeInImageTransforms = {
+      scale: useCreateTransformFromDescription(
+        animationAreaStartY,
+        animationAreaStep,
+        mobileScrollAnimations.transforms.fadeInImage.scale
+      ),
+    };
+    const sectionHeadingTransforms = {
+      marginTop: useCreateTransformFromDescription(
+        animationAreaStartY,
+        animationAreaStep,
+        mobileScrollAnimations.transforms.sectionHeading.marginTop
+      ),
+      y: useCreateTransformFromDescription(
+        animationAreaStartY,
+        animationAreaStep,
+        mobileScrollAnimations.transforms.sectionHeading.y
+      ),
+      scale: useCreateTransformFromDescription(
+        animationAreaStartY,
+        animationAreaStep,
+        mobileScrollAnimations.transforms.sectionHeading.scale
+      ),
+    };
+    const mainContentCardTransforms = {
+      opacity: useCreateTransformFromDescription(
+        animationAreaStartY,
+        animationAreaStep,
+        mobileScrollAnimations.transforms.mainContentCard.opacity
+      ),
+      y: useCreateTransformFromDescription(
+        animationAreaStartY,
+        animationAreaStep,
+        mobileScrollAnimations.transforms.mainContentCard.y
+      ),
+    };
 
     return (
       <div
@@ -81,27 +132,27 @@ const AnimatedSectionMobile = forwardRef(
           height: fullSectionHeight,
         }}
       >
-        <motion.div ref={bufferRef} style={transforms.buffer} />
+        <motion.div ref={bufferRef} style={bufferTransforms} />
         <div
           ref={contentContainerRef}
           className={`overflow-hidden sticky top-0 w-full flex flex-col items-center pt-${navBarSizeClass}`}
         >
-          <motion.div className="relative w-1/2 flex flex-col" style={transforms.initialContent}>
+          <motion.div className="relative w-1/2 flex flex-col" style={initialContentTransforms}>
             <motion.div
               ref={imageWrapperRef}
               className="w-full flex justify-center origin-center-top"
-              style={transforms.fadeInImage}
+              style={fadeInImageTransforms}
             >
               {fadeInImage}
             </motion.div>
-            <motion.div className="relative origin-center-top" style={transforms.sectionHeading}>
+            <motion.div className="relative origin-center-top" style={sectionHeadingTransforms}>
               <SectionHeading heading={contentTitle} />
             </motion.div>
           </motion.div>
-          <motion.div style={transforms.designAdvertisementHeader}>
+          <motion.div style={{}}>
             <DesignAdvertisementHeader targetCustomers={targetCustomers} />
           </motion.div>
-          <motion.div className="relative" style={transforms.mainContentCard}>
+          <motion.div className="relative" style={mainContentCardTransforms}>
             <MainContentCard mainContentDescription={mainContentDescription}>
               <IndexGradientBorderButtonLongArrow
                 theme="light"

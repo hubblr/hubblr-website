@@ -1,7 +1,6 @@
-import { useState, useRef, useLayoutEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 
-function useBoundingClientRect(givenRef) {
-  const ref = givenRef || useRef();
+function useBoundingClientRect(ref) {
   const [boundingClient, setBoundingClient] = useState();
   useLayoutEffect(() => {
     if (ref.current) {

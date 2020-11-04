@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
-import ScrollAnimatedElement from '../animatedElements/ScrollAnimatedElement';
+import ScrollAnimatedElement_OLD from '../animatedElements/ScrollAnimatedElement_OLD';
 import FullSizeSection from './FullSizeSection';
 import useScrollPercentages from '../hooks/scroll/useScrollPercentages';
 import { arrayOfLength2 } from '../../util/propTypes';
@@ -64,7 +64,7 @@ const MainSectionAnimated = forwardRef(
             <div className="relative h-full">
               {fullTransformInfos.map(({ wrappedElement, motionWrapperStyling, transforms }) => {
                 return (
-                  <ScrollAnimatedElement
+                  <ScrollAnimatedElement_OLD
                     // difficult to create unique string from object properties, so use this
                     key={uuidv4()}
                     wrappedElement={wrappedElement}

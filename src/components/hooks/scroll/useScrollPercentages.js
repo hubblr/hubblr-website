@@ -23,7 +23,7 @@ function useScrollPercentages(contentRef) {
     setScrollPercentageStart(contentScrollPercentageStart);
     setScrollPercentageEnd(contentScrollPercentageEnd);
     setScrollStep(contentScrollStep);
-  });
+  }, [contentRef]);
 
   return [scrollPercentageStart, scrollPercentageEnd, scrollStep];
 }
