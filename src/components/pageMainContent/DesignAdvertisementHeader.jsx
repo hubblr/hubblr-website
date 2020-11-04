@@ -7,6 +7,7 @@ import LongArrowImage from '../imageComponents/LongArrowImage';
 import useClientWidth from '../hooks/dimensions/useClientWidth';
 
 function DesignAdvertisementHeader({ className, targetCustomers }) {
+  // bugs here @fgreinus @lennartweihs
   const [containerWidth, containerRef] = useClientWidth();
   const [frontTextWidth, frontTextRef] = useClientWidth();
   const [growingDividerWidth, growingDividerRef] = useClientWidth();

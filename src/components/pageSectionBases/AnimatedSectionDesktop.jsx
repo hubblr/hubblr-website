@@ -2,7 +2,7 @@ import React, { forwardRef, useLayoutEffect, useRef, useState, useContext } from
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import SectionHeading from '../pageMainContent/SectionHeading';
-import DesignAdvertisementHeader from '../pageMainContent/DesignAdvertisementHeader';
+// import DesignAdvertisementHeader from '../pageMainContent/DesignAdvertisementHeader';
 import MainContentCard from '../pageMainContent/MainContentCard';
 import IndexGradientBorderButtonLongArrow from '../gradientBorderButtons/IndexGradientBorderButtonLongArrow';
 import createScrollBarForSection from '../sectionScrollBar/createScrollBarForSection';
@@ -64,7 +64,10 @@ const AnimatedSectionDesktop = forwardRef(
                 className="flex flex-col items-center mt-4"
                 style={transforms.mainContentCard}
               >
-                <DesignAdvertisementHeader className="mb-6" targetCustomers={targetCustomers} />
+                {
+                  /* <DesignAdvertisementHeader className="mb-6" targetCustomers={targetCustomers} /> */
+                  console.log(targetCustomers)
+                }
                 <MainContentCard mainContentDescription={mainContentDescription} className="mb-4" />
                 <div className="mb-4">
                   <IndexGradientBorderButtonLongArrow theme="light">
