@@ -1,6 +1,14 @@
 // See https://tailwindcss.com/docs/configuration for details
 module.exports = {
-  purge: ['./src/**/*.js'],
+  future: {
+    purgeLayersByDefault: true,
+    removeDeprecatedGapUtilities: true,
+  },
+  purge: {
+    content: [
+      './src/**/*.jsx',
+    ],
+  },
   theme: {
     extend: {
       flexGrow: {
