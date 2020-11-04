@@ -6,15 +6,16 @@ function useCreateTransformFromDescription(
   animationAreaStep,
   { inputPercentages, outputRange }
 ) {
-  // preparation
+  // infer input range from animation area dimensions
+  const usedStartY = Number.isNaN(animationAreaStartY) ? 0 : animationAreaStartY;
   const inputRange = useMemo(() => {
     return inputPercentages.map((percentage) => {
-      return animationAreaStartY + percentage * animationAreaStep;
+      return usedStartY + percentage * animationAreaStep;
     });
-  }, [animationAreaStartY, animationAreaStep, inputPercentages]);
-  const { scrollY } = useViewportScroll();
+  }, [animationAreaStep, inputPercentages, usedStartY]);
 
   // create the transforms
+  const { scrollY } = useViewportScroll();
   return useTransform(scrollY, inputRange, outputRange);
 }
 

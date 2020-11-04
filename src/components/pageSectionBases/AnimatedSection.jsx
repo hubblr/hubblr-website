@@ -1,68 +1,91 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useContext, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useViewportScroll, useTransform } from 'framer-motion';
-import { arrayOfLength2 } from '../../util/propTypes';
+import { motion } from 'framer-motion';
+import IndexPageContext from '../../context/IndexPageContext';
+import AnimationAreaContext from '../../context/AnimationAreaContext';
 import useYPositions from '../hooks/scroll/useYPositions';
-import allPropTypes from '../../util/allPropTypes';
+import useWindowSize from '../hooks/window/useWindowSize';
+import { TabletBreakpoint } from '../../util/helpers';
+import useFullScrollSectionHeight from '../hooks/scroll/useFullScrollSectionHeight';
+import SectionScrollBar from '../sectionScrollBar/SectionScrollBar';
+import HubblrPageLinks from '../links/HubblrPageLinks';
+import ArrowImageDownDouble from '../imageComponents/ArrowImageDownDouble';
 
-const AnimatedSection = forwardRef(({ children, height, animatedElements }, fullSectionRef) => {
-  const { scrollY } = useViewportScroll();
+const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) => {
+  // get navbar size from context to set padding-top over navbar
+  const { navBarSizeClass } = useContext(IndexPageContext);
 
-  const [animationAreaStartY, sectionEndY] = useYPositions(fullSectionRef);
-  const animationAreaEndY = sectionEndY - window.innerHeight;
-  const step = (animationAreaEndY - animationAreaStartY) / 100;
+  // check width of window
+  const [windowWidth] = useWindowSize();
+  const isLg = windowWidth > TabletBreakpoint;
 
-  // const t = useTransform(scrollY, inputRange, [0, 1]);
-  // const c = useTransform(scrollY, inputRange, ['#ff0000', '#ffffff']);
+  // find (step-) sizes for animation area and full area
+  const contentContainerRef = useRef();
+  const [animationAreaStartY] = useYPositions(fullSectionRef);
+  const { animationAreaHeight, animationAreaStep } = useMemo(() => {
+    let height;
+    if (isLg) {
+      height = 5000; // in px
+    } else {
+      height = 2000; // in px
+    }
+    return {
+      animationAreaHeight: height,
+      animationAreaStep: height / 100,
+    };
+  }, [isLg]);
+  const bufferRef = useRef();
+  const fullSectionHeight = useFullScrollSectionHeight(animationAreaHeight, [
+    contentContainerRef,
+    bufferRef,
+  ]);
 
-  animatedElements &&
-    animatedElements.forEach(({ ref, animations }) => {
-      animations.forEach(({ percentageBreakpoints, affectedProperties }) => {
-        const [animationStartPercent, animationEndPercent] = percentageBreakpoints;
-        const animationStart = animationAreaStartY + animationStartPercent * step;
-        const animationEnd = animationAreaEndY + animationEndPercent * step;
-        affectedProperties.forEach(({ prop, range }) => {
-          useTransform();
-        });
-      });
-    });
+  const [bufferStyles, setBufferStyles] = useState();
+  console.log(bufferStyles);
 
   return (
-    <div
-      ref={fullSectionRef}
-      style={{
-        height,
+    <AnimationAreaContext.Provider
+      value={{
+        animationAreaStartY,
+        animationAreaHeight,
+        animationAreaStep,
+        contentContainerRef,
+        setBufferStyles,
       }}
     >
-      {children}
-    </div>
+      <div
+        className="relative"
+        ref={fullSectionRef}
+        style={{
+          height: fullSectionHeight,
+        }}
+      >
+        <motion.div ref={bufferRef} style={bufferStyles} />
+        <div
+          ref={contentContainerRef}
+          className={`overflow-hidden sticky top-0 w-full flex flex-col items-center pt-${navBarSizeClass}`}
+        >
+          {children}
+        </div>
+        {isLg && (
+          <div className="absolute h-full inset-0">
+            <SectionScrollBar sectionType={sectionType} />
+          </div>
+        )}
+      </div>
+      {sectionType === 'last' && <HubblrPageLinks />}
+      {!isLg && sectionType !== 'last' && <ArrowImageDownDouble />}
+    </AnimationAreaContext.Provider>
   );
 });
 
 AnimatedSection.propTypes = {
   children: PropTypes.node.isRequired,
-  height: PropTypes.string.isRequired,
-  animatedElements: PropTypes.arrayOf(
-    PropTypes.shape({
-      ref: PropTypes.shape({ current: PropTypes.any }).isRequired,
-      animations: PropTypes.arrayOf(
-        PropTypes.shape({
-          percentageBreakpoints: allPropTypes(PropTypes.arrayOf(PropTypes.number), arrayOfLength2)
-            .isRequired,
-          affectedProperties: PropTypes.arrayOf(
-            PropTypes.shape({
-              prop: PropTypes.string,
-              range: arrayOfLength2,
-            })
-          ),
-        })
-      ).isRequired,
-    })
-  ),
+  sectionType: PropTypes.oneOf(['middle', 'last']),
 };
 
 AnimatedSection.defaultProps = {
-  animatedElements: null,
+  sectionType: 'middle',
 };
 
 export default AnimatedSection;

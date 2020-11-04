@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import HubblrMainContentSectionAnimated from './HubblrMainContentSectionAnimated';
-import SectionScrollBar from '../sectionScrollBar/SectionScrollBar';
+import SectionScrollBarBase from '../sectionScrollBar/SectionScrollBarBase';
 
 const HubblrLastContentSectionAnimated = React.forwardRef(
   ({ fadeInImage, contentTitle, mainContentDescription }, sectionRef) => {
     return (
       <HubblrMainContentSectionAnimated
         ref={sectionRef}
-        scrollBar={<SectionScrollBar upperFlexGrow={1} lowerFlexGrow={0} />}
+        scrollBar={<SectionScrollBarBase upperFlexGrow={1} lowerFlexGrow={0} />}
         fadeInImage={fadeInImage}
         contentTitle={contentTitle}
         mainContentDescription={mainContentDescription}

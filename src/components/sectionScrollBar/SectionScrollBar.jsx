@@ -1,54 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SectionScrollBarBase from './SectionScrollBarBase';
 
-import SectionScrollBarLine from './SectionScrollBarLine';
-import ArrowImageDownDouble from '../imageComponents/ArrowImageDownDouble';
-
-function SectionScrollBar({ upperFlexGrow, lowerFlexGrow, upperClassNames, lowerClassNames }) {
-  const arrowImages =
-    lowerFlexGrow || lowerClassNames ? (
-      <ArrowImageDownDouble widthClass="w-full" />
-    ) : (
-      <ArrowImageDownDouble widthClass="w-full" rotationDegree={180} />
-    );
-
+function SectionScrollBar({ sectionType }) {
+  let upperFlexGrow;
+  let lowerFlexGrow;
+  let lowerClassNames;
+  switch (sectionType) {
+    case 'last':
+      upperFlexGrow = 1;
+      lowerFlexGrow = 0;
+      lowerClassNames = '';
+      break;
+    case 'middle':
+    default:
+      upperFlexGrow = 1;
+      lowerFlexGrow = 0;
+      lowerClassNames = 'h-16';
+      break;
+  }
   return (
-    <div className="h-full flex flex-col items-center w-16 gap-6">
-      <div
-        className={upperClassNames}
-        style={{
-          flexGrow: upperFlexGrow,
-        }}
-      >
-        <SectionScrollBarLine />
-      </div>
-
-      {arrowImages}
-
-      <div
-        className={lowerClassNames}
-        style={{
-          flexGrow: lowerFlexGrow,
-        }}
-      >
-        <SectionScrollBarLine />
-      </div>
-    </div>
+    <SectionScrollBarBase
+      upperFlexGrow={upperFlexGrow}
+      lowerFlexGrow={lowerFlexGrow}
+      lowerClassNames={lowerClassNames}
+    />
   );
 }
 
 SectionScrollBar.propTypes = {
-  upperFlexGrow: PropTypes.number,
-  lowerFlexGrow: PropTypes.number,
-  upperClassNames: PropTypes.string,
-  lowerClassNames: PropTypes.string,
+  sectionType: PropTypes.oneOf(['middle', 'last']),
 };
 
 SectionScrollBar.defaultProps = {
-  upperFlexGrow: 0,
-  lowerFlexGrow: 0,
-  upperClassNames: '',
-  lowerClassNames: '',
+  sectionType: 'middle',
 };
 
 export default SectionScrollBar;

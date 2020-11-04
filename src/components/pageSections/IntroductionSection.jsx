@@ -1,7 +1,7 @@
 import React from 'react';
 import IntroductionSectionContent from './IntroductionSectionContent';
 import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
-import SectionScrollBar from '../sectionScrollBar/SectionScrollBar';
+import SectionScrollBarBase from '../sectionScrollBar/SectionScrollBarBase';
 import ArrowImageDownDouble from '../imageComponents/ArrowImageDownDouble';
 
 const IntroductionSection = React.forwardRef((props, contentRef) => {
@@ -25,7 +25,7 @@ const IntroductionSection = React.forwardRef((props, contentRef) => {
             </div>
           </div>
 
-          <SectionScrollBar upperFlexGrow={0} lowerFlexGrow={0} lowerClassNames="h-16" />
+          <SectionScrollBarBase upperFlexGrow={0} lowerFlexGrow={0} lowerClassNames="h-16" />
         </div>
       </DesktopQuery>
     </>

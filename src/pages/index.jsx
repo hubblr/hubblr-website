@@ -34,20 +34,19 @@ function IndexPage() {
     return () => {
       unscubscribeScroll();
     };
-  });
+  }, [introContentScrollEnd, scrollY]);
 
   // software lab section
   const softwareLabSectionRef = useRef();
   const [, softwareLabSectionEndY] = useYPositions(softwareLabSectionRef);
-  const softwareLabContentContainerRef = useRef();
   // consulting section
   const consultingSectionRef = useRef();
   const [, consultingSectionEndY] = useYPositions(consultingSectionRef);
-  const consultingContentContainerRef = useRef();
   // ventures section
   const venturesSectionRef = useRef();
   const [, venturesSectionEndY] = useYPositions(venturesSectionRef);
-  const venturesContentContainerRef = useRef();
+
+  // build info for each section
   const softwareLabInfo = {
     ref: softwareLabSectionRef,
     endY: Math.floor(softwareLabSectionEndY - windowHeight - 1),
@@ -104,7 +103,7 @@ function IndexPage() {
     return () => {
       unsubscribeY();
     };
-  });
+  }, [location, orderLen, revOrder, scrollY]);
 
   return (
     <IndexPageContext.Provider
@@ -114,24 +113,9 @@ function IndexPage() {
     >
       <IndexLayout>
         <IntroductionSection ref={introContentRef} />
-        <SoftwareLaboratorySection
-          ref={{
-            fullSectionRef: softwareLabSectionRef,
-            contentContainerRef: softwareLabContentContainerRef,
-          }}
-        />
-        <ConsultingSection
-          ref={{
-            fullSectionRef: consultingSectionRef,
-            contentContainerRef: consultingContentContainerRef,
-          }}
-        />
-        <VenturesSection
-          ref={{
-            fullSectionRef: venturesSectionRef,
-            contentContainerRef: venturesContentContainerRef,
-          }}
-        />
+        <SoftwareLaboratorySection ref={softwareLabSectionRef} />
+        <ConsultingSection ref={consultingSectionRef} />
+        <VenturesSection ref={venturesSectionRef} />
       </IndexLayout>
       <NavBarTop className={`${showNavBar ? '' : 'hidden'}`} />
     </IndexPageContext.Provider>

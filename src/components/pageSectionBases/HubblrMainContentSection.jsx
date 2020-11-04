@@ -1,38 +1,38 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import AnimatedSectionDesktop from './AnimatedSectionDesktop';
-import AnimatedSectionMobile from './AnimatedSectionMobile';
-import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
+// import AnimatedSectionMobile from './AnimatedSectionMobile';
+import { DesktopQuery, MobileAndTabletQuery } from '../../util/helpers';
+import AnimatedSection from './AnimatedSection';
+import AnimatedSectionContentDesktop from './AnimatedSectionContentDesktop';
+import AnimatedSectionContentMobile from './AnimatedSectionContentMobile';
 
 const HubblrMainContentSection = forwardRef(
   (
     { sectionType, fadeInImage, contentTitle, targetCustomers, mainContentDescription, navigation },
-    ref
+    fullSectionRef
   ) => {
     return (
       <div className="px-2 md:px-12">
-        <DesktopQuery>
-          <AnimatedSectionDesktop
-            sectionType={sectionType}
-            ref={ref}
-            fadeInImage={fadeInImage}
-            contentTitle={contentTitle}
-            targetCustomers={targetCustomers}
-            mainContentDescription={mainContentDescription}
-            navigation={navigation}
-          />
-        </DesktopQuery>
-        <MobileAndTabletQuery>
-          <AnimatedSectionMobile
-            sectionType={sectionType}
-            ref={ref}
-            navigation={navigation}
-            fadeInImage={fadeInImage}
-            mainContentDescription={mainContentDescription}
-            contentTitle={contentTitle}
-            targetCustomers={targetCustomers}
-          />
-        </MobileAndTabletQuery>
+        <AnimatedSection ref={fullSectionRef} sectionType={sectionType}>
+          <DesktopQuery>
+            <AnimatedSectionContentDesktop
+              fadeInImage={fadeInImage}
+              contentTitle={contentTitle}
+              targetCustomers={targetCustomers}
+              mainContentDescription={mainContentDescription}
+              navigation={navigation}
+            />
+          </DesktopQuery>
+          <MobileAndTabletQuery>
+            <AnimatedSectionContentMobile
+              fadeInImage={fadeInImage}
+              contentTitle={contentTitle}
+              targetCustomers={targetCustomers}
+              mainContentDescription={mainContentDescription}
+              navigation={navigation}
+            />
+          </MobileAndTabletQuery>
+        </AnimatedSection>
       </div>
     );
   }
