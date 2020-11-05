@@ -22,12 +22,8 @@ const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) =
   const contentContainerRef = useRef();
   const [animationAreaStartY] = useYPositions(fullSectionRef);
   const { animationAreaHeight, animationAreaStep } = useMemo(() => {
-    let height;
-    if (isLg) {
-      height = 5000; // in px
-    } else {
-      height = 2000; // in px
-    }
+    const height = 2000; // in px
+
     return {
       animationAreaHeight: height,
       animationAreaStep: height / 100,
@@ -54,7 +50,7 @@ const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) =
         >
           <div
             ref={contentContainerRef}
-            className={`overflow-hidden sticky top-0 z-10 w-full flex flex-col items-center pt-${navBarSizeClass}`}
+            className={`sticky top-0 z-10 w-full flex flex-col items-center pt-${navBarSizeClass}`}
           >
             {children}
             {!isLg && sectionType !== 'last' && <ArrowImageDownDouble />}
