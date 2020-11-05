@@ -13,7 +13,7 @@ function PageLinkItem({ children, notificationNumber }) {
   return (
     <DefaultLink>
       <div className="flex items-center gap-1">
-        <div className="underline text-lg">{children}</div>
+        <div className="underline text-xl">{children}</div>
         {notificationDiv}
       </div>
     </DefaultLink>

@@ -6,9 +6,9 @@ import ArrowImageDownDouble from '../imageComponents/ArrowImageDownDouble';
 
 const IntroductionSection = React.forwardRef((props, contentRef) => {
   return (
-    <>
+    <div className="container mx-auto">
       <MobileAndTabletQuery>
-        <div className="flex flex-col justify-between w-full h-screen px-10 pt-20">
+        <div className="flex flex-col justify-between h-screen">
           <div ref={contentRef}>
             <IntroductionSectionContent />
           </div>
@@ -18,7 +18,7 @@ const IntroductionSection = React.forwardRef((props, contentRef) => {
         </div>
       </MobileAndTabletQuery>
       <DesktopQuery>
-        <div className="flex flex-col min-h-screen w-full px-12 pt-20">
+        <div className="flex flex-col min-h-screen">
           <div className="flex flex-col justify-center flex-grow">
             <div>
               <IntroductionSectionContent />
@@ -28,7 +28,7 @@ const IntroductionSection = React.forwardRef((props, contentRef) => {
           <SectionScrollBarBase upperFlexGrow={0} lowerFlexGrow={0} lowerClassNames="h-16" />
         </div>
       </DesktopQuery>
-    </>
+    </div>
   );
 });
 

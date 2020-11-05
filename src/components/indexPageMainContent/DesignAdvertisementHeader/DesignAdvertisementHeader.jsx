@@ -2,9 +2,9 @@ import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import DesignAdvertisementHeaderPill from './DesignAdvertisementHeaderPill';
 import DesignAdvertisementHeaderDivider from './DesignAdvertisementHeaderDivider';
-import { MobileAndTabletQuery } from '../../util/helpers';
-import LongArrowImage from '../imageComponents/LongArrowImage';
-import useClientWidth from '../hooks/dimensions/useClientWidth';
+import { MobileAndTabletQuery } from '../../../util/helpers';
+import LongArrowImage from '../../imageComponents/LongArrowImage';
+import useClientWidth from '../../hooks/dimensions/useClientWidth';
 
 function DesignAdvertisementHeader({ className, targetCustomers }) {
   const containerRef = useRef();

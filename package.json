@@ -33,6 +33,7 @@
     "react-autosize-textarea": "^7.1.0",
     "react-dom": "16.13.1",
     "react-helmet": "6.1.0",
+    "react-intl": "^5.8.9",
     "react-responsive": "^8.1.0",
     "sass": "^1.28.0",
     "uuid": "^8.3.1",

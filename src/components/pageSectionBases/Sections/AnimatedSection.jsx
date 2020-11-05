@@ -1,14 +1,14 @@
-import React, { forwardRef, useContext, useMemo, useRef, useState } from 'react';
+import React, { forwardRef, useContext, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
-import IndexPageContext from '../../context/IndexPageContext';
-import AnimationAreaContext from '../../context/AnimationAreaContext';
-import useYPositions from '../hooks/scroll/useYPositions';
-import useWindowSize from '../hooks/window/useWindowSize';
-import { TabletBreakpoint } from '../../util/helpers';
-import useFullScrollSectionHeight from '../hooks/scroll/useFullScrollSectionHeight';
-import SectionScrollBar from '../sectionScrollBar/SectionScrollBar';
-import HubblrPageLinks from '../links/HubblrPageLinks';
-import ArrowImageDownDouble from '../imageComponents/ArrowImageDownDouble';
+import IndexPageContext from '../../../context/IndexPageContext';
+import AnimationAreaContext from '../../../context/AnimationAreaContext';
+import useYPositions from '../../hooks/scroll/useYPositions';
+import useWindowSize from '../../hooks/window/useWindowSize';
+import { TabletBreakpoint } from '../../../util/helpers';
+import useFullScrollSectionHeight from '../../hooks/scroll/useFullScrollSectionHeight';
+import SectionScrollBar from '../../sectionScrollBar/SectionScrollBar';
+import HubblrPageLinks from '../../links/HubblrPageLinks';
+import ArrowImageDownDouble from '../../imageComponents/ArrowImageDownDouble';
 
 const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) => {
   // get navbar size from context to set padding-top over navbar
@@ -35,8 +35,6 @@ const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) =
   }, [isLg]);
   const fullSectionHeight = useFullScrollSectionHeight(animationAreaHeight, [contentContainerRef]);
 
-  const [, setBufferStyles] = useState();
-
   return (
     <AnimationAreaContext.Provider
       value={{
@@ -44,30 +42,35 @@ const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) =
         animationAreaHeight,
         animationAreaStep,
         contentContainerRef,
-        setBufferStyles,
       }}
     >
-      <div
-        className="relative"
-        ref={fullSectionRef}
-        style={{
-          height: fullSectionHeight,
-        }}
-      >
+      <div className="container mx-auto">
         <div
-          ref={contentContainerRef}
-          className={`overflow-hidden sticky top-0 w-full flex flex-col items-center pt-${navBarSizeClass}`}
+          className="relative"
+          ref={fullSectionRef}
+          style={{
+            height: fullSectionHeight,
+          }}
         >
-          {children}
+          <div
+            ref={contentContainerRef}
+            className={`overflow-hidden sticky top-0 z-10 w-full flex flex-col items-center pt-${navBarSizeClass}`}
+          >
+            {children}
+            {!isLg && sectionType !== 'last' && <ArrowImageDownDouble />}
+          </div>
+          {isLg && (
+            <div className="absolute h-full inset-0">
+              <SectionScrollBar sectionType={sectionType} />
+            </div>
+          )}
         </div>
-        {isLg && (
-          <div className="absolute h-full inset-0">
-            <SectionScrollBar sectionType={sectionType} />
+        {sectionType === 'last' && (
+          <div className="mt-4">
+            <HubblrPageLinks />
           </div>
         )}
       </div>
-      {sectionType === 'last' && <HubblrPageLinks />}
-      {!isLg && sectionType !== 'last' && <ArrowImageDownDouble />}
     </AnimationAreaContext.Provider>
   );
 });

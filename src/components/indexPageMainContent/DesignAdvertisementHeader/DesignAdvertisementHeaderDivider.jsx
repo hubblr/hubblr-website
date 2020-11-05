@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import useClientWidth from '../hooks/dimensions/useClientWidth';
+import useClientWidth from '../../hooks/dimensions/useClientWidth';
 
 function DesignAdvertisementHeaderDivider({ className, setWidth }) {
   const dividerRef = useRef();

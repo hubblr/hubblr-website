@@ -1,7 +1,7 @@
 import React, { useState, useLayoutEffect, useEffect, useRef } from 'react';
 import { useLocation } from '@reach/router';
 import { useViewportScroll } from 'framer-motion';
-import IndexLayout from '../components/pageLayouts/IndexLayout';
+import Layout from '../components/pageLayouts/Layout';
 import IntroductionSection from '../components/pageSections/IntroductionSection';
 import SoftwareLaboratorySection from '../components/pageSections/SoftwareLaboratorySection';
 import ConsultingSection from '../components/pageSections/ConsultingSection';
@@ -10,6 +10,7 @@ import NavBarTop from '../components/navBar/NavBarTop';
 import useYPositions from '../components/hooks/scroll/useYPositions';
 import useWindowSize from '../components/hooks/window/useWindowSize';
 import IndexPageContext from '../context/IndexPageContext';
+import useClientWidth from '../components/hooks/dimensions/useClientWidth';
 
 function getSectionAnimationEnd(sectionRef) {
   const height = sectionRef.current.clientHeight;
@@ -24,8 +25,8 @@ function IndexPage() {
   const { scrollY } = useViewportScroll();
 
   // decide when to show navbar
-  const introContentRef = useRef();
   const [showNavBar, setShowNavbar] = useState(false);
+  const introContentRef = useRef();
   const [, introContentScrollEnd] = useYPositions(introContentRef);
   useEffect(() => {
     const unscubscribeScroll = scrollY.onChange((y) => {
@@ -35,6 +36,9 @@ function IndexPage() {
       unscubscribeScroll();
     };
   }, [introContentScrollEnd, scrollY]);
+  // get width of navbar parent to size fixed positioned navbar
+  const sectionContainerRef = useRef();
+  const sectionContainerWidth = useClientWidth(sectionContainerRef);
 
   // software lab section
   const softwareLabSectionRef = useRef();
@@ -105,19 +109,27 @@ function IndexPage() {
     };
   }, [location, orderLen, revOrder, scrollY]);
 
+  const navBarSizeClass = '20'; // refers to the tailwind class
   return (
     <IndexPageContext.Provider
       value={{
-        navBarSizeClass: '20', // refers to the tailwind class
+        navBarSizeClass, // refers to the tailwind class
       }}
     >
-      <IndexLayout>
-        <IntroductionSection ref={introContentRef} />
-        <SoftwareLaboratorySection ref={softwareLabSectionRef} />
-        <ConsultingSection ref={consultingSectionRef} />
-        <VenturesSection ref={venturesSectionRef} />
-      </IndexLayout>
-      <NavBarTop className={`${showNavBar ? '' : 'hidden'}`} />
+      <Layout>
+        <div ref={sectionContainerRef}>
+          <div
+            className={`fixed top-0 h-${navBarSizeClass} z-40 ${showNavBar ? '' : 'hidden'}`}
+            style={{ width: sectionContainerWidth }}
+          >
+            <NavBarTop />
+          </div>
+          <IntroductionSection ref={introContentRef} />
+          <SoftwareLaboratorySection ref={softwareLabSectionRef} />
+          <ConsultingSection ref={consultingSectionRef} />
+          <VenturesSection ref={venturesSectionRef} />
+        </div>
+      </Layout>
     </IndexPageContext.Provider>
   );
 }
