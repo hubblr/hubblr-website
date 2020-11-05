@@ -13,7 +13,7 @@ function SectionScrollBarBase({ upperFlexGrow, lowerFlexGrow, upperClassNames, l
     );
 
   return (
-    <div className="h-full flex flex-col items-center w-16 gap-6">
+    <div className="h-full flex flex-col items-center w-10 gap-6">
       <div
         className={upperClassNames}
         style={{

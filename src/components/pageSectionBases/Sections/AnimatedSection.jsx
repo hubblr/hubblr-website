@@ -22,12 +22,8 @@ const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) =
   const contentContainerRef = useRef();
   const [animationAreaStartY] = useYPositions(fullSectionRef);
   const { animationAreaHeight, animationAreaStep } = useMemo(() => {
-    let height;
-    if (isLg) {
-      height = 5000; // in px
-    } else {
-      height = 2000; // in px
-    }
+    const height = 2000; // in px
+
     return {
       animationAreaHeight: height,
       animationAreaStep: height / 100,
