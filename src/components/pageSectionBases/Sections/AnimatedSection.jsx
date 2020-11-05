@@ -50,7 +50,7 @@ const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) =
         >
           <div
             ref={contentContainerRef}
-            className={`overflow-hidden sticky top-0 z-10 w-full flex flex-col items-center pt-${navBarSizeClass}`}
+            className={`sticky top-0 z-10 w-full flex flex-col items-center pt-${navBarSizeClass}`}
           >
             {children}
             {!isLg && sectionType !== 'last' && <ArrowImageDownDouble />}

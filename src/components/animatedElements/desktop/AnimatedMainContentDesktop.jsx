@@ -4,17 +4,30 @@ import { motion } from 'framer-motion';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import DesignAdvertisementHeader from '../../indexPageMainContent/DesignAdvertisementHeader/DesignAdvertisementHeader';
 import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTransformFromDescription';
+import usePaddingTop from '../../hooks/styleQueries/usePaddingTop';
+import useWindowSize from '../../hooks/window/useWindowSize';
 
 const transforms = {
   opacity: {
     inputPercentages: [50, 95],
     outputRange: [0, 1],
   },
+  y: {
+    inputPercentages: [51, 95],
+    // output range is calculated by component
+  },
 };
 
 function AnimatedMainContentDesktop({ children, targetCustomers }) {
   // get required values from context
-  const { animationAreaStartY, animationAreaStep } = useContext(AnimationAreaContext);
+  const { animationAreaStartY, animationAreaStep, contentContainerRef } = useContext(
+    AnimationAreaContext
+  );
+
+  const [, windowHeight] = useWindowSize();
+  const paddingTop = usePaddingTop(contentContainerRef);
+  const usedScreenHeight = windowHeight - paddingTop;
+  transforms.y.outputRange = [`${usedScreenHeight / 2}px`, '0px'];
 
   // create transforms based on transform description
   const mainContentCardStyle = {
@@ -23,6 +36,7 @@ function AnimatedMainContentDesktop({ children, targetCustomers }) {
       animationAreaStep,
       transforms.opacity
     ),
+    y: useCreateTransformFromDescription(animationAreaStartY, animationAreaStep, transforms.y),
   };
 
   return (
