@@ -127,8 +127,8 @@ function IndexPage() {
       </Layout>
       <div className="">
         <div
-          className={`fixed w-full navbar-background-blur top-0 h-${navBarSizeClass} z-40 ${
-            showNavBar ? '' : 'hidden'
+          className={`fixed w-full navbar-background-blur animate top-0 h-${navBarSizeClass} z-40 ${
+            showNavBar ? 'opacity-100' : 'invisible opacity-0'
           }`}
         >
           <NavBarTop contentWidth={sectionContainerWidth} />

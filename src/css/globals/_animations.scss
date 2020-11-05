@@ -1,0 +1,7 @@
+@mixin animate($what: all, $how: ease-out) {
+  transition: $what 0.2s $how;
+}
+
+.animate {
+  @include animate;
+}

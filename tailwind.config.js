@@ -5,9 +5,7 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
   },
   purge: {
-    content: [
-      './src/**/*.jsx',
-    ],
+    content: ['./src/**/*.jsx'],
   },
   theme: {
     extend: {
@@ -47,6 +45,9 @@ module.exports = {
       zIndex: {
         '-10': '-10',
         '-5': '-5',
+      },
+      colors: {
+        'brand-teal-light': '#44CED8',
       },
     },
   },
