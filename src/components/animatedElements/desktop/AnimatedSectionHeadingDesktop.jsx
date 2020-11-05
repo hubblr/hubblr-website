@@ -10,11 +10,11 @@ import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTrans
 
 const transforms = {
   opacity: {
-    inputPercentages: [0, 50],
+    inputPercentages: [20, 50],
     outputRange: [0, 1],
   },
   scale: {
-    inputPercentages: [50, 90],
+    inputPercentages: [20, 90],
     outputRange: [1.5, 1],
   },
   y: {
