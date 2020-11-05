@@ -38,6 +38,7 @@ function IndexPage() {
   }, [introContentScrollEnd, scrollY]);
   // get width of navbar parent to size fixed positioned navbar
   const sectionContainerRef = useRef();
+  // eslint-disable-next-line no-unused-vars
   const sectionContainerWidth = useClientWidth(sectionContainerRef);
 
   // software lab section
@@ -118,18 +119,21 @@ function IndexPage() {
     >
       <Layout>
         <div ref={sectionContainerRef}>
-          <div
-            className={`fixed top-0 h-${navBarSizeClass} z-40 ${showNavBar ? '' : 'hidden'}`}
-            style={{ width: sectionContainerWidth }}
-          >
-            <NavBarTop />
-          </div>
           <IntroductionSection ref={introContentRef} />
           <SoftwareLaboratorySection ref={softwareLabSectionRef} />
           <ConsultingSection ref={consultingSectionRef} />
           <VenturesSection ref={venturesSectionRef} />
         </div>
       </Layout>
+      <div className="">
+        <div
+          className={`fixed w-full navbar-background-blur top-0 h-${navBarSizeClass} z-40 ${
+            showNavBar ? '' : 'hidden'
+          }`}
+        >
+          <NavBarTop contentWidth={sectionContainerWidth} />
+        </div>
+      </div>
     </IndexPageContext.Provider>
   );
 }

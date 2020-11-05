@@ -33,7 +33,7 @@ const transforms = {
   },
 };
 
-function AnimatedInitialContentMobile({ fadeInImage, contentTitle }) {
+function AnimatedInitialContentMobile({ className, fadeInImage, contentTitle }) {
   // get required values from context
   const { animationAreaStartY, animationAreaStep, contentContainerRef } = useContext(
     AnimationAreaContext
@@ -88,7 +88,10 @@ function AnimatedInitialContentMobile({ fadeInImage, contentTitle }) {
   sectionHeadingStyles.marginTop = `-${sectionHeadingMarginTop}px`;
 
   return (
-    <motion.div className="relative w-1/2 flex flex-col" style={initialContentStyles}>
+    <motion.div
+      className={`relative w-1/2 flex flex-col ${className}`}
+      style={initialContentStyles}
+    >
       <motion.div
         ref={imageWrapperRef}
         className="w-full flex justify-center origin-center-top"
@@ -104,8 +107,13 @@ function AnimatedInitialContentMobile({ fadeInImage, contentTitle }) {
 }
 
 AnimatedInitialContentMobile.propTypes = {
+  className: PropTypes.string,
   fadeInImage: PropTypes.element.isRequired,
   contentTitle: PropTypes.string.isRequired,
+};
+
+AnimatedInitialContentMobile.defaultProps = {
+  className: '',
 };
 
 export default AnimatedInitialContentMobile;

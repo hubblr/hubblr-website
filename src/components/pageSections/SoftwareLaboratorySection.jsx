@@ -39,7 +39,11 @@ const SoftwareLaboratorySection = React.forwardRef((props, ref) => {
               title="Hosting & Support"
             />
           </MainContentGrid>
-          <IndexGradientBorderButtonLongArrow theme="light">
+          <IndexGradientBorderButtonLongArrow
+            theme="light"
+            widthClass="w-full"
+            addedFlexClasses="justify-center"
+          >
             Zum Laboratory
           </IndexGradientBorderButtonLongArrow>
         </MainContentCard>

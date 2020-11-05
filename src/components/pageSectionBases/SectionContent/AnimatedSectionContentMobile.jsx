@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
-import DesignAdvertisementHeader from '../../indexPageMainContent/DesignAdvertisementHeader/DesignAdvertisementHeader';
 import AnimatedInitialContentMobile from '../../animatedElements/mobile/AnimatedInitialContentMobile';
+import AnimatedDesignAdvertisementHeaderMobile from '../../animatedElements/mobile/AnimatedDesignAdvertisementHeaderMobile';
 import AnimatedMainContentMobile from '../../animatedElements/mobile/AnimatedMainContentMobile';
 
 function AnimatedSectionContentMobile({ children, fadeInImage, contentTitle, targetCustomers }) {
   return (
     <>
-      <AnimatedInitialContentMobile fadeInImage={fadeInImage} contentTitle={contentTitle} />
-      <motion.div style={{}}>
-        <DesignAdvertisementHeader targetCustomers={targetCustomers} />
-      </motion.div>
+      <AnimatedInitialContentMobile
+        className="pb-1"
+        fadeInImage={fadeInImage}
+        contentTitle={contentTitle}
+      />
+      <AnimatedDesignAdvertisementHeaderMobile targetCustomers={targetCustomers} />
       <AnimatedMainContentMobile>{children}</AnimatedMainContentMobile>
     </>
   );

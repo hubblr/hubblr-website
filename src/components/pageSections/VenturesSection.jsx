@@ -40,7 +40,11 @@ const VenturesSection = React.forwardRef((props, ref) => {
               title="Starke Partner für die Zukunft"
             />
           </MainContentGrid>
-          <IndexGradientBorderButtonLongArrow theme="light">
+          <IndexGradientBorderButtonLongArrow
+            theme="light"
+            widthClass="w-full"
+            addedFlexClasses="justify-center"
+          >
             Jetzt kontaktieren
           </IndexGradientBorderButtonLongArrow>
         </MainContentCard>
