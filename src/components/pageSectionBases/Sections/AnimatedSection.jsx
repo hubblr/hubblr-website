@@ -58,13 +58,13 @@ const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) =
       >
         <div
           ref={contentContainerRef}
-          className="sticky overflow-hidden top-0 z-10 w-full flex flex-col items-center"
+          className="sticky overflow-hidden top-0 z-10 w-full"
           style={{
             paddingTop: `${navBarHeight}px`,
           }}
         >
           <div
-            className="h-px" // to give container an explicit height
+            className="flex flex-col items-center" // to give container an explicit height
             style={{
               minHeight: `calc(100vh - ${navBarHeight}px)`,
             }}
