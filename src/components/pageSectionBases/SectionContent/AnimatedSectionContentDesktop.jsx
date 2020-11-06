@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AnimatedSectionHeadingDesktop from '../../animatedElements/desktop/AnimatedSectionHeadingDesktop';
-import AnimatedImageContentDesktop from '../../animatedElements/desktop/AnimatedImageContentDesktop';
-import AnimatedMainContentDesktop from '../../animatedElements/desktop/AnimatedMainContentDesktop';
+import AnimatedSectionHeadingDesktop from '../../animated-elements/section-heading/AnimatedSectionHeadingDesktop';
+import AnimatedImageContentDesktop from '../../animated-elements/image-content/AnimatedImageContentDesktop';
+import AnimatedMainContentDesktop from '../../animated-elements/main-content/AnimatedMainContentDesktop';
 
 function AnimatedSectionContentDesktop({ children, contentTitle, targetCustomers, fadeInImage }) {
   return (
