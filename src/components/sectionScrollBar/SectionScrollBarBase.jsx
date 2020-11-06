@@ -20,7 +20,9 @@ function SectionScrollBarBase({ upperFlexGrow, lowerFlexGrow, upperClassNames, l
           flexGrow: upperFlexGrow,
         }}
       >
-        <SectionScrollBarLine />
+        <SectionScrollBarLine
+          gradientColors={['white', 'yellow', 'orange', 'red', 'magenta', 'white']}
+        />
       </div>
 
       {arrowImages}
@@ -31,7 +33,7 @@ function SectionScrollBarBase({ upperFlexGrow, lowerFlexGrow, upperClassNames, l
           flexGrow: lowerFlexGrow,
         }}
       >
-        <SectionScrollBarLine />
+        <SectionScrollBarLine gradientColors="white" />
       </div>
     </div>
   );

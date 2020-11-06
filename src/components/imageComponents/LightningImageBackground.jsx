@@ -1,15 +1,15 @@
 import React from 'react';
-import LightningImage from './LightningImage';
+import AnimatedLightningImage from '../animated-elements/lightning-image/AnimatedLightningImage';
 import { DesktopQuery, MobileAndTabletQuery } from '../../util/helpers';
 
 function LightningImageBackground() {
   return (
     <>
       <MobileAndTabletQuery>
-        <LightningImage className="w-1/3" />
+        <AnimatedLightningImage className="w-1/3" />
       </MobileAndTabletQuery>
       <DesktopQuery>
-        <LightningImage className="h-1/2" />
+        <AnimatedLightningImage className="h-1/2" />
       </DesktopQuery>
     </>
   );
