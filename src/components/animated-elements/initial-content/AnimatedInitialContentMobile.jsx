@@ -89,10 +89,7 @@ function AnimatedInitialContentMobile({ className, fadeInImage, contentTitle }) 
   sectionHeadingStyles.marginTop = `-${sectionHeadingMarginTop}px`;
 
   return (
-    <motion.div
-      className={`relative w-1/2 flex flex-col ${className}`}
-      style={initialContentStyles}
-    >
+    <motion.div className={`relative flex flex-col ${className}`} style={initialContentStyles}>
       <motion.div
         ref={imageWrapperRef}
         className="w-full flex justify-center origin-center-top"
@@ -100,7 +97,7 @@ function AnimatedInitialContentMobile({ className, fadeInImage, contentTitle }) 
       >
         {fadeInImage}
       </motion.div>
-      <motion.div className="relative origin-center-top" style={sectionHeadingStyles}>
+      <motion.div className="relative z-10 origin-center-top" style={sectionHeadingStyles}>
         <SectionHeading heading={contentTitle} />
       </motion.div>
     </motion.div>
