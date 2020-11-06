@@ -15,6 +15,10 @@ const transforms = {
     inputPercentages: [51, 95],
     // output range is calculated by component
   },
+  scale: {
+    inputPercentages: [51, 75],
+    outputRange: [1.1, 1],
+  },
 };
 
 function AnimatedMainContentMobile({ children }) {
@@ -37,6 +41,11 @@ function AnimatedMainContentMobile({ children }) {
       transforms.opacity
     ),
     y: useCreateTransformFromDescription(animationAreaStartY, animationAreaStep, transforms.y),
+    scale: useCreateTransformFromDescription(
+      animationAreaStartY,
+      animationAreaStep,
+      transforms.scale
+    ),
   };
 
   return (
