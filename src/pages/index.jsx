@@ -11,6 +11,8 @@ import useYPositions from '../components/hooks/scroll/useYPositions';
 import useWindowSize from '../components/hooks/window/useWindowSize';
 import IndexPageContext from '../context/IndexPageContext';
 import useClientWidth from '../components/hooks/dimensions/useClientWidth';
+import IntroductionSectionContent from '../components/pageSections/IntroductionSectionContent';
+import useOffsetHeight from '../components/hooks/dimensions/useOffsetHeight';
 
 function getSectionAnimationEnd(sectionRef) {
   const height = sectionRef.current.clientHeight;
@@ -40,6 +42,9 @@ function IndexPage() {
   const sectionContainerRef = useRef();
   // eslint-disable-next-line no-unused-vars
   const sectionContainerWidth = useClientWidth(sectionContainerRef);
+  // get size of navbar
+  const navBarRef = useRef();
+  const navBarHeight = useOffsetHeight(navBarRef);
 
   // software lab section
   const softwareLabSectionRef = useRef();
@@ -114,12 +119,14 @@ function IndexPage() {
   return (
     <IndexPageContext.Provider
       value={{
-        navBarSizeClass, // refers to the tailwind class
+        navBarHeight, // refers to the tailwind class
       }}
     >
       <Layout>
         <div ref={sectionContainerRef}>
-          <IntroductionSection ref={introContentRef} />
+          <IntroductionSection>
+            <IntroductionSectionContent ref={introContentRef} />
+          </IntroductionSection>
           <SoftwareLaboratorySection ref={softwareLabSectionRef} />
           <ConsultingSection ref={consultingSectionRef} />
           <VenturesSection ref={venturesSectionRef} />
@@ -127,6 +134,7 @@ function IndexPage() {
       </Layout>
       <div className="">
         <div
+          ref={navBarRef}
           className={`fixed w-full navbar-background-blur animate top-0 h-${navBarSizeClass} z-40 ${
             showNavBar ? 'opacity-100' : 'invisible opacity-0'
           }`}

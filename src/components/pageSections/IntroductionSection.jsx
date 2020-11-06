@@ -1,18 +1,16 @@
 import React from 'react';
-import IntroductionSectionContent from './IntroductionSectionContent';
+import PropTypes from 'prop-types';
 import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
 import SectionScrollBarBase from '../sectionScrollBar/SectionScrollBarBase';
 import ArrowImageDownDouble from '../imageComponents/ArrowImageDownDouble';
 
-const IntroductionSection = React.forwardRef((props, contentRef) => {
+function IntroductionSection({ children }) {
   return (
-    <div>
+    <>
       <MobileAndTabletQuery>
         <div className="h-screen pt-20 pb-5">
           <div className="flex flex-col justify-between h-full">
-            <div ref={contentRef}>
-              <IntroductionSectionContent />
-            </div>
+            {children}
             <div className="w-full flex justify-center">
               <ArrowImageDownDouble />
             </div>
@@ -21,19 +19,16 @@ const IntroductionSection = React.forwardRef((props, contentRef) => {
       </MobileAndTabletQuery>
       <DesktopQuery>
         <div className="flex flex-col min-h-screen">
-          <div className="flex flex-col justify-center flex-grow">
-            <div>
-              <IntroductionSectionContent />
-            </div>
-          </div>
-
+          <div className="flex flex-col justify-center flex-grow">{children}</div>
           <SectionScrollBarBase upperFlexGrow={0} lowerFlexGrow={0} lowerClassNames="h-16" />
         </div>
       </DesktopQuery>
-    </div>
+    </>
   );
-});
+}
 
-IntroductionSection.displayName = 'IntroductionSection';
+IntroductionSection.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default IntroductionSection;

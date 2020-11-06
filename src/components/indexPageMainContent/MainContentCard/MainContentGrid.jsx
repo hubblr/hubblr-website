@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 function MainContentGrid({ children, className, maxNumberCols }) {
   const nrColumns =
-    maxNumberCols && children.length > maxNumberCols ? children.length : maxNumberCols;
+    maxNumberCols && children.length > maxNumberCols ? maxNumberCols : children.length;
   return (
     <div
-      className={`xl:grid xl:gap-x-10 xl:gap-y-3 ${className}`}
+      className={`xl:grid xl:gap-x-10 xl:gap-y-2 ${className}`}
       style={{
         gridTemplateColumns: `repeat(${nrColumns}, minmax(0, 1fr))`,
       }}

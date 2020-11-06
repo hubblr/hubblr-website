@@ -16,11 +16,12 @@ import ArrowImageDownDouble from '../../imageComponents/ArrowImageDownDouble';
  * of the scaled section title). This could break things in the future/ with a different
  * order of elements. This is hard to fix, however, as adding overflow properties to any
  * parent container breaks 'position: sticky' which the content container heavily relies on.
+ * We also cannot just hide overflow-x because that adds a vertical scrollbar ...
  */
 
 const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) => {
   // get navbar size from context to set padding-top over navbar
-  const { navBarSizeClass } = useContext(IndexPageContext);
+  const { navBarHeight } = useContext(IndexPageContext);
 
   // check width of window
   const [windowWidth] = useWindowSize();
@@ -57,10 +58,20 @@ const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) =
       >
         <div
           ref={contentContainerRef}
-          className={`sticky overflow-hidden top-0 z-10 w-full flex flex-col items-center pt-${navBarSizeClass}`}
+          className="sticky overflow-hidden top-0 z-10 w-full flex flex-col items-center"
+          style={{
+            paddingTop: `${navBarHeight}px`,
+          }}
         >
-          {children}
-          {!isLg && sectionType !== 'last' && <ArrowImageDownDouble />}
+          <div
+            className="h-px" // to give container an explicit height
+            style={{
+              minHeight: `calc(100vh - ${navBarHeight}px)`,
+            }}
+          >
+            {children}
+            {!isLg && sectionType !== 'last' && <ArrowImageDownDouble />}
+          </div>
         </div>
         {isLg && (
           <div className="absolute h-full inset-0">

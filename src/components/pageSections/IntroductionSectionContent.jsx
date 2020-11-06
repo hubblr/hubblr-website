@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import HubblrImage from '../imageComponents/HubblrImage';
 import IndexGradientBorderButtonLongArrow from '../gradientBorderButtons/IndexGradientBorderButtonLongArrow';
 
-function IntroductionSectionContent() {
+const IntroductionSectionContent = forwardRef((props, ref) => {
   return (
-    <>
+    <div ref={ref}>
       <HubblrImage className="w-20 md:w-40 mb-12" />
       <h1 className="mb-10 text-4xl md:text-6xl font-black leading-tight md:leading-none max-w-2xl">
         Developing our digital tomorrow
@@ -18,8 +18,8 @@ function IntroductionSectionContent() {
       <IndexGradientBorderButtonLongArrow theme="dark">
         Jetzt kontaktieren
       </IndexGradientBorderButtonLongArrow>
-    </>
+    </div>
   );
-}
+});
 
 export default IntroductionSectionContent;
