@@ -183,7 +183,7 @@ function AnimatedSatelliteImage({ className }) {
           </g>
         </motion.svg>
         <div
-          style={{ paddingLeft: '47%', transform: 'translateY(-50%)' }}
+          style={{ paddingLeft: '50%', marginLeft: '-15px', transform: 'translateY(-50%)' }}
           className="absolute left-0 z-0"
         >
           <svg
