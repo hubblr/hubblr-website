@@ -2,6 +2,7 @@ import React, { useContext, useLayoutEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { motion, useSpring, useViewportScroll } from 'framer-motion';
 import DesignAdvertisementHeader from '../../indexPageMainContent/DesignAdvertisementHeader/DesignAdvertisementHeader';
+// import ScrollJumper from '../../ScrollJumper';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import useScrollPositionFromPercentage from '../../hooks/scroll/useScrollPositionFromPercentage';
 
@@ -11,7 +12,8 @@ function AnimatedDesignAdvertisementHeaderMobile({ className, targetCustomers })
   // get required values from context
   const { animationAreaStartY, animationAreaStep } = useContext(AnimationAreaContext);
 
-  // extract relevant widths from child
+  // extract relevant data from child to pass into scroll jumper
+  const containerRef = useRef();
   const trackedWidths = useRef({
     container: 0,
     frontText: 0,
@@ -34,13 +36,15 @@ function AnimatedDesignAdvertisementHeaderMobile({ className, targetCustomers })
       trackedWidths.current.dividers = dividerWidths;
     }
   };
-  // derive initial x offset from extracted widths
-  const [xOffsetStart, setXOffsetStart] = useState(0);
+  // derive properties from extracted widths to use in animation & scroll jumper
   const widths = trackedWidths.current;
+  const [xOffsetStart, setXOffsetStart] = useState(0);
+  // const [widthBefore, setWidthsBefore] = useState(0);
   useLayoutEffect(() => {
     setXOffsetStart(
       widths.container - widths.frontText - widths.growingDivider - widths.container / 20
     );
+    // setWidthsBefore(widths.frontText + widths.growingDivider);
   }, [widths.container, widths.content, widths.frontText, widths.growingDivider]);
 
   // animate spring when y scroll breakpoint is passed in either direction
@@ -62,9 +66,15 @@ function AnimatedDesignAdvertisementHeaderMobile({ className, targetCustomers })
   }, [xOffsetControls, scrollY, xOffsetStart, yBreakpoint]);
 
   return (
-    <motion.div className={`w-full ${className}`} style={{ x: xOffsetControls }}>
-      <DesignAdvertisementHeader targetCustomers={targetCustomers} setElementWidths={setWidths} />
-    </motion.div>
+    <div className={`w-full overflow-x-hidden ${className}`}>
+      <motion.div className="w-full" style={{ x: xOffsetControls }}>
+        <DesignAdvertisementHeader
+          ref={containerRef}
+          targetCustomers={targetCustomers}
+          setElementWidths={setWidths}
+        />
+      </motion.div>
+    </div>
   );
 }
 

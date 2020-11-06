@@ -6,14 +6,16 @@ import ArrowImageDownDouble from '../imageComponents/ArrowImageDownDouble';
 
 const IntroductionSection = React.forwardRef((props, contentRef) => {
   return (
-    <div className="container mx-auto">
+    <div>
       <MobileAndTabletQuery>
-        <div className="flex flex-col justify-between h-screen">
-          <div ref={contentRef}>
-            <IntroductionSectionContent />
-          </div>
-          <div className="w-full flex justify-center">
-            <ArrowImageDownDouble />
+        <div className="h-screen pt-20 pb-5">
+          <div className="flex flex-col justify-between h-full">
+            <div ref={contentRef}>
+              <IntroductionSectionContent />
+            </div>
+            <div className="w-full flex justify-center">
+              <ArrowImageDownDouble />
+            </div>
           </div>
         </div>
       </MobileAndTabletQuery>

@@ -39,13 +39,14 @@ function AnimatedInitialContentMobile({ className, fadeInImage, contentTitle }) 
     AnimationAreaContext
   );
 
+  // TODO: create functions
   // finish transform descriptions reliant on other elements
   // y offset of entire initial content
   const [, windowHeight] = useWindowSize();
   const paddingTop = usePaddingTop(contentContainerRef);
   const usedScreenHeight = windowHeight - paddingTop;
   transforms.initialContent.y.outputRange = [`${usedScreenHeight / 7}px`, '0px'];
-  // margin top of section heading
+  // margin top of section heading TODO: not the same as other functions
   const imageWrapperRef = useRef();
   const imageWrapperHeight = useClientHeight(imageWrapperRef);
   const sectionHeadingMarginTop = imageWrapperHeight / 2;

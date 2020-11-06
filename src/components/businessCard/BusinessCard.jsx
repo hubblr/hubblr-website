@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HubblrGradientBorderButtonWFull from '../gradientBorderButtons/HubblrGradientBorderButtonWFull';
+import HubblrGradientBorderButtonBase from '../gradientBorderButtons/HubblrGradientBorderButtonBase';
 import LongArrowImage from '../imageComponents/LongArrowImage';
 
 function BusinessCard({ children, image, name, position, actionName }) {
@@ -9,14 +9,19 @@ function BusinessCard({ children, image, name, position, actionName }) {
       {image}
       <div className="flex-grow flex flex-col justify-between items-center">
         {children}
-        <div className="flex flex-col items-center">
-          <p className="text-lg font-extrabold">{name}</p>
+        <div className="flex flex-col items-center mb-1">
+          <p className="text-lg font-extrabold mb-1">{name}</p>
           <p className="text-base">{position}</p>
         </div>
       </div>
-      <HubblrGradientBorderButtonWFull image={<LongArrowImage theme="dark" />} theme="dark">
-        {actionName}
-      </HubblrGradientBorderButtonWFull>
+      <HubblrGradientBorderButtonBase
+        widthClass="lg:w-full"
+        addedFlexClasses="justify-between gap-3"
+        theme="dark"
+        image={<LongArrowImage theme="dark" />}
+      >
+        <div>{actionName}</div>
+      </HubblrGradientBorderButtonBase>
     </div>
   );
 }

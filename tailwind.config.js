@@ -5,9 +5,7 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
   },
   purge: {
-    content: [
-      './src/**/*.jsx',
-    ],
+    content: ['./src/**/*.jsx'],
   },
   theme: {
     extend: {
@@ -33,6 +31,9 @@ module.exports = {
       },
       rotate: {
         270: '270deg',
+      },
+      screens: {
+        'max-sm': { max: '640px' },
       },
       spacing: {
         '1/2': '50%',

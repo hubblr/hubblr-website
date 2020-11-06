@@ -10,6 +10,14 @@ import SectionScrollBar from '../../sectionScrollBar/SectionScrollBar';
 import HubblrPageLinks from '../../links/HubblrPageLinks';
 import ArrowImageDownDouble from '../../imageComponents/ArrowImageDownDouble';
 
+/**
+ * Note: The content container sets 'overflow: hidden' via tailwind class because scaled
+ * elements may go beyond the container's scope (we are mostly concerned about x-overflow
+ * of the scaled section title). This could break things in the future/ with a different
+ * order of elements. This is hard to fix, however, as adding overflow properties to any
+ * parent container breaks 'position: sticky' which the content container heavily relies on.
+ */
+
 const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) => {
   // get navbar size from context to set padding-top over navbar
   const { navBarSizeClass } = useContext(IndexPageContext);
@@ -28,7 +36,7 @@ const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) =
       animationAreaHeight: height,
       animationAreaStep: height / 100,
     };
-  }, [isLg]);
+  }, []);
   const fullSectionHeight = useFullScrollSectionHeight(animationAreaHeight, [contentContainerRef]);
 
   return (
@@ -40,33 +48,31 @@ const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) =
         contentContainerRef,
       }}
     >
-      <div className="container mx-auto">
+      <div
+        className="relative"
+        ref={fullSectionRef}
+        style={{
+          height: fullSectionHeight,
+        }}
+      >
         <div
-          className="relative"
-          ref={fullSectionRef}
-          style={{
-            height: fullSectionHeight,
-          }}
+          ref={contentContainerRef}
+          className={`sticky overflow-hidden top-0 z-10 w-full flex flex-col items-center pt-${navBarSizeClass}`}
         >
-          <div
-            ref={contentContainerRef}
-            className={`sticky top-0 z-10 w-full flex flex-col items-center pt-${navBarSizeClass}`}
-          >
-            {children}
-            {!isLg && sectionType !== 'last' && <ArrowImageDownDouble />}
-          </div>
-          {isLg && (
-            <div className="absolute h-full inset-0">
-              <SectionScrollBar sectionType={sectionType} />
-            </div>
-          )}
+          {children}
+          {!isLg && sectionType !== 'last' && <ArrowImageDownDouble />}
         </div>
-        {sectionType === 'last' && (
-          <div className="mt-4">
-            <HubblrPageLinks />
+        {isLg && (
+          <div className="absolute h-full inset-0">
+            <SectionScrollBar sectionType={sectionType} />
           </div>
         )}
       </div>
+      {sectionType === 'last' && (
+        <div className="mt-4">
+          <HubblrPageLinks />
+        </div>
+      )}
     </AnimationAreaContext.Provider>
   );
 });

@@ -8,11 +8,11 @@ function AnimatedSectionContentMobile({ children, fadeInImage, contentTitle, tar
   return (
     <>
       <AnimatedInitialContentMobile
-        className="pb-1"
+        className="mb-8"
         fadeInImage={fadeInImage}
         contentTitle={contentTitle}
       />
-      <AnimatedDesignAdvertisementHeaderMobile targetCustomers={targetCustomers} />
+      <AnimatedDesignAdvertisementHeaderMobile className="mb-5" targetCustomers={targetCustomers} />
       <AnimatedMainContentMobile>{children}</AnimatedMainContentMobile>
     </>
   );
