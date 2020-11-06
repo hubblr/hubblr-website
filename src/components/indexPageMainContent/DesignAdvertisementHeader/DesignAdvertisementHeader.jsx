@@ -32,7 +32,7 @@ const DesignAdvertisementHeader = forwardRef(
           frontTextWidth,
           growingDividerWidth,
           contentWidths: contentWidths.current,
-          dividerWidths: contentWidths.current,
+          dividerWidths: dividerWidths.current,
         });
       }
     }, [containerWidth, frontTextWidth, growingDividerWidth, setElementWidths]);
