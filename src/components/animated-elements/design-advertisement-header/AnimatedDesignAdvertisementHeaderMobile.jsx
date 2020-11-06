@@ -2,7 +2,7 @@ import React, { useContext, useLayoutEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { motion, useSpring, useViewportScroll } from 'framer-motion';
 import DesignAdvertisementHeader from '../../indexPageMainContent/DesignAdvertisementHeader/DesignAdvertisementHeader';
-// import ScrollJumper from '../../ScrollJumper';
+import ScrollJumper from '../../scrollJumper/ScrollJumper';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import useScrollPositionFromPercentage from '../../hooks/scroll/useScrollPositionFromPercentage';
 
@@ -14,6 +14,11 @@ function AnimatedDesignAdvertisementHeaderMobile({ className, targetCustomers })
 
   // extract relevant data from child to pass into scroll jumper
   const containerRef = useRef();
+  const setScrollLeft = (scrollLeft) => {
+    if (containerRef.current) {
+      containerRef.current.scrollLeft = scrollLeft;
+    }
+  };
   const trackedWidths = useRef({
     container: 0,
     frontText: 0,
@@ -39,12 +44,12 @@ function AnimatedDesignAdvertisementHeaderMobile({ className, targetCustomers })
   // derive properties from extracted widths to use in animation & scroll jumper
   const widths = trackedWidths.current;
   const [xOffsetStart, setXOffsetStart] = useState(0);
-  // const [widthBefore, setWidthsBefore] = useState(0);
+  const [widthBefore, setWidthsBefore] = useState(0);
   useLayoutEffect(() => {
     setXOffsetStart(
       widths.container - widths.frontText - widths.growingDivider - widths.container / 20
     );
-    // setWidthsBefore(widths.frontText + widths.growingDivider);
+    setWidthsBefore(widths.frontText + widths.growingDivider);
   }, [widths.container, widths.content, widths.frontText, widths.growingDivider]);
 
   // animate spring when y scroll breakpoint is passed in either direction
@@ -74,6 +79,16 @@ function AnimatedDesignAdvertisementHeaderMobile({ className, targetCustomers })
           setElementWidths={setWidths}
         />
       </motion.div>
+      <ScrollJumper
+        containerRef={containerRef}
+        setScrollLeft={setScrollLeft}
+        widthBefore={widthBefore}
+        contentWidths={widths.content}
+        dividerWidths={widths.dividers}
+        containerClassName="w-full flex justify-between pl-3 pr-3"
+        leftButtonClassName="relative z-50"
+        rightButtonClassName="relative z-50"
+      />
     </div>
   );
 }

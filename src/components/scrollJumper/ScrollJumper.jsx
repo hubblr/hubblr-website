@@ -19,10 +19,11 @@ function ScrollJumper({
   const clientWidth = useClientWidth(containerRef);
 
   const scrollToNext = () => {
-    console.log('scroll left is:', containerRef.current.scrollLeft);
+    if (!containerRef.current) {
+      return;
+    }
     const scrollRight = containerRef.current.scrollLeft + clientWidth;
     let nextJumpX = widthBefore;
-    console.log('w before:', nextJumpX);
     for (let i = 0; i < contentWidths.length; i += 1) {
       const nextContentWidth = contentWidths[i];
       nextJumpX += nextContentWidth;
@@ -37,6 +38,9 @@ function ScrollJumper({
     }
   };
   const scrollToPrev = () => {
+    if (!containerRef.current) {
+      return;
+    }
     const scrollRight = containerRef.current.scrollLeft + clientWidth;
     let nextJumpX = scrollWidth;
     for (let i = contentWidths.length - 1; i >= 0; i -= 1) {
@@ -46,8 +50,9 @@ function ScrollJumper({
         setScrollLeft(nextJumpX - clientWidth);
         return;
       }
-      if (i < contentWidths.length - 1) {
-        const nextDividerWidth = dividerWidths[i];
+      const nextDividerIdx = i - 1;
+      if (nextDividerIdx > 0) {
+        const nextDividerWidth = dividerWidths[nextDividerIdx];
         nextJumpX -= nextDividerWidth;
       }
     }
@@ -56,10 +61,10 @@ function ScrollJumper({
   return (
     <div className={containerClassName}>
       <Button className={leftButtonClassName} onClick={scrollToPrev}>
-        <LongArrowImage theme="gray" orientation="left" />
+        <LongArrowImage className="w-24" theme="gray" orientation="left" />
       </Button>
       <Button className={rightButtonClassName} onClick={scrollToNext}>
-        <LongArrowImage theme="gray" orientation="right" />
+        <LongArrowImage className="w-24" theme="gray" orientation="right" />
       </Button>
     </div>
   );
