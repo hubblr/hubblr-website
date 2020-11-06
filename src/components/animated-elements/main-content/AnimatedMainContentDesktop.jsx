@@ -9,12 +9,16 @@ import useWindowSize from '../../hooks/window/useWindowSize';
 
 const transforms = {
   opacity: {
-    inputPercentages: [50, 95],
+    inputPercentages: [51, 75],
     outputRange: [0, 1],
   },
   y: {
     inputPercentages: [51, 95],
     // output range is calculated by component
+  },
+  scale: {
+    inputPercentages: [51, 75],
+    outputRange: [1.1, 1],
   },
 };
 
@@ -37,6 +41,11 @@ function AnimatedMainContentDesktop({ children, targetCustomers }) {
       transforms.opacity
     ),
     y: useCreateTransformFromDescription(animationAreaStartY, animationAreaStep, transforms.y),
+    scale: useCreateTransformFromDescription(
+      animationAreaStartY,
+      animationAreaStep,
+      transforms.scale
+    ),
   };
 
   return (
