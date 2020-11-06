@@ -47,7 +47,7 @@ module.exports = {
         '-5': '-5',
       },
       colors: {
-        'brand-teal-light': '#44CED8',
+        'brand-gray-darkest': '#2D2D2D',
       },
     },
   },
