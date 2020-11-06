@@ -20,9 +20,9 @@ function NavBarTopDesktop({ contentWidth }) {
       <div className="flex flex-col justify-center items-end w-1/3">
         <Link
           to="/contact"
-          className=" text-center font-extrabold leading-none tracking-tight p-4 hover:bg-brand-gray-darkest rounded-lg animate"
+          className="text-center font-extrabold leading-none tracking-tight p-4 hover:bg-brand-gray-darkest rounded-lg animate"
         >
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-red-500 to-purple-600">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r bg-gradient-to-r from-teal-400 to-blue-500">
             Kontaktieren
           </span>
         </Link>
