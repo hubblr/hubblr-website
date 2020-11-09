@@ -54,11 +54,9 @@ function AnimatedSectionHeadingDesktop({ heading }) {
   };
 
   return (
-    <div className="w-10/12 max-w-6xl">
-      <motion.div className="relative z-10 py-6" style={sectionHeadingStyle}>
-        <SectionHeading ref={sectionHeadingRef} heading={heading} />
-      </motion.div>
-    </div>
+    <motion.div className="relative z-10 py-6" style={sectionHeadingStyle}>
+      <SectionHeading ref={sectionHeadingRef} heading={heading} />
+    </motion.div>
   );
 }
 

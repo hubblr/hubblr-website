@@ -7,13 +7,17 @@ import AnimatedMainContentMobile from '../../animated-elements/main-content/Anim
 function AnimatedSectionContentMobile({ children, fadeInImage, contentTitle, targetCustomers }) {
   return (
     <>
-      <AnimatedInitialContentMobile
-        className="mb-8"
-        fadeInImage={fadeInImage}
-        contentTitle={contentTitle}
-      />
+      <div className="container mx-auto">
+        <AnimatedInitialContentMobile
+          className="mb-8"
+          fadeInImage={fadeInImage}
+          contentTitle={contentTitle}
+        />
+      </div>
       <AnimatedDesignAdvertisementHeaderMobile className="mb-5" targetCustomers={targetCustomers} />
-      <AnimatedMainContentMobile>{children}</AnimatedMainContentMobile>
+      <div className="container mx-auto">
+        <AnimatedMainContentMobile>{children}</AnimatedMainContentMobile>
+      </div>
     </>
   );
 }

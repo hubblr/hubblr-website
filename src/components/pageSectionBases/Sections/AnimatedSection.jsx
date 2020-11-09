@@ -7,7 +7,6 @@ import useWindowSize from '../../hooks/window/useWindowSize';
 import { TabletBreakpoint } from '../../../util/helpers';
 import useFullScrollSectionHeight from '../../hooks/scroll/useFullScrollSectionHeight';
 import SectionScrollBar from '../../sectionScrollBar/SectionScrollBar';
-import ArrowImageDownDouble from '../../imageComponents/ArrowImageDownDouble';
 
 /**
  * Note: The content container sets 'overflow: hidden' via tailwind class because scaled
@@ -49,7 +48,6 @@ const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) =
       }}
     >
       <div
-        className="relative"
         ref={fullSectionRef}
         style={{
           height: fullSectionHeight,
@@ -57,7 +55,7 @@ const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) =
       >
         <div
           ref={contentContainerRef}
-          className="sticky overflow-hidden top-0 z-10 w-full"
+          className="sticky top-0 w-full overflow-hidden"
           style={{
             paddingTop: `${navBarHeight}px`,
           }}
@@ -69,14 +67,13 @@ const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) =
             }}
           >
             {children}
-            {!isLg && sectionType !== 'last' && <ArrowImageDownDouble />}
           </div>
+          {isLg && (
+            <div className="absolute container mx-auto h-full inset-0" style={{ zIndex: '-10' }}>
+              <SectionScrollBar sectionType={sectionType} />
+            </div>
+          )}
         </div>
-        {isLg && (
-          <div className="absolute h-full inset-0">
-            <SectionScrollBar sectionType={sectionType} />
-          </div>
-        )}
       </div>
     </AnimationAreaContext.Provider>
   );

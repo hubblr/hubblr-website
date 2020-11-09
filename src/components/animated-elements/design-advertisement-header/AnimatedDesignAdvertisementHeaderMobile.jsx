@@ -5,6 +5,7 @@ import DesignAdvertisementHeader from '../../indexPageMainContent/DesignAdvertis
 import ScrollJumper from '../../scrollJumper/ScrollJumper';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import useScrollPositionFromPercentage from '../../hooks/scroll/useScrollPositionFromPercentage';
+import useScrollWidth from '../../hooks/scroll/useScrollWidth';
 
 const scrollBreakpointPercentage = 50;
 
@@ -41,6 +42,7 @@ function AnimatedDesignAdvertisementHeaderMobile({ className, targetCustomers })
       trackedWidths.current.dividers = dividerWidths;
     }
   };
+
   // derive properties from extracted widths to use in animation & scroll jumper
   const widths = trackedWidths.current;
   const [xOffsetStart, setXOffsetStart] = useState(0);
@@ -52,6 +54,11 @@ function AnimatedDesignAdvertisementHeaderMobile({ className, targetCustomers })
     setWidthsBefore(widths.frontText + widths.growingDivider);
   }, [widths.container, widths.content, widths.frontText, widths.growingDivider]);
 
+  // check if scroll jumper is even necessary
+  const containerScrollWidth = useScrollWidth(containerRef);
+  const showScrollJumper =
+    trackedWidths.current && trackedWidths.current.container < containerScrollWidth;
+
   // animate spring when y scroll breakpoint is passed in either direction
   const yBreakpoint = useScrollPositionFromPercentage(
     animationAreaStartY,
@@ -60,35 +67,48 @@ function AnimatedDesignAdvertisementHeaderMobile({ className, targetCustomers })
   );
   const { scrollY } = useViewportScroll();
   const xOffsetControls = useSpring(xOffsetStart, { stiffness: 260, damping: 20 });
+  const scrollJumperOpacityControl = useSpring(0, { stiffness: 260, damping: 20 });
   useLayoutEffect(() => {
     scrollY.onChange((y) => {
       if (y > yBreakpoint) {
+        // active state
         xOffsetControls.set(0);
+        scrollJumperOpacityControl.set(1);
       } else {
+        // "waiting" state
         xOffsetControls.set(xOffsetStart);
+        scrollJumperOpacityControl.set(0);
       }
     });
-  }, [xOffsetControls, scrollY, xOffsetStart, yBreakpoint]);
+  }, [xOffsetControls, scrollY, xOffsetStart, yBreakpoint, scrollJumperOpacityControl]);
 
   return (
-    <div className={`w-full overflow-x-hidden ${className}`}>
-      <motion.div className="w-full" style={{ x: xOffsetControls }}>
+    <div className={`w-full ${className}`}>
+      <motion.div
+        className="relative z-20 container mx-auto overflow-x-auto"
+        style={{ x: xOffsetControls }}
+      >
         <DesignAdvertisementHeader
           ref={containerRef}
           targetCustomers={targetCustomers}
           setElementWidths={setWidths}
         />
       </motion.div>
-      <ScrollJumper
-        containerRef={containerRef}
-        setScrollLeft={setScrollLeft}
-        widthBefore={widthBefore}
-        contentWidths={widths.content}
-        dividerWidths={widths.dividers}
-        containerClassName="w-full flex justify-between pl-3 pr-3"
-        leftButtonClassName="relative z-50"
-        rightButtonClassName="relative z-50"
-      />
+      <motion.div
+        className={`container mx-auto ${showScrollJumper ? '' : 'hidden'}`}
+        style={{ opacity: scrollJumperOpacityControl }}
+      >
+        <ScrollJumper
+          containerRef={containerRef}
+          setScrollLeft={setScrollLeft}
+          widthBefore={widthBefore}
+          contentWidths={widths.content}
+          dividerWidths={widths.dividers}
+          containerClassName="w-full flex justify-between pl-3 pr-3"
+          leftButtonClassName="relative z-40"
+          rightButtonClassName="relative z-40"
+        />
+      </motion.div>
     </div>
   );
 }

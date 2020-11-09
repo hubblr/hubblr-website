@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../simple/button/Button';
-import useScrollWidth from '../hooks/scroll/useScrollWidth';
 import useClientWidth from '../hooks/dimensions/useClientWidth';
 import LongArrowImage from '../imageComponents/LongArrowImage';
 
@@ -15,25 +14,36 @@ function ScrollJumper({
   leftButtonClassName,
   rightButtonClassName,
 }) {
-  const scrollWidth = useScrollWidth(containerRef);
   const clientWidth = useClientWidth(containerRef);
+  const breakpoints = useMemo(() => {
+    const curBreakpoints = [];
+    let nextJumpX = widthBefore;
+    for (let i = 0; i < contentWidths.length; i += 1) {
+      // after divider/at start comes a content div
+      const nextContentWidth = contentWidths[i];
+      nextJumpX += nextContentWidth;
+      // new breakpoint reached
+      curBreakpoints.push(nextJumpX);
+      // after breakpoint comes a divider
+      if (i < contentWidths.length - 1) {
+        const nextDividerWidth = dividerWidths[i];
+        nextJumpX += nextDividerWidth;
+      }
+    }
+    return curBreakpoints;
+  }, [contentWidths, dividerWidths, widthBefore]);
 
   const scrollToNext = () => {
     if (!containerRef.current) {
       return;
     }
     const scrollRight = containerRef.current.scrollLeft + clientWidth;
-    let nextJumpX = widthBefore;
-    for (let i = 0; i < contentWidths.length; i += 1) {
-      const nextContentWidth = contentWidths[i];
-      nextJumpX += nextContentWidth;
-      if (scrollRight < nextJumpX) {
-        setScrollLeft(nextJumpX - clientWidth);
+    for (let i = 0; i < breakpoints.length; i += 1) {
+      // check whether current right position of container is in front of any breakpoint
+      const breakpoint = breakpoints[i];
+      if (scrollRight < breakpoint) {
+        setScrollLeft(breakpoint - clientWidth);
         return;
-      }
-      if (i < contentWidths.length - 1) {
-        const nextDividerWidth = dividerWidths[i];
-        nextJumpX += nextDividerWidth;
       }
     }
   };
@@ -42,20 +52,15 @@ function ScrollJumper({
       return;
     }
     const scrollRight = containerRef.current.scrollLeft + clientWidth;
-    let nextJumpX = scrollWidth;
-    for (let i = contentWidths.length - 1; i >= 0; i -= 1) {
-      const nextContentWidth = contentWidths[i];
-      nextJumpX -= nextContentWidth;
-      if (scrollRight > nextJumpX) {
-        setScrollLeft(nextJumpX - clientWidth);
+    for (let i = breakpoints.length - 1; i >= 0; i -= 1) {
+      // check whether current right position of container is after any breakpoint
+      const breakpoint = breakpoints[i];
+      if (scrollRight > breakpoint) {
+        setScrollLeft(breakpoint - clientWidth);
         return;
       }
-      const nextDividerIdx = i - 1;
-      if (nextDividerIdx > 0) {
-        const nextDividerWidth = dividerWidths[nextDividerIdx];
-        nextJumpX -= nextDividerWidth;
-      }
     }
+    setScrollLeft(0);
   };
 
   return (

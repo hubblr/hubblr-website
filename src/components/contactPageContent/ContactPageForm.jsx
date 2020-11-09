@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import isEmpty from 'validator/es/lib/isEmpty';
 import isMobilePhone from 'validator/es/lib/isMobilePhone';
-import { parsePhoneNumberFromString } from 'libphonenumber-js';
 import Form from '../form/form/Form';
 import HubblrGradientBorderButtonBase from '../gradientBorderButtons/HubblrGradientBorderButtonBase';
 import Input from '../form/form/Input';
@@ -53,7 +52,11 @@ function ContactPageForm() {
         formStyles="h-full flex flex-col"
         onSubmit={() => {
           window.console.log('submit');
-          window.console.log(parsePhoneNumberFromString(phoneNumber));
+          window.console.log(name);
+          window.console.log(business);
+          window.console.log(phoneNumber);
+          window.console.log(request);
+          window.console.log(phoneNumber);
         }}
       >
         <div className="flex-grow flex flex-col justify-between gap-6 pb-12">

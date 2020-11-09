@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
     <>
       <IntlProvider locale="de">
         <DarkLayout>
-          <div className="container mx-auto max-sm:px-4">{children}</div>
+          <div className="max-sm:px-4">{children}</div>
         </DarkLayout>
         <div id="modal-root" />
       </IntlProvider>

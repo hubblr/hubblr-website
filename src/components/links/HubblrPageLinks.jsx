@@ -25,6 +25,7 @@ function HubblrPageLinks({ className }) {
         {
           text: 'Jobs',
           notificationNumber: 3,
+          href: 'http://join.hubblr.io/',
         },
       ]}
     />

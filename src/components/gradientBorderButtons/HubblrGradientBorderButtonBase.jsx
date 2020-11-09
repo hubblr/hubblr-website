@@ -54,7 +54,7 @@ HubblrGradientBorderButtonBase.defaultProps = {
 };
 
 HubblrGradientBorderButtonBase.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   isSubmitButton: PropTypes.bool,
   image: PropTypes.element,
   widthClass: PropTypes.string,

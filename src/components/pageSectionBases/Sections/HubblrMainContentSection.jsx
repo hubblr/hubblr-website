@@ -8,28 +8,26 @@ import AnimatedSectionContentMobile from '../SectionContent/AnimatedSectionConte
 const HubblrMainContentSection = forwardRef(
   ({ children, sectionType, fadeInImage, contentTitle, targetCustomers }, fullSectionRef) => {
     return (
-      <div className="">
-        <AnimatedSection ref={fullSectionRef} sectionType={sectionType}>
-          <DesktopQuery>
-            <AnimatedSectionContentDesktop
-              fadeInImage={fadeInImage}
-              contentTitle={contentTitle}
-              targetCustomers={targetCustomers}
-            >
-              {children}
-            </AnimatedSectionContentDesktop>
-          </DesktopQuery>
-          <MobileAndTabletQuery>
-            <AnimatedSectionContentMobile
-              fadeInImage={fadeInImage}
-              contentTitle={contentTitle}
-              targetCustomers={targetCustomers}
-            >
-              {children}
-            </AnimatedSectionContentMobile>
-          </MobileAndTabletQuery>
-        </AnimatedSection>
-      </div>
+      <AnimatedSection ref={fullSectionRef} sectionType={sectionType}>
+        <DesktopQuery>
+          <AnimatedSectionContentDesktop
+            fadeInImage={fadeInImage}
+            contentTitle={contentTitle}
+            targetCustomers={targetCustomers}
+          >
+            {children}
+          </AnimatedSectionContentDesktop>
+        </DesktopQuery>
+        <MobileAndTabletQuery>
+          <AnimatedSectionContentMobile
+            fadeInImage={fadeInImage}
+            contentTitle={contentTitle}
+            targetCustomers={targetCustomers}
+          >
+            {children}
+          </AnimatedSectionContentMobile>
+        </MobileAndTabletQuery>
+      </AnimatedSection>
     );
   }
 );

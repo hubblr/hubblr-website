@@ -4,10 +4,10 @@ import PageLinkItem from './PageLinkItem';
 
 function PageLinks({ className, links }) {
   return (
-    <div className={`flex flex-wrap gap-5 ${className}`}>
-      {links.map(({ text, notificationNumber }) => {
+    <div className={`flex flex-wrap justify-center gap-5 ${className}`}>
+      {links.map(({ text, notificationNumber, href }) => {
         return (
-          <PageLinkItem key={text} notificationNumber={notificationNumber}>
+          <PageLinkItem key={text} notificationNumber={notificationNumber} href={href}>
             {text}
           </PageLinkItem>
         );
@@ -20,8 +20,9 @@ PageLinks.propTypes = {
   className: PropTypes.string,
   links: PropTypes.arrayOf(
     PropTypes.shape({
-      text: PropTypes.string,
+      text: PropTypes.string.isRequired,
       notificationNumber: PropTypes.number,
+      href: PropTypes.string,
     })
   ).isRequired,
 };
