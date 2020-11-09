@@ -7,6 +7,7 @@ import SoftwareLaboratorySection from '../components/pageSections/SoftwareLabora
 import ConsultingSection from '../components/pageSections/ConsultingSection';
 import VenturesSection from '../components/pageSections/VenturesSection';
 import NavBarTop from '../components/navBar/NavBarTop';
+import HubblrPageLinks from '../components/links/HubblrPageLinks';
 import useYPositions from '../components/hooks/scroll/useYPositions';
 import useWindowSize from '../components/hooks/window/useWindowSize';
 import IndexPageContext from '../context/IndexPageContext';
@@ -131,6 +132,7 @@ function IndexPage() {
           <ConsultingSection ref={consultingSectionRef} />
           <VenturesSection ref={venturesSectionRef} />
         </div>
+        <HubblrPageLinks />
       </Layout>
       <div className="">
         <div

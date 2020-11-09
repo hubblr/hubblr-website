@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DesktopQuery, MobileAndTabletQuery } from '../../../util/helpers';
-import HeadlinerBoxImageMobile from '../../imageComponents/HeadlinerBoxImageMobile';
-import HeadlinerBoxImageDesktop from '../../imageComponents/HeadlinerBoxImageDesktop';
+import HeadlinerBoxSvg from '../../imageComponents/HeadlinerBoxSvg';
 
 function MainContentCard({ children, title, description, className, padding }) {
   return (
@@ -29,10 +28,10 @@ function MainContentCard({ children, title, description, className, padding }) {
         </div>
         <div className="row-start-1 col-start-1 row-end-3 col-end-3">
           <MobileAndTabletQuery>
-            <HeadlinerBoxImageMobile className="h-full w-full" />
+            <HeadlinerBoxSvg className="-mt-5 h-full w-full" viewBox="120 125 546 94" />
           </MobileAndTabletQuery>
           <DesktopQuery>
-            <HeadlinerBoxImageDesktop className="h-full w-full" />
+            <HeadlinerBoxSvg className="h-full w-full" viewBox="150 50 566 144" />
           </DesktopQuery>
         </div>
       </div>

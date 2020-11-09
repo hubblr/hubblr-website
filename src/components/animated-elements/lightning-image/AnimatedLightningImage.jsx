@@ -24,9 +24,8 @@ function AnimatedLightningImage({ className }) {
 
   return (
     <svg
-      width="221px"
-      height="356px"
       viewBox="0 0 221 356"
+      preserveAspectRatio="none"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"

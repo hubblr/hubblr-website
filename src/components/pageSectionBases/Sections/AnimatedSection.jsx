@@ -7,7 +7,6 @@ import useWindowSize from '../../hooks/window/useWindowSize';
 import { TabletBreakpoint } from '../../../util/helpers';
 import useFullScrollSectionHeight from '../../hooks/scroll/useFullScrollSectionHeight';
 import SectionScrollBar from '../../sectionScrollBar/SectionScrollBar';
-import HubblrPageLinks from '../../links/HubblrPageLinks';
 import ArrowImageDownDouble from '../../imageComponents/ArrowImageDownDouble';
 
 /**
@@ -79,11 +78,6 @@ const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) =
           </div>
         )}
       </div>
-      {sectionType === 'last' && (
-        <div className="mt-4">
-          <HubblrPageLinks />
-        </div>
-      )}
     </AnimationAreaContext.Provider>
   );
 });
