@@ -1,4 +1,4 @@
-import React, { forwardRef, useContext, useMemo, useRef } from 'react';
+import React, { forwardRef, useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import IndexPageContext from '../../../context/IndexPageContext';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
@@ -7,80 +7,81 @@ import useWindowSize from '../../hooks/window/useWindowSize';
 import { TabletBreakpoint } from '../../../util/helpers';
 import useFullScrollSectionHeight from '../../hooks/scroll/useFullScrollSectionHeight';
 import SectionScrollBar from '../../section-scroll-bar/SectionScrollBar';
+import { ANIMATION_AREA_HEIGHT_DESKTOP, ANIMATION_AREA_HEIGHT_MOBILE } from '../../../config';
 
-/**
- * Note: The content container sets 'overflow: hidden' via tailwind class because scaled
- * elements may go beyond the container's scope (we are mostly concerned about x-overflow
- * of the scaled section title). This could break things in the future/ with a different
- * order of elements. This is hard to fix, however, as adding overflow properties to any
- * parent container breaks 'position: sticky' which the content container heavily relies on.
- * We also cannot just hide overflow-x because that adds a vertical scrollbar ...
- */
+const AnimatedSection = forwardRef(
+  (
+    { children, sectionType, animationAreaHeightDesktop, animationAreaHeightMobile },
+    fullSectionRef
+  ) => {
+    // get navbar size from context to set padding-top over navbar
+    const { navBarHeight } = useContext(IndexPageContext);
+    // check width of window for breakpoint
+    const [windowWidth] = useWindowSize();
+    const isLg = windowWidth > TabletBreakpoint;
 
-const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) => {
-  // get navbar size from context to set padding-top over navbar
-  const { navBarHeight } = useContext(IndexPageContext);
+    // values to pass in Provider
+    // correct height of animation area
+    const animationAreaHeight = isLg ? animationAreaHeightDesktop : animationAreaHeightMobile;
+    // percentage step through animation area
+    const animationAreaStep = animationAreaHeight / 100;
+    // start of full section & consequently also animation area
+    const [animationAreaStartY] = useYPositions(fullSectionRef);
+    // height of full section based on content and desired animation area height
+    const contentContainerRef = useRef();
+    const fullSectionHeight = useFullScrollSectionHeight(animationAreaHeight, [
+      contentContainerRef,
+    ]);
 
-  // check width of window
-  const [windowWidth] = useWindowSize();
-  const isLg = windowWidth > TabletBreakpoint;
-
-  // find (step-) sizes for animation area and full area
-  const contentContainerRef = useRef();
-  const [animationAreaStartY] = useYPositions(fullSectionRef);
-  const { animationAreaHeight, animationAreaStep } = useMemo(() => {
-    const height = 2000; // in px
-
-    return {
-      animationAreaHeight: height,
-      animationAreaStep: height / 100,
-    };
-  }, []);
-  const fullSectionHeight = useFullScrollSectionHeight(animationAreaHeight, [contentContainerRef]);
-
-  return (
-    <AnimationAreaContext.Provider
-      value={{
-        animationAreaStartY,
-        animationAreaHeight,
-        animationAreaStep,
-        contentContainerRef,
-      }}
-    >
-      <div
-        ref={fullSectionRef}
-        className="relative"
-        style={{
-          height: fullSectionHeight,
+    return (
+      <AnimationAreaContext.Provider
+        value={{
+          animationAreaStartY,
+          animationAreaHeight,
+          animationAreaStep,
+          contentContainerRef,
         }}
       >
         <div
-          ref={contentContainerRef}
-          className="sticky top-0 w-full overflow-hidden flex"
+          ref={fullSectionRef}
+          className="relative"
           style={{
-            paddingTop: `${navBarHeight}px`,
-            minHeight: `calc(100vh - ${navBarHeight}px)`,
+            height: fullSectionHeight,
           }}
         >
-          {children}
-        </div>
-        {isLg && (
-          <div className="absolute container mx-auto h-full inset-0">
-            <SectionScrollBar sectionType={sectionType} />
+          <div
+            ref={contentContainerRef}
+            className="sticky top-0 w-full overflow-hidden flex"
+            style={{
+              paddingTop: `${navBarHeight}px`,
+              minHeight: '100vh',
+            }}
+          >
+            {children}
           </div>
-        )}
-      </div>
-    </AnimationAreaContext.Provider>
-  );
-});
+          {isLg && (
+            <div className="absolute container mx-auto h-full inset-0">
+              <SectionScrollBar sectionType={sectionType} />
+            </div>
+          )}
+        </div>
+      </AnimationAreaContext.Provider>
+    );
+  }
+);
 
 AnimatedSection.propTypes = {
   children: PropTypes.node.isRequired,
   sectionType: PropTypes.oneOf(['middle', 'last']),
+  // if custom animation heights are desired for a specific section
+  animationAreaHeightDesktop: PropTypes.number,
+  animationAreaHeightMobile: PropTypes.number,
 };
 
 AnimatedSection.defaultProps = {
   sectionType: 'middle',
+  animationAreaHeightDesktop: ANIMATION_AREA_HEIGHT_DESKTOP,
+  animationAreaHeightMobile: ANIMATION_AREA_HEIGHT_MOBILE,
 };
 
 export default AnimatedSection;

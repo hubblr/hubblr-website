@@ -7,6 +7,12 @@ import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTrans
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import useWindowSize from '../../hooks/window/useWindowSize';
 import usePaddingTop from '../../hooks/styleQueries/usePaddingTop';
+import {
+  MOBILE_INITIAL_CONTENT_START,
+  MOBILE_INITIAL_IMAGE_END,
+  MOBILE_INITIAL_TITLE_END,
+  // MOBILE_INITIAL_MIN_SCALE,
+} from '../../../config';
 
 const transforms = {
   initialContent: {
@@ -18,7 +24,7 @@ const transforms = {
   fadeInImage: {
     scale: {
       inputPercentages: [0, 50],
-      outputRange: [2.5, 1],
+      // output range is calculated by component
     },
   },
   sectionHeading: {
@@ -28,10 +34,31 @@ const transforms = {
     },
     scale: {
       inputPercentages: [0, 50],
-      outputRange: [1.5, 1],
+      // output range is calculated by component
     },
   },
 };
+
+function useAvailableHeight(containerRef) {
+  const [, windowHeight] = useWindowSize(); // forces rerender when height changes
+  const paddingTop = usePaddingTop(containerRef);
+  return windowHeight - paddingTop;
+}
+
+function useInitialYOffset(availableHeight, startPercentage) {
+  return (availableHeight * startPercentage) / 100;
+}
+
+function useScaleOutputRange(initialHeight, availableHeight, startPercentage, endPercentage) {
+  if (!initialHeight) {
+    return [1, 1];
+  }
+  const start = (availableHeight * startPercentage) / 100;
+  const end = (availableHeight * endPercentage) / 100;
+  const finalHeight = end - start;
+  const finalScale = finalHeight / initialHeight;
+  return [finalScale, 1];
+}
 
 function AnimatedInitialContentMobile({ className, fadeInImage, contentTitle }) {
   // get required values from context
@@ -39,17 +66,30 @@ function AnimatedInitialContentMobile({ className, fadeInImage, contentTitle }) 
     AnimationAreaContext
   );
 
-  // TODO: create functions
-  // finish transform descriptions reliant on other elements
-  // y offset of entire initial content
-  const [, windowHeight] = useWindowSize();
-  const paddingTop = usePaddingTop(contentContainerRef);
-  const usedScreenHeight = windowHeight - paddingTop;
-  transforms.initialContent.y.outputRange = [`${usedScreenHeight / 7}px`, '0px'];
-  // margin top of section heading TODO: not the same as other functions
+  // create reused variables
+  const availableHeight = useAvailableHeight(contentContainerRef);
   const imageWrapperRef = useRef();
   const imageWrapperHeight = useClientHeight(imageWrapperRef);
+  const sectionHeadingRef = useRef();
+  const sectionHeadingHeight = useClientHeight(sectionHeadingRef);
   const sectionHeadingMarginTop = imageWrapperHeight / 2;
+
+  const contentYOffset = useInitialYOffset(availableHeight, MOBILE_INITIAL_CONTENT_START);
+  transforms.initialContent.y.outputRange = [`${contentYOffset}px`, '0px'];
+
+  transforms.fadeInImage.scale.outputRange = useScaleOutputRange(
+    imageWrapperHeight,
+    availableHeight,
+    MOBILE_INITIAL_CONTENT_START,
+    MOBILE_INITIAL_IMAGE_END
+  );
+  transforms.sectionHeading.scale.outputRange = useScaleOutputRange(
+    sectionHeadingHeight,
+    availableHeight,
+    MOBILE_INITIAL_IMAGE_END,
+    MOBILE_INITIAL_TITLE_END
+  );
+
   // y offset of section heading
   const fadeInScales = transforms.fadeInImage.scale.outputRange;
   const originalHeight = imageWrapperHeight * fadeInScales[1];
@@ -84,7 +124,6 @@ function AnimatedInitialContentMobile({ className, fadeInImage, contentTitle }) 
       transforms.sectionHeading.scale
     ),
   };
-
   // append styles where necessary
   sectionHeadingStyles.marginTop = `-${sectionHeadingMarginTop}px`;
 
@@ -97,7 +136,11 @@ function AnimatedInitialContentMobile({ className, fadeInImage, contentTitle }) 
       >
         {fadeInImage}
       </motion.div>
-      <motion.div className="relative z-10 origin-center-top" style={sectionHeadingStyles}>
+      <motion.div
+        ref={sectionHeadingRef}
+        className="relative z-10 origin-center-top"
+        style={sectionHeadingStyles}
+      >
         <SectionHeading heading={contentTitle} />
       </motion.div>
     </motion.div>

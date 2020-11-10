@@ -4,6 +4,7 @@ import isMobilePhone from 'validator/es/lib/isMobilePhone';
 import Form from '../form/form/Form';
 import HubblrGradientBorderButtonBase from '../gradient-border-buttons/HubblrGradientBorderButtonBase';
 import Input from '../form/form/Input';
+import { CONTACT_FORM_POST_URL } from '../../config';
 
 function createNotEmptyValidator(errorMsg) {
   return (v) => {
@@ -51,12 +52,17 @@ function ContactPageForm() {
       <Form
         formStyles="h-full flex flex-col"
         onSubmit={() => {
-          window.console.log('submit');
-          window.console.log(name);
-          window.console.log(business);
-          window.console.log(phoneNumber);
-          window.console.log(request);
-          window.console.log(phoneNumber);
+          fetch(CONTACT_FORM_POST_URL, {
+            method: 'POST',
+            body: JSON.stringify({
+              name,
+              phone: phoneNumber,
+              company: business,
+              message: request,
+            }),
+          }).then((res) => {
+            console.log(res);
+          });
         }}
       >
         <div className="flex-grow flex flex-col justify-between gap-6 pb-12">
