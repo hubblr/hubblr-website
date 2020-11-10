@@ -72,11 +72,13 @@ function AnimatedInitialContentMobile({ className, fadeInImage, contentTitle }) 
   const imageWrapperHeight = useClientHeight(imageWrapperRef);
   const sectionHeadingRef = useRef();
   const sectionHeadingHeight = useClientHeight(sectionHeadingRef);
+  // margin to move section title halfway into image
   const sectionHeadingMarginTop = imageWrapperHeight / 2;
-
+  // offset towards image in initial state
   const contentYOffset = useInitialYOffset(availableHeight, MOBILE_INITIAL_CONTENT_START);
-  transforms.initialContent.y.outputRange = [`${contentYOffset}px`, '0px'];
 
+  // finish transform descriptions
+  transforms.initialContent.y.outputRange = [`${contentYOffset}px`, '0px'];
   transforms.fadeInImage.scale.outputRange = useScaleOutputRange(
     imageWrapperHeight,
     availableHeight,
@@ -89,8 +91,7 @@ function AnimatedInitialContentMobile({ className, fadeInImage, contentTitle }) 
     MOBILE_INITIAL_IMAGE_END,
     MOBILE_INITIAL_TITLE_END
   );
-
-  // y offset of section heading
+  // y offset of section title is derived from image scale values
   const fadeInScales = transforms.fadeInImage.scale.outputRange;
   const originalHeight = imageWrapperHeight * fadeInScales[1];
   const scaledHeight = imageWrapperHeight * fadeInScales[0];
@@ -124,7 +125,7 @@ function AnimatedInitialContentMobile({ className, fadeInImage, contentTitle }) 
       transforms.sectionHeading.scale
     ),
   };
-  // append styles where necessary
+  // append any further style parameters
   sectionHeadingStyles.marginTop = `-${sectionHeadingMarginTop}px`;
 
   return (
