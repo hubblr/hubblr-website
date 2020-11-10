@@ -6,15 +6,23 @@ import useOffsetWidth from '../../hooks/dimensions/useOffsetWidth';
 
 const DesignAdvertisementHeader = forwardRef(
   ({ className, targetCustomers, setElementWidths }, givenRef) => {
+    // this component does not always need to be referenced in parent
     const backUpRef = useRef();
     const containerRef = givenRef || backUpRef;
+
     // determine relevant widths and pass them to parent
+    // non-scrolled width of wrapper element
     const containerWidth = useOffsetWidth(containerRef);
+    // width of text before the content
     const frontTextRef = useRef();
     const frontTextWidth = useOffsetWidth(frontTextRef);
+    // width of divider bar between front text and content (setter passed to child)
     const [growingDividerWidth, setGrowingDividerWidth] = useState(0);
+    // array of widths of content elements
     const contentWidths = useRef(Array(targetCustomers.length));
+    // array of widths of dividers between content elements
     const dividerWidths = useRef(Array(targetCustomers.length - 1));
+    // functions to fill width arrays inside of child components
     const createContentWidthSetter = (i) => (width) => {
       if (contentWidths.current) {
         contentWidths.current[i] = width;
@@ -25,6 +33,7 @@ const DesignAdvertisementHeader = forwardRef(
         dividerWidths.current[i] = width;
       }
     };
+    // use setter passed by parent to share widths with parent
     useLayoutEffect(() => {
       if (setElementWidths) {
         setElementWidths({
