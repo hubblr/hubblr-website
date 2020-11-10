@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import useWindowSize from '../../hooks/window/useWindowSize';
 import usePaddingTop from '../../hooks/styleQueries/usePaddingTop';
-import SectionHeading from '../../indexPageMainContent/SectionHeading/SectionHeading';
+import SectionHeading from '../../index-page-main-content/section-heading/SectionHeading';
 import useClientHeight from '../../hooks/dimensions/useClientHeight';
 import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTransformFromDescription';
 

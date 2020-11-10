@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
-import SectionScrollBarBase from '../sectionScrollBar/SectionScrollBarBase';
-import ArrowImageDownDouble from '../imageComponents/ArrowImageDownDouble';
+import SectionScrollBarBase from '../section-scroll-bar/SectionScrollBarBase';
+import ArrowImageDownDouble from '../image-components/ArrowImageDownDouble';
 
 function IntroductionSection({ children }) {
   return (

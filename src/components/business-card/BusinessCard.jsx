@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HubblrGradientBorderButtonBase from '../gradientBorderButtons/HubblrGradientBorderButtonBase';
-import LongArrowImage from '../imageComponents/LongArrowImage';
+import HubblrGradientBorderButtonBase from '../gradient-border-buttons/HubblrGradientBorderButtonBase';
+import LongArrowImage from '../image-components/LongArrowImage';
 
 function BusinessCard({ children, image, name, position, actionName }) {
   return (

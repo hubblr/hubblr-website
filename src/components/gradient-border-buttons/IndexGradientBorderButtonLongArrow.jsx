@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import HubblrGradientBorderButtonBase from './HubblrGradientBorderButtonBase';
-import LongArrowImage from '../imageComponents/LongArrowImage';
+import LongArrowImage from '../image-components/LongArrowImage';
 
 function IndexGradientBorderButtonLongArrow({
   children,

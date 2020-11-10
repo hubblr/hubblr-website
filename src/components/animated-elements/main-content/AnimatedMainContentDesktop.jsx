@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
-import DesignAdvertisementHeader from '../../indexPageMainContent/DesignAdvertisementHeader/DesignAdvertisementHeader';
+import DesignAdvertisementHeader from '../../index-page-main-content/design-advertisement-header/DesignAdvertisementHeader';
 import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTransformFromDescription';
 import usePaddingTop from '../../hooks/styleQueries/usePaddingTop';
 import useWindowSize from '../../hooks/window/useWindowSize';

@@ -1,8 +1,8 @@
 import React, { useContext, useLayoutEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { motion, useSpring, useViewportScroll } from 'framer-motion';
-import DesignAdvertisementHeader from '../../indexPageMainContent/DesignAdvertisementHeader/DesignAdvertisementHeader';
-import ScrollJumper from '../../scrollJumper/ScrollJumper';
+import DesignAdvertisementHeader from '../../index-page-main-content/design-advertisement-header/DesignAdvertisementHeader';
+import ScrollJumper from '../../scroll-jumper/ScrollJumper';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import useScrollPositionFromPercentage from '../../hooks/scroll/useScrollPositionFromPercentage';
 import useScrollWidth from '../../hooks/scroll/useScrollWidth';

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import isEmpty from 'validator/es/lib/isEmpty';
 import isMobilePhone from 'validator/es/lib/isMobilePhone';
 import Form from '../form/form/Form';
-import HubblrGradientBorderButtonBase from '../gradientBorderButtons/HubblrGradientBorderButtonBase';
+import HubblrGradientBorderButtonBase from '../gradient-border-buttons/HubblrGradientBorderButtonBase';
 import Input from '../form/form/Input';
 
 function createNotEmptyValidator(errorMsg) {

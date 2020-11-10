@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import HeadlinerBoxImageDesktop from '../imageComponents/HeadlinerBoxImageDesktopDesktop';
+import HeadlinerBoxImageDesktop from '../image-components/HeadlinerBoxImageDesktopDesktop';
 
 const pushLeft = 1 / 20;
 const pushDown = 1 / 18;

@@ -2,8 +2,8 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { DesktopQuery, MobileAndTabletQuery } from '../../../util/helpers';
 import AnimatedSection from './AnimatedSection';
-import AnimatedSectionContentDesktop from '../SectionContent/AnimatedSectionContentDesktop';
-import AnimatedSectionContentMobile from '../SectionContent/AnimatedSectionContentMobile';
+import AnimatedSectionContentDesktop from '../section-content/AnimatedSectionContentDesktop';
+import AnimatedSectionContentMobile from '../section-content/AnimatedSectionContentMobile';
 
 const HubblrMainContentSection = forwardRef(
   ({ children, sectionType, fadeInImage, contentTitle, targetCustomers }, fullSectionRef) => {

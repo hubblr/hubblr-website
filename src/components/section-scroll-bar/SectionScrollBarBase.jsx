@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import SectionScrollBarLine from './SectionScrollBarLine';
-import ArrowImageDownDouble from '../imageComponents/ArrowImageDownDouble';
+import ArrowImageDownDouble from '../image-components/ArrowImageDownDouble';
 
 function SectionScrollBarBase({ upperFlexGrow, lowerFlexGrow, upperClassNames, lowerClassNames }) {
   const arrowImages =

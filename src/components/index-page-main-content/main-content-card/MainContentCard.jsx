@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DesktopQuery, MobileAndTabletQuery } from '../../../util/helpers';
-import HeadlinerBoxSvg from '../../imageComponents/HeadlinerBoxSvg';
+import HeadlinerBoxSvg from '../../image-components/HeadlinerBoxSvg';
 
 function MainContentCard({ children, title, description, className, padding }) {
   return (

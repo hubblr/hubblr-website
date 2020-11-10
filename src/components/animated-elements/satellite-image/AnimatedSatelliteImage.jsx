@@ -56,11 +56,10 @@ function AnimatedSatelliteImage({ className }) {
   };
 
   return (
-    <div className={`flex flex-col items-center justify-center overflow-hidden ${className}`}>
+    <div className={`flex flex-col items-center justify-center ${className}`}>
       <div className="">
         <motion.svg
           width="360px"
-          height="276px"
           viewBox="0 0 360 276"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"

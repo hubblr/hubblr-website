@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import NavigationButtonHubblrIcon from './NavigationButtonHubblrIcon';
-import HamburgerMenuIcon from '../imageComponents/HamburgerMenuIcon';
+import HamburgerMenuIcon from '../image-components/HamburgerMenuIcon';
 import NavBarTopStackedLinks from './NavBarTopStackedLinks';
-import LightningImage from '../imageComponents/LightningImage';
-import ConsultingIllustrationImage from '../imageComponents/ConsultingIllustrationImage';
-import VenturesArrowImage from '../imageComponents/VenturesArrowImage';
+import LightningImage from '../image-components/LightningImage';
+import ConsultingIllustrationImage from '../image-components/ConsultingIllustrationImage';
+import VenturesArrowImage from '../image-components/VenturesArrowImage';
 
 function NavBarTopMobile({ contentWidth }) {
   const [isCollapsed, setIsCollapsed] = useState(true);

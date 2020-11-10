@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../simple/button/Button';
 import useClientWidth from '../hooks/dimensions/useClientWidth';
-import LongArrowImage from '../imageComponents/LongArrowImage';
+import LongArrowImage from '../image-components/LongArrowImage';
 
 function ScrollJumper({
   containerRef,

@@ -1,10 +1,10 @@
 import React from 'react';
-import HubblrMainContentSection from '../pageSectionBases/Sections/HubblrMainContentSection';
-import ConsultingIllustrationImageBackground from '../imageComponents/ConsultingIllustrationImageBackground';
-import MainContentCard from '../indexPageMainContent/MainContentCard/MainContentCard';
-import MainContentGrid from '../indexPageMainContent/MainContentCard/MainContentGrid';
-import MainContentGridItem from '../indexPageMainContent/MainContentCard/MainContentGridItem';
-import IndexGradientBorderButtonLongArrow from '../gradientBorderButtons/IndexGradientBorderButtonLongArrow';
+import HubblrMainContentSection from '../page-section-bases/sections/HubblrMainContentSection';
+import ConsultingIllustrationImageBackground from '../image-components/ConsultingIllustrationImageBackground';
+import MainContentCard from '../index-page-main-content/main-content-card/MainContentCard';
+import MainContentGrid from '../index-page-main-content/main-content-card/MainContentGrid';
+import MainContentGridItem from '../index-page-main-content/main-content-card/MainContentGridItem';
+import IndexGradientBorderButtonLongArrow from '../gradient-border-buttons/IndexGradientBorderButtonLongArrow';
 import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
 
 const ConsultingSection = React.forwardRef((props, ref) => {

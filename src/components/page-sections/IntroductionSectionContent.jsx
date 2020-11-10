@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
-import HubblrImage from '../imageComponents/HubblrImage';
-import IndexGradientBorderButtonLongArrow from '../gradientBorderButtons/IndexGradientBorderButtonLongArrow';
+import HubblrImage from '../image-components/HubblrImage';
+import IndexGradientBorderButtonLongArrow from '../gradient-border-buttons/IndexGradientBorderButtonLongArrow';
 
 const IntroductionSectionContent = forwardRef((props, ref) => {
   return (

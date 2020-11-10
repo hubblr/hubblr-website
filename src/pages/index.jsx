@@ -1,18 +1,18 @@
 import React, { useState, useLayoutEffect, useEffect, useRef } from 'react';
 import { useLocation } from '@reach/router';
 import { useViewportScroll } from 'framer-motion';
-import Layout from '../components/pageLayouts/Layout';
-import IntroductionSection from '../components/pageSections/IntroductionSection';
-import SoftwareLaboratorySection from '../components/pageSections/SoftwareLaboratorySection';
-import ConsultingSection from '../components/pageSections/ConsultingSection';
-import VenturesSection from '../components/pageSections/VenturesSection';
-import NavBarTop from '../components/navBar/NavBarTop';
+import Layout from '../components/page-layouts/Layout';
+import IntroductionSection from '../components/page-sections/IntroductionSection';
+import SoftwareLaboratorySection from '../components/page-sections/SoftwareLaboratorySection';
+import ConsultingSection from '../components/page-sections/ConsultingSection';
+import VenturesSection from '../components/page-sections/VenturesSection';
+import NavBarTop from '../components/nav-bar/NavBarTop';
 import HubblrPageLinks from '../components/links/HubblrPageLinks';
 import useYPositions from '../components/hooks/scroll/useYPositions';
 import useWindowSize from '../components/hooks/window/useWindowSize';
 import IndexPageContext from '../context/IndexPageContext';
 import useClientWidth from '../components/hooks/dimensions/useClientWidth';
-import IntroductionSectionContent from '../components/pageSections/IntroductionSectionContent';
+import IntroductionSectionContent from '../components/page-sections/IntroductionSectionContent';
 import useOffsetHeight from '../components/hooks/dimensions/useOffsetHeight';
 
 function getSectionAnimationEnd(sectionRef) {
@@ -132,7 +132,9 @@ function IndexPage() {
           <ConsultingSection ref={consultingSectionRef} />
           <VenturesSection ref={venturesSectionRef} />
         </div>
-        <HubblrPageLinks />
+        <div className="container mx-auto">
+          <HubblrPageLinks />
+        </div>
       </Layout>
       <div className="">
         <div

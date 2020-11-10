@@ -6,15 +6,13 @@ import AnimatedMainContentDesktop from '../../animated-elements/main-content/Ani
 
 function AnimatedSectionContentDesktop({ children, contentTitle, targetCustomers, fadeInImage }) {
   return (
-    <div className="container mx-auto">
-      <div className="flex flex-col items-center">
-        <AnimatedSectionHeadingDesktop heading={contentTitle} />
-        <div className="flex-grow flex items-center">
-          <AnimatedImageContentDesktop fadeInImage={fadeInImage} />
-          <AnimatedMainContentDesktop targetCustomers={targetCustomers}>
-            {children}
-          </AnimatedMainContentDesktop>
-        </div>
+    <div className="flex-grow container mx-auto flex flex-col justify-center px-16">
+      <AnimatedSectionHeadingDesktop heading={contentTitle} />
+      <div className="flex-grow flex items-center">
+        <AnimatedImageContentDesktop fadeInImage={fadeInImage} />
+        <AnimatedMainContentDesktop targetCustomers={targetCustomers}>
+          {children}
+        </AnimatedMainContentDesktop>
       </div>
     </div>
   );

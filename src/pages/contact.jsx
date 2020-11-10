@@ -1,14 +1,14 @@
 import React from 'react';
-import Layout from '../components/pageLayouts/Layout';
-import HubblrImage from '../components/imageComponents/HubblrImage';
-import BusinessCardContactPage from '../components/businessCard/BusinessCardContactPage';
-import ContactPageForm from '../components/contactPageContent/ContactPageForm';
+import Layout from '../components/page-layouts/Layout';
+import HubblrImage from '../components/image-components/HubblrImage';
+import BusinessCardContactPage from '../components/business-card/BusinessCardContactPage';
+import ContactPageForm from '../components/contact-page-content/ContactPageForm';
 import HubblrPageLinks from '../components/links/HubblrPageLinks';
 
 function ContactPage() {
   return (
     <Layout>
-      <div className="h-full min-h-screen flex flex-col items-center">
+      <div className="container mx-auto h-full min-h-screen flex flex-col items-center">
         <div className="flex-grow w-full flex flex-col justify-center items-center mb-5 mt-5">
           <div className="mb-8">
             <HubblrImage className="w-20" />

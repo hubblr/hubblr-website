@@ -6,7 +6,7 @@ import AnimatedMainContentMobile from '../../animated-elements/main-content/Anim
 
 function AnimatedSectionContentMobile({ children, fadeInImage, contentTitle, targetCustomers }) {
   return (
-    <>
+    <div className="w-full flex flex-col">
       <div className="container mx-auto">
         <AnimatedInitialContentMobile
           className="mb-8"
@@ -18,7 +18,7 @@ function AnimatedSectionContentMobile({ children, fadeInImage, contentTitle, tar
       <div className="container mx-auto">
         <AnimatedMainContentMobile>{children}</AnimatedMainContentMobile>
       </div>
-    </>
+    </div>
   );
 }
 

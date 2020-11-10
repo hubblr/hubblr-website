@@ -6,7 +6,7 @@ import useYPositions from '../../hooks/scroll/useYPositions';
 import useWindowSize from '../../hooks/window/useWindowSize';
 import { TabletBreakpoint } from '../../../util/helpers';
 import useFullScrollSectionHeight from '../../hooks/scroll/useFullScrollSectionHeight';
-import SectionScrollBar from '../../sectionScrollBar/SectionScrollBar';
+import SectionScrollBar from '../../section-scroll-bar/SectionScrollBar';
 
 /**
  * Note: The content container sets 'overflow: hidden' via tailwind class because scaled
@@ -49,31 +49,26 @@ const AnimatedSection = forwardRef(({ children, sectionType }, fullSectionRef) =
     >
       <div
         ref={fullSectionRef}
+        className="relative"
         style={{
           height: fullSectionHeight,
         }}
       >
         <div
           ref={contentContainerRef}
-          className="sticky top-0 w-full overflow-hidden"
+          className="sticky top-0 w-full overflow-hidden flex"
           style={{
             paddingTop: `${navBarHeight}px`,
+            minHeight: `calc(100vh - ${navBarHeight}px)`,
           }}
         >
-          <div
-            className="flex flex-col items-center" // to give container an explicit height
-            style={{
-              minHeight: `calc(100vh - ${navBarHeight}px)`,
-            }}
-          >
-            {children}
-          </div>
-          {isLg && (
-            <div className="absolute container mx-auto h-full inset-0" style={{ zIndex: '-10' }}>
-              <SectionScrollBar sectionType={sectionType} />
-            </div>
-          )}
+          {children}
         </div>
+        {isLg && (
+          <div className="absolute container mx-auto h-full inset-0">
+            <SectionScrollBar sectionType={sectionType} />
+          </div>
+        )}
       </div>
     </AnimationAreaContext.Provider>
   );

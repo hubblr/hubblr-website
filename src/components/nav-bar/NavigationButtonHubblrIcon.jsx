@@ -1,5 +1,5 @@
 import React from 'react';
-import HubblrImage from '../imageComponents/HubblrImage';
+import HubblrImage from '../image-components/HubblrImage';
 
 function NavigationButtonHubblrIcon() {
   return (

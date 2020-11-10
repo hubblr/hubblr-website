@@ -1,6 +1,6 @@
 import React from 'react';
 import BusinessCard from './BusinessCard';
-import CedricBalsImage from '../imageComponents/CedricBalsImage';
+import CedricBalsImage from '../image-components/CedricBalsImage';
 
 function BusinessCardContactPage() {
   return (
