@@ -17,7 +17,7 @@ function NavBarTopDesktop({ contentWidth }) {
       <div className="flex flex-col justify-center items-end w-1/3">
         <Link
           to="/contact"
-          className="text-center font-extrabold leading-none tracking-tight p-4 hover:bg-brand-gray-darkest rounded-lg animate"
+          className="button button-dark text-center font-extrabold tracking-tight "
         >
           <span className="bg-clip-text text-transparent bg-gradient-to-r bg-gradient-to-r from-teal-400 to-blue-500">
             Kontaktieren
