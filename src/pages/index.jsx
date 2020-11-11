@@ -19,27 +19,38 @@ import { ANIMATION_AREA_HEIGHT_DESKTOP, ANIMATION_AREA_HEIGHT_MOBILE } from '../
 import { TabletBreakpoint } from '../util/helpers';
 
 // disable regular scroll restoration on reload
-if (window.history.scrollRestoration) {
-  window.history.scrollRestoration = 'manual';
+function useDisableScrollRestoration() {
+  if (window.history.scrollRestoration) {
+    window.history.scrollRestoration = 'manual';
+  }
+}
+
+function useUpdateHashOnHistoryChange(hashRef, updateHashRef) {
+  const history = createHistory(window);
+  useLayoutEffect(() => {
+    // eslint-disable-next-line no-shadow
+    history.listen(({ location: nextLocation }) => {
+      console.log('##################');
+      updateHashRef(nextLocation.hash);
+      console.log('last knows offset:', window.pageYOffset);
+    });
+  }, [history, updateHashRef]);
 }
 
 function IndexPage() {
+  useDisableScrollRestoration();
+
   const location = useLocation();
   console.log('rerender!');
   console.log(location.hash);
   const hash = useRef(location.hash);
   const [jumpIsEnabled, setJumpIsEnabled] = useState(true);
 
-  const history = createHistory(window);
-  useLayoutEffect(() => {
-    // eslint-disable-next-line no-shadow
-    history.listen(({ location: nextLocation }) => {
-      console.log('##################');
-      hash.current = nextLocation.hash;
-      setJumpIsEnabled(true);
-      console.log('last knows offset:', window.pageYOffset);
-    });
-  }, [history]);
+  const updateHash = (nextHash) => {
+    hash.current = nextHash;
+    setJumpIsEnabled(true);
+  };
+  useUpdateHashOnHistoryChange(hash, updateHash);
 
   const { width: windowWidth } = useWindowResizeInfo();
   const isLg = windowWidth > TabletBreakpoint;
