@@ -6,9 +6,16 @@ import AnimatedSectionContentDesktop from '../section-content/AnimatedSectionCon
 import AnimatedSectionContentMobile from '../section-content/AnimatedSectionContentMobile';
 
 const HubblrMainContentSection = forwardRef(
-  ({ children, sectionType, fadeInImage, contentTitle, targetCustomers }, fullSectionRef) => {
+  (
+    { children, sectionType, fadeInImage, contentTitle, targetCustomers, animationAreaHeight },
+    fullSectionRef
+  ) => {
     return (
-      <AnimatedSection ref={fullSectionRef} sectionType={sectionType}>
+      <AnimatedSection
+        ref={fullSectionRef}
+        sectionType={sectionType}
+        animationAreaHeight={animationAreaHeight}
+      >
         <DesktopQuery>
           <AnimatedSectionContentDesktop
             fadeInImage={fadeInImage}
@@ -38,6 +45,7 @@ HubblrMainContentSection.propTypes = {
   fadeInImage: PropTypes.node.isRequired,
   contentTitle: PropTypes.string.isRequired,
   targetCustomers: PropTypes.arrayOf(PropTypes.string),
+  animationAreaHeight: PropTypes.number.isRequired, // in px
 };
 
 HubblrMainContentSection.defaultProps = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import HubblrMainContentSection from '../page-section-bases/sections/HubblrMainContentSection';
 import LightningImageBackground from '../image-components/LightningImageBackground';
 import MainContentCard from '../index-page-main-content/main-content-card/MainContentCard';
@@ -7,13 +8,14 @@ import MainContentGridItem from '../index-page-main-content/main-content-card/Ma
 import IndexGradientBorderButtonLongArrow from '../gradient-border-buttons/IndexGradientBorderButtonLongArrow';
 import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
 
-const SoftwareLaboratorySection = React.forwardRef((props, ref) => {
+const SoftwareLaboratorySection = React.forwardRef(({ animationAreaHeight }, ref) => {
   return (
     <HubblrMainContentSection
       ref={ref}
       fadeInImage={<LightningImageBackground />}
       contentTitle="Software Laboratory"
       targetCustomers={['Mittelständische Unternehmen', 'Großunternehmen', 'Post-Seed Startups']}
+      animationAreaHeight={animationAreaHeight}
     >
       <MobileAndTabletQuery>
         <MainContentCard
@@ -80,5 +82,9 @@ const SoftwareLaboratorySection = React.forwardRef((props, ref) => {
     </HubblrMainContentSection>
   );
 });
+
+SoftwareLaboratorySection.propTypes = {
+  animationAreaHeight: PropTypes.number.isRequired, // in px
+};
 
 export default SoftwareLaboratorySection;

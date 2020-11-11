@@ -1,5 +1,5 @@
-import React, { useState, useLayoutEffect, useRef } from 'react';
-import { useLocation } from '@reach/router';
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useLocation, createHistory } from '@reach/router';
 import { useViewportScroll } from 'framer-motion';
 import Layout from '../components/page-layouts/Layout';
 import IntroductionSection from '../components/page-sections/IntroductionSection';
@@ -9,22 +9,48 @@ import VenturesSection from '../components/page-sections/VenturesSection';
 import NavBarTop from '../components/nav-bar/NavBarTop';
 import HubblrPageLinks from '../components/links/HubblrPageLinks';
 import useYPositions from '../components/hooks/scroll/useYPositions';
-import useWindowInfo from '../components/hooks/window/useWindowInfo';
-import IndexPageContext from '../context/IndexPageContext';
+import useWindowResizeInfo from '../components/hooks/window/useWindowResizeInfo';
 import useClientWidth from '../components/hooks/dimensions/useClientWidth';
 import IntroductionSectionContent from '../components/page-sections/IntroductionSectionContent';
 import useOffsetHeight from '../components/hooks/dimensions/useOffsetHeight';
+import useWindowPageYOffset from '../components/hooks/window/useWindowPageYOffset';
+import IndexPageContext from '../context/IndexPageContext';
+import { ANIMATION_AREA_HEIGHT_DESKTOP, ANIMATION_AREA_HEIGHT_MOBILE } from '../config';
+import { TabletBreakpoint } from '../util/helpers';
 
-function getSectionAnimationEnd(sectionRef) {
-  const height = sectionRef.current.clientHeight;
-  const pageY = sectionRef.current.offsetTop;
-  return pageY + height - window.innerHeight;
+// disable regular scroll restoration on reload
+if (window.history.scrollRestoration) {
+  window.history.scrollRestoration = 'manual';
 }
 
 function IndexPage() {
   const location = useLocation();
+  console.log('rerender!');
+  console.log(location.hash);
+  const hash = useRef(location.hash);
+  const [jumpIsEnabled, setJumpIsEnabled] = useState(true);
 
-  const { height: windowHeight, startY: windowStartY } = useWindowInfo();
+  const history = createHistory(window);
+  useLayoutEffect(() => {
+    // eslint-disable-next-line no-shadow
+    history.listen(({ location: nextLocation }) => {
+      console.log('##################');
+      hash.current = nextLocation.hash;
+      setJumpIsEnabled(true);
+      console.log('last knows offset:', window.pageYOffset);
+    });
+  }, [history]);
+
+  const { width: windowWidth } = useWindowResizeInfo();
+  const isLg = windowWidth > TabletBreakpoint;
+  const animationAreaHeight = isLg ? ANIMATION_AREA_HEIGHT_DESKTOP : ANIMATION_AREA_HEIGHT_MOBILE;
+
+  const windowStartY = useWindowPageYOffset();
+
+  useEffect(() => {
+    console.log(windowStartY);
+  }, [windowStartY]);
+
   const { scrollY } = useViewportScroll();
 
   // decide when to show navbar
@@ -35,11 +61,11 @@ function IndexPage() {
     // must fire before scrollY updates
     setShowNavbar(windowStartY > introContentScrollEndY);
     // this handles continuous updates
-    const unscubscribeScroll = scrollY.onChange((y) => {
+    const unsubscribeScroll = scrollY.onChange((y) => {
       setShowNavbar(y > introContentScrollEndY);
     });
     return () => {
-      unscubscribeScroll();
+      unsubscribeScroll();
     };
   }, [introContentScrollEndY, scrollY, windowStartY]);
   // get width of navbar parent to size fixed positioned navbar
@@ -52,51 +78,70 @@ function IndexPage() {
 
   // software lab section
   const softwareLabSectionRef = useRef();
-  const [, softwareLabSectionEndY] = useYPositions(softwareLabSectionRef);
+  const [softwareLabSectionEndY] = useYPositions(softwareLabSectionRef);
   // consulting section
   const consultingSectionRef = useRef();
-  const [, consultingSectionEndY] = useYPositions(consultingSectionRef);
+  const [consultingSectionEndY] = useYPositions(consultingSectionRef);
   // ventures section
   const venturesSectionRef = useRef();
-  const [, venturesSectionEndY] = useYPositions(venturesSectionRef);
+  const [venturesSectionEndY] = useYPositions(venturesSectionRef);
 
   // build info for each section
-  const softwareLabInfo = {
-    ref: softwareLabSectionRef,
-    endY: Math.floor(softwareLabSectionEndY - windowHeight - 1),
-    hash: '#softwareLaboratory',
-  };
-  const consultingInfo = {
-    ref: consultingSectionRef,
-    endY: Math.floor(consultingSectionEndY - windowHeight - 1),
-    hash: '#consulting',
-  };
-  const venturesInfo = {
-    ref: venturesSectionRef,
-    endY: Math.floor(venturesSectionEndY - windowHeight - 1),
-    hash: '#ventures',
-  };
-  const order = [softwareLabInfo, consultingInfo, venturesInfo];
-  const orderLen = order.length;
+  const revOrder = useMemo(() => {
+    const softwareLabInfo = {
+      ref: softwareLabSectionRef,
+      endY: softwareLabSectionEndY + animationAreaHeight,
+      hash: '#softwareLaboratory',
+    };
+    const consultingInfo = {
+      ref: consultingSectionRef,
+      endY: consultingSectionEndY + animationAreaHeight,
+      hash: '#consulting',
+    };
+    const venturesInfo = {
+      ref: venturesSectionRef,
+      endY: venturesSectionEndY + animationAreaHeight,
+      hash: '#ventures',
+    };
+    return [venturesInfo, consultingInfo, softwareLabInfo];
+  }, [animationAreaHeight, consultingSectionEndY, softwareLabSectionEndY, venturesSectionEndY]);
+  const orderLen = revOrder.length;
+  console.log('software lab endy:', revOrder[2].endY);
 
   // jump to location set in hash
   useLayoutEffect(() => {
-    // need to be sure that everything is fully build
-    setTimeout(() => {
+    console.log('SETS UP JUMP BE READY! jump is enabled:', jumpIsEnabled);
+    function scrollToHash() {
+      console.log('timeout fires!');
       for (let i = 0; i < orderLen; i += 1) {
-        const { ref, hash: sectionHash } = order[i];
-        if (location.hash === sectionHash) {
-          const animationEnd = getSectionAnimationEnd(ref);
-          window.scrollTo(0, animationEnd);
+        const { endY, hash: sectionHash } = revOrder[i];
+        if (hash.current === sectionHash) {
+          console.log('finds proper jump position...');
+          window.scrollTo(0, endY);
+          return;
         }
       }
-    }, 1);
-  }, []);
+      window.scrollTo(0, 0);
+    }
+    // need to be sure that everything is fully build
+    const timeoutId = jumpIsEnabled
+      ? setTimeout(() => {
+          scrollToHash();
+          setJumpIsEnabled(false);
+        }, 1)
+      : null;
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [jumpIsEnabled, orderLen, revOrder]);
 
   // update location on scroll
-  const revOrder = order.reverse();
   useLayoutEffect(() => {
-    const unsubscribeY = scrollY.onChange((curY) => {
+    console.log('scroller does update!');
+    function update(curY) {
+      if (jumpIsEnabled) {
+        return;
+      }
       let nextHash = '';
       for (let i = 0; i < orderLen; i += 1) {
         const { endY, hash: sectionHash } = revOrder[i];
@@ -105,19 +150,23 @@ function IndexPage() {
           break;
         }
       }
-      if (nextHash !== location.hash) {
-        location.hash = nextHash;
+      if (nextHash !== hash.current) {
+        hash.current = nextHash;
         if (nextHash) {
-          // navigate('/');
+          window.history.pushState({}, '', nextHash);
         } else {
-          // navigate('/');
+          window.history.pushState({}, '', '/');
         }
       }
+    }
+    const unsubscribeY = scrollY.onChange((curY) => {
+      update(curY);
     });
+    update(scrollY.get());
     return () => {
       unsubscribeY();
     };
-  }, [location, orderLen, revOrder, scrollY]);
+  }, [animationAreaHeight, jumpIsEnabled, location, orderLen, revOrder, scrollY]);
 
   return (
     <IndexPageContext.Provider
@@ -132,9 +181,12 @@ function IndexPage() {
               <IntroductionSectionContent />
             </div>
           </IntroductionSection>
-          <SoftwareLaboratorySection ref={softwareLabSectionRef} />
-          <ConsultingSection ref={consultingSectionRef} />
-          <VenturesSection ref={venturesSectionRef} />
+          <SoftwareLaboratorySection
+            ref={softwareLabSectionRef}
+            animationAreaHeight={animationAreaHeight}
+          />
+          <ConsultingSection ref={consultingSectionRef} animationAreaHeight={animationAreaHeight} />
+          <VenturesSection ref={venturesSectionRef} animationAreaHeight={animationAreaHeight} />
         </div>
         <div className="container mx-auto">
           <HubblrPageLinks />

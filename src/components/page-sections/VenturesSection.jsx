@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import HubblrMainContentSection from '../page-section-bases/sections/HubblrMainContentSection';
 import VenturesArrowImageBackground from '../image-components/VenturesArrowImageBackground';
 import MainContentCard from '../index-page-main-content/main-content-card/MainContentCard';
@@ -7,7 +8,7 @@ import MainContentGridItem from '../index-page-main-content/main-content-card/Ma
 import IndexGradientBorderButtonLongArrow from '../gradient-border-buttons/IndexGradientBorderButtonLongArrow';
 import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
 
-const VenturesSection = React.forwardRef((props, ref) => {
+const VenturesSection = React.forwardRef(({ animationAreaHeight }, ref) => {
   return (
     <HubblrMainContentSection
       ref={ref}
@@ -15,6 +16,7 @@ const VenturesSection = React.forwardRef((props, ref) => {
       fadeInImage={<VenturesArrowImageBackground />}
       contentTitle="Digital Ventures"
       targetCustomers={['Pre-Seed Startups']}
+      animationAreaHeight={animationAreaHeight}
     >
       <MobileAndTabletQuery>
         <MainContentCard
@@ -81,5 +83,9 @@ const VenturesSection = React.forwardRef((props, ref) => {
     </HubblrMainContentSection>
   );
 });
+
+VenturesSection.propTypes = {
+  animationAreaHeight: PropTypes.number.isRequired, // in px
+};
 
 export default VenturesSection;

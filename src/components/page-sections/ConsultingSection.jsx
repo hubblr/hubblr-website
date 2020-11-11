@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import HubblrMainContentSection from '../page-section-bases/sections/HubblrMainContentSection';
 import ConsultingIllustrationImageBackground from '../image-components/ConsultingIllustrationImageBackground';
 import MainContentCard from '../index-page-main-content/main-content-card/MainContentCard';
@@ -7,13 +8,14 @@ import MainContentGridItem from '../index-page-main-content/main-content-card/Ma
 import IndexGradientBorderButtonLongArrow from '../gradient-border-buttons/IndexGradientBorderButtonLongArrow';
 import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
 
-const ConsultingSection = React.forwardRef((props, ref) => {
+const ConsultingSection = React.forwardRef(({ animationAreaHeight }, ref) => {
   return (
     <HubblrMainContentSection
       ref={ref}
       fadeInImage={<ConsultingIllustrationImageBackground />}
       contentTitle="Solution Assessment"
       targetCustomers={['Business Angels', 'Mittelständische Unternehmen', 'Startups']}
+      animationAreaHeight={animationAreaHeight}
     >
       <MobileAndTabletQuery>
         <MainContentCard
@@ -80,5 +82,9 @@ const ConsultingSection = React.forwardRef((props, ref) => {
     </HubblrMainContentSection>
   );
 });
+
+ConsultingSection.propTypes = {
+  animationAreaHeight: PropTypes.number.isRequired, // in px
+};
 
 export default ConsultingSection;

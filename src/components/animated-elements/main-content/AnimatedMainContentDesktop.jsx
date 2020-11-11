@@ -5,7 +5,7 @@ import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import DesignAdvertisementHeader from '../../index-page-main-content/design-advertisement-header/DesignAdvertisementHeader';
 import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTransformFromDescription';
 import usePaddingTop from '../../hooks/styleQueries/usePaddingTop';
-import useWindowInfo from '../../hooks/window/useWindowInfo';
+import useWindowResizeInfo from '../../hooks/window/useWindowResizeInfo';
 
 const transforms = {
   opacity: {
@@ -28,7 +28,7 @@ function AnimatedMainContentDesktop({ children, targetCustomers }) {
     AnimationAreaContext
   );
 
-  const { height: windowHeight } = useWindowInfo();
+  const { height: windowHeight } = useWindowResizeInfo();
   const paddingTop = usePaddingTop(contentContainerRef);
   const usedScreenHeight = windowHeight - paddingTop;
   transforms.y.outputRange = [`${usedScreenHeight / 2}px`, '0px'];

@@ -2,7 +2,7 @@ import React, { useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
-import useWindowInfo from '../../hooks/window/useWindowInfo';
+import useWindowResizeInfo from '../../hooks/window/useWindowResizeInfo';
 import usePaddingTop from '../../hooks/styleQueries/usePaddingTop';
 import SectionHeading from '../../index-page-main-content/section-heading/SectionHeading';
 import useClientHeight from '../../hooks/dimensions/useClientHeight';
@@ -33,7 +33,7 @@ function AnimatedSectionHeadingDesktop({ heading }) {
   // calculate y offset at start of animation (to center in window)
   const sectionHeadingRef = useRef();
   const sectionHeadingHeight = useClientHeight(sectionHeadingRef);
-  const { height: windowHeight } = useWindowInfo();
+  const { height: windowHeight } = useWindowResizeInfo();
   const paddingTop = usePaddingTop(contentContainerRef);
   const topYHeadingStart = windowHeight / 2 - paddingTop - sectionHeadingHeight / 2;
   transforms.y.outputRange = [`${topYHeadingStart}px`, '0px'];

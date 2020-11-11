@@ -3,26 +3,20 @@ import PropTypes from 'prop-types';
 import IndexPageContext from '../../../context/IndexPageContext';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import useYPositions from '../../hooks/scroll/useYPositions';
-import useWindowInfo from '../../hooks/window/useWindowInfo';
+import useWindowResizeInfo from '../../hooks/window/useWindowResizeInfo';
 import { TabletBreakpoint } from '../../../util/helpers';
 import useFullScrollSectionHeight from '../../hooks/scroll/useFullScrollSectionHeight';
 import SectionScrollBar from '../../section-scroll-bar/SectionScrollBar';
-import { ANIMATION_AREA_HEIGHT_DESKTOP, ANIMATION_AREA_HEIGHT_MOBILE } from '../../../config';
 
 const AnimatedSection = forwardRef(
-  (
-    { children, sectionType, animationAreaHeightDesktop, animationAreaHeightMobile },
-    fullSectionRef
-  ) => {
+  ({ children, sectionType, animationAreaHeight }, fullSectionRef) => {
     // get navbar size from context to set padding-top over navbar
     const { navBarHeight } = useContext(IndexPageContext);
     // check width of window for breakpoint
-    const { width: windowWidth } = useWindowInfo();
+    const { width: windowWidth } = useWindowResizeInfo();
     const isLg = windowWidth > TabletBreakpoint;
 
     // values to pass in Provider
-    // correct height of animation area
-    const animationAreaHeight = isLg ? animationAreaHeightDesktop : animationAreaHeightMobile;
     // percentage step through animation area
     const animationAreaStep = animationAreaHeight / 100;
     // start of full section & consequently also animation area
@@ -74,14 +68,11 @@ AnimatedSection.propTypes = {
   children: PropTypes.node.isRequired,
   sectionType: PropTypes.oneOf(['middle', 'last']),
   // if custom animation heights are desired for a specific section
-  animationAreaHeightDesktop: PropTypes.number,
-  animationAreaHeightMobile: PropTypes.number,
+  animationAreaHeight: PropTypes.number.isRequired, // in px
 };
 
 AnimatedSection.defaultProps = {
   sectionType: 'middle',
-  animationAreaHeightDesktop: ANIMATION_AREA_HEIGHT_DESKTOP,
-  animationAreaHeightMobile: ANIMATION_AREA_HEIGHT_MOBILE,
 };
 
 export default AnimatedSection;
