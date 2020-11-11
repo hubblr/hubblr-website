@@ -8,7 +8,7 @@ function DesignAdvertisementHeaderDivider({ className, setWidth }) {
   useEffect(() => {
     setWidth(dividerWidth);
   }, [dividerWidth, setWidth]);
-  return <div ref={dividerRef} className={`bg-gray-800 lg:h-1 h-0 w-3 ${className}`} />;
+  return <div ref={dividerRef} className={`bg-brand-gray-darkest lg:h-1 h-0 w-3 ${className}`} />;
 }
 
 DesignAdvertisementHeaderDivider.propTypes = {

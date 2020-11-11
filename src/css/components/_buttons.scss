@@ -1,0 +1,15 @@
+.button {
+  @apply .animate .px-6 .py-4 .rounded-lg .leading-none;
+  &.button-dark {
+    // hier dark styling
+
+    &:hover {
+      // hier hover styling
+      @apply .bg-brand-gray-darkest;
+    }
+  }
+
+  &.button-light {
+    // hier dark styling
+  }
+}

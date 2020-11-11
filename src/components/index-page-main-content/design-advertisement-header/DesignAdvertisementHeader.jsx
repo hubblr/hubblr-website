@@ -66,7 +66,7 @@ const DesignAdvertisementHeader = forwardRef(
               <div key={targetName} className="flex items-center">
                 <DesignAdvertisementHeaderPill
                   setWidth={createContentWidthSetter(i)}
-                  colorStyles="text-white bg-gray-800"
+                  colorStyles="text-white bg-brand-gray-darkest"
                 >
                   {targetName}
                 </DesignAdvertisementHeaderPill>

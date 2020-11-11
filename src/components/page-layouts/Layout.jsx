@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { IntlProvider } from 'react-intl';
+import { motion } from 'framer-motion';
 
 // TODO: language data - missing for now
 /* import en from '../locales/en.json';
@@ -13,9 +14,11 @@ const Layout = ({ children }) => {
   return (
     <>
       <IntlProvider locale="de">
-        <DarkLayout>
-          <div className="max-sm:px-4">{children}</div>
-        </DarkLayout>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <DarkLayout>
+            <div className="max-sm:px-4">{children}</div>
+          </DarkLayout>
+        </motion.div>
         <div id="modal-root" />
       </IntlProvider>
     </>

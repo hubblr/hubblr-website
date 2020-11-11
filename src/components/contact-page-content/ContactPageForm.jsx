@@ -27,7 +27,7 @@ function createStyledInput({
       useTextarea={isTextArea}
       placeholder={placeholder}
       labelClassNames="hidden"
-      inputClasses="border-2 border-gray-600 h-full font-bold bg-gray-600 rounded-lg p-4"
+      inputClasses="border-2 placeholder-brand-gray border-brand-gray-dark h-full font-bold bg-brand-gray-dark brand-gray-darkest rounded-lg p-4"
       groupClassNames={`flex-basis-0 relative ${flexClasses}`}
       invalidInputClassNames="border-2 border-red-600"
       name={name}
@@ -48,7 +48,7 @@ function ContactPageForm() {
   const [request, setRequest] = useState('');
 
   return (
-    <div className="w-full h-full bg-gray-800 text-gray-300 p-6 rounded-lg">
+    <div className="w-full h-full text-white bg-brand-gray-darkest p-6 rounded-lg">
       <Form
         formStyles="h-full flex flex-col"
         onSubmit={() => {
