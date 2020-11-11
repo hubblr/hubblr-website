@@ -5,7 +5,7 @@ import LongArrowImage from '../image-components/LongArrowImage';
 
 function BusinessCard({ children, image, name, position, actionName }) {
   return (
-    <div className="w-full h-full bg-gray-800 rounded-lg p-5 flex flex-col items-center gap-5">
+    <div className="w-full h-full bg-brand-gray-darkest rounded-lg p-5 flex flex-col items-center gap-5">
       {image}
       <div className="flex-grow flex flex-col justify-between items-center">
         {children}

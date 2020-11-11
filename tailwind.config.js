@@ -50,6 +50,8 @@ module.exports = {
         '-5': '-5',
       },
       colors: {
+        'brand-gray': '#7C7C7C',
+        'brand-gray-dark': '#464545',
         'brand-gray-darkest': '#2D2D2D',
       },
     },

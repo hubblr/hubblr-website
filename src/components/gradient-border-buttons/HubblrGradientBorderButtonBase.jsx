@@ -21,7 +21,7 @@ function HubblrGradientBorderButtonBase({
       break;
     case 'dark':
     default:
-      backgroundColorClass = 'bg-gray-800';
+      backgroundColorClass = 'bg-brand-gray-darkest';
       textColorClass = 'text-white';
       break;
   }
