@@ -20,9 +20,11 @@ import { TabletBreakpoint } from '../util/helpers';
 
 // disable regular scroll restoration on reload
 function useDisableScrollRestoration() {
-  if (window.history.scrollRestoration) {
-    window.history.scrollRestoration = 'manual';
-  }
+  useEffect(() => {
+    if (window.history.scrollRestoration) {
+      window.history.scrollRestoration = 'manual';
+    }
+  });
 }
 
 function useUpdateHashOnHistoryChange(hashRef, updateHashRef) {
