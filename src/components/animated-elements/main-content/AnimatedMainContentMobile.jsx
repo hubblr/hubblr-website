@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTransformFromDescription';
-import useWindowSize from '../../hooks/window/useWindowSize';
+import useWindowInfo from '../../hooks/window/useWindowInfo';
 import usePaddingTop from '../../hooks/styleQueries/usePaddingTop';
 
 const transforms = {
@@ -28,7 +28,7 @@ function AnimatedMainContentMobile({ children }) {
   );
 
   // finish transform descriptions reliant on other elements
-  const [, windowHeight] = useWindowSize();
+  const { height: windowHeight } = useWindowInfo();
   const paddingTop = usePaddingTop(contentContainerRef);
   const usedScreenHeight = windowHeight - paddingTop;
   transforms.y.outputRange = [`${usedScreenHeight / 2}px`, '0px'];

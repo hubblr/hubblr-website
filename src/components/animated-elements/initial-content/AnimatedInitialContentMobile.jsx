@@ -5,7 +5,7 @@ import SectionHeading from '../../index-page-main-content/section-heading/Sectio
 import useClientHeight from '../../hooks/dimensions/useClientHeight';
 import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTransformFromDescription';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
-import useWindowSize from '../../hooks/window/useWindowSize';
+import useWindowInfo from '../../hooks/window/useWindowInfo';
 import usePaddingTop from '../../hooks/styleQueries/usePaddingTop';
 import {
   MOBILE_INITIAL_CONTENT_START,
@@ -40,7 +40,7 @@ const transforms = {
 };
 
 function useAvailableHeight(containerRef) {
-  const [, windowHeight] = useWindowSize(); // forces rerender when height changes
+  const { height: windowHeight } = useWindowInfo(); // forces rerender when height changes
   const paddingTop = usePaddingTop(containerRef);
   return windowHeight - paddingTop;
 }

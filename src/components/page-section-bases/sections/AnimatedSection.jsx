@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import IndexPageContext from '../../../context/IndexPageContext';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import useYPositions from '../../hooks/scroll/useYPositions';
-import useWindowSize from '../../hooks/window/useWindowSize';
+import useWindowInfo from '../../hooks/window/useWindowInfo';
 import { TabletBreakpoint } from '../../../util/helpers';
 import useFullScrollSectionHeight from '../../hooks/scroll/useFullScrollSectionHeight';
 import SectionScrollBar from '../../section-scroll-bar/SectionScrollBar';
@@ -17,7 +17,7 @@ const AnimatedSection = forwardRef(
     // get navbar size from context to set padding-top over navbar
     const { navBarHeight } = useContext(IndexPageContext);
     // check width of window for breakpoint
-    const [windowWidth] = useWindowSize();
+    const { width: windowWidth } = useWindowInfo();
     const isLg = windowWidth > TabletBreakpoint;
 
     // values to pass in Provider

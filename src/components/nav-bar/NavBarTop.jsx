@@ -6,14 +6,14 @@ import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
 
 const NavBarTop = React.forwardRef(({ contentWidth, className }, ref) => {
   return (
-    <>
+    <div ref={ref} className={className}>
       <MobileAndTabletQuery>
-        <NavBarTopMobile ref={ref} contentWidth={contentWidth} className={className} />
+        <NavBarTopMobile contentWidth={contentWidth} />
       </MobileAndTabletQuery>
       <DesktopQuery>
-        <NavBarTopDesktop ref={ref} contentWidth={contentWidth} className={className} />
+        <NavBarTopDesktop contentWidth={contentWidth} />
       </DesktopQuery>
-    </>
+    </div>
   );
 });
 

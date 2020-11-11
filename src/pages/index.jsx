@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useEffect, useRef } from 'react';
+import React, { useState, useLayoutEffect, useRef } from 'react';
 import { useLocation } from '@reach/router';
 import { useViewportScroll } from 'framer-motion';
 import Layout from '../components/page-layouts/Layout';
@@ -9,7 +9,7 @@ import VenturesSection from '../components/page-sections/VenturesSection';
 import NavBarTop from '../components/nav-bar/NavBarTop';
 import HubblrPageLinks from '../components/links/HubblrPageLinks';
 import useYPositions from '../components/hooks/scroll/useYPositions';
-import useWindowSize from '../components/hooks/window/useWindowSize';
+import useWindowInfo from '../components/hooks/window/useWindowInfo';
 import IndexPageContext from '../context/IndexPageContext';
 import useClientWidth from '../components/hooks/dimensions/useClientWidth';
 import IntroductionSectionContent from '../components/page-sections/IntroductionSectionContent';
@@ -24,21 +24,24 @@ function getSectionAnimationEnd(sectionRef) {
 function IndexPage() {
   const location = useLocation();
 
-  const [, windowHeight] = useWindowSize();
+  const { height: windowHeight, startY: windowStartY } = useWindowInfo();
   const { scrollY } = useViewportScroll();
 
   // decide when to show navbar
   const [showNavBar, setShowNavbar] = useState(false);
   const introContentRef = useRef();
-  const [, introContentScrollEnd] = useYPositions(introContentRef);
-  useEffect(() => {
+  const [, introContentScrollEndY] = useYPositions(introContentRef, true);
+  useLayoutEffect(() => {
+    // must fire before scrollY updates
+    setShowNavbar(windowStartY > introContentScrollEndY);
+    // this handles continuous updates
     const unscubscribeScroll = scrollY.onChange((y) => {
-      setShowNavbar(y > introContentScrollEnd);
+      setShowNavbar(y > introContentScrollEndY);
     });
     return () => {
       unscubscribeScroll();
     };
-  }, [introContentScrollEnd, scrollY]);
+  }, [introContentScrollEndY, scrollY, windowStartY]);
   // get width of navbar parent to size fixed positioned navbar
   const sectionContainerRef = useRef();
   // eslint-disable-next-line no-unused-vars
@@ -116,7 +119,6 @@ function IndexPage() {
     };
   }, [location, orderLen, revOrder, scrollY]);
 
-  const navBarSizeClass = '20'; // refers to the tailwind class
   return (
     <IndexPageContext.Provider
       value={{
@@ -126,7 +128,9 @@ function IndexPage() {
       <Layout>
         <div ref={sectionContainerRef}>
           <IntroductionSection>
-            <IntroductionSectionContent ref={introContentRef} />
+            <div ref={introContentRef}>
+              <IntroductionSectionContent />
+            </div>
           </IntroductionSection>
           <SoftwareLaboratorySection ref={softwareLabSectionRef} />
           <ConsultingSection ref={consultingSectionRef} />
@@ -136,16 +140,13 @@ function IndexPage() {
           <HubblrPageLinks />
         </div>
       </Layout>
-      <div className="">
-        <div
-          ref={navBarRef}
-          className={`fixed w-full navbar-background-blur animate top-0 h-${navBarSizeClass} z-40 ${
-            showNavBar ? 'opacity-100' : 'invisible opacity-0'
-          }`}
-        >
-          <NavBarTop contentWidth={sectionContainerWidth} />
-        </div>
-      </div>
+      <NavBarTop
+        ref={navBarRef}
+        className={`fixed w-full top-0 h-20 z-40 ${
+          showNavBar ? 'opacity-100' : 'invisible opacity-0'
+        }`}
+        contentWidth={sectionContainerWidth}
+      />
     </IndexPageContext.Provider>
   );
 }

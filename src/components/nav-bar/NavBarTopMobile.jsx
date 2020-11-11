@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 import NavigationButtonHubblrIcon from './NavigationButtonHubblrIcon';
 import HamburgerMenuIcon from '../image-components/HamburgerMenuIcon';
 import NavBarTopStackedLinks from './NavBarTopStackedLinks';
 import LightningImage from '../image-components/LightningImage';
 import ConsultingIllustrationImage from '../image-components/ConsultingIllustrationImage';
 import VenturesArrowImage from '../image-components/VenturesArrowImage';
+import LongArrowImage from '../image-components/LongArrowImage';
+import HubblrGradientBorderButtonBase from '../gradient-border-buttons/HubblrGradientBorderButtonBase';
 
-function NavBarTopMobile({ contentWidth }) {
+function NavBarTopMobile() {
   const [isCollapsed, setIsCollapsed] = useState(true);
 
   return (
-    <>
-      <div className="flex justify-center">
-        <div className="h-20 w-full p-5" style={{ width: contentWidth }}>
-          <div className="absolute w-full inset-0" />
+    <div className={`${!isCollapsed ? 'h-screen bg-black' : ''} relative w-full z-50`}>
+      <div
+        className={`${isCollapsed ? '' : 'hidden'} absolute w-full h-full navbar-background-blur`}
+      />
+      <div className="container mx-auto h-full flex flex-col p-8 md:p-0">
+        <div className="h-20 w-full">
           <div className="relative flex justify-between h-full">
             <NavigationButtonHubblrIcon />
             <button
@@ -23,30 +27,39 @@ function NavBarTopMobile({ contentWidth }) {
                 setIsCollapsed(!isCollapsed);
               }}
             >
-              <HamburgerMenuIcon />
+              <HamburgerMenuIcon className="w-12" />
             </button>
           </div>
         </div>
+
+        <div className={`${isCollapsed ? 'hidden' : ''} w-full mt-6 flex-grow flex flex-col`}>
+          <NavBarTopStackedLinks
+            content={[
+              { text: 'Home' },
+              { text: 'Software Laboratory', linkImage: <LightningImage className="h-full" /> },
+              {
+                text: 'Solution Assessment',
+                linkImage: <ConsultingIllustrationImage className="h-full" />,
+              },
+              { text: 'Digital Ventures', linkImage: <VenturesArrowImage className="h-full" /> },
+              { text: 'Kontakt' },
+            ]}
+            className="flex-grow relative w-full"
+          />
+          <Link to="/contact">
+            <HubblrGradientBorderButtonBase
+              widthClass="w-full"
+              addedFlexClasses="justify-between gap-3"
+              theme="dark"
+              image={<LongArrowImage theme="dark" className="w-16" />}
+            >
+              <div className="text-3xl">Jetzt kontaktieren</div>
+            </HubblrGradientBorderButtonBase>
+          </Link>
+        </div>
       </div>
-      <NavBarTopStackedLinks
-        content={[
-          { text: 'Home' },
-          { text: 'Software Laboratory', linkImage: <LightningImage className="h-full" /> },
-          {
-            text: 'Solution Assessment',
-            linkImage: <ConsultingIllustrationImage className="h-full" />,
-          },
-          { text: 'Digital Ventures', linkImage: <VenturesArrowImage className="h-full" /> },
-          { text: 'Kontakt' },
-        ]}
-        className={`relative w-full navbar-background-blur ${isCollapsed && 'hidden'}`}
-      />
-    </>
+    </div>
   );
 }
-
-NavBarTopMobile.propTypes = {
-  contentWidth: PropTypes.number.isRequired,
-};
 
 export default NavBarTopMobile;
