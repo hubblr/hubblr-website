@@ -4,21 +4,20 @@ import NavBarTopDesktop from './NavBarTopDesktop';
 import NavBarTopMobile from './NavBarTopMobile';
 import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
 
-const NavBarTop = React.forwardRef(({ contentWidth, className }, ref) => {
+const NavBarTop = React.forwardRef(({ className }, ref) => {
   return (
     <div ref={ref} className={className}>
       <MobileAndTabletQuery>
-        <NavBarTopMobile contentWidth={contentWidth} />
+        <NavBarTopMobile />
       </MobileAndTabletQuery>
       <DesktopQuery>
-        <NavBarTopDesktop contentWidth={contentWidth} />
+        <NavBarTopDesktop />
       </DesktopQuery>
     </div>
   );
 });
 
 NavBarTop.propTypes = {
-  contentWidth: PropTypes.number.isRequired,
   className: PropTypes.string,
 };
 

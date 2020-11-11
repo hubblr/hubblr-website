@@ -1,15 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
 import NavigationButtonHubblrIcon from './NavigationButtonHubblrIcon';
 
-function NavBarTopDesktop({ contentWidth }) {
+function NavBarTopDesktop() {
   return (
-    <div
-      className="h-20 w-full p-5 flex flex-row container mx-auto"
-      style={{ width: contentWidth }}
-    >
+    <div className="h-20 w-full p-5 flex flex-row container mx-auto">
       <div className="absolute inset-0 navbar-background-blur" />
       <div className="w-1/3" />
       <div className=" w-1/3 relative flex justify-center h-full">
@@ -28,9 +24,5 @@ function NavBarTopDesktop({ contentWidth }) {
     </div>
   );
 }
-
-NavBarTopDesktop.propTypes = {
-  contentWidth: PropTypes.number.isRequired,
-};
 
 export default NavBarTopDesktop;

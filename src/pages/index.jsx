@@ -10,7 +10,6 @@ import NavBarTop from '../components/nav-bar/NavBarTop';
 import HubblrPageLinks from '../components/links/HubblrPageLinks';
 import useYPositions from '../components/hooks/scroll/useYPositions';
 import useWindowResizeInfo from '../components/hooks/window/useWindowResizeInfo';
-import useClientWidth from '../components/hooks/dimensions/useClientWidth';
 import IntroductionSectionContent from '../components/page-sections/IntroductionSectionContent';
 import useOffsetHeight from '../components/hooks/dimensions/useOffsetHeight';
 import useWindowPageYOffset from '../components/hooks/window/useWindowPageYOffset';
@@ -18,6 +17,7 @@ import IndexPageContext from '../context/IndexPageContext';
 import { ANIMATION_AREA_HEIGHT_DESKTOP, ANIMATION_AREA_HEIGHT_MOBILE } from '../config';
 import { TabletBreakpoint } from '../util/helpers';
 
+// TODO: not sure about this
 // disable regular scroll restoration on reload
 function useDisableScrollRestoration() {
   useEffect(() => {
@@ -27,49 +27,23 @@ function useDisableScrollRestoration() {
   });
 }
 
+// enable jump on history navigation
 function useUpdateHashOnHistoryChange(hashRef, updateHashRef) {
-  const history = createHistory(window);
   useLayoutEffect(() => {
+    const history = createHistory(window);
     // eslint-disable-next-line no-shadow
     history.listen(({ location: nextLocation }) => {
-      console.log('##################');
       updateHashRef(nextLocation.hash);
-      console.log('last knows offset:', window.pageYOffset);
     });
-  }, [history, updateHashRef]);
+  }, [updateHashRef]);
 }
 
-function IndexPage() {
-  useDisableScrollRestoration();
-
-  const location = useLocation();
-  console.log('rerender!');
-  console.log(location.hash);
-  const hash = useRef(location.hash);
-  const [jumpIsEnabled, setJumpIsEnabled] = useState(true);
-
-  const updateHash = (nextHash) => {
-    hash.current = nextHash;
-    setJumpIsEnabled(true);
-  };
-  useUpdateHashOnHistoryChange(hash, updateHash);
-
-  const { width: windowWidth } = useWindowResizeInfo();
-  const isLg = windowWidth > TabletBreakpoint;
-  const animationAreaHeight = isLg ? ANIMATION_AREA_HEIGHT_DESKTOP : ANIMATION_AREA_HEIGHT_MOBILE;
-
-  const windowStartY = useWindowPageYOffset();
-
-  useEffect(() => {
-    console.log(windowStartY);
-  }, [windowStartY]);
-
-  const { scrollY } = useViewportScroll();
-
-  // decide when to show navbar
+// decide when to show navbar and get its height to pass in Provider
+function useNavBarState(introContentRef, navBarRef) {
   const [showNavBar, setShowNavbar] = useState(false);
-  const introContentRef = useRef();
-  const [, introContentScrollEndY] = useYPositions(introContentRef, true);
+  const [, introContentScrollEndY] = useYPositions(introContentRef);
+  const windowStartY = useWindowPageYOffset();
+  const { scrollY } = useViewportScroll();
   useLayoutEffect(() => {
     // must fire before scrollY updates
     setShowNavbar(windowStartY > introContentScrollEndY);
@@ -81,62 +55,87 @@ function IndexPage() {
       unsubscribeScroll();
     };
   }, [introContentScrollEndY, scrollY, windowStartY]);
-  // get width of navbar parent to size fixed positioned navbar
-  const sectionContainerRef = useRef();
-  // eslint-disable-next-line no-unused-vars
-  const sectionContainerWidth = useClientWidth(sectionContainerRef);
   // get size of navbar
-  const navBarRef = useRef();
   const navBarHeight = useOffsetHeight(navBarRef);
+  return {
+    showNavBar,
+    navBarHeight,
+  };
+}
 
-  // software lab section
+function IndexPage() {
+  // disable scroll restoration on reload
+  useDisableScrollRestoration();
+
+  // decide which animation area height to use
+  const { width: windowWidth } = useWindowResizeInfo();
+  const isLg = windowWidth > TabletBreakpoint;
+  const animationAreaHeight = isLg ? ANIMATION_AREA_HEIGHT_DESKTOP : ANIMATION_AREA_HEIGHT_MOBILE;
+
+  // decide when to show navbar and get its height to pass in Provider
+  const introContentRef = useRef();
+  const navBarRef = useRef();
+  const { showNavBar, navBarHeight } = useNavBarState(introContentRef, navBarRef);
+
+  // handling of page navigation and reload - first load and back/forth history navigation triggers
+  // "jump" to position marked in hash
+  const location = useLocation();
+  const hash = useRef(location.hash);
+  const [jumpIsEnabled, setJumpIsEnabled] = useState(true);
+
+  // enable jump on history navigation
+  const updateHash = (nextHash) => {
+    hash.current = nextHash;
+    setJumpIsEnabled(true);
+    setJumpIsEnabled(true);
+  };
+  useUpdateHashOnHistoryChange(hash, updateHash);
+
+  // create refs and position info for all sections -> determine jump breakpoints
   const softwareLabSectionRef = useRef();
-  const [softwareLabSectionEndY] = useYPositions(softwareLabSectionRef);
-  // consulting section
+  const [softwareLabSectionStartY] = useYPositions(softwareLabSectionRef);
   const consultingSectionRef = useRef();
-  const [consultingSectionEndY] = useYPositions(consultingSectionRef);
-  // ventures section
+  const [consultingSectionStartY] = useYPositions(consultingSectionRef);
   const venturesSectionRef = useRef();
-  const [venturesSectionEndY] = useYPositions(venturesSectionRef);
-
-  // build info for each section
+  const [venturesSectionStartY] = useYPositions(venturesSectionRef);
   const revOrder = useMemo(() => {
     const softwareLabInfo = {
       ref: softwareLabSectionRef,
-      endY: softwareLabSectionEndY + animationAreaHeight,
+      startY: softwareLabSectionStartY + animationAreaHeight,
       hash: '#softwareLaboratory',
     };
     const consultingInfo = {
       ref: consultingSectionRef,
-      endY: consultingSectionEndY + animationAreaHeight,
+      startY: consultingSectionStartY + animationAreaHeight,
       hash: '#consulting',
     };
     const venturesInfo = {
       ref: venturesSectionRef,
-      endY: venturesSectionEndY + animationAreaHeight,
+      startY: venturesSectionStartY + animationAreaHeight,
       hash: '#ventures',
     };
     return [venturesInfo, consultingInfo, softwareLabInfo];
-  }, [animationAreaHeight, consultingSectionEndY, softwareLabSectionEndY, venturesSectionEndY]);
+  }, [
+    animationAreaHeight,
+    consultingSectionStartY,
+    softwareLabSectionStartY,
+    venturesSectionStartY,
+  ]);
   const orderLen = revOrder.length;
-  console.log('software lab endy:', revOrder[2].endY);
 
   // jump to location set in hash
   useLayoutEffect(() => {
-    console.log('SETS UP JUMP BE READY! jump is enabled:', jumpIsEnabled);
     function scrollToHash() {
-      console.log('timeout fires!');
       for (let i = 0; i < orderLen; i += 1) {
-        const { endY, hash: sectionHash } = revOrder[i];
+        const { startY, hash: sectionHash } = revOrder[i];
         if (hash.current === sectionHash) {
-          console.log('finds proper jump position...');
-          window.scrollTo(0, endY);
+          window.scrollTo(0, startY);
           return;
         }
       }
       window.scrollTo(0, 0);
     }
-    // need to be sure that everything is fully build
+    // need to be sure that everything is fully build, so set timeout
     const timeoutId = jumpIsEnabled
       ? setTimeout(() => {
           scrollToHash();
@@ -148,21 +147,24 @@ function IndexPage() {
     };
   }, [jumpIsEnabled, orderLen, revOrder]);
 
-  // update location on scroll
+  // update current hash on scroll, push history entry
+  const { scrollY } = useViewportScroll();
   useLayoutEffect(() => {
-    console.log('scroller does update!');
     function update(curY) {
+      // careful: jump triggers scroll, so do not act until jump is done!
       if (jumpIsEnabled) {
         return;
       }
+      // check section breakpoints
       let nextHash = '';
       for (let i = 0; i < orderLen; i += 1) {
-        const { endY, hash: sectionHash } = revOrder[i];
-        if (endY > 0 && curY >= endY) {
+        const { startY, hash: sectionHash } = revOrder[i];
+        if (startY > 0 && curY >= startY) {
           nextHash = sectionHash;
           break;
         }
       }
+      // update hash if necessary
       if (nextHash !== hash.current) {
         hash.current = nextHash;
         if (nextHash) {
@@ -172,9 +174,11 @@ function IndexPage() {
         }
       }
     }
+    // subscribe to scroll
     const unsubscribeY = scrollY.onChange((curY) => {
       update(curY);
     });
+    // fire immediately to work properly on resize
     update(scrollY.get());
     return () => {
       unsubscribeY();
@@ -188,7 +192,7 @@ function IndexPage() {
       }}
     >
       <Layout>
-        <div ref={sectionContainerRef}>
+        <div>
           <IntroductionSection>
             <div ref={introContentRef}>
               <IntroductionSectionContent />
@@ -210,7 +214,6 @@ function IndexPage() {
         className={`fixed w-full top-0 h-20 z-40 ${
           showNavBar ? 'opacity-100' : 'invisible opacity-0'
         }`}
-        contentWidth={sectionContainerWidth}
       />
     </IndexPageContext.Provider>
   );
