@@ -31,7 +31,6 @@ function useDisableScrollRestoration() {
 function useUpdateHashOnHistoryChange(hashRef, updateHashRef) {
   useLayoutEffect(() => {
     const history = createHistory(window);
-    // eslint-disable-next-line no-shadow
     history.listen(({ location: nextLocation }) => {
       updateHashRef(nextLocation.hash);
     });
@@ -87,7 +86,6 @@ function IndexPage() {
   const updateHash = (nextHash) => {
     hash.current = nextHash;
     setJumpIsEnabled(true);
-    setJumpIsEnabled(true);
   };
   useUpdateHashOnHistoryChange(hash, updateHash);
 
@@ -124,14 +122,21 @@ function IndexPage() {
   const orderLen = revOrder.length;
 
   // jump to location set in hash
+  const { scrollY } = useViewportScroll();
   useLayoutEffect(() => {
     function scrollToHash() {
       for (let i = 0; i < orderLen; i += 1) {
         const { startY, hash: sectionHash } = revOrder[i];
         if (hash.current === sectionHash) {
+          if (window.history.scrollRestoration) {
+            window.history.scrollRestoration = 'manual';
+          }
           window.scrollTo(0, startY);
           return;
         }
+      }
+      if (window.history.scrollRestoration) {
+        window.history.scrollRestoration = 'manual';
       }
       window.scrollTo(0, 0);
     }
@@ -140,15 +145,14 @@ function IndexPage() {
       ? setTimeout(() => {
           scrollToHash();
           setJumpIsEnabled(false);
-        }, 1)
+        }, 10)
       : null;
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [jumpIsEnabled, orderLen, revOrder]);
+  }, [jumpIsEnabled, orderLen, revOrder, scrollY]);
 
   // update current hash on scroll, push history entry
-  const { scrollY } = useViewportScroll();
   useLayoutEffect(() => {
     function update(curY) {
       // careful: jump triggers scroll, so do not act until jump is done!
@@ -179,7 +183,7 @@ function IndexPage() {
       update(curY);
     });
     // fire immediately to work properly on resize
-    update(scrollY.get());
+    update(window.pageYOffset);
     return () => {
       unsubscribeY();
     };
@@ -188,7 +192,7 @@ function IndexPage() {
   return (
     <IndexPageContext.Provider
       value={{
-        navBarHeight, // refers to the tailwind class
+        navBarHeight,
       }}
     >
       <Layout>
