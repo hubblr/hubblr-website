@@ -5,13 +5,12 @@ import NavigationButtonHubblrIcon from './NavigationButtonHubblrIcon';
 
 function NavBarTopDesktop() {
   return (
-    <div className="h-20 w-full p-5 flex flex-row container mx-auto">
-      <div className="absolute inset-0 navbar-background-blur" />
+    <div className="h-20 w-full p-5 flex flex-row">
       <div className="w-1/3" />
-      <div className=" w-1/3 relative flex justify-center h-full">
+      <div className=" w-1/3 flex justify-center h-full">
         <NavigationButtonHubblrIcon />
       </div>
-      <div className="relative flex flex-col justify-center items-end w-1/3">
+      <div className="flex flex-col justify-center items-end w-1/3">
         <Link
           to="/contact"
           className="button button-dark text-center font-extrabold tracking-tight "

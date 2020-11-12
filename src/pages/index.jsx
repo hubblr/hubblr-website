@@ -56,6 +56,7 @@ function useNavBarState(introContentRef, navBarRef) {
   }, [introContentScrollEndY, scrollY, windowStartY]);
   // get size of navbar
   const navBarHeight = useOffsetHeight(navBarRef);
+  console.log(navBarHeight);
   return {
     showNavBar,
     navBarHeight,
@@ -213,12 +214,7 @@ function IndexPage() {
           <HubblrPageLinks />
         </div>
       </Layout>
-      <NavBarTop
-        ref={navBarRef}
-        className={`fixed w-full top-0 h-20 z-40 ${
-          showNavBar ? 'opacity-100' : 'invisible opacity-0'
-        }`}
-      />
+      <NavBarTop ref={navBarRef} shouldBeShown={showNavBar} />
     </IndexPageContext.Provider>
   );
 }

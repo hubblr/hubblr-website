@@ -48,7 +48,7 @@ const AnimatedSection = forwardRef(
             className="sticky top-0 w-full overflow-hidden flex"
             style={{
               paddingTop: `${navBarHeight}px`,
-              minHeight: '100vh',
+              minHeight: `calc(100vh - ${navBarHeight})`,
             }}
           >
             {children}
