@@ -12,10 +12,14 @@ function NavBarTopStackedLinks({ content, className }) {
             {i === 0 && <hr className="bg-white h-p" />}
             <Button
               onClick={onClick}
-              className="w-full navbar-hover-blur h-20 flex justify-center items-center p-3 text-white"
+              className="flex flex-row w-full navbar-hover-blur h-20 flex justify-center p-3 text-white"
             >
-              <div className="h-16 -mr-3">{linkImage}</div>
-              <div className="text-lg font-bold">{text}</div>
+              <div className="relative">
+                <div className="h-16 -mr-3 opacity-50 absolute left-0 transform -mt-5 -ml-8 z-0">
+                  {linkImage}
+                </div>
+                <div className="relative z-1 text-lg font-bold">{text}</div>
+              </div>
             </Button>
             <hr className="bg-white h-p" />
           </div>

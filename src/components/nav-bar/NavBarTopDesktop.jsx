@@ -5,7 +5,7 @@ import NavigationButtonHubblrIcon from './NavigationButtonHubblrIcon';
 
 function NavBarTopDesktop() {
   return (
-    <div className="h-20 w-full p-5 flex flex-row">
+    <div className="h-20 w-full py-3 px-5 flex flex-row">
       <div className="w-1/3" />
       <div className=" w-1/3 flex justify-center h-full">
         <NavigationButtonHubblrIcon />

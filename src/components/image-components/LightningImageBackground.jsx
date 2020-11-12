@@ -6,7 +6,7 @@ function LightningImageBackground() {
   return (
     <>
       <MobileAndTabletQuery>
-        <AnimatedLightningImage className="w-1/3" />
+        <AnimatedLightningImage className="w-24" />
       </MobileAndTabletQuery>
       <DesktopQuery>
         <AnimatedLightningImage className="h-1/2" />

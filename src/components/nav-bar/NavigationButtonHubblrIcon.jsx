@@ -10,7 +10,7 @@ function NavigationButtonHubblrIcon() {
         window.scroll(0, 0);
       }}
     >
-      <HubblrImage className="w-24" />
+      <HubblrImage className="w-20" />
     </button>
   );
 }
