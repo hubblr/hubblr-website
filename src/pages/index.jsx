@@ -91,13 +91,13 @@ function IndexPage() {
   // create refs and position info for all sections -> determine jump breakpoints
   const softwareLabSectionRef = useRef();
   const [softwareLabSectionStartY] = useYPositions(softwareLabSectionRef);
-  const softwareLabContentStartY = softwareLabSectionStartY + animationAreaHeight;
+  const softwareLabContentStartY = softwareLabSectionStartY;
   const consultingSectionRef = useRef();
   const [consultingSectionStartY] = useYPositions(consultingSectionRef);
-  const consultingContentStartY = consultingSectionStartY + animationAreaHeight;
+  const consultingContentStartY = consultingSectionStartY;
   const venturesSectionRef = useRef();
   const [venturesSectionStartY] = useYPositions(venturesSectionRef);
-  const venturesContentStartY = venturesSectionStartY + animationAreaHeight;
+  const venturesContentStartY = venturesSectionStartY;
   const revOrder = useMemo(() => {
     const softwareLabInfo = {
       ref: softwareLabSectionRef,
@@ -125,7 +125,7 @@ function IndexPage() {
       for (let i = 0; i < orderLen; i += 1) {
         const { startY, hash: sectionHash } = revOrder[i];
         if (hash.current === sectionHash) {
-          window.scrollTo(0, startY);
+          window.scrollTo(0, startY + animationAreaHeight);
           return;
         }
       }
@@ -141,7 +141,7 @@ function IndexPage() {
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [jumpIsEnabled, orderLen, revOrder, scrollY]);
+  }, [jumpIsEnabled, orderLen, revOrder, scrollY, animationAreaHeight]);
 
   // update current hash on scroll, push history entry
   useLayoutEffect(() => {
