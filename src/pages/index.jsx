@@ -91,31 +91,41 @@ function IndexPage() {
   // create refs and position info for all sections -> determine jump breakpoints
   const softwareLabSectionRef = useRef();
   const [softwareLabSectionStartY] = useYPositions(softwareLabSectionRef);
-  const softwareLabContentStartY = softwareLabSectionStartY;
+  const softwareLabContentStartY = softwareLabSectionStartY + animationAreaHeight;
   const consultingSectionRef = useRef();
   const [consultingSectionStartY] = useYPositions(consultingSectionRef);
-  const consultingContentStartY = consultingSectionStartY;
+  const consultingContentStartY = consultingSectionStartY + animationAreaHeight;
   const venturesSectionRef = useRef();
   const [venturesSectionStartY] = useYPositions(venturesSectionRef);
-  const venturesContentStartY = venturesSectionStartY;
+  const venturesContentStartY = venturesSectionStartY + animationAreaHeight;
   const revOrder = useMemo(() => {
     const softwareLabInfo = {
       ref: softwareLabSectionRef,
-      startY: softwareLabContentStartY,
+      sectionStartY: softwareLabSectionStartY,
+      contentStartY: softwareLabContentStartY,
       hash: '#softwareLaboratory',
     };
     const consultingInfo = {
       ref: consultingSectionRef,
-      startY: consultingContentStartY,
+      sectionStartY: consultingSectionStartY,
+      contentStartY: consultingContentStartY,
       hash: '#consulting',
     };
     const venturesInfo = {
       ref: venturesSectionRef,
-      startY: venturesContentStartY,
+      sectionStartY: venturesSectionStartY,
+      contentStartY: venturesContentStartY,
       hash: '#ventures',
     };
     return [venturesInfo, consultingInfo, softwareLabInfo];
-  }, [consultingContentStartY, softwareLabContentStartY, venturesContentStartY]);
+  }, [
+    consultingContentStartY,
+    consultingSectionStartY,
+    softwareLabContentStartY,
+    softwareLabSectionStartY,
+    venturesContentStartY,
+    venturesSectionStartY,
+  ]);
   const orderLen = revOrder.length;
 
   // jump to location set in hash
@@ -123,9 +133,9 @@ function IndexPage() {
   useLayoutEffect(() => {
     function scrollToHash() {
       for (let i = 0; i < orderLen; i += 1) {
-        const { startY, hash: sectionHash } = revOrder[i];
+        const { contentStartY, hash: sectionHash } = revOrder[i];
         if (hash.current === sectionHash) {
-          window.scrollTo(0, startY + animationAreaHeight);
+          window.scrollTo(0, contentStartY);
           return;
         }
       }
@@ -141,7 +151,7 @@ function IndexPage() {
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [jumpIsEnabled, orderLen, revOrder, scrollY, animationAreaHeight]);
+  }, [jumpIsEnabled, orderLen, revOrder, scrollY]);
 
   // update current hash on scroll, push history entry
   useLayoutEffect(() => {
@@ -153,8 +163,8 @@ function IndexPage() {
       // check section breakpoints
       let nextHash = '';
       for (let i = 0; i < orderLen; i += 1) {
-        const { startY, hash: sectionHash } = revOrder[i];
-        if (startY > 0 && curY >= startY) {
+        const { sectionStartY, hash: sectionHash } = revOrder[i];
+        if (sectionStartY > 0 && curY >= sectionStartY) {
           nextHash = sectionHash;
           break;
         }
