@@ -56,7 +56,6 @@ function useNavBarState(introContentRef, navBarRef) {
   }, [introContentScrollEndY, scrollY, windowStartY]);
   // get size of navbar
   const navBarHeight = useOffsetHeight(navBarRef);
-  console.log(navBarHeight);
   return {
     showNavBar,
     navBarHeight,
