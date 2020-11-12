@@ -133,9 +133,9 @@ function IndexPage() {
   useLayoutEffect(() => {
     function scrollToHash() {
       for (let i = 0; i < orderLen; i += 1) {
-        const { contentStartY, hash: sectionHash } = revOrder[i];
+        const { startY, hash: sectionHash } = revOrder[i];
         if (hash.current === sectionHash) {
-          window.scrollTo(0, contentStartY);
+          window.scrollTo(0, startY);
           return;
         }
       }
@@ -163,8 +163,8 @@ function IndexPage() {
       // check section breakpoints
       let nextHash = '';
       for (let i = 0; i < orderLen; i += 1) {
-        const { sectionStartY, hash: sectionHash } = revOrder[i];
-        if (sectionStartY > 0 && curY >= sectionStartY) {
+        const { startY, hash: sectionHash } = revOrder[i];
+        if (startY > 0 && curY >= startY) {
           nextHash = sectionHash;
           break;
         }

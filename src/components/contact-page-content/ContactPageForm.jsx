@@ -44,9 +44,9 @@ function createStyledInput({
 
 function ContactPageForm() {
   const [name, setName] = useState('');
-  const [business, setBusiness] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [request, setRequest] = useState('');
+  const [company, setCompany] = useState('');
+  const [phone, setPhone] = useState('');
+  const [message, setMessage] = useState('');
 
   return (
     <div className="w-full h-full text-white bg-brand-gray-darkest p-6 rounded-lg">
@@ -60,9 +60,9 @@ function ContactPageForm() {
             },
             body: JSON.stringify({
               name,
-              phone: phoneNumber,
-              company: business,
-              message: request,
+              phone,
+              company,
+              message,
             }),
           }).then((res) => {
             if (res.status === 200) {
@@ -74,6 +74,10 @@ function ContactPageForm() {
                 icon: 'error',
               });
             }
+            setName('');
+            setCompany('');
+            setPhone('');
+            setMessage('');
           });
         }}
       >
@@ -88,18 +92,18 @@ function ContactPageForm() {
             validator: createNotEmptyValidator('Bitte geben Sie Ihren Namen ein!'),
           })}
           {createStyledInput({
-            valueSetter: setBusiness,
+            valueSetter: setCompany,
             placeholder: 'IHR UNTERNEHMEN',
             name: 'business',
-            value: business,
+            value: company,
             maxLength: 64,
             flexClasses: 'flex-grow',
           })}
           {createStyledInput({
-            valueSetter: setPhoneNumber,
+            valueSetter: setPhone,
             placeholder: 'IHRE TELEFONNUMMER',
             name: 'phone number',
-            value: phoneNumber,
+            value: phone,
             maxLength: 64,
             flexClasses: 'flex-grow',
             validator: (v) => {
@@ -110,10 +114,10 @@ function ContactPageForm() {
           })}
           {createStyledInput({
             isTextArea: true,
-            valueSetter: setRequest,
+            valueSetter: setMessage,
             placeholder: 'WIE KÖNNEN WIR HELFEN?*',
             name: 'request',
-            value: request,
+            value: message,
             flexClasses: 'flex-grow-2',
             validator: createNotEmptyValidator('Bitte geben Sie einen Text ein!'),
           })}

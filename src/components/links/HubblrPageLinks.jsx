@@ -14,12 +14,6 @@ function HubblrPageLinks({ className }) {
         <PageLinkContent>Datenschutz</PageLinkContent>
       </Link>
       <DefaultLink>
-        <PageLinkContent>Office Münster</PageLinkContent>
-      </DefaultLink>
-      <DefaultLink>
-        <PageLinkContent>Office Hamburg</PageLinkContent>
-      </DefaultLink>
-      <DefaultLink>
         <PageLinkContent>Github</PageLinkContent>
       </DefaultLink>
       <a href="http://join.hubblr.io/">
