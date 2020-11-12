@@ -43,21 +43,20 @@ const AnimatedSection = forwardRef(
             height: fullSectionHeight,
           }}
         >
-          <div
-            ref={contentContainerRef}
-            className="sticky top-0 w-full overflow-hidden flex"
-            style={{
-              paddingTop: `${navBarHeight}px`,
-              minHeight: `calc(100vh - ${navBarHeight}px)`,
-            }}
-          >
-            {children}
-          </div>
           {isLg && (
             <div className="absolute container mx-auto h-full inset-0">
               <SectionScrollBar sectionType={sectionType} />
             </div>
           )}
+          <div
+            ref={contentContainerRef}
+            className="min-h-screen sticky top-0 w-full overflow-hidden flex"
+            style={{
+              paddingTop: `${navBarHeight}px`,
+            }}
+          >
+            {children}
+          </div>
         </div>
       </AnimationAreaContext.Provider>
     );

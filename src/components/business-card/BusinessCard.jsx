@@ -14,14 +14,16 @@ function BusinessCard({ children, image, name, position, actionName }) {
           <p className="text-base">{position}</p>
         </div>
       </div>
-      <HubblrGradientBorderButtonBase
-        widthClass="lg:w-full"
-        addedFlexClasses="justify-between gap-3"
-        theme="dark"
-        image={<LongArrowImage theme="dark" />}
-      >
-        <div>{actionName}</div>
-      </HubblrGradientBorderButtonBase>
+      <a href="https://calendly.com/cbals/30min">
+        <HubblrGradientBorderButtonBase
+          widthClass="lg:w-full"
+          addedFlexClasses="justify-between gap-3"
+          theme="dark"
+          image={<LongArrowImage theme="dark" />}
+        >
+          <div>{actionName}</div>
+        </HubblrGradientBorderButtonBase>
+      </a>
     </div>
   );
 }

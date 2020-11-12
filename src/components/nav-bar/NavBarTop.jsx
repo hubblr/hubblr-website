@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import NavBarTopDesktop from './NavBarTopDesktop';
@@ -10,10 +10,24 @@ import ConsultingIllustrationImage from '../image-components/ConsultingIllustrat
 import VenturesArrowImage from '../image-components/VenturesArrowImage';
 import HubblrGradientBorderButtonBase from '../gradient-border-buttons/HubblrGradientBorderButtonBase';
 import LongArrowImage from '../image-components/LongArrowImage';
+import IndexPageContext from '../../context/IndexPageContext';
 
 const NavBarTop = React.forwardRef(({ className, shouldBeShown }, ref) => {
+  const {
+    sectionContentStarts: {
+      softwareLaboratory: softwareLaboratoryStartY,
+      consulting: consultingStartY,
+      ventures: venturesStartY,
+    },
+  } = useContext(IndexPageContext);
+
   const [isCollapsed, setIsCollapsed] = useState(true);
   const isVisible = shouldBeShown || !isCollapsed;
+
+  function scrollToYPosition(y) {
+    window.scrollTo(0, y);
+    setIsCollapsed(true);
+  }
 
   return (
     <div
@@ -36,13 +50,33 @@ const NavBarTop = React.forwardRef(({ className, shouldBeShown }, ref) => {
         <div className={`${isCollapsed ? 'hidden' : ''} w-full px-8 pb-8 flex-grow flex flex-col`}>
           <NavBarTopStackedLinks
             content={[
-              { text: 'Home' },
-              { text: 'Software Laboratory', linkImage: <LightningImage className="h-full" /> },
+              {
+                text: 'Home',
+                onClick: () => {
+                  scrollToYPosition(0);
+                },
+              },
+              {
+                text: 'Software Laboratory',
+                linkImage: <LightningImage className="h-full" />,
+                onClick: () => {
+                  scrollToYPosition(softwareLaboratoryStartY);
+                },
+              },
               {
                 text: 'Solution Assessment',
                 linkImage: <ConsultingIllustrationImage className="h-full" />,
+                onClick: () => {
+                  scrollToYPosition(consultingStartY);
+                },
               },
-              { text: 'Digital Ventures', linkImage: <VenturesArrowImage className="h-full" /> },
+              {
+                text: 'Digital Ventures',
+                linkImage: <VenturesArrowImage className="h-full" />,
+                onClick: () => {
+                  scrollToYPosition(venturesStartY);
+                },
+              },
               { text: 'Kontakt' },
             ]}
             className="flex-grow w-full mb-6"

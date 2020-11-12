@@ -6,7 +6,7 @@ import DefaultLink from './DefaultLink';
 
 function HubblrPageLinks({ className }) {
   return (
-    <div className={`flex flex-wrap justify-center gap-5 ${className}`}>
+    <div className={`flex flex-wrap justify-center gap-5 mt-4 ${className}`}>
       <Link to="/imprint">
         <PageLinkContent>Impressum</PageLinkContent>
       </Link>
@@ -23,7 +23,7 @@ function HubblrPageLinks({ className }) {
         <PageLinkContent>Github</PageLinkContent>
       </DefaultLink>
       <a href="http://join.hubblr.io/">
-        <PageLinkContent notificationNumber={3}>Office Münster</PageLinkContent>
+        <PageLinkContent notificationNumber={3}>Jobs</PageLinkContent>
       </a>
     </div>
   );

@@ -12,7 +12,6 @@ import useYPositions from '../components/hooks/scroll/useYPositions';
 import useWindowResizeInfo from '../components/hooks/window/useWindowResizeInfo';
 import IntroductionSectionContent from '../components/page-sections/IntroductionSectionContent';
 import useOffsetHeight from '../components/hooks/dimensions/useOffsetHeight';
-import useWindowPageYOffset from '../components/hooks/window/useWindowPageYOffset';
 import IndexPageContext from '../context/IndexPageContext';
 import { ANIMATION_AREA_HEIGHT_DESKTOP, ANIMATION_AREA_HEIGHT_MOBILE } from '../config';
 import { TabletBreakpoint } from '../util/helpers';
@@ -42,11 +41,10 @@ function useUpdateHashOnHistoryChange(hashRef, updateHashRef) {
 function useNavBarState(introContentRef, navBarRef) {
   const [showNavBar, setShowNavbar] = useState(false);
   const [, introContentScrollEndY] = useYPositions(introContentRef);
-  const windowStartY = useWindowPageYOffset();
   const { scrollY } = useViewportScroll();
   useLayoutEffect(() => {
     // must fire before scrollY updates
-    setShowNavbar(windowStartY > introContentScrollEndY);
+    setShowNavbar(window.pageYOffset > introContentScrollEndY);
     // this handles continuous updates
     const unsubscribeScroll = scrollY.onChange((y) => {
       setShowNavbar(y > introContentScrollEndY);
@@ -54,7 +52,7 @@ function useNavBarState(introContentRef, navBarRef) {
     return () => {
       unsubscribeScroll();
     };
-  }, [introContentScrollEndY, scrollY, windowStartY]);
+  }, [introContentScrollEndY, scrollY]);
   // get size of navbar
   const navBarHeight = useOffsetHeight(navBarRef);
   return {
@@ -93,33 +91,31 @@ function IndexPage() {
   // create refs and position info for all sections -> determine jump breakpoints
   const softwareLabSectionRef = useRef();
   const [softwareLabSectionStartY] = useYPositions(softwareLabSectionRef);
+  const softwareLabContentStartY = softwareLabSectionStartY + animationAreaHeight;
   const consultingSectionRef = useRef();
   const [consultingSectionStartY] = useYPositions(consultingSectionRef);
+  const consultingContentStartY = consultingSectionStartY + animationAreaHeight;
   const venturesSectionRef = useRef();
   const [venturesSectionStartY] = useYPositions(venturesSectionRef);
+  const venturesContentStartY = venturesSectionStartY + animationAreaHeight;
   const revOrder = useMemo(() => {
     const softwareLabInfo = {
       ref: softwareLabSectionRef,
-      startY: softwareLabSectionStartY + animationAreaHeight,
+      startY: softwareLabContentStartY,
       hash: '#softwareLaboratory',
     };
     const consultingInfo = {
       ref: consultingSectionRef,
-      startY: consultingSectionStartY + animationAreaHeight,
+      startY: consultingContentStartY,
       hash: '#consulting',
     };
     const venturesInfo = {
       ref: venturesSectionRef,
-      startY: venturesSectionStartY + animationAreaHeight,
+      startY: venturesContentStartY,
       hash: '#ventures',
     };
     return [venturesInfo, consultingInfo, softwareLabInfo];
-  }, [
-    animationAreaHeight,
-    consultingSectionStartY,
-    softwareLabSectionStartY,
-    venturesSectionStartY,
-  ]);
+  }, [consultingContentStartY, softwareLabContentStartY, venturesContentStartY]);
   const orderLen = revOrder.length;
 
   // jump to location set in hash
@@ -129,15 +125,9 @@ function IndexPage() {
       for (let i = 0; i < orderLen; i += 1) {
         const { startY, hash: sectionHash } = revOrder[i];
         if (hash.current === sectionHash) {
-          if (window.history.scrollRestoration) {
-            window.history.scrollRestoration = 'manual';
-          }
           window.scrollTo(0, startY);
           return;
         }
-      }
-      if (window.history.scrollRestoration) {
-        window.history.scrollRestoration = 'manual';
       }
       window.scrollTo(0, 0);
     }
@@ -194,6 +184,11 @@ function IndexPage() {
     <IndexPageContext.Provider
       value={{
         navBarHeight,
+        sectionContentStarts: {
+          softwareLaboratory: softwareLabContentStartY,
+          consulting: consultingContentStartY,
+          ventures: venturesContentStartY,
+        },
       }}
     >
       <Layout>

@@ -6,11 +6,14 @@ import Button from '../simple/button/Button';
 function NavBarTopStackedLinks({ content, className }) {
   return (
     <div className={className}>
-      {content.map(({ text, linkImage }, i) => {
+      {content.map(({ text, linkImage, onClick }, i) => {
         return (
           <div key={uuidv4()}>
             {i === 0 && <hr className="bg-white h-p" />}
-            <Button className="w-full navbar-hover-blur h-20 flex justify-center items-center p-3 text-white">
+            <Button
+              onClick={onClick}
+              className="w-full navbar-hover-blur h-20 flex justify-center items-center p-3 text-white"
+            >
               <div className="h-16 -mr-3">{linkImage}</div>
               <div className="text-lg font-bold">{text}</div>
             </Button>
@@ -27,6 +30,7 @@ NavBarTopStackedLinks.propTypes = {
     PropTypes.shape({
       text: PropTypes.string.isRequired,
       linkImage: PropTypes.element,
+      onClick: PropTypes.func,
     })
   ).isRequired,
   className: PropTypes.string,

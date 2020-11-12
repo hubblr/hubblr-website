@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import HubblrImage from '../image-components/HubblrImage';
 import IndexGradientBorderButtonLongArrow from '../gradient-border-buttons/IndexGradientBorderButtonLongArrow';
 
@@ -15,9 +16,11 @@ function IntroductionSectionContent() {
         endlich auch auf der Welt zu sehen, entwickeln wir in 3 Sparten herausstechende Projekte.
       </h2>
 
-      <IndexGradientBorderButtonLongArrow theme="dark">
-        Jetzt kontaktieren
-      </IndexGradientBorderButtonLongArrow>
+      <Link to="/contact">
+        <IndexGradientBorderButtonLongArrow theme="dark">
+          Jetzt kontaktieren
+        </IndexGradientBorderButtonLongArrow>
+      </Link>
     </>
   );
 }

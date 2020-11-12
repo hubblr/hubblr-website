@@ -11,7 +11,7 @@ function IntroductionSection({ children }) {
         {children}
       </div>
       <MobileAndTabletQuery>
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center mb-5">
           <ArrowImageDownDouble />
         </div>
       </MobileAndTabletQuery>
