@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 import isEmpty from 'validator/es/lib/isEmpty';
 import isMobilePhone from 'validator/es/lib/isMobilePhone';
 import Form from '../form/form/Form';
@@ -64,7 +65,15 @@ function ContactPageForm() {
               message: request,
             }),
           }).then((res) => {
-            console.log(res);
+            if (res.status === 200) {
+              Swal.fire({ title: 'Erfolgreich gesendet!', icon: 'success' });
+            } else {
+              Swal.fire({
+                title: 'Fehler!',
+                text: 'Das hat leider nicht geklappt. Versuch es später nochmal!',
+                icon: 'error',
+              });
+            }
           });
         }}
       >

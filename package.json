@@ -36,6 +36,7 @@
     "react-intl": "^5.8.9",
     "react-responsive": "^8.1.0",
     "sass": "^1.28.0",
+    "sweetalert2": "^10.10.0",
     "uuid": "^8.3.1",
     "validator": "^13.1.17"
   },
