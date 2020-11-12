@@ -1,13 +1,15 @@
 import React from 'react';
-import Layout from '../components/page-layouts/Layout';
+import Layout from '../components/layouts/Layout';
 import HubblrImage from '../components/image-components/HubblrImage';
 import BusinessCardContactPage from '../components/business-card/BusinessCardContactPage';
 import ContactPageForm from '../components/contact-page-content/ContactPageForm';
 import HubblrPageLinks from '../components/links/HubblrPageLinks';
+import SEO from '../components/seo/Seo';
 
 function ContactPage() {
   return (
     <Layout>
+      <SEO title="contact" />
       <div className="container mx-auto h-full min-h-screen flex flex-col items-center">
         <div className="flex-grow w-full flex flex-col justify-center items-center mb-5 mt-5">
           <div className="mb-8">

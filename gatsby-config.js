@@ -6,7 +6,10 @@ const fullConfig = resolveConfig(tailwindConfig);
 module.exports = {
   siteMetadata: {
     title: `hubblr`,
+    titleTemplate: `%s | hubblr`,
     description: ``,
+    twitterUsername: ``,
+    url: ``,
     author: `@hubblr`,
   },
   plugins: [

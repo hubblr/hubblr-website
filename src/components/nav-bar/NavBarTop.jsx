@@ -25,7 +25,7 @@ const NavBarTop = React.forwardRef(({ className, shouldBeShown }, ref) => {
         className={`${isCollapsed ? '' : 'hidden'} absolute w-full h-full navbar-background-blur`}
       />
       <div className="relative container mx-auto h-full flex flex-col">
-        <div ref={ref} className="w-full p-8 md:p-0">
+        <div ref={ref} className="w-full p-8 lg:p-0">
           <MobileAndTabletQuery>
             <NavBarTopMobile isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
           </MobileAndTabletQuery>

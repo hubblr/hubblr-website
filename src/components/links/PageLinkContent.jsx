@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DefaultLink from './DefaultLink';
 
-function PageLinkItem({ children, notificationNumber, href }) {
-  const innerItem = (
+function PageLinkContent({ children, notificationNumber }) {
+  return (
     <div className="flex items-center gap-1">
       <div className="underline text-xl">{children}</div>
       {notificationNumber > 0 && (
@@ -13,19 +12,15 @@ function PageLinkItem({ children, notificationNumber, href }) {
       )}
     </div>
   );
-
-  return href ? <a href={href}>{innerItem}</a> : <DefaultLink>{innerItem}</DefaultLink>;
 }
 
-PageLinkItem.propTypes = {
+PageLinkContent.propTypes = {
   children: PropTypes.string.isRequired,
   notificationNumber: PropTypes.number,
-  href: PropTypes.string,
 };
 
-PageLinkItem.defaultProps = {
+PageLinkContent.defaultProps = {
   notificationNumber: 0,
-  href: '',
 };
 
-export default PageLinkItem;
+export default PageLinkContent;

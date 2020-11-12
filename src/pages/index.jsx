@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useLocation, createHistory } from '@reach/router';
 import { useViewportScroll } from 'framer-motion';
-import Layout from '../components/page-layouts/Layout';
+import Layout from '../components/layouts/Layout';
 import IntroductionSection from '../components/page-sections/IntroductionSection';
 import SoftwareLaboratorySection from '../components/page-sections/SoftwareLaboratorySection';
 import ConsultingSection from '../components/page-sections/ConsultingSection';
@@ -16,6 +16,7 @@ import useWindowPageYOffset from '../components/hooks/window/useWindowPageYOffse
 import IndexPageContext from '../context/IndexPageContext';
 import { ANIMATION_AREA_HEIGHT_DESKTOP, ANIMATION_AREA_HEIGHT_MOBILE } from '../config';
 import { TabletBreakpoint } from '../util/helpers';
+import SEO from '../components/seo/Seo';
 
 // TODO: not sure about this
 // disable regular scroll restoration on reload
@@ -196,6 +197,7 @@ function IndexPage() {
       }}
     >
       <Layout>
+        <SEO title="index.seo.title" description="index.seo.description" />
         <div>
           <IntroductionSection>
             <div ref={introContentRef}>
