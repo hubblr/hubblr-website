@@ -22,11 +22,11 @@ function MainContentCard({ children, title, description, className, padding }) {
               paddingTop: padding,
             }}
           >
-            <h3 className="text-xl text-purple-700 font-bold mb-3">{title.toUpperCase()}</h3>
-            <h2 className="text-3xl font-bold leading-7">{description}</h2>
+            <h3 className="text-xl text-purple-700 font-bold uppercase">{title}</h3>
+            <h2 className="text-3xl font-bold leading-7 mb-4">{description}</h2>
           </div>
         </div>
-        <div className="row-start-1 col-start-1 row-end-3 col-end-3">
+        <div className="row-start-1 col-start-1 row-end-3 col-end-3 mb-4">
           <MobileAndTabletQuery>
             <HeadlinerBoxSvg className="-mt-5 h-full w-full" viewBox="120 125 546 94" />
           </MobileAndTabletQuery>

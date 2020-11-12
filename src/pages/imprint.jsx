@@ -10,17 +10,17 @@ const ImprintPage = () => (
           <FormattedMessage id="imprint.header" defaultMessage="Impressum" />
         </h1>
         <div className="mt-8 mb-4">
-          appointer Gesellschaft mit beschränkter Haftung
+          hubblr - Bals Greinus GbR
           <br />
-          Gertrudenstraße 7
+          Hafenweg 11A
           <br />
-          D-48149 Münster
+          GER-48155 Münster
           <br />
         </div>
         <div className="mb-4">
           Vertretungsberechtiger Geschäftsführer:
           <br />
-          Cedric Bals
+          Cedric Bals, Florian Greinus
           <br />
         </div>
         <div className="mb-4">
@@ -30,25 +30,11 @@ const ImprintPage = () => (
         <div className="mb-4">
           E-Mail:
           <a href="mailto:hello@appointer.com" className="link mx-">
-            hello@appointer.com
+            hello@hubblr.io
           </a>
         </div>
         <div className="mb-4">
-          Registergericht: Amtsgericht Münster
-          <br />
-          Registernummer: HRB 16768
-          <br />
-        </div>
-        <div className="mb-4">
           Umsatzsteuer-Identifikationsnummer gem. § 27a UStG: DE 312816042
-          <br />
-        </div>
-        <div className="mb-4">
-          appointer GmbH
-          <br />
-          Gertrudenstr. 7
-          <br />
-          48149 Münster
           <br />
         </div>
       </div>
