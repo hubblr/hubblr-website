@@ -12,8 +12,8 @@ function IndexGradientBorderButtonLongArrow({
 }) {
   return (
     <HubblrGradientBorderButtonBase
-      image={<LongArrowImage theme={theme} />}
-      addedFlexClasses={`gap-3 ${addedFlexClasses}`}
+      image={<LongArrowImage theme={theme} className="ml-3" />}
+      addedFlexClasses={`${addedFlexClasses}`}
       theme={theme}
       onClick={onClick}
       widthClass={widthClass}

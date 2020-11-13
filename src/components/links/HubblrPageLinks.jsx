@@ -6,19 +6,21 @@ import DefaultLink from './DefaultLink';
 
 function HubblrPageLinks({ className }) {
   return (
-    <div className={`flex flex-wrap justify-center gap-5 mt-4 ${className}`}>
-      <Link to="/imprint">
-        <PageLinkContent>Impressum</PageLinkContent>
-      </Link>
-      <Link to="/imprint">
-        <PageLinkContent>Datenschutz</PageLinkContent>
-      </Link>
-      <DefaultLink>
-        <PageLinkContent>Github</PageLinkContent>
-      </DefaultLink>
-      <a href="http://join.hubblr.io/">
-        <PageLinkContent notificationNumber={3}>Jobs</PageLinkContent>
-      </a>
+    <div className="w-full overflow-hidden mt-4">
+      <div className={`flex flex-wrap justify-center -mr-5 ${className}`}>
+        <Link to="/imprint" className="pr-5">
+          <PageLinkContent>Impressum</PageLinkContent>
+        </Link>
+        <Link to="/imprint" className="pr-5">
+          <PageLinkContent>Datenschutz</PageLinkContent>
+        </Link>
+        <DefaultLink className="pr-5">
+          <PageLinkContent>Github</PageLinkContent>
+        </DefaultLink>
+        <a href="http://join.hubblr.io/" className="pr-5">
+          <PageLinkContent notificationNumber={3}>Jobs</PageLinkContent>
+        </a>
+      </div>
     </div>
   );
 }

@@ -5,9 +5,9 @@ import LongArrowImage from '../image-components/LongArrowImage';
 
 function BusinessCard({ children, image, name, position, actionName }) {
   return (
-    <div className="w-full h-full bg-brand-gray-darkest rounded-lg p-5 flex flex-col items-center gap-5">
-      {image}
-      <div className="flex-grow flex flex-col justify-between items-center">
+    <div className="w-full h-full bg-brand-gray-darkest rounded-lg p-5 flex flex-col items-center">
+      <div className="mb-5">{image}</div>
+      <div className="flex-grow flex flex-col justify-between items-center mb-5">
         {children}
         <div className="flex flex-col items-center mb-1">
           <p className="text-lg font-extrabold mb-1">{name}</p>
@@ -17,9 +17,9 @@ function BusinessCard({ children, image, name, position, actionName }) {
       <a href="https://calendly.com/cbals/30min">
         <HubblrGradientBorderButtonBase
           widthClass="lg:w-full"
-          addedFlexClasses="justify-between gap-3"
+          addedFlexClasses="justify-between"
           theme="dark"
-          image={<LongArrowImage theme="dark" />}
+          image={<LongArrowImage theme="dark" className="ml-3" />}
         >
           <div>{actionName}</div>
         </HubblrGradientBorderButtonBase>

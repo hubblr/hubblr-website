@@ -24,19 +24,21 @@ function ContactPage() {
       <SEO title="contact" />
       <div className="relative min-h-screen flex flex-col">
         <div
-          className={`sticky top-0 w-full py-8 px-4${isScrolled ? ' navbar-background-blur' : ''}`}
+          className={`sticky top-0 z-10 w-full py-8 px-4${
+            isScrolled ? ' navbar-background-blur' : ''
+          }`}
         >
           <div className="container mx-auto flex justify-center">
             <div className="w-1/3 flex justify-center">
-              <HubblrImage className="w-20" />
+              <HubblrImage className="w-20 h-full" />
             </div>
           </div>
         </div>
         <div className="flex-grow container mx-auto h-full flex flex-col items-center">
           <h1 className="mb-8 text-5xl font-extrabold">Let‘s talk!</h1>
           <div className="flex-grow w-full flex flex-col justify-center items-center">
-            <div className="h-1/2 w-full flex flex-col lg:flex-row lg:justify-between gap-6">
-              <div className="flex-grow flex-basis-0">
+            <div className="h-1/2 w-full flex flex-col lg:flex-row lg:justify-between">
+              <div className="flex-grow flex-basis-0 mb-6 lg:mb-0 mr-6">
                 <BusinessCardContactPage />
               </div>
               <div className="flex-grow-2 flex-basis-0">

@@ -5,26 +5,28 @@ import SectionScrollBarLine from './SectionScrollBarLine';
 import ArrowImageDownDouble from '../image-components/ArrowImageDownDouble';
 
 function SectionScrollBarBase({ upperFlexGrow, lowerFlexGrow, upperClassNames, lowerClassNames }) {
-  const arrowImages =
-    lowerFlexGrow || lowerClassNames ? (
-      <ArrowImageDownDouble widthClass="w-full" />
-    ) : (
-      <ArrowImageDownDouble widthClass="w-full" rotationDegree={180} />
-    );
+  const upperBarShown = upperFlexGrow || upperClassNames;
+  const lowerBarShown = lowerFlexGrow || lowerClassNames;
 
   return (
-    <div className="h-full flex flex-col items-center w-10 gap-6">
+    <div className="h-full flex flex-col items-center w-10">
       <SectionScrollBarLine
         gradientColors={['white', 'yellow', 'orange', 'red', 'magenta', 'white']}
-        className={upperClassNames}
+        className={`${upperClassNames}${upperBarShown ? ' mb-3' : ''}`}
         flexGrow={upperFlexGrow}
       />
 
-      {arrowImages}
+      <div>
+        {lowerBarShown ? (
+          <ArrowImageDownDouble widthClass="w-full" />
+        ) : (
+          <ArrowImageDownDouble widthClass="w-full" rotationDegree={180} />
+        )}
+      </div>
 
       <SectionScrollBarLine
         gradientColors="white"
-        className={lowerClassNames}
+        className={`${lowerClassNames}${lowerBarShown ? ' mt-3' : ''}`}
         flexGrow={lowerFlexGrow}
       />
     </div>

@@ -81,14 +81,14 @@ function ContactPageForm() {
           });
         }}
       >
-        <div className="flex-grow flex flex-col justify-between gap-6 pb-12">
+        <div className="flex-grow flex flex-col justify-between pb-12">
           {createStyledInput({
             valueSetter: setName,
             placeholder: 'IHR NAME*',
             name: 'name',
             value: name,
             maxLength: 64,
-            flexClasses: 'flex-grow',
+            flexClasses: 'flex-grow mb-6',
             validator: createNotEmptyValidator('Bitte geben Sie Ihren Namen ein!'),
           })}
           {createStyledInput({
@@ -97,7 +97,7 @@ function ContactPageForm() {
             name: 'business',
             value: company,
             maxLength: 64,
-            flexClasses: 'flex-grow',
+            flexClasses: 'flex-grow mb-6',
           })}
           {createStyledInput({
             valueSetter: setPhone,
@@ -105,7 +105,7 @@ function ContactPageForm() {
             name: 'phone number',
             value: phone,
             maxLength: 64,
-            flexClasses: 'flex-grow',
+            flexClasses: 'flex-grow mb-6',
             validator: (v) => {
               return (
                 isEmpty(v) || isMobilePhone(v) || 'Bitte geben Sie eine valide Telefonnummer ein!'
