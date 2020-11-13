@@ -116,9 +116,9 @@ export const wrapDOMElement = (el, wrapper) => {
 // after the decimal.
 export const generateUniqueID = () => Math.random().toString(36).substr(2, 9);
 
-export const MobileBreakpoint = 786;
+export const MobileBreakpoint = 785; // one less than tailwind sm class
 
-export const TabletBreakpoint = 1024;
+export const TabletBreakpoint = 1023; // one less than tailwind lg class
 
 export const IsScreenMD = typeof window !== 'undefined' && window.innerWidth > MobileBreakpoint;
 
