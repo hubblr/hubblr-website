@@ -66,10 +66,10 @@ function ScrollJumper({
   return (
     <div className={containerClassName}>
       <Button className={leftButtonClassName} onClick={scrollToPrev}>
-        <LongArrowImage className="w-24" theme="gray" orientation="left" />
+        <LongArrowImage className="w-16" theme="gray" orientation="left" />
       </Button>
       <Button className={rightButtonClassName} onClick={scrollToNext}>
-        <LongArrowImage className="w-24" theme="gray" orientation="right" />
+        <LongArrowImage className="w-16" theme="gray" orientation="right" />
       </Button>
     </div>
   );

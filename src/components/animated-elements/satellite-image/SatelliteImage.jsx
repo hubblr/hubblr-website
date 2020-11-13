@@ -1,47 +1,18 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import AnimationAreaContext from '../../../context/AnimationAreaContext';
-import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTransformFromDescription';
 
-const transformSettingsSatellite = {
-  scale: {
-    inputPercentages: [20, 51],
-    outputRange: [1.3, 1],
-  },
-  opacity: {
-    inputPercentages: [20, 51],
-    outputRange: [0, 1],
-  },
-};
-
-function AnimatedSatellite({ className }) {
-  const { animationAreaStartY, animationAreaStep } = useContext(AnimationAreaContext);
-
-  const satelliteTransforms = {
-    scale: useCreateTransformFromDescription(
-      animationAreaStartY,
-      animationAreaStep,
-      transformSettingsSatellite.scale
-    ),
-    opacity: useCreateTransformFromDescription(
-      animationAreaStartY,
-      animationAreaStep,
-      transformSettingsSatellite.opacity
-    ),
-  };
-
+function SatelliteImage({ style }) {
   return (
     <motion.svg
-      width="360px"
-      viewBox="0 0 360 276"
+      viewBox="15 40 328 196"
+      preserveAspectRatio="none"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      className={className}
-      style={satelliteTransforms}
+      style={style}
     >
-      <title>sattellite</title>
+      <title>satellite</title>
       <defs>
         <linearGradient
           x1="1.56032636%"
@@ -158,12 +129,12 @@ function AnimatedSatellite({ className }) {
   );
 }
 
-AnimatedSatellite.propTypes = {
-  className: PropTypes.string,
+SatelliteImage.propTypes = {
+  style: PropTypes.object,
 };
 
-AnimatedSatellite.defaultProps = {
-  className: '',
+SatelliteImage.defaultProps = {
+  style: null,
 };
 
-export default AnimatedSatellite;
+export default SatelliteImage;

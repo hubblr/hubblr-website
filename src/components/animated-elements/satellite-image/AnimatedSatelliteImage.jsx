@@ -1,14 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AnimatedSatellite from './AnimatedSatellite';
+import AnimatedSatelliteDesktop from './AnimatedSatelliteDesktop';
+import SatelliteImage from './SatelliteImage';
 import AnimatedOrbit from './AnimatedOrbit';
-import { DesktopQuery } from '../../../util/helpers';
+import { MobileAndTabletQuery, DesktopQuery } from '../../../util/helpers';
 
 function AnimatedSatelliteImage({ className }) {
   return (
     <div className={`flex flex-col items-center justify-center ${className}`}>
       <div>
-        <AnimatedSatellite className="relative z-10" />
+        <MobileAndTabletQuery>
+          <SatelliteImage />
+        </MobileAndTabletQuery>
+        <DesktopQuery>
+          <AnimatedSatelliteDesktop className="relative z-10" />
+        </DesktopQuery>
 
         <DesktopQuery>
           <div

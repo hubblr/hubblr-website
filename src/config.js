@@ -2,8 +2,8 @@ const ANIMATION_AREA_HEIGHT_DESKTOP = 2000; // in px, meant as default
 const ANIMATION_AREA_HEIGHT_MOBILE = 1000;
 
 const MOBILE_INITIAL_CONTENT_START = 10; // in percent
-const MOBILE_INITIAL_IMAGE_END = 70; // in percent
-const MOBILE_INITIAL_TITLE_END = 80; // in percent
+const MOBILE_INITIAL_IMAGE_END = 40; // in percent
+const MOBILE_INITIAL_TITLE_END = 50; // in percent
 
 const CONTACT_FORM_POST_URL = 'https://hubblr-hodgepodge-vz77j.ondigitalocean.app/website/contact';
 
