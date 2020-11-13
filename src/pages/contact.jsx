@@ -38,7 +38,7 @@ function ContactPage() {
           <h1 className="mb-8 text-5xl font-extrabold">Let‘s talk!</h1>
           <div className="flex-grow w-full flex flex-col justify-center items-center">
             <div className="h-1/2 w-full flex flex-col lg:flex-row lg:justify-between">
-              <div className="flex-grow flex-basis-0 mb-6 lg:mb-0 mr-6">
+              <div className="flex-grow flex-basis-0 mb-6 lg:mb-0 lg:mr-6">
                 <BusinessCardContactPage />
               </div>
               <div className="flex-grow-2 flex-basis-0">

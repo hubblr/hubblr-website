@@ -24,7 +24,7 @@ function GradientBorderButtonBase({
     >
       <div
         className={
-          `flex items-center ${addedFlexClasses} rounded-lg ${paddingClasses} ` +
+          `flex items-center ${addedFlexClasses} rounded-lg ` +
           `bg-clip-padding ${textColorClass} ${backgroundColorClass}`
         }
         style={{
@@ -32,7 +32,7 @@ function GradientBorderButtonBase({
           boxSizing: 'border-box',
         }}
       >
-        {children}
+        <div className={`flex ${addedFlexClasses} ${paddingClasses}`}>{children}</div>
       </div>
     </button>
   );

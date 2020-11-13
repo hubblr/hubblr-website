@@ -126,7 +126,7 @@ function ContactPageForm() {
           <HubblrGradientBorderButtonBase
             isSubmitButton
             theme="dark"
-            widthClass="w-1/3"
+            widthClass=""
             addedFlexClasses="justify-center"
           >
             Absenden
