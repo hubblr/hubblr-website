@@ -24,7 +24,7 @@ function ContactPage() {
       <SEO title="contact" />
       <div className="relative min-h-screen flex flex-col">
         <div
-          className={`${isScrolled ? 'navbar-background-blur' : ''} sticky top-0 w-full py-8 px-4`}
+          className={`sticky top-0 w-full py-8 px-4${isScrolled ? ' navbar-background-blur' : ''}`}
         >
           <div className="container mx-auto flex justify-center">
             <div className="w-1/3 flex justify-center">

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import useWindowResizeInfo from '../../hooks/window/useWindowResizeInfo';
-import usePaddingTop from '../../hooks/styleQueries/usePaddingTop';
 import SectionHeading from '../../index-page-main-content/section-heading/SectionHeading';
 import useClientHeight from '../../hooks/dimensions/useClientHeight';
 import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTransformFromDescription';
+import IndexPageContext from '../../../context/IndexPageContext';
 
 const transforms = {
   opacity: {
@@ -25,17 +25,15 @@ const transforms = {
 
 function AnimatedSectionHeadingDesktop({ heading }) {
   // get required values from context
-  const { animationAreaStartY, animationAreaStep, contentContainerRef } = useContext(
-    AnimationAreaContext
-  );
+  const { navBarHeight } = useContext(IndexPageContext);
+  const { animationAreaStartY, animationAreaStep } = useContext(AnimationAreaContext);
 
   // finish transform descriptions reliant on other elements
   // calculate y offset at start of animation (to center in window)
   const sectionHeadingRef = useRef();
   const sectionHeadingHeight = useClientHeight(sectionHeadingRef);
   const { height: windowHeight } = useWindowResizeInfo();
-  const paddingTop = usePaddingTop(contentContainerRef);
-  const topYHeadingStart = windowHeight / 2 - paddingTop - sectionHeadingHeight / 2;
+  const topYHeadingStart = windowHeight / 2 - navBarHeight - sectionHeadingHeight / 2;
   transforms.y.outputRange = [`${topYHeadingStart}px`, '0px'];
 
   // create transforms
@@ -54,9 +52,11 @@ function AnimatedSectionHeadingDesktop({ heading }) {
   };
 
   return (
-    <motion.div className="relative z-10 py-6" style={sectionHeadingStyle}>
-      <SectionHeading ref={sectionHeadingRef} heading={heading} />
-    </motion.div>
+    <div className="relative z-10 pb-6">
+      <motion.div style={sectionHeadingStyle}>
+        <SectionHeading ref={sectionHeadingRef} heading={heading} />
+      </motion.div>
+    </div>
   );
 }
 

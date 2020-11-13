@@ -2,12 +2,11 @@ import { useState, useLayoutEffect } from 'react';
 
 function useOffsetHeight(ref) {
   const [offsetHeight, setoffsetHeight] = useState(0);
-  const refOffsetHeight = ref.current?.offsetHeight;
   useLayoutEffect(() => {
     if (ref.current) {
-      setoffsetHeight(refOffsetHeight);
+      setoffsetHeight(ref.current.offsetHeight);
     }
-  }, [ref, refOffsetHeight]);
+  }, [ref, ref.current?.offsetHeight]);
   return offsetHeight;
 }
 
