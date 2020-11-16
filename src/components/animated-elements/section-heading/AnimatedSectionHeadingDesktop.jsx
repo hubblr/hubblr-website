@@ -6,7 +6,7 @@ import useWindowResizeInfo from '../../hooks/window/useWindowResizeInfo';
 import SectionHeading from '../../index-page-main-content/section-heading/SectionHeading';
 import useClientHeight from '../../hooks/dimensions/useClientHeight';
 import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTransformFromDescription';
-import IndexPageContext from '../../../context/IndexPageContext';
+import PageContext from '../../../context/PageContext';
 
 const transforms = {
   opacity: {
@@ -25,7 +25,7 @@ const transforms = {
 
 function AnimatedSectionHeadingDesktop({ heading }) {
   // get required values from context
-  const { navBarHeight } = useContext(IndexPageContext);
+  const { navBarHeight } = useContext(PageContext);
   const { animationAreaStartY, animationAreaStep } = useContext(AnimationAreaContext);
 
   // finish transform descriptions reliant on other elements

@@ -10,7 +10,7 @@ import ConsultingIllustrationImage from '../image-components/ConsultingIllustrat
 import VenturesArrowImage from '../image-components/VenturesArrowImage';
 import HubblrGradientBorderButtonBase from '../gradient-border-buttons/HubblrGradientBorderButtonBase';
 import LongArrowImage from '../image-components/LongArrowImage';
-import IndexPageContext from '../../context/IndexPageContext';
+import PageContext from '../../context/PageContext';
 
 const NavBarTop = React.forwardRef(({ className, shouldBeShown }, ref) => {
   const {
@@ -19,7 +19,7 @@ const NavBarTop = React.forwardRef(({ className, shouldBeShown }, ref) => {
       consulting: consultingStartY,
       ventures: venturesStartY,
     },
-  } = useContext(IndexPageContext);
+  } = useContext(PageContext);
 
   const [isCollapsed, setIsCollapsed] = useState(true);
   const isVisible = shouldBeShown || !isCollapsed;

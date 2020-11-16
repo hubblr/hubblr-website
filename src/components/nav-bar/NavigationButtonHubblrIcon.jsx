@@ -1,17 +1,12 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import HubblrImage from '../image-components/HubblrImage';
 
 function NavigationButtonHubblrIcon() {
   return (
-    <button
-      type="button"
-      className="cursor-pointer h-full"
-      onClick={() => {
-        window.scroll(0, 0);
-      }}
-    >
+    <Link to="/">
       <HubblrImage className="w-20" />
-    </button>
+    </Link>
   );
 }
 

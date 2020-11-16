@@ -1,18 +1,19 @@
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useLocation, createHistory } from '@reach/router';
 import { useViewportScroll } from 'framer-motion';
+import { Link } from 'gatsby';
 import Layout from '../components/layouts/Layout';
 import IntroductionSection from '../components/page-sections/IntroductionSection';
 import SoftwareLaboratorySection from '../components/page-sections/SoftwareLaboratorySection';
 import ConsultingSection from '../components/page-sections/ConsultingSection';
 import VenturesSection from '../components/page-sections/VenturesSection';
-import NavBarTop from '../components/nav-bar/NavBarTop';
+import NavBar from '../components/nav-bar/NavBar';
 import HubblrPageLinks from '../components/links/HubblrPageLinks';
 import useYPositions from '../components/hooks/scroll/useYPositions';
 import useWindowResizeInfo from '../components/hooks/window/useWindowResizeInfo';
 import IntroductionSectionContent from '../components/page-sections/IntroductionSectionContent';
 import useOffsetHeight from '../components/hooks/dimensions/useOffsetHeight';
-import IndexPageContext from '../context/IndexPageContext';
+import PageContext from '../context/PageContext';
 import { ANIMATION_AREA_HEIGHT_DESKTOP, ANIMATION_AREA_HEIGHT_MOBILE } from '../config';
 import { TabletBreakpoint } from '../util/helpers';
 import SEO from '../components/seo/Seo';
@@ -25,16 +26,6 @@ function useDisableScrollRestoration() {
       window.history.scrollRestoration = 'manual';
     }
   });
-}
-
-// enable jump on history navigation
-function useUpdateHashOnHistoryChange(hashRef, updateHashRef) {
-  useLayoutEffect(() => {
-    const history = createHistory(window);
-    history.listen(({ location: nextLocation }) => {
-      updateHashRef(nextLocation.hash);
-    });
-  }, [updateHashRef]);
 }
 
 // decide when to show navbar and get its height to pass in Provider
@@ -59,6 +50,16 @@ function useNavBarState(introContentRef, navBarRef) {
     showNavBar,
     navBarHeight,
   };
+}
+
+// enable jump on history navigation
+function useUpdateHashOnHistoryChange(hashRef, updateHashRef) {
+  useLayoutEffect(() => {
+    const history = createHistory(window);
+    history.listen(({ location: nextLocation }) => {
+      updateHashRef(nextLocation.hash);
+    });
+  }, [updateHashRef]);
 }
 
 function IndexPage() {
@@ -191,8 +192,9 @@ function IndexPage() {
   }, [animationAreaHeight, jumpIsEnabled, location, orderLen, revOrder, scrollY]);
 
   return (
-    <IndexPageContext.Provider
+    <PageContext.Provider
       value={{
+        page: 'index',
         navBarHeight,
         sectionContentStarts: {
           softwareLaboratory: softwareLabContentStartY,
@@ -220,8 +222,23 @@ function IndexPage() {
           <HubblrPageLinks />
         </div>
       </Layout>
-      <NavBarTop ref={navBarRef} shouldBeShown={showNavBar} />
-    </IndexPageContext.Provider>
+      <NavBar
+        ref={navBarRef}
+        showNavBar={showNavBar}
+        rightContent={
+          <div className="flex flex-col justify-center items-end">
+            <Link
+              to="/contact"
+              className="button button-dark text-center font-extrabold tracking-tight"
+            >
+              <span className="bg-clip-text text-transparent bg-gradient-to-r bg-gradient-to-r from-teal-400 to-blue-500">
+                Kontaktieren
+              </span>
+            </Link>
+          </div>
+        }
+      />
+    </PageContext.Provider>
   );
 }
 

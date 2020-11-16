@@ -1,6 +1,6 @@
 import React, { forwardRef, useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
-import IndexPageContext from '../../../context/IndexPageContext';
+import PageContext from '../../../context/PageContext';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import useYPositions from '../../hooks/scroll/useYPositions';
 import useWindowResizeInfo from '../../hooks/window/useWindowResizeInfo';
@@ -11,7 +11,7 @@ import SectionScrollBar from '../../section-scroll-bar/SectionScrollBar';
 const AnimatedSection = forwardRef(
   ({ children, sectionType, animationAreaHeight }, fullSectionRef) => {
     // get navbar size from context to set padding-top over navbar
-    const { navBarHeight } = useContext(IndexPageContext);
+    const { navBarHeight } = useContext(PageContext);
     // check width of window for breakpoint
     const { width: windowWidth } = useWindowResizeInfo();
     const isLg = windowWidth > TabletBreakpoint;
