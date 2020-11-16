@@ -10,13 +10,13 @@ function DefaultLink({ children, className }) {
   );
 }
 
-DefaultLink.defaultProps = {
-  children: null,
+DefaultLink.propTypes = {
+  children: PropTypes.node,
   className: PropTypes.string,
 };
 
-DefaultLink.propTypes = {
-  children: PropTypes.node,
+DefaultLink.defaultProps = {
+  children: null,
   className: '',
 };
 

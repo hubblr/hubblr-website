@@ -7,25 +7,24 @@ import { MobileAndTabletQuery, DesktopQuery } from '../../../util/helpers';
 
 function AnimatedSatelliteImage({ className }) {
   return (
-    <div className={`flex flex-col items-center justify-center ${className}`}>
-      <div>
-        <MobileAndTabletQuery>
-          <SatelliteImage />
-        </MobileAndTabletQuery>
-        <DesktopQuery>
-          <AnimatedSatelliteDesktop className="relative z-10" />
-        </DesktopQuery>
-
-        <DesktopQuery>
-          <div
-            style={{ paddingLeft: '50%', marginLeft: '-15px', transform: 'translateY(-50%)' }}
-            className="absolute left-0 z-0"
-          >
-            <AnimatedOrbit />
+    <>
+      <MobileAndTabletQuery>
+        <SatelliteImage className="w-full h-full" />
+      </MobileAndTabletQuery>
+      <DesktopQuery>
+        <div className={`flex flex-col items-center justify-center ${className}`}>
+          <div>
+            <AnimatedSatelliteDesktop className="relative z-10" />
+            <div
+              style={{ paddingLeft: '50%', marginLeft: '-15px', transform: 'translateY(-50%)' }}
+              className="absolute left-0 z-0"
+            >
+              <AnimatedOrbit />
+            </div>
           </div>
-        </DesktopQuery>
-      </div>
-    </div>
+        </div>
+      </DesktopQuery>
+    </>
   );
 }
 

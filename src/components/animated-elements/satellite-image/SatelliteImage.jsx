@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
-function SatelliteImage({ style }) {
+function SatelliteImage({ className, style }) {
   return (
     <motion.svg
       viewBox="15 40 328 196"
@@ -10,6 +10,7 @@ function SatelliteImage({ style }) {
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
+      className={className}
       style={style}
     >
       <title>satellite</title>
@@ -130,10 +131,12 @@ function SatelliteImage({ style }) {
 }
 
 SatelliteImage.propTypes = {
+  className: PropTypes.string,
   style: PropTypes.object,
 };
 
 SatelliteImage.defaultProps = {
+  className: '',
   style: null,
 };
 

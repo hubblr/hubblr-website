@@ -137,10 +137,10 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
             </Link>
             <hr className="bg-white h-p" />
           </div>
-          <Link to="/contact">
+          <Link to="/contact" className="mt-3">
             <HubblrGradientBorderButtonBase
               widthClass="w-full"
-              addedFlexClasses="justify-between"
+              addedFlexClasses="w-full justify-between"
               theme="dark"
               image={<LongArrowImage theme="dark" className="w-10" />}
             >
