@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import flatten from 'flat';
 import messagesDe from '../../translations/de.json';
 import DarkLayout from './DarkLayout';
+import CookieNotice from '../cookie-notice/CookieNotice';
 
 // TODO: language data - missing for now
 /* import en from '../locales/en.json';
@@ -24,6 +25,7 @@ const Layout = ({ children }) => {
           <DarkLayout>
             <div className="max-sm:px-4">{children}</div>
           </DarkLayout>
+          <CookieNotice />
         </motion.div>
         <div id="modal-root" />
       </IntlProvider>
