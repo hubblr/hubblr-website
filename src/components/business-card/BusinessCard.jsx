@@ -9,8 +9,8 @@ function BusinessCard({ children, image, name, position, actionName }) {
       <div className="mb-5">{image}</div>
       <div className="flex-grow flex flex-col justify-between items-center mb-5">
         {children}
-        <div className="flex flex-col items-center mb-1">
-          <p className="text-lg font-extrabold mb-1">{name}</p>
+        <div className="flex flex-col items-center">
+          <p className="text-lg font-extrabold">{name}</p>
           <p className="text-base">{position}</p>
         </div>
       </div>
