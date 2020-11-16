@@ -8,12 +8,12 @@ import ConsultingIllustrationImage from '../image-components/ConsultingIllustrat
 import VenturesArrowImage from '../image-components/VenturesArrowImage';
 import HubblrGradientBorderButtonBase from '../gradient-border-buttons/HubblrGradientBorderButtonBase';
 import LongArrowImage from '../image-components/LongArrowImage';
-import NavigationButtonHubblrIcon from './NavigationButtonHubblrIcon';
 import HamburgerMenuIcon from '../image-components/HamburgerMenuIcon';
 import NavBarLink from './NavBarLink';
 import Button from '../simple/button/Button';
 import useIsPageScrolled from '../hooks/window/useIsPageScrolled';
 import PageContext from '../../context/PageContext';
+import HubblrImage from '../image-components/HubblrImage';
 
 const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNavBar }, ref) => {
   // state of page & nav bar
@@ -58,7 +58,13 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
         <div ref={ref} className="w-full px-8 lg:px-0 py-4">
           <MobileAndTabletQuery>
             <div className="flex justify-between items-center">
-              <NavigationButtonHubblrIcon />
+              <Button
+                onClick={() => {
+                  navigateToIndexSection('/');
+                }}
+              >
+                <HubblrImage className="w-20" />
+              </Button>
               <Button
                 onClick={() => {
                   setIsCollapsed(!isCollapsed);
@@ -72,7 +78,13 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
             <DesktopQuery>
               <div className="w-1/3">{leftContent}</div>
               <div className="w-1/3 flex justify-center">
-                <NavigationButtonHubblrIcon />
+                <Button
+                  onClick={() => {
+                    navigateToIndexSection('/');
+                  }}
+                >
+                  <HubblrImage className="w-20" />
+                </Button>
               </div>
               <div className="w-1/3">{rightContent}</div>
             </DesktopQuery>
