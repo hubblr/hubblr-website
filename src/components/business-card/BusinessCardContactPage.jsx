@@ -10,7 +10,7 @@ function BusinessCardContactPage() {
       position="CEO"
       actionName="Termin planen"
     >
-      <h2 className="text-center text-2xl font-extrabold leading-8 mb-10 leading-none">
+      <h2 className="text-center text-2xl font-extrabold leading-none mb-10">
         30-Minuten Online-Austausch planen
       </h2>
       <h3 className="text-center text-xl leading-7 mb-10 leading-tight">

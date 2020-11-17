@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import HubblrImage from '../image-components/HubblrImage';
-import IndexGradientBorderButtonLongArrow from '../gradient-border-buttons/IndexGradientBorderButtonLongArrow';
+import IndexGradientBorderButtonLongArrow from '../buttons/gradient-border-buttons/IndexGradientBorderButtonLongArrow';
 
 function IntroductionSectionContent() {
   return (

@@ -4,8 +4,14 @@
   },
   "index": {
     "seo": {
-      "title": "hubblr",
-      "description": "test"
+      "title": "Home",
+      "description": "hubblr home page"
+    }
+  },
+  "contact": {
+    "seo": {
+      "title": "Kontakt",
+      "description": "hubblr contact page"
     }
   }
 }

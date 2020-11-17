@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import AppButton from '../simple/button/AppButton';
+import AppButton from '../buttons/bases/AppButton';
 import useClientWidth from '../hooks/dimensions/useClientWidth';
 import LongArrowImage from '../image-components/LongArrowImage';
 

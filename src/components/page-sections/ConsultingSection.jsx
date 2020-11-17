@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import HubblrMainContentSection from '../page-section-bases/sections/HubblrMainContentSection';
 import ConsultingIllustrationImageBackground from '../image-components/ConsultingIllustrationImageBackground';
-import IndexGradientBorderButtonLongArrow from '../gradient-border-buttons/IndexGradientBorderButtonLongArrow';
+import IndexGradientBorderButtonLongArrow from '../buttons/gradient-border-buttons/IndexGradientBorderButtonLongArrow';
 import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
 import ConsultingSectionContent from './ConsultingSectionContent';
 import SectionScrollBar from '../section-scroll-bar/SectionScrollBar';

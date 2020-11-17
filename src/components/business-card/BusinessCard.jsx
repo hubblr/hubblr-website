@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HubblrGradientBorderButtonBase from '../gradient-border-buttons/HubblrGradientBorderButtonBase';
+import HubblrGradientBorderButtonBase from '../buttons/gradient-border-buttons/HubblrGradientBorderButtonBase';
 import LongArrowImage from '../image-components/LongArrowImage';
 
 function BusinessCard({ children, image, name, position, actionName }) {
   return (
-    <div className="w-full h-full bg-brand-gray-darkest rounded-lg p-5 flex flex-col items-center">
+    <div className="w-full h-full bg-brand-gray-darkest rounded-lg p-4 md:p-6 flex flex-col items-center">
       <div className="mb-5">{image}</div>
       <div className="flex-grow flex flex-col justify-between items-center mb-5">
         {children}
@@ -14,10 +14,10 @@ function BusinessCard({ children, image, name, position, actionName }) {
           <p className="text-base">{position}</p>
         </div>
       </div>
-      <a href="https://calendly.com/cbals/30min">
+      <a href="https://calendly.com/cbals/30min" className="flex justify-center w-full">
         <HubblrGradientBorderButtonBase
-          widthClass="lg:w-full"
-          addedFlexClasses="justify-between"
+          widthClass="max-sm:w-full"
+          addedFlexClasses="w-full justify-between"
           theme="dark"
           image={<LongArrowImage theme="dark" className="ml-3" />}
         >

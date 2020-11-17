@@ -11,7 +11,7 @@ function ContactPage() {
     <>
       <NavBar className="sticky" />
       <Layout>
-        <SEO title="contact" />
+        <SEO title="contact.seo.title" description="contact.seo.description" />
         <div className="relative min-h-screen flex flex-col">
           <div className="flex-grow container mx-auto h-full flex flex-col items-center">
             <h1 className="mb-8 text-5xl font-extrabold">Let‘s talk!</h1>

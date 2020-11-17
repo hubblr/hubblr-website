@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AppButton from '../simple/button/AppButton';
+import AppButton from '../buttons/bases/AppButton';
 
 function HamburgerMenuIcon({ isActive, className, onClick }) {
   return (

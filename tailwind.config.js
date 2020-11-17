@@ -33,7 +33,7 @@ module.exports = {
         270: '270deg',
       },
       screens: {
-        'max-sm': { max: '640px' },
+        'max-sm': { max: '639px' },
       },
       spacing: {
         '1/2': '50%',

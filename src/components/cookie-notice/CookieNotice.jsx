@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect } from 'react';
-import AppButton from '../simple/button/AppButton';
+import AppButton from '../buttons/bases/AppButton';
 
 function CookieNotice() {
   const [isAccepted, setIsAccepted] = useState(false);

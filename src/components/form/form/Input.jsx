@@ -28,7 +28,12 @@ class Input extends React.Component {
     this.checkIfFilled(undefined, currValue);
 
     if (formInputContext && formInputContext.registerComponentValidator) {
-      formInputContext.registerComponentValidator(name, this.validateInput);
+      formInputContext.registerComponentValidator(
+        name,
+        (markAsTouched, triggeredByValidateWith) => {
+          return this.validateInput(markAsTouched, triggeredByValidateWith, true);
+        }
+      );
     }
   }
 
@@ -83,8 +88,11 @@ class Input extends React.Component {
     }
   }
 
-  validateInput(markAsTouched = false, triggeredByValidateWith = false) {
-    const { value: currValue, onValidate, name } = this.props;
+  validateInput(markAsTouched = false, triggeredByValidateWith = false, force = false) {
+    const { enableErrorMessages, value: currValue, onValidate, name } = this.props;
+    if (!force && !enableErrorMessages) {
+      return true;
+    }
 
     const validationResult = onValidate ? onValidate(currValue) : true;
 
@@ -114,6 +122,7 @@ class Input extends React.Component {
   render() {
     const {
       useTextarea,
+      enableErrorMessages,
       placeholder,
       inputClasses,
       groupClassNames,
@@ -123,6 +132,7 @@ class Input extends React.Component {
       onValidate,
       inputRef,
       onEnter,
+      onBlur,
       label,
       name,
       formInputContext,
@@ -146,6 +156,16 @@ class Input extends React.Component {
       }
     }
 
+    const fullOnBlur = (e) => {
+      let force = false;
+      if (onBlur) {
+        force = onBlur(e);
+      }
+      if (typeof value !== 'string' || isEmpty(value)) {
+        this.validateInput(false, false, force);
+      }
+    };
+
     const inputElement = useTextarea ? (
       <textarea
         name={name}
@@ -155,7 +175,7 @@ class Input extends React.Component {
           showPlaceholderHint ? 'placeholder-hint-visible' : ''
         } ${!isValueEmpty ? 'filled' : ''}`}
         ref={inputRef}
-        onBlur={() => (typeof value !== 'string' || isEmpty(value) ? this.validateInput() : null)}
+        onBlur={fullOnBlur}
         {...otherProps}
       />
     ) : (
@@ -168,7 +188,7 @@ class Input extends React.Component {
           showPlaceholderHint ? 'placeholder-hint-visible' : ''
         } ${!isValueEmpty ? 'filled' : ''}`}
         ref={inputRef}
-        onBlur={() => (typeof value !== 'string' || isEmpty(value) ? this.validateInput() : null)}
+        onBlur={fullOnBlur}
         {...otherProps}
       />
     );
@@ -189,6 +209,7 @@ class Input extends React.Component {
 
 Input.propTypes = {
   useTextarea: PropTypes.bool,
+  enableErrorMessages: PropTypes.bool,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   inputClasses: PropTypes.string,
@@ -199,6 +220,7 @@ Input.propTypes = {
   type: PropTypes.string,
   onValidate: PropTypes.func,
   onEnter: PropTypes.func,
+  onBlur: PropTypes.func,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   inputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })]),
   label: PropTypes.string,
@@ -216,6 +238,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
   useTextarea: false,
+  enableErrorMessages: true,
   inputClasses: '',
   groupClassNames: '',
   labelClassNames: '',
@@ -223,6 +246,7 @@ Input.defaultProps = {
   textSize: 'lg',
   onValidate: undefined,
   onEnter: undefined,
+  onBlur: undefined,
   value: undefined,
   type: 'text',
   inputRef: undefined,
