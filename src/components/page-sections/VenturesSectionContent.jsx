@@ -8,7 +8,7 @@ function VenturesSectionContent({ children }) {
   return (
     <MainContentCard
       description="Wir glauben an Visionär*innen. Gemeinsam verändern wir die Welt."
-      title="Solution Assessment"
+      title="Digital Ventures"
       className="mb-5"
     >
       <MainContentGrid>
