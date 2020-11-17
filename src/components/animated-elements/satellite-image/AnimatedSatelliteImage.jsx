@@ -9,7 +9,7 @@ function AnimatedSatelliteImage({ className }) {
   return (
     <>
       <MobileAndTabletQuery>
-        <SatelliteImage className="w-full h-full" />
+        <SatelliteImage className="w-56" />
       </MobileAndTabletQuery>
       <DesktopQuery>
         <div className={`flex flex-col items-center justify-center ${className}`}>
