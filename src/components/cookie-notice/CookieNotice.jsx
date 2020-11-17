@@ -3,12 +3,12 @@ import Button from '../simple/button/Button';
 
 function CookieNotice() {
   const [isAccepted, setIsAccepted] = useState(false);
-  const storageInfo = window.localStorage.getItem('cookiesAccepted');
+  // can not use window in first render because of gatsby server side render
   useLayoutEffect(() => {
-    if (storageInfo) {
+    if (window.localStorage.getItem('cookiesAccepted')) {
       setIsAccepted(true);
     }
-  }, [storageInfo]);
+  });
 
   return (
     <div
