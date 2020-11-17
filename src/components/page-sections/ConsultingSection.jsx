@@ -6,11 +6,20 @@ import ConsultingIllustrationImageBackground from '../image-components/Consultin
 import IndexGradientBorderButtonLongArrow from '../gradient-border-buttons/IndexGradientBorderButtonLongArrow';
 import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
 import ConsultingSectionContent from './ConsultingSectionContent';
+import SectionScrollBar from '../section-scroll-bar/SectionScrollBar';
+import ArrowImageDownDouble from '../image-components/ArrowImageDownDouble';
 
 const ConsultingSection = React.forwardRef(({ animationAreaHeight }, ref) => {
   return (
     <HubblrMainContentSection
       ref={ref}
+      sectionScrollBar={
+        <SectionScrollBar
+          upperFlexGrow={1}
+          lowerClassNames="h-16"
+          arrowImage={<ArrowImageDownDouble />}
+        />
+      }
       fadeInImage={<ConsultingIllustrationImageBackground />}
       contentTitle="Solution Assessment"
       targetCustomers={['Business Angels', 'Mittelständische Unternehmen', 'Startups']}

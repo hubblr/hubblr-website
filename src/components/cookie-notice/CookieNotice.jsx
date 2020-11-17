@@ -16,8 +16,8 @@ function CookieNotice() {
         isAccepted ? 'hidden ' : ''
       }bg-brand-gray-dark fixed bottom-0 w-full text-white py-10 px-6`}
     >
-      <div className="container mx-auto flex flex-col lg:flex-row justify-center items-center">
-        <div className="font-bold text-xl tracking-tight mb-5 lg:mr-20 lg:mb-0">Cookie Update</div>
+      <div className="container mx-auto flex flex-col justify-center items-center">
+        <div className="font-bold text-xl tracking-tight mb-5">Cookie Update</div>
         <div className="flex flex-col">
           <div className="mb-3">
             Diese Webseite verwendet essentielle Cookies. Bitte erlaube diese Cookies.

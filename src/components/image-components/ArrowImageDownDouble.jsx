@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ArrowImageDown from './ArrowImageDown';
+import arrowImageDown from '../../images/shortArrow/short-arrow-down.svg';
 
-function ArrowImageDownDouble({ rotationDegree, widthClass }) {
-  const singleArrowImage = (
-    <ArrowImageDown widthClass={widthClass} rotationDegree={rotationDegree} />
-  );
+function ArrowImageDownDouble({ widthClass }) {
+  const singleArrowImage = <img src={arrowImageDown} alt="arrow down" className="w-full" />;
 
   return (
     <div className={widthClass}>
@@ -15,14 +13,12 @@ function ArrowImageDownDouble({ rotationDegree, widthClass }) {
   );
 }
 
-ArrowImageDownDouble.defaultProps = {
-  widthClass: '',
-  rotationDegree: 0,
-};
-
 ArrowImageDownDouble.propTypes = {
   widthClass: PropTypes.string,
-  rotationDegree: PropTypes.number,
+};
+
+ArrowImageDownDouble.defaultProps = {
+  widthClass: '',
 };
 
 export default ArrowImageDownDouble;

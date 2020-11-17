@@ -46,9 +46,9 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
 
   return (
     <div
-      className={`fixed top-0 w-full z-50 ${
+      className={`navbar fixed top-0 w-full z-50 px-1 ${
         !isCollapsed ? 'h-screen overflow-y-scroll bg-black' : ''
-      } ${isVisible ? '' : 'invisible'} ${className}`}
+      } ${isVisible ? '' : 'opacity-0'} ${className}`}
     >
       <div
         className={`${
@@ -56,7 +56,7 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
         } absolute w-full h-full navbar-background-blur`}
       />
       <div className="relative container mx-auto h-full flex flex-col">
-        <div ref={ref} className="w-full px-8 lg:px-0 py-4">
+        <div ref={ref} className="w-full py-2">
           <MobileAndTabletQuery>
             <div className="flex justify-between items-center">
               <AppButton
@@ -67,14 +67,12 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
               >
                 <HubblrImage className="w-20" />
               </AppButton>
-              <AppButton
-                className="button-dark"
+              <HamburgerMenuIcon
                 onClick={() => {
                   setIsCollapsed(!isCollapsed);
                 }}
-              >
-                <HamburgerMenuIcon className="w-12" />
-              </AppButton>
+                isActive={!isCollapsed}
+              />
             </div>
           </MobileAndTabletQuery>
           <div className="flex items-center">
@@ -95,7 +93,7 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
           </div>
         </div>
 
-        <div className={`${isCollapsed ? 'hidden' : ''} w-full px-8 pb-8 flex-grow flex flex-col`}>
+        <div className={`${isCollapsed ? 'hidden' : ''} w-full px-4 pb-8 flex-grow flex flex-col`}>
           <div className="flex-grow flex flex-col">
             <hr className="bg-white h-p" />
             <Button

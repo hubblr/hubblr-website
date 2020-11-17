@@ -6,12 +6,14 @@ import VenturesArrowImageBackground from '../image-components/VenturesArrowImage
 import IndexGradientBorderButtonLongArrow from '../gradient-border-buttons/IndexGradientBorderButtonLongArrow';
 import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
 import VenturesSectionContent from './VenturesSectionContent';
+import SectionScrollBar from '../section-scroll-bar/SectionScrollBar';
+import ArrowImageDoubleUp from '../image-components/ArrowImageDoubleUp';
 
 const VenturesSection = React.forwardRef(({ animationAreaHeight }, ref) => {
   return (
     <HubblrMainContentSection
       ref={ref}
-      sectionType="last"
+      sectionScrollBar={<SectionScrollBar upperFlexGrow={1} arrowImage={<ArrowImageDoubleUp />} />}
       fadeInImage={<VenturesArrowImageBackground />}
       contentTitle="Digital Ventures"
       targetCustomers={['Pre-Seed Startups']}

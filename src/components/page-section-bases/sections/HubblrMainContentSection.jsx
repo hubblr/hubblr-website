@@ -7,13 +7,13 @@ import AnimatedSectionContentMobile from '../section-content/AnimatedSectionCont
 
 const HubblrMainContentSection = forwardRef(
   (
-    { children, sectionType, fadeInImage, contentTitle, targetCustomers, animationAreaHeight },
+    { children, sectionScrollBar, fadeInImage, contentTitle, targetCustomers, animationAreaHeight },
     fullSectionRef
   ) => {
     return (
       <AnimatedSection
         ref={fullSectionRef}
-        sectionType={sectionType}
+        sectionScrollBar={sectionScrollBar}
         animationAreaHeight={animationAreaHeight}
       >
         <DesktopQuery>
@@ -41,7 +41,7 @@ const HubblrMainContentSection = forwardRef(
 
 HubblrMainContentSection.propTypes = {
   children: PropTypes.node.isRequired,
-  sectionType: PropTypes.oneOf(['middle', 'last']),
+  sectionScrollBar: PropTypes.element.isRequired,
   fadeInImage: PropTypes.node.isRequired,
   contentTitle: PropTypes.string.isRequired,
   targetCustomers: PropTypes.arrayOf(PropTypes.string),
@@ -49,7 +49,6 @@ HubblrMainContentSection.propTypes = {
 };
 
 HubblrMainContentSection.defaultProps = {
-  sectionType: 'middle',
   targetCustomers: [],
 };
 

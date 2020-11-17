@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import PageLinkContent from './PageLinkContent';
-import DefaultLink from './DefaultLink';
 
 function HubblrPageLinks({ className }) {
   return (
@@ -14,11 +13,11 @@ function HubblrPageLinks({ className }) {
         <Link to="/imprint" className="pr-5">
           <PageLinkContent>Datenschutz</PageLinkContent>
         </Link>
-        <DefaultLink className="pr-5">
+        <a href="https://github.com/hubblr/" className="pr-5">
           <PageLinkContent>Github</PageLinkContent>
-        </DefaultLink>
+        </a>
         <a href="http://join.hubblr.io/" className="pr-5">
-          <PageLinkContent notificationNumber={3}>Jobs</PageLinkContent>
+          <PageLinkContent notificationNumber={2}>Jobs</PageLinkContent>
         </a>
       </div>
     </div>

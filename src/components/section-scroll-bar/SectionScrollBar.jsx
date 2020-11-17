@@ -1,39 +1,50 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SectionScrollBarBase from './SectionScrollBarBase';
 
-function SectionScrollBar({ sectionType }) {
-  let upperFlexGrow;
-  let lowerFlexGrow;
-  let lowerClassNames;
-  switch (sectionType) {
-    case 'last':
-      upperFlexGrow = 1;
-      lowerFlexGrow = 0;
-      lowerClassNames = '';
-      break;
-    case 'middle':
-    default:
-      upperFlexGrow = 1;
-      lowerFlexGrow = 0;
-      lowerClassNames = 'h-16';
-      break;
-  }
+import SectionScrollBarLine from './SectionScrollBarLine';
+
+function SectionScrollBar({
+  arrowImage,
+  upperFlexGrow,
+  lowerFlexGrow,
+  upperClassNames,
+  lowerClassNames,
+}) {
+  const upperBarShown = upperFlexGrow || upperClassNames;
+  const lowerBarShown = lowerFlexGrow || lowerClassNames;
+
   return (
-    <SectionScrollBarBase
-      upperFlexGrow={upperFlexGrow}
-      lowerFlexGrow={lowerFlexGrow}
-      lowerClassNames={lowerClassNames}
-    />
+    <div className="h-full flex flex-col items-center w-10">
+      <SectionScrollBarLine
+        gradientColors={['white', 'yellow', 'orange', 'red', 'magenta', 'white']}
+        className={`${upperClassNames}${upperBarShown ? ' mb-3' : ''}`}
+        flexGrow={upperFlexGrow}
+      />
+
+      {arrowImage}
+
+      <SectionScrollBarLine
+        gradientColors="white"
+        className={`${lowerClassNames}${lowerBarShown ? ' mt-3' : ''}`}
+        flexGrow={lowerFlexGrow}
+      />
+    </div>
   );
 }
 
 SectionScrollBar.propTypes = {
-  sectionType: PropTypes.oneOf(['middle', 'last']),
+  arrowImage: PropTypes.element.isRequired,
+  upperFlexGrow: PropTypes.number,
+  lowerFlexGrow: PropTypes.number,
+  upperClassNames: PropTypes.string,
+  lowerClassNames: PropTypes.string,
 };
 
 SectionScrollBar.defaultProps = {
-  sectionType: 'middle',
+  upperFlexGrow: 0,
+  lowerFlexGrow: 0,
+  upperClassNames: '',
+  lowerClassNames: '',
 };
 
 export default SectionScrollBar;

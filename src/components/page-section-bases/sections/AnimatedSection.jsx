@@ -6,10 +6,9 @@ import useYPositions from '../../hooks/scroll/useYPositions';
 import useWindowResizeInfo from '../../hooks/window/useWindowResizeInfo';
 import { TabletBreakpoint } from '../../../util/helpers';
 import useFullScrollSectionHeight from '../../hooks/scroll/useFullScrollSectionHeight';
-import SectionScrollBar from '../../section-scroll-bar/SectionScrollBar';
 
 const AnimatedSection = forwardRef(
-  ({ children, sectionType, animationAreaHeight }, fullSectionRef) => {
+  ({ children, sectionScrollBar, animationAreaHeight }, fullSectionRef) => {
     // get navbar size from context to set padding-top over navbar
     const { navBarHeight } = useContext(PageContext);
     // check width of window for breakpoint
@@ -44,9 +43,7 @@ const AnimatedSection = forwardRef(
           }}
         >
           {isLg && (
-            <div className="absolute container mx-auto h-full inset-0">
-              <SectionScrollBar sectionType={sectionType} />
-            </div>
+            <div className="absolute container mx-auto h-full inset-0">{sectionScrollBar}</div>
           )}
           <div
             ref={contentContainerRef}
@@ -65,13 +62,9 @@ const AnimatedSection = forwardRef(
 
 AnimatedSection.propTypes = {
   children: PropTypes.node.isRequired,
-  sectionType: PropTypes.oneOf(['middle', 'last']),
+  sectionScrollBar: PropTypes.element.isRequired,
   // if custom animation heights are desired for a specific section
   animationAreaHeight: PropTypes.number.isRequired, // in px
-};
-
-AnimatedSection.defaultProps = {
-  sectionType: 'middle',
 };
 
 export default AnimatedSection;

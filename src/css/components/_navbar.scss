@@ -1,10 +1,11 @@
+.navbar {
+  transition: opacity 0.4s;
+  button, a {
+    @extend .animate-bg-brand-gray-darkest
+  }
+}
+
 .navbar-background-blur {
   background-color: rgba(29, 29, 31, 0.72);
   backdrop-filter: blur(4px);
-}
-
-.navbar-hover-blur {
-  &:hover {
-    @apply .bg-brand-gray-darkest;
-  }
 }

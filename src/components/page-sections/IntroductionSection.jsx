@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MobileAndTabletQuery, DesktopQuery } from '../../util/helpers';
-import SectionScrollBarBase from '../section-scroll-bar/SectionScrollBarBase';
+import SectionScrollBar from '../section-scroll-bar/SectionScrollBar';
 import ArrowImageDownDouble from '../image-components/ArrowImageDownDouble';
 
 function IntroductionSection({ children }) {
@@ -16,7 +16,12 @@ function IntroductionSection({ children }) {
         </div>
       </MobileAndTabletQuery>
       <DesktopQuery>
-        <SectionScrollBarBase upperFlexGrow={0} lowerFlexGrow={0} lowerClassNames="h-16" />
+        <SectionScrollBar
+          upperFlexGrow={0}
+          lowerFlexGrow={0}
+          lowerClassNames="h-16"
+          arrowImage={<ArrowImageDownDouble />}
+        />
       </DesktopQuery>
     </div>
   );

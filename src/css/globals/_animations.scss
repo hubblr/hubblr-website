@@ -2,6 +2,23 @@
   transition: $what 0.2s $how;
 }
 
+@mixin animate-bg() {
+  // transition after hover
+  transition: background-color 0.3s ease-in;
+
+  &:hover {
+    // transition when hovering
+    transition: background-color 0.3s ease-out;
+  }
+}
+
 .animate {
   @include animate;
+}
+
+.animate-bg-brand-gray-darkest {
+  @include animate-bg;
+  &:hover {
+    @apply .bg-brand-gray-darkest;
+  }
 }
