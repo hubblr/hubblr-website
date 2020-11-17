@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function ErrorHint({ children, hintPointerSize }) {
+function ErrorHint({ className, children, hintPointerSize }) {
   window.console.log(hintPointerSize);
 
   return (
-    <div className="absolute z-10" style={{ left: '-2%', top: `calc(100% + ${hintPointerSize})` }}>
+    <div
+      className={`absolute z-10 ${className}`}
+      style={{ left: '-2%', top: `calc(100% + ${hintPointerSize})` }}
+    >
       <div className="relative">
         <p className="rounded-lg bg-white text-xs text-red-600 px-8 py-4">{children}</p>
         <div
@@ -24,8 +27,13 @@ function ErrorHint({ children, hintPointerSize }) {
 }
 
 ErrorHint.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.node.isRequired,
   hintPointerSize: PropTypes.string.isRequired,
+};
+
+ErrorHint.defaultProps = {
+  className: '',
 };
 
 export default ErrorHint;

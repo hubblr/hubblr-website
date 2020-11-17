@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import HubblrImage from '../image-components/HubblrImage';
+import HubblrIconImage from '../animated-elements/hubblr-icon-image/AnimatedHubblrIconImage';
 import IndexGradientBorderButtonLongArrow from '../buttons/gradient-border-buttons/IndexGradientBorderButtonLongArrow';
 
 function IntroductionSectionContent() {
   return (
     <>
-      <HubblrImage className="w-20 md:w-40 mb-12" />
+      <HubblrIconImage className="w-20 md:w-40 mb-12" />
       <h1 className="mb-10 text-4xl md:text-6xl font-black leading-tight md:leading-none max-w-2xl">
         Developing our digital tomorrow
       </h1>
