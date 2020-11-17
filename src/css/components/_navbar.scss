@@ -2,3 +2,9 @@
   background-color: rgba(29, 29, 31, 0.72);
   backdrop-filter: blur(4px);
 }
+
+.navbar-hover-blur {
+  &:hover {
+    @apply .bg-brand-gray-darkest;
+  }
+}

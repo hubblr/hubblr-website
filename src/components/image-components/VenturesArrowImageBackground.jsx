@@ -6,7 +6,7 @@ function VenturesArrowImageBackground() {
   return (
     <>
       <MobileAndTabletQuery>
-        <VenturesArrowImage className="w-40" />
+        <VenturesArrowImage className="h-48" />
       </MobileAndTabletQuery>
       <DesktopQuery>
         <VenturesArrowImage className="h-1/2" />

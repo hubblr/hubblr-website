@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import Button from '../simple/button/Button';
+import AppButton from '../simple/button/AppButton';
 import useClientWidth from '../hooks/dimensions/useClientWidth';
 import LongArrowImage from '../image-components/LongArrowImage';
 
@@ -65,12 +65,12 @@ function ScrollJumper({
 
   return (
     <div className={containerClassName}>
-      <Button className={leftButtonClassName} onClick={scrollToPrev}>
+      <AppButton className={`button-dark ${leftButtonClassName}`} onClick={scrollToPrev}>
         <LongArrowImage className="w-16" theme="gray" orientation="left" />
-      </Button>
-      <Button className={rightButtonClassName} onClick={scrollToNext}>
+      </AppButton>
+      <AppButton className={`button-dark ${rightButtonClassName}`} onClick={scrollToNext}>
         <LongArrowImage className="w-16" theme="gray" orientation="right" />
-      </Button>
+      </AppButton>
     </div>
   );
 }

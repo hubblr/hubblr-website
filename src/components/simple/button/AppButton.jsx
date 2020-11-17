@@ -1,24 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from './Button';
 
-function Button({ children, onClick, className }) {
+function AppButton({ children, onClick, className }) {
   return (
-    <button onClick={onClick} className={className} type="button">
+    <Button onClick={onClick} className={`button ${className}`}>
       {children}
-    </button>
+    </Button>
   );
 }
 
-Button.propTypes = {
+AppButton.propTypes = {
   children: PropTypes.node,
   onClick: PropTypes.func,
   className: PropTypes.string,
 };
 
-Button.defaultProps = {
+AppButton.defaultProps = {
   children: null,
   onClick: null,
   className: '',
 };
 
-export default Button;
+export default AppButton;

@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect } from 'react';
-import Button from '../simple/button/Button';
+import AppButton from '../simple/button/AppButton';
 
 function CookieNotice() {
   const [isAccepted, setIsAccepted] = useState(false);
@@ -23,7 +23,7 @@ function CookieNotice() {
             Diese Webseite verwendet essentielle Cookies. Bitte erlaube diese Cookies.
           </div>
           <div className="flex justify-center">
-            <Button
+            <AppButton
               className="button-dark font-extrabold tracking-tight"
               onClick={() => {
                 window.localStorage.setItem('cookiesAccepted', 'all');
@@ -33,7 +33,7 @@ function CookieNotice() {
               <span className="bg-clip-text text-transparent bg-gradient-to-r bg-gradient-to-r from-teal-400 to-blue-500">
                 Alle akzeptieren
               </span>
-            </Button>
+            </AppButton>
           </div>
         </div>
       </div>

@@ -11,6 +11,7 @@ import LongArrowImage from '../image-components/LongArrowImage';
 import HamburgerMenuIcon from '../image-components/HamburgerMenuIcon';
 import NavBarLink from './NavBarLink';
 import Button from '../simple/button/Button';
+import AppButton from '../simple/button/AppButton';
 import useIsPageScrolled from '../hooks/window/useIsPageScrolled';
 import PageContext from '../../context/PageContext';
 import HubblrImage from '../image-components/HubblrImage';
@@ -58,33 +59,36 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
         <div ref={ref} className="w-full px-8 lg:px-0 py-4">
           <MobileAndTabletQuery>
             <div className="flex justify-between items-center">
-              <Button
+              <AppButton
+                className="button-dark"
                 onClick={() => {
                   navigateToIndexSection('/');
                 }}
               >
                 <HubblrImage className="w-20" />
-              </Button>
-              <Button
+              </AppButton>
+              <AppButton
+                className="button-dark"
                 onClick={() => {
                   setIsCollapsed(!isCollapsed);
                 }}
               >
                 <HamburgerMenuIcon className="w-12" />
-              </Button>
+              </AppButton>
             </div>
           </MobileAndTabletQuery>
           <div className="flex items-center">
             <DesktopQuery>
               <div className="w-1/3">{leftContent}</div>
               <div className="w-1/3 flex justify-center">
-                <Button
+                <AppButton
+                  className="button-dark"
                   onClick={() => {
                     navigateToIndexSection('/');
                   }}
                 >
                   <HubblrImage className="w-20" />
-                </Button>
+                </AppButton>
               </div>
               <div className="w-1/3">{rightContent}</div>
             </DesktopQuery>
@@ -132,7 +136,7 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
               </NavBarLink>
             </Button>
             <hr className="bg-white h-p" />
-            <Link to="/contact" className="button">
+            <Link to="/contact">
               <NavBarLink>Kontakt</NavBarLink>
             </Link>
             <hr className="bg-white h-p" />
