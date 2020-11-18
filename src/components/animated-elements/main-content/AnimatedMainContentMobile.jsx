@@ -5,18 +5,19 @@ import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTransformFromDescription';
 import useWindowResizeInfo from '../../hooks/window/useWindowResizeInfo';
 import usePaddingTop from '../../hooks/styleQueries/usePaddingTop';
+import { ANIMATION_BREAKPOINTS_MOBILE } from '../../../config';
 
 const transforms = {
   opacity: {
-    inputPercentages: [51, 95],
+    inputPercentages: ANIMATION_BREAKPOINTS_MOBILE.mainContent.opacity,
     outputRange: [0, 1],
   },
   y: {
-    inputPercentages: [51, 95],
+    inputPercentages: ANIMATION_BREAKPOINTS_MOBILE.mainContent.y,
     // output range is calculated by component
   },
   scale: {
-    inputPercentages: [51, 75],
+    inputPercentages: ANIMATION_BREAKPOINTS_MOBILE.mainContent.scale,
     outputRange: [1.1, 1],
   },
 };

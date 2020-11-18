@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTransformFromDescription';
+import { ANIMATION_BREAKPOINTS_DESKTOP } from '../../../config';
 
 const transforms = {
   pathLength: {
-    inputPercentages: [0, 40],
+    inputPercentages: ANIMATION_BREAKPOINTS_DESKTOP.lightningImage.pathLength,
     outputRange: [0, 1],
   },
 };

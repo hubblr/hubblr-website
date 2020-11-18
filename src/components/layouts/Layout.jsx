@@ -4,8 +4,8 @@ import { IntlProvider } from 'react-intl';
 import { motion } from 'framer-motion';
 import flatten from 'flat';
 import messagesDe from '../../translations/de.json';
-import DarkLayout from './DarkLayout';
 import CookieNotice from '../cookie-notice/CookieNotice';
+import HubblrPageLinks from '../links/HubblrPageLinks';
 
 // TODO: language data - missing for now
 /* import en from '../locales/en.json';
@@ -17,14 +17,20 @@ const messages = {
   de: messagesDe,
 };
 
-const Layout = ({ children }) => {
+const Layout = ({ children, navBar }) => {
   return (
     <>
       <IntlProvider locale={language} messages={flatten(messages[language])}>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <DarkLayout>
-            <div className="max-sm:px-4">{children}</div>
-          </DarkLayout>
+          <div className="flex flex-col min-h-screen bg-black text-white font-sans">
+            <div className="flex-grow flex flex-col max-sm:px-4">
+              {navBar}
+              {children}
+            </div>
+            <div className="container mx-auto">
+              <HubblrPageLinks />
+            </div>
+          </div>
           <CookieNotice />
         </motion.div>
         <div id="modal-root" />
@@ -35,6 +41,11 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  navBar: PropTypes.element,
+};
+
+Layout.defaultProps = {
+  navBar: null,
 };
 
 export default Layout;

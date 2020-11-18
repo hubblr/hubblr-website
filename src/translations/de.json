@@ -1,17 +1,37 @@
 {
-  "imprint": {
-    "header": "Impressum"
-  },
   "index": {
     "seo": {
       "title": "Home",
       "description": "hubblr home page"
     }
   },
+
   "contact": {
     "seo": {
       "title": "Kontakt",
       "description": "hubblr contact page"
+    }
+  },
+
+  "imprint": {
+    "header": "Impressum",
+    "seo": {
+      "title": "Impressum",
+      "description": "hubblr imprint page"
+    }
+  },
+
+  "privacy": {
+    "seo": {
+      "title": "Datenschutzerklärung",
+      "description": "hubblr privacy policy"
+    }
+  },
+
+  "404": {
+    "seo": {
+      "title": "404",
+      "description": "Seite nicht gefunden!"
     }
   }
 }

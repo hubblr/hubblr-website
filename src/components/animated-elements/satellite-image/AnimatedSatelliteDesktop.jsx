@@ -4,14 +4,15 @@ import { motion } from 'framer-motion';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTransformFromDescription';
 import SatelliteImage from './SatelliteImage';
+import { ANIMATION_BREAKPOINTS_DESKTOP } from '../../../config';
 
 const transformSettingsSatellite = {
   scale: {
-    inputPercentages: [20, 51],
+    inputPercentages: ANIMATION_BREAKPOINTS_DESKTOP.satelliteImage.scale,
     outputRange: [1.3, 1],
   },
   opacity: {
-    inputPercentages: [20, 51],
+    inputPercentages: ANIMATION_BREAKPOINTS_DESKTOP.satelliteImage.opacity,
     outputRange: [0, 1],
   },
 };

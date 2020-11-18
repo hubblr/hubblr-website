@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTransformFromDescription';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
+import { ANIMATION_BREAKPOINTS_DESKTOP } from '../../../config';
 
 const transforms = {
   opacity: {
-    inputPercentages: [0, 50],
+    inputPercentages: ANIMATION_BREAKPOINTS_DESKTOP.image.opacity,
     outputRange: [0, 1],
   },
 };

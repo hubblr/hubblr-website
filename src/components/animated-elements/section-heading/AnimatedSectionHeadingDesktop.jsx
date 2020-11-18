@@ -7,18 +7,19 @@ import SectionHeading from '../../index-page-main-content/section-heading/Sectio
 import useClientHeight from '../../hooks/dimensions/useClientHeight';
 import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTransformFromDescription';
 import PageContext from '../../../context/PageContext';
+import { ANIMATION_BREAKPOINTS_DESKTOP } from '../../../config';
 
 const transforms = {
   opacity: {
-    inputPercentages: [20, 50],
+    inputPercentages: ANIMATION_BREAKPOINTS_DESKTOP.title.opacity,
     outputRange: [0, 1],
   },
   scale: {
-    inputPercentages: [20, 90],
+    inputPercentages: ANIMATION_BREAKPOINTS_DESKTOP.title.scale,
     outputRange: [1.5, 1],
   },
   y: {
-    inputPercentages: [50, 90],
+    inputPercentages: ANIMATION_BREAKPOINTS_DESKTOP.title.y,
     // output range is calculated by component
   },
 };

@@ -7,15 +7,16 @@ import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import useScrollWidth from '../../hooks/scroll/useScrollWidth';
 import useCreateSpringFromDescription from '../../hooks/scroll/useCreateSpringFromDescription';
 import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTransformFromDescription';
+import { ANIMATION_BREAKPOINTS_MOBILE } from '../../../config';
 
 const transforms = {
   designAdvertisementHeader: {
     opacity: {
-      inputPercentages: [40, 50],
+      inputPercentages: ANIMATION_BREAKPOINTS_MOBILE.designAdvertisementHeader.opacity,
       outputRange: [0, 1],
     },
     x: {
-      percentageBreakpoint: 50,
+      percentageBreakpoint: ANIMATION_BREAKPOINTS_MOBILE.designAdvertisementHeader.x,
       // start value calculated by component
       endValue: 0,
       stiffness: 260,
@@ -24,7 +25,7 @@ const transforms = {
   },
   scrollJumper: {
     opacity: {
-      percentageBreakpoint: 50,
+      percentageBreakpoint: ANIMATION_BREAKPOINTS_MOBILE.scrollJumper.opacity,
       startValue: 0,
       endValue: 1,
       stiffness: 260,

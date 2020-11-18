@@ -2,14 +2,15 @@ import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTransformFromDescription';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
+import { ANIMATION_BREAKPOINTS_DESKTOP } from '../../../config';
 
 const transformSettingsOrbit = {
   rotate: {
-    inputPercentages: [0, 100],
+    inputPercentages: ANIMATION_BREAKPOINTS_DESKTOP.satelliteOrbit.rotate,
     outputRange: ['0deg', '45deg'],
   },
   opacity: {
-    inputPercentages: [80, 99],
+    inputPercentages: ANIMATION_BREAKPOINTS_DESKTOP.satelliteOrbit.opacity,
     outputRange: [1, 0],
   },
 };

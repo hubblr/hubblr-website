@@ -6,18 +6,19 @@ import DesignAdvertisementHeader from '../../index-page-main-content/design-adve
 import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTransformFromDescription';
 import usePaddingTop from '../../hooks/styleQueries/usePaddingTop';
 import useWindowResizeInfo from '../../hooks/window/useWindowResizeInfo';
+import { ANIMATION_BREAKPOINTS_DESKTOP } from '../../../config';
 
 const transforms = {
   opacity: {
-    inputPercentages: [51, 75],
+    inputPercentages: ANIMATION_BREAKPOINTS_DESKTOP.mainContent.opacity,
     outputRange: [0, 1],
   },
   y: {
-    inputPercentages: [51, 95],
+    inputPercentages: ANIMATION_BREAKPOINTS_DESKTOP.mainContent.y,
     // output range is calculated by component
   },
   scale: {
-    inputPercentages: [51, 75],
+    inputPercentages: ANIMATION_BREAKPOINTS_DESKTOP.mainContent.scale,
     outputRange: [1.1, 1],
   },
 };

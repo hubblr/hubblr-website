@@ -5,12 +5,12 @@ import PageLinkContent from './PageLinkContent';
 
 function HubblrPageLinks({ className }) {
   return (
-    <div className="w-full overflow-hidden mt-4">
+    <div className="w-full overflow-hidden mt-4 pb-1">
       <div className={`flex flex-wrap justify-center -mr-5 ${className}`}>
         <Link to="/imprint" className="pr-5">
           <PageLinkContent>Impressum</PageLinkContent>
         </Link>
-        <Link to="/imprint" className="pr-5">
+        <Link to="/privacy" className="pr-5">
           <PageLinkContent>Datenschutz</PageLinkContent>
         </Link>
         <a href="https://github.com/hubblr/" className="pr-5">

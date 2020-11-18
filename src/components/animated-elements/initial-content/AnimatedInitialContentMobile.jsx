@@ -7,27 +7,27 @@ import useCreateTransformFromDescription from '../../hooks/scroll/useCreateTrans
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
 import useWindowResizeInfo from '../../hooks/window/useWindowResizeInfo';
 import usePaddingTop from '../../hooks/styleQueries/usePaddingTop';
-import { MOBILE_INITIAL_CONTENT } from '../../../config';
+import { ANIMATION_BREAKPOINTS_MOBILE, MOBILE_INITIAL_CONTENT } from '../../../config';
 import useClientWidth from '../../hooks/dimensions/useClientWidth';
 
 const transforms = {
   fadeInImage: {
     y: {
-      inputPercentages: [0, 50],
+      inputPercentages: ANIMATION_BREAKPOINTS_MOBILE.image.y,
       // output range is calculated by component
     },
     scale: {
-      inputPercentages: [0, 50],
+      inputPercentages: ANIMATION_BREAKPOINTS_MOBILE.image.scale,
       // output range is calculated by component
     },
   },
   sectionHeading: {
     y: {
-      inputPercentages: [0, 50],
+      inputPercentages: ANIMATION_BREAKPOINTS_MOBILE.title.y,
       // output range is calculated by component
     },
     scale: {
-      inputPercentages: [0, 50],
+      inputPercentages: ANIMATION_BREAKPOINTS_MOBILE.title.scale,
       outputRange: [1.2, 1],
     },
   },
