@@ -1,30 +1,30 @@
-export const ANIMATION_AREA_HEIGHT_DESKTOP = 1500; // in px, meant as default
-export const ANIMATION_AREA_HEIGHT_MOBILE = 1000;
+export const ANIMATION_AREA_HEIGHT_DESKTOP = 1200; // in px, meant as default
+export const ANIMATION_AREA_HEIGHT_MOBILE = 800;
 
 export const ANIMATION_BREAKPOINTS_DESKTOP = {
   image: {
-    opacity: [0, 50],
+    opacity: [0, 71],
   },
   lightningImage: {
-    pathLength: [0, 40], // so far only used by lightning image
+    pathLength: [0, 60], // so far only used by lightning image
   },
   satelliteImage: {
-    scale: [20, 51],
-    opacity: [20, 51],
+    scale: [20, 71],
+    opacity: [20, 71],
   },
   satelliteOrbit: {
     rotate: [0, 100],
     opacity: [80, 99],
   },
   title: {
-    opacity: [20, 50],
-    scale: [20, 90],
-    y: [50, 90],
+    opacity: [20, 71],
+    scale: [70, 90],
+    y: [70, 90],
   },
   mainContent: {
-    opacity: [51, 75],
-    y: [51, 95],
-    scale: [51, 75],
+    opacity: [70, 85],
+    y: [70, 95],
+    scale: [70, 85],
   },
 };
 
