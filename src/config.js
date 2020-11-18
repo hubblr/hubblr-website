@@ -59,7 +59,7 @@ export const MOBILE_INITIAL_CONTENT = {
     MAX_HEIGHT: 1 / 3,
   },
   END: {
-    MAX_WIDTH: 8 / 10,
+    MAX_WIDTH: 9 / 10,
     MAX_HEIGHT: 2 / 5,
   },
 };
