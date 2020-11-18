@@ -203,7 +203,15 @@ function IndexPage() {
     >
       <Layout
         navBar={
-          <NavBar ref={navBarRef} showNavBar={showNavBar} rightContent={<NavBarContactButton />} />
+          <NavBar
+            ref={navBarRef}
+            showNavBar={showNavBar}
+            rightContent={
+              <div className="flex justify-end items-center">
+                <NavBarContactButton />
+              </div>
+            }
+          />
         }
       >
         <SEO title="index.seo.title" description="index.seo.description" />

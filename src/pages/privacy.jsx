@@ -13,8 +13,12 @@ function PrivacyPolicyPage() {
       navBar={
         <NavBar
           className="sticky"
-          leftContent={<NavBarHomeButton />}
-          rightContent={<NavBarContactButton />}
+          rightContent={
+            <div className="flex justify-end items-center">
+              <NavBarHomeButton className="mr-2" />
+              <NavBarContactButton />
+            </div>
+          }
         />
       }
     >

@@ -8,7 +8,18 @@ import NavBarHomeButton from '../components/nav-bar/NavBarHomeButton';
 
 function ContactPage() {
   return (
-    <Layout navBar={<NavBar className="sticky" leftContent={<NavBarHomeButton />} />}>
+    <Layout
+      navBar={
+        <NavBar
+          className="sticky"
+          rightContent={
+            <div className="flex justify-end items-center">
+              <NavBarHomeButton />
+            </div>
+          }
+        />
+      }
+    >
       <SEO title="contact.seo.title" description="contact.seo.description" />
       <div className="flex-grow container mx-auto h-full flex flex-col items-center">
         <h1 className="mb-8 lg:mb-0 text-5xl font-extrabold">Let‘s talk!</h1>
