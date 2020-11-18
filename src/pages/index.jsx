@@ -91,12 +91,15 @@ function IndexPage() {
   const softwareLabSectionRef = useRef();
   const [softwareLabSectionStartY] = useYPositions(softwareLabSectionRef);
   const softwareLabContentStartY = softwareLabSectionStartY + animationAreaHeight;
+  console.log(softwareLabContentStartY);
   const consultingSectionRef = useRef();
   const [consultingSectionStartY] = useYPositions(consultingSectionRef);
   const consultingContentStartY = consultingSectionStartY + animationAreaHeight;
+  console.log(consultingContentStartY);
   const venturesSectionRef = useRef();
   const [venturesSectionStartY] = useYPositions(venturesSectionRef);
   const venturesContentStartY = venturesSectionStartY + animationAreaHeight;
+  console.log(venturesContentStartY);
   const revOrder = useMemo(() => {
     const softwareLabInfo = {
       ref: softwareLabSectionRef,
@@ -134,6 +137,7 @@ function IndexPage() {
       for (let i = 0; i < orderLen; i += 1) {
         const { contentStartY, hash: sectionHash } = revOrder[i];
         if (hash.current === sectionHash) {
+          console.log('JUMP TO:', contentStartY);
           window.scrollTo(0, contentStartY);
           return;
         }

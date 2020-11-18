@@ -48,13 +48,16 @@ const DesignAdvertisementHeader = forwardRef(
 
     return (
       <div ref={containerRef} className={`w-full overflow-x-hidden flex items-center ${className}`}>
-        <div ref={frontTextRef} className="text-2xl font-extrabold flex flex-col items-end pr-2">
-          <p>designed</p>
-          <p>for</p>
+        <div
+          ref={frontTextRef}
+          className="text-2xl font-extrabold whitespace-no-wrap"
+          style={{ wordBreak: 'keep-all' }}
+        >
+          designed for
         </div>
         <DesignAdvertisementHeaderDivider
           setWidth={setGrowingDividerWidth}
-          className="lg:flex-grow"
+          className="lg:flex-grow ml-2"
         />
         <div className="flex items-center">
           {targetCustomers.map((targetName, i) => {
