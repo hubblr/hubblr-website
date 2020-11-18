@@ -47,7 +47,7 @@ const DesignAdvertisementHeader = forwardRef(
     }, [containerWidth, frontTextWidth, growingDividerWidth, setElementWidths]);
 
     return (
-      <div ref={containerRef} className={`w-full overflow-x-auto flex items-center ${className}`}>
+      <div ref={containerRef} className={`w-full overflow-x-hidden flex items-center ${className}`}>
         <div ref={frontTextRef} className="text-2xl font-extrabold flex flex-col items-end pr-2">
           <p>designed</p>
           <p>for</p>
