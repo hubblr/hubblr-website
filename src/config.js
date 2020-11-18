@@ -1,4 +1,4 @@
-export const ANIMATION_AREA_HEIGHT_DESKTOP = 1200; // in px, meant as default
+export const ANIMATION_AREA_HEIGHT_DESKTOP = 1500; // in px, meant as default
 export const ANIMATION_AREA_HEIGHT_MOBILE = 800;
 
 export const ANIMATION_BREAKPOINTS_DESKTOP = {

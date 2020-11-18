@@ -1,13 +1,32 @@
 .text-content {
+  * {
+    @apply .text-sm;
+  }
+  @screen lg {
+    * {
+      @apply .text-base;
+    }
+  }
+
   h1 {
-    @apply .text-4xl .mb-5;
+    @apply .text-2xl .mb-5;
+  }
+  @screen lg {
+    h1 {
+      @apply .text-4xl .mb-8;
+    }
   }
 
   h2 {
-    @apply .text-2xl;
+    @apply .text-xl .mb-3;
+  }
+  @screen lg {
+    h2 {
+      @apply .text-2xl .mt-6 .mb-4;
+    }
   }
 
-  h2, p, ul {
+  p, ul {
     @apply .mb-3;
   }
 

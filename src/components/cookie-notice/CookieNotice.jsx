@@ -1,12 +1,22 @@
 import React, { useState, useLayoutEffect } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 import AppButton from '../buttons/bases/AppButton';
 
-function CookieNotice() {
+function CookieNotice({ setGoogleAnalyticsAllowed }) {
+  useLayoutEffect(() => {
+    window.localStorage.clear();
+  }, []);
+
   const [isAccepted, setIsAccepted] = useState(false);
   // can not use window in first render because of gatsby server side render
   useLayoutEffect(() => {
-    if (window.localStorage.getItem('cookiesAccepted')) {
+    const cookieStatus = window.localStorage.getItem('cookiesAccepted');
+    if (cookieStatus) {
       setIsAccepted(true);
+    }
+    if (cookieStatus === 'allAllowed') {
+      setGoogleAnalyticsAllowed(true);
     }
   });
 
@@ -20,13 +30,31 @@ function CookieNotice() {
         <div className="font-bold text-xl tracking-tight mb-5">Cookie Update</div>
         <div className="flex flex-col">
           <div className="mb-3">
-            Diese Webseite verwendet essentielle Cookies. Bitte erlaube diese Cookies.
+            <span>
+              Wir verwenden Cookies und Google Analytics für Analyse und Statistik. Diese Cookies
+              helfen uns, die Benutzerfreundlichkeit unserer Seite zu verbessern. Mehr Informationen
+              findest du{' '}
+            </span>
+            <Link to="/privacy" className="underline">
+              hier
+            </Link>
+            <span>.</span>
           </div>
+
           <div className="flex justify-center">
+            <AppButton
+              className="button-dark font-extrabold tracking-tight mr-3"
+              onClick={() => {
+                window.localStorage.setItem('cookiesAccepted', 'noneAllowed');
+                setIsAccepted(true);
+              }}
+            >
+              <span className="text-black">Cookies ablehnen</span>
+            </AppButton>
             <AppButton
               className="button-dark font-extrabold tracking-tight"
               onClick={() => {
-                window.localStorage.setItem('cookiesAccepted', 'all');
+                window.localStorage.setItem('cookiesAccepted', 'allAllowed');
                 setIsAccepted(true);
               }}
             >
@@ -40,5 +68,9 @@ function CookieNotice() {
     </div>
   );
 }
+
+CookieNotice.propTypes = {
+  setGoogleAnalyticsAllowed: PropTypes.func.isRequired,
+};
 
 export default CookieNotice;
