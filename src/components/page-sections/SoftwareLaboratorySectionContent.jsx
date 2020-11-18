@@ -13,11 +13,11 @@ function SoftwareLaboratorySectionContent({ children }) {
     >
       <MainContentGrid>
         <MainContentGridItem
-          text="Projektplanung und Beratung zur Umsetzung, Technologieberatung sowie User-Interface Design der Anwendung."
+          text="Projektplanung und Beratung zur Umsetzung, Technologieberatung sowie User-Interface-Design der Anwendung."
           title="Konzept & Design"
         />
         <MainContentGridItem
-          text="Nutzer-zentriertes Testing und itterative Gestaltung des Projektes während der Design und Entwicklungs-Phase."
+          text="Nutzerzentriertes Testing und iterative Gestaltung des Projektes während der Design- und Entwicklungsphase."
           title="Prototyping & User-Testing"
         />
         <MainContentGridItem

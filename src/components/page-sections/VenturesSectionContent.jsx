@@ -17,7 +17,7 @@ function VenturesSectionContent({ children }) {
           title="Investment & Gründung"
         />
         <MainContentGridItem
-          text="Wir entwickeln ein kosteneffizientes MVP und lernen gemeinsam frühzeitig von deinen Kunden."
+          text="Wir entwickeln ein kosteneffizientes MVP und lernen gemeinsam frühzeitig von deinen Kund*innen."
           title="User-Testing & Projektplanung"
         />
         <MainContentGridItem
@@ -25,7 +25,7 @@ function VenturesSectionContent({ children }) {
           title="Skalierbarkeit und Zukunftssicherheit"
         />
         <MainContentGridItem
-          text="Unser Team ist flexibel und bestehet zum großen Teil selber aus Unternehmer*innen. Mit diesem Spirit treibst auch du dein Projekt voran."
+          text="Unser Team ist flexibel und besteht zum großen Teil selber aus Unternehmer*innen. Mit diesem Spirit treibst auch du dein Projekt voran."
           title="Starke Partner für die Zukunft"
         />
       </MainContentGrid>

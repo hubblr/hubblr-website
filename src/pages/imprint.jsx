@@ -47,7 +47,7 @@ const ImprintPage = () => (
         </div>
         <div className="mb-4">
           <span>E-Mail:&#x20;</span>
-          <a href="mailto:hello@appointer.com" className="link mx-">
+          <a href="mailto:hello@hubblr.io" className="link mx-">
             hello@hubblr.io
           </a>
         </div>

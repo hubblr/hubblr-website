@@ -38,16 +38,6 @@ function GradientBorderButtonBase({
   );
 }
 
-GradientBorderButtonBase.defaultProps = {
-  isSubmitButton: false,
-  widthClass: '',
-  paddingClasses: '',
-  textColorClass: 'text-black',
-  backgroundColorClass: 'text-white',
-  addedFlexClasses: '',
-  onClick: null,
-};
-
 GradientBorderButtonBase.propTypes = {
   children: PropTypes.node.isRequired,
   isSubmitButton: PropTypes.bool,
@@ -59,6 +49,16 @@ GradientBorderButtonBase.propTypes = {
   gradientColors: PropTypes.arrayOf(PropTypes.string).isRequired,
   addedFlexClasses: PropTypes.string,
   onClick: PropTypes.func,
+};
+
+GradientBorderButtonBase.defaultProps = {
+  isSubmitButton: false,
+  widthClass: '',
+  paddingClasses: '',
+  textColorClass: 'text-black',
+  backgroundColorClass: 'text-white',
+  addedFlexClasses: '',
+  onClick: null,
 };
 
 export default GradientBorderButtonBase;

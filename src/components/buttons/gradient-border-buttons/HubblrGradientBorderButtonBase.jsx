@@ -44,15 +44,6 @@ function HubblrGradientBorderButtonBase({
   );
 }
 
-HubblrGradientBorderButtonBase.defaultProps = {
-  isSubmitButton: false,
-  image: null,
-  widthClass: '',
-  addedFlexClasses: '',
-  paddingClasses: 'px-8 py-3',
-  onClick: null,
-};
-
 HubblrGradientBorderButtonBase.propTypes = {
   children: PropTypes.node.isRequired,
   isSubmitButton: PropTypes.bool,
@@ -62,6 +53,15 @@ HubblrGradientBorderButtonBase.propTypes = {
   addedFlexClasses: PropTypes.string,
   theme: PropTypes.oneOf(['dark', 'light']).isRequired,
   onClick: PropTypes.func,
+};
+
+HubblrGradientBorderButtonBase.defaultProps = {
+  isSubmitButton: false,
+  image: null,
+  widthClass: '',
+  addedFlexClasses: '',
+  paddingClasses: 'px-8 py-3',
+  onClick: null,
 };
 
 export default HubblrGradientBorderButtonBase;

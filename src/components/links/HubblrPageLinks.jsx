@@ -14,7 +14,7 @@ function HubblrPageLinks({ className }) {
           <PageLinkContent>Datenschutz</PageLinkContent>
         </Link>
         <a href="https://github.com/hubblr/" className="pr-5">
-          <PageLinkContent>Github</PageLinkContent>
+          <PageLinkContent>GitHub</PageLinkContent>
         </a>
         <a href="http://join.hubblr.io/" className="pr-5">
           <PageLinkContent notificationNumber={2}>Jobs</PageLinkContent>

@@ -1,18 +1,20 @@
-import { useState, useLayoutEffect } from 'react';
+import { useCallback, useLayoutEffect, useState } from 'react';
 
 function useIsPageScrolled() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isPageScrolled, setIsScrolled] = useState(false);
+  const checkScroll = useCallback(() => {
+    setIsScrolled(window.pageYOffset > 0);
+  }, []);
   useLayoutEffect(() => {
-    function checkScroll() {
-      setIsScrolled(window.pageYOffset > 0);
-    }
     checkScroll();
+  }, [checkScroll]);
+  useLayoutEffect(() => {
     window.addEventListener('scroll', checkScroll);
     return () => {
       window.removeEventListener('scroll', checkScroll);
     };
-  }, []);
-  return isScrolled;
+  }, [checkScroll]);
+  return isPageScrolled;
 }
 
 export default useIsPageScrolled;

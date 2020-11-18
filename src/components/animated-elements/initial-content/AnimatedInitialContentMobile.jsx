@@ -63,6 +63,9 @@ function useImageScaling(imageWrapperRef, imageContainerWidth, availableHeight) 
   const initialWidth = useClientWidth(imageWrapperRef);
   const initialHeight = useClientHeight(imageWrapperRef);
 
+  console.log(initialWidth);
+  console.log(initialHeight);
+
   // callbacks to calculate new width and heights
   const calcImageHeight = (newWidth) => {
     return (initialHeight / initialWidth) * newWidth;
@@ -100,8 +103,14 @@ function AnimatedInitialContentMobile({ className, fadeInImage, contentTitle }) 
   const imageContainerRef = useRef();
   const imageContainerWidth = useClientWidth(imageContainerRef);
   const imageContainerHeight = useClientHeight(imageContainerRef);
+  const sectionHeadingRef = useRef();
+  const sectionHeadingHeight = useClientHeight(sectionHeadingRef);
 
-  // find out the proportions of the image
+  // height of initial content if absolute content leaves container
+  const initialContentHeight =
+    imageContainerHeight / 2 + Math.max(imageContainerHeight / 2, sectionHeadingHeight);
+
+  // find out how to scale the image
   const imageWrapperRef = useRef();
   const { scale: imageWrapperFinalScale } = useImageScaling(
     imageWrapperRef,
@@ -109,15 +118,15 @@ function AnimatedInitialContentMobile({ className, fadeInImage, contentTitle }) 
     availableHeight
   );
   const imageWrapperScales = [imageWrapperFinalScale, 1];
+
   // offset applied to all content
   const contentYOffset = useInitialYOffset(availableHeight, MOBILE_INITIAL_CONTENT.Y);
-  // margin to move section title halfway into image
-  const sectionHeadingMarginTop = imageContainerHeight / 2;
-  // y offset of section title is also affected by the height the image gains through transform
-  const originalHeight = imageContainerHeight * imageWrapperScales[1];
+
+  // y offset of section title -> careful: starts at half height of image!
   const scaledHeight = imageContainerHeight * imageWrapperScales[0];
-  const yOffsetScale = scaledHeight - originalHeight;
-  const sectionHeadingYOffset = contentYOffset + yOffsetScale + sectionHeadingMarginTop;
+  console.log('initial:', imageContainerHeight);
+  console.log('scaled:', scaledHeight);
+  const sectionHeadingYOffset = contentYOffset + scaledHeight - imageContainerHeight / 2;
 
   // finish transform descriptions
   transforms.fadeInImage.y.outputRange = [`${contentYOffset}px`, '0px'];
@@ -149,18 +158,24 @@ function AnimatedInitialContentMobile({ className, fadeInImage, contentTitle }) 
       transforms.sectionHeading.scale
     ),
   };
-  // append any further style parameters
-  sectionHeadingStyles.marginTop = `-${sectionHeadingMarginTop}px`;
 
   return (
-    <div className={`relative flex flex-col ${className}`}>
-      <div ref={imageContainerRef} className="w-full flex justify-center origin-center-top">
+    <div
+      className={`relative flex flex-col ${className}`}
+      style={{ height: `${initialContentHeight}px` }}
+    >
+      <div ref={imageContainerRef} className="w-full flex justify-center">
         <motion.div className="origin-center-top" style={fadeInImageStyles}>
           <div ref={imageWrapperRef}>{fadeInImage}</div>
         </motion.div>
       </div>
-      <motion.div className="relative z-10 origin-center-top" style={sectionHeadingStyles}>
-        <SectionHeading heading={contentTitle} />
+      <motion.div
+        className="absolute w-full top-1/2 z-10 origin-center-top"
+        style={sectionHeadingStyles}
+      >
+        <div ref={sectionHeadingRef}>
+          <SectionHeading heading={contentTitle} />
+        </div>
       </motion.div>
     </div>
   );

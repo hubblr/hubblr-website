@@ -17,7 +17,7 @@ function ConsultingSectionContent({ children }) {
           title="Aufarbeitung Tech-Stack & Produkt"
         />
         <MainContentGridItem
-          text="Welche Hürden liegen im Entwicklungsprozess und welche Abhängigkeiten liegen an den Funktionären des Teams?"
+          text="Welche Hürden liegen im Entwicklungsprozess und welche Abhängigkeiten liegen an den Funktionär*innen des Teams?"
           title="Beurteilung Entwicklungsprozesse"
         />
         <MainContentGridItem
@@ -25,8 +25,8 @@ function ConsultingSectionContent({ children }) {
           title="Zukunftssicherheit feststellen"
         />
         <MainContentGridItem
-          text="Beratung zur Umsetzung neuer Entwicklungsprozesse oder Einführung modernerer Technologien."
-          title="Umsetzungs-Beratung"
+          text="Beratung zur Umsetzung neuer Entwicklungsprozesse oder Einführung moderner Technologien."
+          title="Umsetzungsberatung"
         />
       </MainContentGrid>
       {children}

@@ -7,14 +7,10 @@ import AnimatedMainContentMobile from '../../animated-elements/main-content/Anim
 function AnimatedSectionContentMobile({ children, fadeInImage, contentTitle, targetCustomers }) {
   return (
     <div className="mt-4 w-full flex flex-col">
-      <div className="container mx-auto">
-        <AnimatedInitialContentMobile
-          className="mb-8"
-          fadeInImage={fadeInImage}
-          contentTitle={contentTitle}
-        />
+      <div className="container mx-auto mb-4">
+        <AnimatedInitialContentMobile fadeInImage={fadeInImage} contentTitle={contentTitle} />
       </div>
-      <AnimatedDesignAdvertisementHeaderMobile className="mb-5" targetCustomers={targetCustomers} />
+      <AnimatedDesignAdvertisementHeaderMobile className="mb-4" targetCustomers={targetCustomers} />
       <div className="container mx-auto">
         <AnimatedMainContentMobile>{children}</AnimatedMainContentMobile>
       </div>

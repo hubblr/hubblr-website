@@ -23,18 +23,18 @@ function IndexGradientBorderButtonLongArrow({
   );
 }
 
-IndexGradientBorderButtonLongArrow.defaultProps = {
-  addedFlexClasses: '',
-  onClick: null,
-  widthClass: '',
-};
-
 IndexGradientBorderButtonLongArrow.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   addedFlexClasses: PropTypes.string,
   theme: PropTypes.oneOf(['dark', 'light']).isRequired,
   onClick: PropTypes.func,
   widthClass: PropTypes.string,
+};
+
+IndexGradientBorderButtonLongArrow.defaultProps = {
+  addedFlexClasses: '',
+  onClick: null,
+  widthClass: '',
 };
 
 export default IndexGradientBorderButtonLongArrow;

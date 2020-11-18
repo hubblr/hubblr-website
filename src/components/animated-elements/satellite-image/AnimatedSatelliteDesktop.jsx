@@ -35,7 +35,7 @@ function AnimatedSatelliteDesktop({ className }) {
 
   return (
     <motion.div className={className} style={satelliteTransforms}>
-      <SatelliteImage style={{ width: '480px' }} />
+      <SatelliteImage className="h-auto" style={{ width: '480px' }} />
     </motion.div>
   );
 }
