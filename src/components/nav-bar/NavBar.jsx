@@ -134,9 +134,15 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
               </NavBarLink>
             </Button>
             <hr className="bg-white h-p" />
-            <Link to="/contact">
+            <Button
+              onClick={() => {
+                navigate('/contact').then(() => {
+                  setIsCollapsed(true);
+                });
+              }}
+            >
               <NavBarLink>Kontakt</NavBarLink>
-            </Link>
+            </Button>
             <hr className="bg-white h-p" />
           </div>
           <Link to="/contact" className="mt-3">

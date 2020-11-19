@@ -42,7 +42,7 @@ const ImprintPage = () => (
           <br />
         </div>
         <div className="mb-4">
-          Telefon: +49 251 59068446
+          Telefon: +49 251 5906710-0
           <br />
         </div>
         <div className="mb-4">
