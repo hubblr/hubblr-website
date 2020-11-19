@@ -1,8 +1,7 @@
 {
   "index": {
     "seo": {
-      "title": "Home",
-      "description": "Bei hubblr entwickeln wir innovative Softwareprodukte mit der Aufschrift “Made in Germany” und unterstützen Sie vom MVP bis hin zur komplexen Enterprise Software."
+      "title": "hubblr - Developing our digital tomorrow."
     },
     "introduction": {
       "heading": "Developing our digital tomorrow",
@@ -14,7 +13,7 @@
   "contact": {
     "seo": {
       "title": "Kontakt",
-      "description": "Bei hubblr entwickeln wir innovative Softwareprodukte mit der Aufschrift “Made in Germany” und unterstützen Sie vom MVP bis hin zur komplexen Enterprise Software."
+      "description": "Kontaktieren Sie uns und planen Sie ihr digitales Software- oder Innovationsprojekt."
     }
   },
 
@@ -28,8 +27,7 @@
 
   "privacy": {
     "seo": {
-      "title": "Datenschutzerklärung",
-      "description": "Bei hubblr entwickeln wir innovative Softwareprodukte mit der Aufschrift “Made in Germany” und unterstützen Sie vom MVP bis hin zur komplexen Enterprise Software."
+      "title": "Datenschutzerklärung"
     }
   },
 

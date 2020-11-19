@@ -37,9 +37,7 @@ const Layout = ({ children, navBar }) => {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <div className="flex flex-col min-h-screen bg-black text-white font-sans">
             {navBar}
-            <div className="flex-grow flex flex-col">
-              <div className="flex-grow flex flex-col max-sm:px-4">{children}</div>
-            </div>
+            <div className="flex-grow flex flex-col">{children}</div>
             <div className="container mx-auto">
               <HubblrPageLinks />
             </div>

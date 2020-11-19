@@ -214,7 +214,7 @@ function IndexPage() {
           />
         }
       >
-        <SEO title="index.seo.title" description="index.seo.description" />
+        <SEO title="index.seo.title" />
         <div>
           <IntroductionSection>
             <div ref={introContentRef}>

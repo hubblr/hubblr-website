@@ -22,7 +22,7 @@ function PrivacyPolicyPage() {
         />
       }
     >
-      <SEO title="privacy.seo.title" description="privacy.seo.description" />
+      <SEO title="privacy.seo.title" />
       <div className="text-content container mx-auto">
         <h1 className="adsimple-311232323">Datenschutzerklärung</h1>
         <h2 className="adsimple-311232323">Datenschutz</h2>

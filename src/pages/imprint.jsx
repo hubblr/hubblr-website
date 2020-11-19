@@ -21,9 +21,9 @@ const ImprintPage = () => (
       />
     }
   >
-    <SEO title="imprint.seo.title" description="imprint.seo.description" />
+    <SEO title="imprint.seo.title" />
     <div className="text-content container mx-auto">
-      <div className="flex flex-col flex-grow mt-16 pt-16">
+      <div className="flex flex-col flex-grow lg:mt-16">
         <h1>
           <FormattedMessage id="imprint.header" defaultMessage="Impressum" />
         </h1>
