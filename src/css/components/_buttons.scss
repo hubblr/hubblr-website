@@ -1,0 +1,18 @@
+.button {
+  @apply .px-3 py-2 .rounded-lg .leading-none;
+
+  &.button-dark {
+    // hier dark styling
+    @extend .animate-bg-brand-gray-darkest;
+  }
+
+  &.button-light {
+    // hier dark styling
+  }
+}
+
+@screen lg {
+  .button {
+    @apply .px-6 .py-4;
+  }
+}

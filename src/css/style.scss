@@ -1,0 +1,16 @@
+@import url('../fonts/OpenSans/stylesheet.css');
+
+/*! purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/*! purgecss end ignore */
+@tailwind utilities;
+
+@layer utilities {
+  .flex-basis-0 {
+    flex-basis: 0;
+  }
+}
+
+@import "globals/all";
+@import "components/all";
