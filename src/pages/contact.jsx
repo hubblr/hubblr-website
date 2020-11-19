@@ -12,6 +12,7 @@ function ContactPage() {
       navBar={
         <NavBar
           className="sticky"
+          collapsedClassName="fixed"
           rightContent={
             <div className="flex justify-end items-center">
               <NavBarHomeButton />

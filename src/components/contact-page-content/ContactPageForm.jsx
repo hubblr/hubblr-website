@@ -110,7 +110,7 @@ function ContactPageForm() {
             Kontaktanfrage
           </div>
         </MobileAndTabletQuery>
-        <div className="flex-grow flex flex-col justify-between pb-12">
+        <div className="flex-grow flex flex-col pb-12">
           {createStyledInput({
             enableErrorMessages: !changeIsSubmit,
             placeholder: 'IHR NAME*',
