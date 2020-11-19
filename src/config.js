@@ -64,5 +64,4 @@ export const MOBILE_INITIAL_CONTENT = {
   },
 };
 
-export const CONTACT_FORM_POST_URL =
-  'https://hubblr-hodgepodge-vz77j.ondigitalocean.app/website/contact';
+export const CONTACT_FORM_POST_URL = 'https://hodgepodge.hubblr.io/website/contact';

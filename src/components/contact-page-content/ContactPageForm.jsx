@@ -41,7 +41,7 @@ function ContactPageForm() {
   const [message, setMessage] = useState('');
 
   return (
-    <div className="w-full h-full text-white bg-brand-gray-darkest p-4 md:p-6 pt-8 lg:pt-6 rounded-lg">
+    <div className="w-full lg:h-full text-white bg-brand-gray-darkest p-4 md:p-6 pt-8 lg:pt-6 rounded-lg">
       <div>
         <MobileAndTabletQuery>
           <div className="text-center text-2xl font-extrabold leading-none mb-8">
@@ -50,7 +50,7 @@ function ContactPageForm() {
         </MobileAndTabletQuery>
       </div>
       <Form
-        formStyles="h-full flex flex-col"
+        formStyles="flex flex-col"
         onSubmit={() => {
           fetch(CONTACT_FORM_POST_URL, {
             method: 'POST',
