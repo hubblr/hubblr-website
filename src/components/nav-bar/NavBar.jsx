@@ -65,7 +65,7 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
                   navigateToIndexSection('/');
                 }}
               >
-                <HubblrImage className="w-20" />
+                <HubblrImage className="w-20 h-auto" />
               </AppButton>
               <HamburgerMenuIcon
                 onClick={() => {

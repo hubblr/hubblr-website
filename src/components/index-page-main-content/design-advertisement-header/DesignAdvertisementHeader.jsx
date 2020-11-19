@@ -37,11 +37,11 @@ const DesignAdvertisementHeader = forwardRef(
     useLayoutEffect(() => {
       if (setElementWidths) {
         setElementWidths({
-          containerWidth,
-          frontTextWidth,
-          growingDividerWidth,
-          contentWidths: contentWidths.current,
-          dividerWidths: dividerWidths.current,
+          container: containerWidth,
+          frontText: frontTextWidth,
+          growingDivider: growingDividerWidth,
+          content: contentWidths.current,
+          dividers: dividerWidths.current,
         });
       }
     }, [containerWidth, frontTextWidth, growingDividerWidth, setElementWidths]);
@@ -57,7 +57,7 @@ const DesignAdvertisementHeader = forwardRef(
         </div>
         <DesignAdvertisementHeaderDivider
           setWidth={setGrowingDividerWidth}
-          className="lg:flex-grow ml-2"
+          className="lg:flex-grow pl-2"
         />
         <div className="flex items-center">
           {targetCustomers.map((targetName, i) => {

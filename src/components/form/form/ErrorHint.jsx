@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function ErrorHint({ className, children, hintPointerSize }) {
-  window.console.log(hintPointerSize);
-
   return (
     <div
       className={`absolute z-10 ${className}`}

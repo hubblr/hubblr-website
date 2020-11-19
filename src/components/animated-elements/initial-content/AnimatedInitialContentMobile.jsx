@@ -63,9 +63,6 @@ function useImageScaling(imageWrapperRef, imageContainerWidth, availableHeight) 
   const initialWidth = useClientWidth(imageWrapperRef);
   const initialHeight = useClientHeight(imageWrapperRef);
 
-  console.log(initialWidth);
-  console.log(initialHeight);
-
   // callbacks to calculate new width and heights
   const calcImageHeight = (newWidth) => {
     return (initialHeight / initialWidth) * newWidth;
@@ -124,8 +121,6 @@ function AnimatedInitialContentMobile({ className, fadeInImage, contentTitle }) 
 
   // y offset of section title -> careful: starts at half height of image!
   const scaledHeight = imageContainerHeight * imageWrapperScales[0];
-  console.log('initial:', imageContainerHeight);
-  console.log('scaled:', scaledHeight);
   const sectionHeadingYOffset = contentYOffset + scaledHeight - imageContainerHeight / 2;
 
   // finish transform descriptions

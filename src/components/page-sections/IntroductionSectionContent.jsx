@@ -7,7 +7,7 @@ import IndexGradientBorderButtonLongArrow from '../buttons/gradient-border-butto
 function IntroductionSectionContent() {
   return (
     <>
-      <HubblrIconImage className="w-20 md:w-40 mb-12" />
+      <HubblrIconImage className="w-24 md:w-40 mb-10 md:mb-12" />
       <h1 className="mb-10 text-4xl md:text-6xl font-black leading-tight md:leading-none max-w-2xl">
         <FormattedMessage id="index.introduction.heading" />
       </h1>

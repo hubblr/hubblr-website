@@ -7,9 +7,9 @@ module.exports = {
   siteMetadata: {
     title: `hubblr`,
     titleTemplate: `%s | hubblr`,
-    description: ``,
-    twitterUsername: ``,
-    url: ``,
+    description: `Bei hubblr entwickeln wir innovative Softwareprodukte mit der Aufschrift “Made in Germany” und unterstützen Sie vom MVP bis hin zur komplexen Enterprise Software. `,
+    url: `https://hubblr.io`,
+    image: '/images/featured-image.jpg',
     author: `@hubblr`,
   },
   plugins: [

@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import DesignAdvertisementHeader from '../../index-page-main-content/design-advertisement-header/DesignAdvertisementHeader';
@@ -40,43 +40,26 @@ function AnimatedDesignAdvertisementHeaderMobile({ className, targetCustomers })
 
   // unclear how many children, refs and width setting is controlled by children and extracted here
   const containerRef = useRef();
-  const trackedWidths = useRef({
+  const [widths, setWidths] = useState({
     container: 0,
     frontText: 0,
     growingDivider: 0,
     content: [],
     dividers: [],
   });
-  const setWidths = ({
-    containerWidth,
-    frontTextWidth,
-    growingDividerWidth,
-    contentWidths,
-    dividerWidths,
-  }) => {
-    if (trackedWidths.current) {
-      trackedWidths.current.container = containerWidth;
-      trackedWidths.current.frontText = frontTextWidth;
-      trackedWidths.current.growingDivider = growingDividerWidth;
-      trackedWidths.current.content = contentWidths;
-      trackedWidths.current.dividers = dividerWidths;
-    }
-  };
 
   // derive properties from extracted widths to use in animation & scroll jumper
-  const widths = trackedWidths.current;
   transforms.designAdvertisementHeader.x.startValue =
     widths.container - widths.frontText - widths.growingDivider - widths.container / 20;
   const widthBefore = widths.frontText + widths.growingDivider;
 
   // check if scroll jumper has to be displayed
   const containerScrollWidth = useScrollWidth(containerRef);
-  const showScrollJumper =
-    trackedWidths.current && trackedWidths.current.container < containerScrollWidth;
+  const showScrollJumper = widths.container < containerScrollWidth;
   // allow the scroll jumper to manipulate the container's scrollLeft property
   const setScrollLeft = (scrollLeft) => {
     if (containerRef.current) {
-      containerRef.current.scrollLeft = scrollLeft;
+      containerRef.current.scroll(scrollLeft, 0);
     }
   };
 
@@ -104,11 +87,12 @@ function AnimatedDesignAdvertisementHeaderMobile({ className, targetCustomers })
   return (
     <div className={`w-full ${className}`}>
       <motion.div
-        className="relative z-20 container mx-auto overflow-x-auto"
+        className="relative z-20 container mx-auto"
         style={designAdvertisementHeaderStyles}
       >
         <DesignAdvertisementHeader
           ref={containerRef}
+          className="smooth-scroll"
           targetCustomers={targetCustomers}
           setElementWidths={setWidths}
         />
@@ -123,7 +107,7 @@ function AnimatedDesignAdvertisementHeaderMobile({ className, targetCustomers })
           widthBefore={widthBefore}
           contentWidths={widths.content}
           dividerWidths={widths.dividers}
-          containerClassName="w-full flex justify-between pl-3 pr-3"
+          containerClassName="w-full flex justify-between pl-3 pr-3 mt-2"
           leftButtonClassName="relative z-40"
           rightButtonClassName="relative z-40"
         />

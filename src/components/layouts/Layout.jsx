@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { IntlProvider } from 'react-intl';
 import { motion } from 'framer-motion';
 import flatten from 'flat';
+import { Helmet } from 'react-helmet';
 import messagesDe from '../../translations/de.json';
 import CookieNotice from '../cookie-notice/CookieNotice';
 import HubblrPageLinks from '../links/HubblrPageLinks';
@@ -25,6 +26,12 @@ const Layout = ({ children, navBar }) => {
 
   return (
     <>
+      <Helmet>
+        <script
+          defer
+          src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+        />
+      </Helmet>
       <IntlProvider locale={language} messages={flatten(messages[language])}>
         {googleAnalyticsAllowed && <GoogleAnalyticsSetup />}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
