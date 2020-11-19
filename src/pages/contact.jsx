@@ -5,6 +5,7 @@ import ContactPageForm from '../components/contact-page-content/ContactPageForm'
 import SEO from '../components/seo/Seo';
 import NavBar from '../components/nav-bar/NavBar';
 import NavBarHomeButton from '../components/nav-bar/NavBarHomeButton';
+import { MobileAndTabletQuery, DesktopQuery } from '../util/helpers';
 
 function ContactPage() {
   return (
@@ -24,14 +25,24 @@ function ContactPage() {
       <div className="flex-grow container mx-auto h-full flex flex-col items-center">
         <h1 className="mb-8 lg:mb-0 text-5xl font-extrabold">Let‘s talk!</h1>
         <div className="flex-grow w-full flex flex-col justify-center items-center">
-          <div className="h-1/2 w-full flex flex-col lg:flex-row lg:justify-between">
-            <div className="flex-grow flex-basis-0 mb-6 lg:mb-0 lg:mr-6">
-              <BusinessCardContactPage />
+          <DesktopQuery>
+            <div className="min-h-1/2 w-full flex justify-between">
+              <div className="flex-grow flex-basis-0 mr-6">
+                <BusinessCardContactPage />
+              </div>
+              <div className="flex-grow-2 flex-basis-0">
+                <ContactPageForm />
+              </div>
             </div>
-            <div className="flex-grow-2 flex-basis-0">
+          </DesktopQuery>
+          <MobileAndTabletQuery>
+            <div className="w-full flex flex-col">
+              <div className="mb-6">
+                <BusinessCardContactPage />
+              </div>
               <ContactPageForm />
             </div>
-          </div>
+          </MobileAndTabletQuery>
         </div>
       </div>
     </Layout>
