@@ -59,20 +59,24 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
         <div ref={ref} className="w-full py-2">
           <MobileAndTabletQuery>
             <div className="flex justify-between items-center">
-              <AppButton
-                className="button-dark"
-                onClick={() => {
-                  navigateToIndexSection('/');
-                }}
-              >
-                <HubblrImage className="w-20 h-auto" />
-              </AppButton>
-              <HamburgerMenuIcon
-                onClick={() => {
-                  setIsCollapsed(!isCollapsed);
-                }}
-                isActive={!isCollapsed}
-              />
+              <div className="w-1/2 flex flex-col justify-center items-start">
+                <AppButton
+                  className="button-dark"
+                  onClick={() => {
+                    navigateToIndexSection('/');
+                  }}
+                >
+                  <HubblrImage className="w-20 h-auto" />
+                </AppButton>
+              </div>
+              <div className="w-1/2 flex flex-col justify-center items-end">
+                <HamburgerMenuIcon
+                  onClick={() => {
+                    setIsCollapsed(!isCollapsed);
+                  }}
+                  isActive={!isCollapsed}
+                />
+              </div>
             </div>
           </MobileAndTabletQuery>
           <div className="flex items-center">

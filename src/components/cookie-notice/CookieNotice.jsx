@@ -4,6 +4,10 @@ import { Link } from 'gatsby';
 import AppButton from '../buttons/bases/AppButton';
 
 function CookieNotice({ setGoogleAnalyticsAllowed }) {
+  useLayoutEffect(() => {
+    window.localStorage.clear();
+  });
+
   const [isAccepted, setIsAccepted] = useState(false);
   // can not use window in first render because of gatsby server side render
   useLayoutEffect(() => {
@@ -39,22 +43,22 @@ function CookieNotice({ setGoogleAnalyticsAllowed }) {
 
           <div className="flex justify-center">
             <AppButton
-              className="button-dark font-extrabold tracking-tight mr-3"
+              className="button-dark font-extrabold tracking-tight pr-1"
               onClick={() => {
                 window.localStorage.setItem('cookiesAccepted', 'noneAllowed');
                 setIsAccepted(true);
               }}
             >
-              <span className="text-black">Cookies ablehnen</span>
+              <span className="text-center text-black">Cookies ablehnen</span>
             </AppButton>
             <AppButton
-              className="button-dark font-extrabold tracking-tight"
+              className="button-dark font-extrabold tracking-tight pl-1"
               onClick={() => {
                 window.localStorage.setItem('cookiesAccepted', 'allAllowed');
                 setIsAccepted(true);
               }}
             >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r bg-gradient-to-r from-teal-400 to-blue-500">
+              <span className="text-center bg-clip-text text-transparent bg-gradient-to-r bg-gradient-to-r from-teal-400 to-blue-500">
                 Alle akzeptieren
               </span>
             </AppButton>
