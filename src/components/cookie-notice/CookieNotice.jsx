@@ -50,18 +50,18 @@ function CookieNotice({ setGoogleAnalyticsAllowed }) {
                 setIsAccepted(true);
               }}
             >
-              <span className="text-center text-black">Cookies ablehnen</span>
+              <div className="text-center text-black">Cookies ablehnen</div>
             </AppButton>
             <AppButton
-              className="button-dark font-extrabold tracking-tight pl-1"
+              className="button-dark font-extrabold tracking-tight"
               onClick={() => {
                 window.localStorage.setItem('cookiesAccepted', 'allAllowed');
                 setIsAccepted(true);
               }}
             >
-              <span className="text-center bg-clip-text text-transparent bg-gradient-to-r bg-gradient-to-r from-teal-400 to-blue-500">
+              <div className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500 text-center">
                 Alle akzeptieren
-              </span>
+              </div>
             </AppButton>
           </div>
         </div>
