@@ -4,11 +4,6 @@ import { Link } from 'gatsby';
 import AppButton from '../buttons/bases/AppButton';
 
 function CookieNotice({ setGoogleAnalyticsAllowed }) {
-  // TODO: REMOVE ME REMOVE ME REMOVE ME AHHHH
-  useLayoutEffect(() => {
-    window.localStorage.clear();
-  });
-
   const [isAccepted, setIsAccepted] = useState(false);
   // can not use window in first render because of gatsby server side render
   useLayoutEffect(() => {
