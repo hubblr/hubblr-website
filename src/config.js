@@ -3,28 +3,28 @@ export const ANIMATION_AREA_HEIGHT_MOBILE = 800;
 
 export const ANIMATION_BREAKPOINTS_DESKTOP = {
   image: {
-    opacity: [0, 71],
+    opacity: [0, 61],
   },
   lightningImage: {
-    pathLength: [0, 60], // so far only used by lightning image
+    pathLength: [0, 50], // so far only used by lightning image
   },
   satelliteImage: {
-    scale: [20, 71],
-    opacity: [20, 71],
+    scale: [20, 61],
+    opacity: [20, 61],
   },
   satelliteOrbit: {
     rotate: [0, 100],
     opacity: [80, 99],
   },
   title: {
-    opacity: [20, 71],
-    scale: [70, 90],
-    y: [70, 90],
+    opacity: [20, 61],
+    scale: [60, 90],
+    y: [60, 90],
   },
   mainContent: {
-    opacity: [70, 85],
-    y: [70, 95],
-    scale: [70, 85],
+    opacity: [60, 85],
+    y: [60, 95],
+    scale: [60, 85],
   },
 };
 
