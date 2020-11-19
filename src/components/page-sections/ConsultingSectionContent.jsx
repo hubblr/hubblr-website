@@ -13,11 +13,11 @@ function ConsultingSectionContent({ children }) {
     >
       <MainContentGrid>
         <MainContentGridItem
-          text="Welche Technologie-entscheidungen wurden getroffen & passen diese zum Status des Projektes? Welche Softwarequalität hat das aktuelle Projekt?"
+          text="Welche Technologie-Entscheidungen wurden getroffen & passen diese zum Status des Projektes? Welche Softwarequalität hat das aktuelle Projekt?"
           title="Aufarbeitung Tech-Stack & Produkt"
         />
         <MainContentGridItem
-          text="Welche Hürden liegen im Entwicklungsprozess und welche Abhängigkeiten liegen an den Funktionär*innen des Teams?"
+          text="Welche Hürden liegen im Entwicklungsprozess und welche Abhängigkeiten liegen bei den Funktionär*innen des Teams?"
           title="Beurteilung Entwicklungsprozesse"
         />
         <MainContentGridItem

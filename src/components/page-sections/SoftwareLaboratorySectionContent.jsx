@@ -17,7 +17,7 @@ function SoftwareLaboratorySectionContent({ children }) {
           title="Konzept & Design"
         />
         <MainContentGridItem
-          text="Nutzerzentriertes Testing und iterative Gestaltung des Projektes während der Design- und Entwicklungsphase."
+          text="Nutzerzentriertes Testen und iterative Gestaltung des Projektes während der Design- und Entwicklungsphase."
           title="Prototyping & User-Testing"
         />
         <MainContentGridItem
