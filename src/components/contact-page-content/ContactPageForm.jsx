@@ -105,11 +105,13 @@ function ContactPageForm() {
           });
         }}
       >
-        <MobileAndTabletQuery>
-          <div className="text-center text-2xl font-extrabold leading-none mb-8">
-            Kontaktanfrage
-          </div>
-        </MobileAndTabletQuery>
+        <div>
+          <MobileAndTabletQuery>
+            <div className="text-center text-2xl font-extrabold leading-none mb-8">
+              Kontaktanfrage
+            </div>
+          </MobileAndTabletQuery>
+        </div>
         <div className="flex-grow flex flex-col pb-12">
           {createStyledInput({
             enableErrorMessages: !changeIsSubmit,
