@@ -73,6 +73,13 @@ function ContactPageForm() {
 
   return (
     <div className="w-full h-full text-white bg-brand-gray-darkest p-4 md:p-6 rounded-lg">
+      <div>
+        <MobileAndTabletQuery>
+          <div className="text-center text-2xl font-extrabold leading-none mb-8">
+            Kontaktanfrage
+          </div>
+        </MobileAndTabletQuery>
+      </div>
       <Form
         formStyles="h-full flex flex-col"
         onSubmit={() => {
@@ -105,13 +112,6 @@ function ContactPageForm() {
           });
         }}
       >
-        <div>
-          <MobileAndTabletQuery>
-            <div className="text-center text-2xl font-extrabold leading-none mb-8">
-              Kontaktanfrage
-            </div>
-          </MobileAndTabletQuery>
-        </div>
         <div className="flex-grow flex flex-col pb-12">
           {createStyledInput({
             enableErrorMessages: !changeIsSubmit,
