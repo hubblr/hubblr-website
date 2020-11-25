@@ -21,7 +21,7 @@ const Layout = ({ children, navBar }) => {
   const [language, setLanguage] = useState('en');
   useEffect(() => {
     setLanguage(cookies.get('lang'));
-  });
+  }, []);
 
   // allowed cookies
   const [googleAnalyticsAllowed, setGoogleAnalyticsAllowed] = useState(false);
