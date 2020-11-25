@@ -13,7 +13,6 @@ import GoogleAnalyticsSetup from '../google-analytics/GoogleAnalyticsSetup';
 
 // language settings
 const language = cookies.get('lang');
-
 const messages = {
   de: messagesDe,
   en: messagesEn,
