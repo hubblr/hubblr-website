@@ -50,7 +50,10 @@ function AnimatedMainContentDesktop({ children, targetCustomers }) {
   };
 
   return (
-    <motion.div className="flex flex-col items-center mt-4" style={mainContentCardStyle}>
+    <motion.div
+      className="mx-16 flex flex-col w-full items-center mt-4"
+      style={mainContentCardStyle}
+    >
       <DesignAdvertisementHeader className="mb-6" targetCustomers={targetCustomers} />
       {children}
     </motion.div>
