@@ -13,19 +13,19 @@ function VenturesSectionContent({ children }) {
     >
       <MainContentGrid>
         <MainContentGridItem
-          text="Gründen Sie mit uns Ihre B2B SaaS-Solution aus. Wir helfen bei allen nötigen Schritten und bringen ein Work- oder Geldinvestment mit."
+          text="Gründen Sie mit uns Ihre B2B SaaS-Solution aus. Wir helfen bei allen nötigen Schritten und bringen ein Work- oder Geld&shy;investment mit."
           title="Investment & Gründung"
         />
         <MainContentGridItem
-          text="Wir entwickeln ein kosteneffizientes MVP und lernen gemeinsam frühzeitig von Ihren Kund*innen."
-          title="User-Testing & Projektplanung"
+          text="Wir entwickeln ein kosten&shy;effizientes MVP und lernen gemeinsam frühzeitig von Ihren Kund*innen."
+          title="User-Testing & Projekt&shy;planung"
         />
         <MainContentGridItem
           text="Auch wenn Ihr Projekt komplex ist, legen wir jederzeit großen Wert auf unsere gemeinsame Zukunft und stellen sicher, dass das Projekt dem Ansturm gerecht wird."
-          title="Skalierbarkeit und Zukunftssicherheit"
+          title="Skalier&shy;barkeit und Zukunfts&shy;sicherheit"
         />
         <MainContentGridItem
-          text="Unser Team ist flexibel und besteht zum großen Teil selber aus Unternehmer*innen. Mit diesem Spirit treiben auch Sie Ihr Projekt voran."
+          text="Unser Team ist flexibel und besteht zum großen Teil selber aus Unter&shy;neh&shy;mer*innen. Mit diesem Spirit treiben auch Sie Ihr Projekt voran."
           title="Starke Partner für die Zukunft"
         />
       </MainContentGrid>

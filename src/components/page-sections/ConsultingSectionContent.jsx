@@ -13,20 +13,20 @@ function ConsultingSectionContent({ children }) {
     >
       <MainContentGrid>
         <MainContentGridItem
-          text="Welche Technologie-Entscheidungen wurden getroffen & passen diese zum Status des Projektes? Welche Softwarequalität hat das aktuelle Projekt?"
-          title="Aufarbeitung Tech-Stack & Produkt"
+          text="Welche Tech&shy;nologie-Ent&shy;scheidungen wurden getroffen & passen diese zum Status des Projektes? Welche Software&shy;qualität hat das aktuelle Projekt?"
+          title="Auf&shy;arbeitung Tech-Stack & Produkt"
         />
         <MainContentGridItem
-          text="Welche Hürden liegen im Entwicklungsprozess und welche Abhängigkeiten liegen bei den Funktionär*innen des Teams?"
-          title="Beurteilung Entwicklungsprozesse"
+          text="Welche Hürden liegen im Entwicklungs&shy;prozess und welche Abhängig&shy;keiten liegen bei den Funktio&shy;när*innen des Teams?"
+          title="Beur&shy;teilung Ent&shy;wicklungs&shy;prozesse"
         />
         <MainContentGridItem
-          text="Wurde das Projekt angemessen entwickelt bzw. ist eine Konzipierung für eine angemessen skalierbare Anwendung erfolgt?"
-          title="Zukunftssicherheit feststellen"
+          text="Wurde das Projekt angemessen entwickelt bzw. ist eine Konzi&shy;pierung für eine angemessen skalier&shy;bare Anwendung erfolgt?"
+          title="Zukunfts&shy;sicherheit fest&shy;stellen"
         />
         <MainContentGridItem
-          text="Beratung zur Umsetzung neuer Entwicklungsprozesse oder Einführung moderner Technologien."
-          title="Umsetzungsberatung"
+          text="Beratung zur Umsetzung neuer Ent&shy;wicklungs&shy;prozesse oder Ein&shy;führung moderner Tech&shy;nolo&shy;gien."
+          title="Umsetzungs&shy;beratung"
         />
       </MainContentGrid>
       {children}

@@ -17,12 +17,12 @@ function SoftwareLaboratorySectionContent({ children }) {
           title="Konzept & Design"
         />
         <MainContentGridItem
-          text="Nutzerzentriertes Testen und iterative Gestaltung des Projektes während der Design- und Entwicklungsphase."
+          text="Nutzer&shy;zentriertes Testen und iterative Gestaltung des Projektes während der Design- und Entwicklungs&shy;phase."
           title="Prototyping & User-Testing"
         />
         <MainContentGridItem
-          text="Mit Ihrem Entwicklungsteam oder vollständig autark entwickelt unser interdisziplinäres Team das Projekt."
-          title="Softwareentwicklung"
+          text="Mit Ihrem Entwicklungs&shy;team oder vollständig autark entwickelt unser interdisziplinäres Team das Projekt."
+          title="Software&shy;entwicklung"
         />
         <MainContentGridItem
           text="Verlassen Sie sich auf einen sicheren und zuverlässigen Betrieb Ihres Projektes."

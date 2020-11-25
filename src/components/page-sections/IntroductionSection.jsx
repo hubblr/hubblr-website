@@ -6,7 +6,7 @@ import ArrowImageDownDouble from '../image-components/ArrowImageDownDouble';
 
 function IntroductionSection({ children }) {
   return (
-    <div className="container mx-auto min-h-screen flex flex-col">
+    <div className="container mx-auto min-h-screen flex flex-col mt-4">
       <div className="flex-grow flex flex-col lg:justify-center pt-20 pb-5 lg:pt-0 md:pb-0">
         {children}
       </div>
@@ -16,12 +16,14 @@ function IntroductionSection({ children }) {
         </div>
       </MobileAndTabletQuery>
       <DesktopQuery>
-        <SectionScrollBar
-          upperFlexGrow={0}
-          lowerFlexGrow={0}
-          lowerClassNames="h-16"
-          arrowImage={<ArrowImageDownDouble />}
-        />
+        <div className="mt-4">
+          <SectionScrollBar
+            upperFlexGrow={0}
+            lowerFlexGrow={0}
+            lowerClassNames="h-16"
+            arrowImage={<ArrowImageDownDouble />}
+          />
+        </div>
       </DesktopQuery>
     </div>
   );

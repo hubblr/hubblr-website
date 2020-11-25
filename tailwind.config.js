@@ -34,6 +34,7 @@ module.exports = {
       },
       screens: {
         'max-sm': { max: '639px' },
+        '2xl': { min: '1950px' },
       },
       spacing: {
         '1/2': '50%',
