@@ -2,22 +2,21 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { IntlProvider } from 'react-intl';
 import { motion } from 'framer-motion';
+import cookies from 'browser-cookies';
 import flatten from 'flat';
 import { Helmet } from 'react-helmet';
 import messagesDe from '../../translations/de.json';
+import messagesEn from '../../translations/en.json';
 import CookieNotice from '../cookie-notice/CookieNotice';
 import HubblrPageLinks from '../links/HubblrPageLinks';
 import GoogleAnalyticsSetup from '../google-analytics/GoogleAnalyticsSetup';
 
-// TODO: language data - missing for now
-/* import en from '../locales/en.json';
-import de from '../locales/de.json';
-const messages = { en: flattenMessages(en), de: flattenMessages(de) }; */
-
 // language settings
-const language = 'de';
+const language = cookies.get('lang');
+
 const messages = {
   de: messagesDe,
+  en: messagesEn,
 };
 
 const Layout = ({ children, navBar }) => {

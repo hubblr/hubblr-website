@@ -10,7 +10,7 @@ function useAnimationBreakpoints(sectionRef, animationAreaHeight) {
   let overlapHeight = 0;
   // earlier animation start on desktop
   if (windowWidth > TabletBreakpoint) {
-    // start half a screen before section begin, but do not play too much animation
+    // start half a screen before section begin if possible without too much animation
     overlapHeight = Math.min(windowHeight / 2, animationAreaHeight / 2);
     animationStartY = sectionStartY - overlapHeight;
   }

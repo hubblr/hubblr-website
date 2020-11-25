@@ -16,13 +16,14 @@ const AnimatedSection = forwardRef(
     const { width: windowWidth } = useWindowResizeInfo();
     const isLg = windowWidth > TabletBreakpoint;
 
+    // calculate animation breakpoints + width to add to outer section
     const { animationStartY, addedSectionHeight } = useAnimationBreakpoints(
       fullSectionRef,
       animationAreaHeight
     );
     const animationAreaStep = animationAreaHeight / 100;
 
-    // height of full section based on content and desired animation area height
+    // height of full section based on content and animation area height
     const contentContainerRef = useRef();
     const contentHeight = useClientHeight(contentContainerRef);
     const fullSectionHeight = contentHeight + addedSectionHeight;
