@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { IntlProvider } from 'react-intl';
 import { motion } from 'framer-motion';
@@ -12,13 +12,17 @@ import HubblrPageLinks from '../links/HubblrPageLinks';
 import GoogleAnalyticsSetup from '../google-analytics/GoogleAnalyticsSetup';
 
 // language settings
-const language = cookies.get('lang');
 const messages = {
   de: messagesDe,
   en: messagesEn,
 };
 
 const Layout = ({ children, navBar }) => {
+  const [language, setLanguage] = useState('en');
+  useEffect(() => {
+    setLanguage(cookies.get('lang'));
+  });
+
   // allowed cookies
   const [googleAnalyticsAllowed, setGoogleAnalyticsAllowed] = useState(false);
 
