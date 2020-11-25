@@ -16,6 +16,7 @@ import { ANIMATION_AREA_HEIGHT_DESKTOP, ANIMATION_AREA_HEIGHT_MOBILE } from '../
 import { TabletBreakpoint } from '../util/helpers';
 import SEO from '../components/seo/Seo';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
+import useAnimationBreakpoints from '../components/hooks/animation/useAnimationBreakpoints';
 
 // disable regular scroll restoration on reload
 function useDisableScrollRestoration() {
@@ -89,14 +90,20 @@ function IndexPage() {
 
   // create refs and position info for all sections -> determine jump breakpoints
   const softwareLabSectionRef = useRef();
-  const [softwareLabSectionStartY] = useYPositions(softwareLabSectionRef);
-  const softwareLabContentStartY = softwareLabSectionStartY + animationAreaHeight;
+  const {
+    animationStartY: softwareLabSectionStartY,
+    animationEndY: softwareLabContentStartY,
+  } = useAnimationBreakpoints(softwareLabSectionRef, animationAreaHeight);
   const consultingSectionRef = useRef();
-  const [consultingSectionStartY] = useYPositions(consultingSectionRef);
-  const consultingContentStartY = consultingSectionStartY + animationAreaHeight;
+  const {
+    animationStartY: consultingSectionStartY,
+    animationEndY: consultingContentStartY,
+  } = useAnimationBreakpoints(consultingSectionRef, animationAreaHeight);
   const venturesSectionRef = useRef();
-  const [venturesSectionStartY] = useYPositions(venturesSectionRef);
-  const venturesContentStartY = venturesSectionStartY + animationAreaHeight;
+  const {
+    animationStartY: venturesSectionStartY,
+    animationEndY: venturesContentStartY,
+  } = useAnimationBreakpoints(venturesSectionRef, animationAreaHeight);
   const revOrder = useMemo(() => {
     const softwareLabInfo = {
       ref: softwareLabSectionRef,
@@ -187,7 +194,7 @@ function IndexPage() {
     return () => {
       unsubscribeY();
     };
-  }, [animationAreaHeight, jumpIsEnabled, location, orderLen, revOrder, scrollY]);
+  }, [jumpIsEnabled, location, orderLen, revOrder, scrollY]);
 
   return (
     <PageContext.Provider

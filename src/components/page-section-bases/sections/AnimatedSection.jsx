@@ -2,34 +2,35 @@ import React, { forwardRef, useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import PageContext from '../../../context/PageContext';
 import AnimationAreaContext from '../../../context/AnimationAreaContext';
-import useYPositions from '../../hooks/scroll/useYPositions';
 import useWindowResizeInfo from '../../hooks/window/useWindowResizeInfo';
 import { TabletBreakpoint } from '../../../util/helpers';
-import useFullScrollSectionHeight from '../../hooks/scroll/useFullScrollSectionHeight';
+import useAnimationBreakpoints from '../../hooks/animation/useAnimationBreakpoints';
+import useClientHeight from '../../hooks/dimensions/useClientHeight';
 
 const AnimatedSection = forwardRef(
   ({ children, sectionScrollBar, animationAreaHeight }, fullSectionRef) => {
     // get navbar size from context to set padding-top over navbar
     const { navBarHeight } = useContext(PageContext);
+
     // check width of window for breakpoint
     const { width: windowWidth } = useWindowResizeInfo();
     const isLg = windowWidth > TabletBreakpoint;
 
-    // values to pass in Provider
-    // percentage step through animation area
+    const { animationStartY, addedSectionHeight } = useAnimationBreakpoints(
+      fullSectionRef,
+      animationAreaHeight
+    );
     const animationAreaStep = animationAreaHeight / 100;
-    // start of full section & consequently also animation area
-    const [animationAreaStartY] = useYPositions(fullSectionRef);
+
     // height of full section based on content and desired animation area height
     const contentContainerRef = useRef();
-    const fullSectionHeight = useFullScrollSectionHeight(animationAreaHeight, [
-      contentContainerRef,
-    ]);
+    const contentHeight = useClientHeight(contentContainerRef);
+    const fullSectionHeight = contentHeight + addedSectionHeight;
 
     return (
       <AnimationAreaContext.Provider
         value={{
-          animationAreaStartY,
+          animationAreaStartY: animationStartY,
           animationAreaHeight,
           animationAreaStep,
           contentContainerRef,
