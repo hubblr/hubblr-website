@@ -18,7 +18,7 @@ function IntroductionSectionContent() {
 
       <Link to="/contact">
         <IndexGradientBorderButtonLongArrow theme="dark">
-          <FormattedMessage id="index.introduction.contact" />
+          <FormattedMessage id="generic.contact" />
         </IndexGradientBorderButtonLongArrow>
       </Link>
     </>

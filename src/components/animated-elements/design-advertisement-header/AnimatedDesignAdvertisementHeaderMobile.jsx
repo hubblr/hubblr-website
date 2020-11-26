@@ -118,7 +118,7 @@ function AnimatedDesignAdvertisementHeaderMobile({ className, targetCustomers })
 
 AnimatedDesignAdvertisementHeaderMobile.propTypes = {
   className: PropTypes.string,
-  targetCustomers: PropTypes.arrayOf(PropTypes.string).isRequired,
+  targetCustomers: PropTypes.arrayOf(PropTypes.node).isRequired,
 };
 
 AnimatedDesignAdvertisementHeaderMobile.defaultProps = {

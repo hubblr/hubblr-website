@@ -22,7 +22,7 @@ AnimatedSectionContentMobile.propTypes = {
   children: PropTypes.node.isRequired,
   fadeInImage: PropTypes.node.isRequired,
   contentTitle: PropTypes.string.isRequired,
-  targetCustomers: PropTypes.arrayOf(PropTypes.string),
+  targetCustomers: PropTypes.arrayOf(PropTypes.node),
 };
 
 AnimatedSectionContentMobile.defaultProps = {

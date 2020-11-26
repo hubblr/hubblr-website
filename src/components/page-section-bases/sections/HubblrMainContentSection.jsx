@@ -44,7 +44,7 @@ HubblrMainContentSection.propTypes = {
   sectionScrollBar: PropTypes.element.isRequired,
   fadeInImage: PropTypes.node.isRequired,
   contentTitle: PropTypes.string.isRequired,
-  targetCustomers: PropTypes.arrayOf(PropTypes.string),
+  targetCustomers: PropTypes.arrayOf(PropTypes.node),
   animationAreaHeight: PropTypes.number.isRequired, // in px
 };
 

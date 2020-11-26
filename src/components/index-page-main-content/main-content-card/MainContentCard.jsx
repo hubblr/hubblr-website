@@ -22,8 +22,8 @@ function MainContentCard({ children, title, description, className, padding }) {
               paddingTop: padding,
             }}
           >
-            <h3 className="text-lg text-purple-700 leading-none font-bold mb-2">
-              {title.toUpperCase()}
+            <h3 className="text-lg uppercase text-purple-700 leading-none font-bold mb-2">
+              {title}
             </h3>
             <h2 className="text-3xl font-bold leading-7">{description}</h2>
           </div>
@@ -52,8 +52,8 @@ function MainContentCard({ children, title, description, className, padding }) {
 
 MainContentCard.propTypes = {
   children: PropTypes.node,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  title: PropTypes.node.isRequired,
+  description: PropTypes.node.isRequired,
   className: PropTypes.string,
   padding: PropTypes.string,
 };

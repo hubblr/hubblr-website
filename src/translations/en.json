@@ -1,40 +1,145 @@
 {
   "index": {
+    "title": "Home",
     "seo": {
       "title": "hubblr - Developing our digital tomorrow."
     },
     "introduction": {
       "heading": "Developing our digital tomorrow",
-      "main": "Um nutzerzentrierte und innovative Softwareprodukte mit der Aufschrift \"Made in Germany\" endlich auch auf der Welt zu sehen, entwickeln wir in drei Sparten herausstechende Produkte",
-      "contact": "Jetzt kontaktieren"
+      "main": "To finally share user-centered and innovative software \"Made in Germany\" with the whole world, we develop outstanding products in three categories"
+    },
+    "software-laboratory": {
+      "designed-for": ["Mid-Size Companies", "Large Enterprises", "Post-Seed Startups"],
+      "description": "Together, we design, develop, and test your digital project.",
+      "title": "Software Laboratory",
+      "content": [
+        {
+          "text": "During planning, we offer advice for the ideal implementation, tech, and UI design for your application.",
+          "title": "Concept & Design"
+        },
+        {
+          "text": "During development, we focus on user-centered testing and an iterative design process.",
+          "title": "Prototyping & User-Testing"
+        },
+        {
+          "text": "Our inter&shy;disciplinary team develops the project - involving your developers or completely autonomous.",
+          "title": "Software Development"
+        },
+        {
+          "text": "We guarantee smooth and reliable management of your project after going live.",
+          "title": "Hosting & Support"
+        }
+      ]
+    },
+    "consulting": {
+      "designed-for": ["Business Angels", "Mid-Size Companies", "Startups"],
+      "description": "We evaluate the technical development of existing projects",
+      "title": "Solution Assessment",
+      "content": [
+        {
+          "text": "Which technological decisions were made & how well do they fit the state of the project? How high is the software quality of the project?",
+          "title": "Eva&shy;luation of your Tech Stack & Product"
+        },
+        {
+          "text": "Which hurdles need to be overcome during development and which dependencies exist for functionaries of the team?",
+          "title": "Eva&shy;luation of the development process"
+        },
+        {
+          "text": "Was the project developed appropriately and is the application scalable?",
+          "title": "Future-Proofing"
+        },
+        {
+          "text": "We offer advice on the implementation of new development processes and on the introduction of modern technology.",
+          "title": "Consulting"
+        }
+      ]
+    },
+    "ventures": {
+      "designed-for": ["Pre-Seed Startups"],
+      "description": "We believe in visionaries. Together, we change the world.",
+      "title": "Digital Ventures",
+      "content": [
+        {
+          "text": "We help you during all necessary steps and are ready to bring along an investment of work or money.",
+          "title": "Investment & Founding"
+        },
+        {
+          "text": "We develop a cost-efficient MVP and stay informed about your customers needs from the start.",
+          "title": "User-Testing & Project Design"
+        },
+        {
+          "text": "We highly value our shared future and work to ensure that the app is ready for any coming rush - no matter how complex your project.",
+          "title": "Scalability and Future-Proofing"
+        },
+        {
+          "text": "Our flexible team mostly consists of fellow entrepreneurs. Use this spirit to push forward your own project.",
+          "title": "Strong Partners for the Future"
+        }
+      ]
     }
   },
 
   "contact": {
     "seo": {
-      "title": "Kontakt",
-      "description": "Kontaktieren Sie uns und planen Sie ihr digitales Software- oder Innovationsprojekt."
+      "title": "Contakt",
+      "description": "Contact us to plan your innovative digital software project."
+    },
+    "heading": "Let's talk!",
+    "business-card": {
+      "heading": "Plan a 30 minute online exchange!",
+      "text": "\"Tell me more about your project! I look forward to meeting you.\"",
+      "schedule-appointment": "Schedule Meeting"
+    },
+    "form": {
+      "heading": "Contact Request",
+      "name": "YOUR NAME*",
+      "missing-name": "Please enter your name!",
+      "business": "YOUR BUSINESS",
+      "phone-number": "YOUR PHONE NUMBER",
+      "invalid-phone-number": "Please enter a valid phone number!",
+      "message": "HOW MAY WE HELP YOU?*",
+      "missing-message": "Please enter a message!",
+      "send": "Send",
+      "success": {
+        "title": "Submitted successfully!"
+      },
+      "error": {
+        "title": "Error!",
+        "text": "Something went wrong. Please try again later!"
+      }
     }
   },
 
   "imprint": {
-    "header": "Impressum",
+    "header": "Legal Notice",
     "seo": {
-      "title": "Impressum",
-      "description": "Bei hubblr entwickeln wir innovative Softwareprodukte mit der Aufschrift “Made in Germany” und unterstützen Sie vom MVP bis hin zur komplexen Enterprise Software."
+      "title": "Legal Notice",
+      "description": "At hubblr, we develop innovative software products \\\"Made in Germany\\\" and support you all the way from MVP to complex enterprise software."
     }
   },
 
   "privacy": {
     "seo": {
-      "title": "Datenschutzerklärung"
+      "title": "Privacy Policy"
     }
   },
 
   "404": {
     "seo": {
       "title": "404",
-      "description": "Seite nicht gefunden!"
+      "description": "Page not found!"
     }
+  },
+
+  "links": {
+    "imprint": "Legal Notice",
+    "privacy-policy": "Privacy Policy",
+    "github": "GitHub",
+    "jobs": "Jobs"
+  },
+
+  "generic": {
+    "contact": "Contact Now",
+    "contact-short": "Contact"
   }
 }

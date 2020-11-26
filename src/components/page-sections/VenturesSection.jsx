@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import { FormattedMessage } from 'react-intl';
 import HubblrMainContentSection from '../page-section-bases/sections/HubblrMainContentSection';
 import VenturesArrowImageBackground from '../image-components/VenturesArrowImageBackground';
 import IndexGradientBorderButtonLongArrow from '../buttons/gradient-border-buttons/IndexGradientBorderButtonLongArrow';
@@ -16,7 +17,7 @@ const VenturesSection = React.forwardRef(({ animationAreaHeight }, ref) => {
       sectionScrollBar={<SectionScrollBar upperFlexGrow={1} arrowImage={<ArrowImageDoubleUp />} />}
       fadeInImage={<VenturesArrowImageBackground />}
       contentTitle="Digital Ventures"
-      targetCustomers={['Pre-Seed Startups']}
+      targetCustomers={[<FormattedMessage id="index.ventures.designed-for.0" />]}
       animationAreaHeight={animationAreaHeight}
     >
       <MobileAndTabletQuery>
@@ -27,7 +28,7 @@ const VenturesSection = React.forwardRef(({ animationAreaHeight }, ref) => {
               widthClass="w-full"
               addedFlexClasses="justify-center"
             >
-              Jetzt kontaktieren
+              <FormattedMessage id="generic.contact" />
             </IndexGradientBorderButtonLongArrow>
           </Link>
         </VenturesSectionContent>
@@ -36,7 +37,7 @@ const VenturesSection = React.forwardRef(({ animationAreaHeight }, ref) => {
         <VenturesSectionContent />
         <Link to="/contact">
           <IndexGradientBorderButtonLongArrow theme="light">
-            Jetzt kontaktieren
+            <FormattedMessage id="generic.contact" />
           </IndexGradientBorderButtonLongArrow>
         </Link>
       </DesktopQuery>

@@ -1,22 +1,40 @@
 import React from 'react';
-import BusinessCard from './BusinessCard';
+import { FormattedMessage } from 'react-intl';
 import CedricBalsImage from '../image-components/CedricBalsImage';
+import HubblrGradientBorderButtonBase from '../buttons/gradient-border-buttons/HubblrGradientBorderButtonBase';
+import LongArrowImage from '../image-components/LongArrowImage';
 
 function BusinessCardContactPage() {
   return (
-    <BusinessCard
-      image={<CedricBalsImage widthClass="w-24" />}
-      name="Cedric Bals"
-      position="CEO"
-      actionName="Termin planen"
-    >
-      <h2 className="text-center text-2xl font-extrabold leading-none mb-10">
-        30-Minuten Online-Austausch planen
-      </h2>
-      <h3 className="text-center text-xl leading-7 mb-10 leading-tight">
-        &quot;Erzählen Sie mir mehr von Ihrem Projekt! Ich freue mich, Sie kennenzulernen.&quot;
-      </h3>
-    </BusinessCard>
+    <div className="w-full h-full bg-brand-gray-darkest rounded-lg p-4 md:p-6 flex flex-col items-center">
+      <div className="mb-5">
+        <CedricBalsImage widthClass="w-24" />
+      </div>
+      <div className="flex-grow flex flex-col justify-between items-center mb-5">
+        <h2 className="text-center text-2xl font-extrabold leading-none mb-10">
+          <FormattedMessage id="contact.business-card.heading" />
+        </h2>
+        <div className="text-center text-xl leading-7 mb-10 leading-tight">
+          <FormattedMessage id="contact.business-card.text" />
+        </div>
+        <div className="flex flex-col items-center">
+          <p className="text-lg font-extrabold">Cedric Bals</p>
+          <p className="text-base">CEO</p>
+        </div>
+      </div>
+      <a href="https://calendly.com/cbals/30min" className="flex justify-center w-full">
+        <HubblrGradientBorderButtonBase
+          widthClass="max-sm:w-full"
+          addedFlexClasses="w-full justify-between"
+          theme="dark"
+          image={<LongArrowImage theme="dark" className="ml-3" />}
+        >
+          <div>
+            <FormattedMessage id="contact.business-card.schedule-appointment" />
+          </div>
+        </HubblrGradientBorderButtonBase>
+      </a>
+    </div>
   );
 }
 

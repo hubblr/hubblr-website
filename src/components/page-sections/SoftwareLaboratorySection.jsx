@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import { FormattedMessage } from 'react-intl';
 import HubblrMainContentSection from '../page-section-bases/sections/HubblrMainContentSection';
 import LightningImageBackground from '../image-components/LightningImageBackground';
 import IndexGradientBorderButtonLongArrow from '../buttons/gradient-border-buttons/IndexGradientBorderButtonLongArrow';
@@ -22,7 +23,11 @@ const SoftwareLaboratorySection = React.forwardRef(({ animationAreaHeight }, ref
       }
       fadeInImage={<LightningImageBackground />}
       contentTitle="Software Laboratory"
-      targetCustomers={['Mittelständische Unternehmen', 'Großunternehmen', 'Post-Seed Startups']}
+      targetCustomers={[
+        <FormattedMessage id="index.software-laboratory.designed-for.0" />,
+        <FormattedMessage id="index.software-laboratory.designed-for.1" />,
+        <FormattedMessage id="index.software-laboratory.designed-for.2" />,
+      ]}
       animationAreaHeight={animationAreaHeight}
     >
       <MobileAndTabletQuery>
@@ -33,7 +38,7 @@ const SoftwareLaboratorySection = React.forwardRef(({ animationAreaHeight }, ref
               widthClass="w-full"
               addedFlexClasses="justify-center"
             >
-              Jetzt kontaktieren
+              <FormattedMessage id="generic.contact" />
             </IndexGradientBorderButtonLongArrow>
           </Link>
         </SoftwareLaboratorySectionContent>
@@ -42,7 +47,7 @@ const SoftwareLaboratorySection = React.forwardRef(({ animationAreaHeight }, ref
         <SoftwareLaboratorySectionContent />
         <Link to="/contact">
           <IndexGradientBorderButtonLongArrow theme="light">
-            Jetzt kontaktieren
+            <FormattedMessage id="generic.contact" />
           </IndexGradientBorderButtonLongArrow>
         </Link>
       </DesktopQuery>

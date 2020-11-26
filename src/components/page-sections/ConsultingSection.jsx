@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import { FormattedMessage } from 'react-intl';
 import HubblrMainContentSection from '../page-section-bases/sections/HubblrMainContentSection';
 import ConsultingIllustrationImageBackground from '../image-components/ConsultingIllustrationImageBackground';
 import IndexGradientBorderButtonLongArrow from '../buttons/gradient-border-buttons/IndexGradientBorderButtonLongArrow';
@@ -22,7 +23,11 @@ const ConsultingSection = React.forwardRef(({ animationAreaHeight }, ref) => {
       }
       fadeInImage={<ConsultingIllustrationImageBackground />}
       contentTitle="Solution Assessment"
-      targetCustomers={['Business Angels', 'Mittelständische Unternehmen', 'Startups']}
+      targetCustomers={[
+        <FormattedMessage id="index.consulting.designed-for.0" />,
+        <FormattedMessage id="index.consulting.designed-for.1" />,
+        <FormattedMessage id="index.consulting.designed-for.2" />,
+      ]}
       animationAreaHeight={animationAreaHeight}
     >
       <MobileAndTabletQuery>
@@ -33,7 +38,7 @@ const ConsultingSection = React.forwardRef(({ animationAreaHeight }, ref) => {
               widthClass="w-full"
               addedFlexClasses="justify-center"
             >
-              Jetzt kontaktieren
+              <FormattedMessage id="generic.contact" />
             </IndexGradientBorderButtonLongArrow>
           </Link>
         </ConsultingSectionContent>
@@ -42,7 +47,7 @@ const ConsultingSection = React.forwardRef(({ animationAreaHeight }, ref) => {
         <ConsultingSectionContent />
         <Link to="/contact">
           <IndexGradientBorderButtonLongArrow theme="light">
-            Jetzt kontaktieren
+            <FormattedMessage id="generic.contact" />
           </IndexGradientBorderButtonLongArrow>
         </Link>
       </DesktopQuery>

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { navigate } from '@reach/router';
 import { Link } from 'gatsby';
+import { FormattedMessage } from 'react-intl';
 import { DesktopQuery, MobileAndTabletQuery } from '../../util/helpers';
 import LightningImage from '../image-components/LightningImage';
 import ConsultingIllustrationImage from '../image-components/ConsultingIllustrationImage';
@@ -105,7 +106,9 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
                 navigateToIndexSection('/');
               }}
             >
-              <NavBarLink>Home</NavBarLink>
+              <NavBarLink>
+                <FormattedMessage id="index.title" />
+              </NavBarLink>
             </Button>
             <hr className="bg-white h-p" />
             <Button
@@ -114,7 +117,7 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
               }}
             >
               <NavBarLink linkImage={<LightningImage className="h-full" />}>
-                Software Laboratory
+                <FormattedMessage id="index.software-laboratory.title" />
               </NavBarLink>
             </Button>
             <hr className="bg-white h-p" />
@@ -124,7 +127,7 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
               }}
             >
               <NavBarLink linkImage={<ConsultingIllustrationImage className="h-full" />}>
-                Solution Assessment
+                <FormattedMessage id="index.consulting.title" />
               </NavBarLink>
             </Button>
             <hr className="bg-white h-p" />
@@ -134,7 +137,7 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
               }}
             >
               <NavBarLink linkImage={<VenturesArrowImage className="h-full" />}>
-                Digital Ventures
+                <FormattedMessage id="index.ventures.title" />
               </NavBarLink>
             </Button>
             <hr className="bg-white h-p" />
@@ -145,7 +148,9 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
                 });
               }}
             >
-              <NavBarLink>Kontakt</NavBarLink>
+              <NavBarLink>
+                <FormattedMessage id="generic.contact-short" />
+              </NavBarLink>
             </Button>
             <hr className="bg-white h-p" />
           </div>
@@ -156,7 +161,9 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
               theme="dark"
               image={<LongArrowImage theme="dark" className="w-10" />}
             >
-              <div className="text-xl">Jetzt kontaktieren</div>
+              <div className="text-xl">
+                <FormattedMessage id="generic.contact" />
+              </div>
             </HubblrGradientBorderButtonBase>
           </Link>
         </div>

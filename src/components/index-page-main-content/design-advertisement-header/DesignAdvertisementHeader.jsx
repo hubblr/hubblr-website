@@ -1,5 +1,6 @@
 import React, { forwardRef, useLayoutEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuid } from 'uuid';
 import DesignAdvertisementHeaderPill from './DesignAdvertisementHeaderPill';
 import DesignAdvertisementHeaderDivider from './DesignAdvertisementHeaderDivider';
 import useOffsetWidth from '../../hooks/dimensions/useOffsetWidth';
@@ -60,18 +61,18 @@ const DesignAdvertisementHeader = forwardRef(
           className="lg:flex-grow pl-2"
         />
         <div className="flex items-center">
-          {targetCustomers.map((targetName, i) => {
+          {targetCustomers.map((targetNode, i) => {
             const divider =
               i < targetCustomers.length - 1 ? (
                 <DesignAdvertisementHeaderDivider setWidth={createDividerWidthSetter(i)} />
               ) : null;
             return (
-              <div key={targetName} className="flex items-center">
+              <div key={uuid()} className="flex items-center">
                 <DesignAdvertisementHeaderPill
                   setWidth={createContentWidthSetter(i)}
                   colorStyles="text-white bg-brand-gray-darkest"
                 >
-                  {targetName}
+                  {targetNode}
                 </DesignAdvertisementHeaderPill>
                 {divider}
               </div>
@@ -85,7 +86,7 @@ const DesignAdvertisementHeader = forwardRef(
 
 DesignAdvertisementHeader.propTypes = {
   className: PropTypes.string,
-  targetCustomers: PropTypes.arrayOf(PropTypes.string).isRequired,
+  targetCustomers: PropTypes.arrayOf(PropTypes.node).isRequired,
   setElementWidths: PropTypes.func,
 };
 

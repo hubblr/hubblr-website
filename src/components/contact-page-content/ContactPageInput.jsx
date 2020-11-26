@@ -36,7 +36,7 @@ function ContactPageInput({
 ContactPageInput.propTypes = {
   useTextArea: PropTypes.bool,
   enableErrorMessages: PropTypes.bool,
-  placeholder: PropTypes.string,
+  placeholder: PropTypes.node,
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func,

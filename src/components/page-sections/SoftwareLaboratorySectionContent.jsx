@@ -1,32 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 import MainContentGrid from '../index-page-main-content/main-content-card/MainContentGrid';
 import MainContentGridItem from '../index-page-main-content/main-content-card/MainContentGridItem';
 import MainContentCard from '../index-page-main-content/main-content-card/MainContentCard';
+import DangerousIntlSpan from '../intl/DangerousIntlSpan';
 
 function SoftwareLaboratorySectionContent({ children }) {
   return (
     <MainContentCard
-      description="Gemeinsam konzipieren, entwickeln und testen wir Ihr digitales Projekt."
-      title="Software Laboratory"
+      description={<FormattedMessage id="index.software-laboratory.description" />}
+      title={<FormattedMessage id="index.software-laboratory.title" />}
       className="mb-5"
     >
       <MainContentGrid>
         <MainContentGridItem
-          text="Projektplanung und Beratung zur Umsetzung, Technologieberatung sowie User-Interface-Design der Anwendung."
-          title="Konzept & Design"
+          text={<DangerousIntlSpan id="index.software-laboratory.content.0.text" />}
+          title={<DangerousIntlSpan id="index.software-laboratory.content.0.title" />}
         />
         <MainContentGridItem
-          text="Nutzer&shy;zentriertes Testen und iterative Gestaltung des Projektes während der Design- und Entwicklungs&shy;phase."
-          title="Prototyping & User-Testing"
+          text={<DangerousIntlSpan id="index.software-laboratory.content.1.text" />}
+          title={<DangerousIntlSpan id="index.software-laboratory.content.1.title" />}
         />
         <MainContentGridItem
-          text="Mit Ihrem Entwicklungs&shy;team oder vollständig autark entwickelt unser interdisziplinäres Team das Projekt."
-          title="Software&shy;entwicklung"
+          text={<DangerousIntlSpan id="index.software-laboratory.content.2.text" />}
+          title={<DangerousIntlSpan id="index.software-laboratory.content.2.title" />}
         />
         <MainContentGridItem
-          text="Verlassen Sie sich auf einen sicheren und zuverlässigen Betrieb Ihres Projektes."
-          title="Hosting & Support"
+          text={<DangerousIntlSpan id="index.software-laboratory.content.3.text" />}
+          title={<DangerousIntlSpan id="index.software-laboratory.content.3.title" />}
         />
       </MainContentGrid>
       {children}

@@ -101,7 +101,7 @@ function AnimatedMainContentDesktop({ children, targetCustomers }) {
 
 AnimatedMainContentDesktop.propTypes = {
   children: PropTypes.node.isRequired,
-  targetCustomers: PropTypes.arrayOf(PropTypes.string),
+  targetCustomers: PropTypes.arrayOf(PropTypes.node),
 };
 
 AnimatedMainContentDesktop.defaultProps = {

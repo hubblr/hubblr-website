@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import Layout from '../components/layouts/Layout';
 import BusinessCardContactPage from '../components/business-card/BusinessCardContactPage';
 import ContactPageForm from '../components/contact-page-content/ContactPageForm';
@@ -23,7 +24,9 @@ function ContactPage() {
     >
       <SEO title="contact.seo.title" description="contact.seo.description" />
       <div className="flex-grow container mx-auto h-full flex flex-col items-center">
-        <h1 className="mb-8 lg:mb-0 text-5xl font-extrabold">Let‘s talk!</h1>
+        <h1 className="mb-8 lg:mb-0 text-5xl font-extrabold">
+          <FormattedMessage id="contact.heading" />
+        </h1>
         <div className="flex-grow w-full flex flex-col justify-center items-center">
           <DesktopQuery>
             <div className="min-h-1/2 w-full flex justify-between">
