@@ -1,4 +1,4 @@
-#Hubblr Website
+# Hubblr Website
 
 This is the source code for hubblr's current website located at [hubblr.io](https://hubblr.io/).
 The page is set up as a [Gatsby](https://www.gatsbyjs.com/) project utilizing
@@ -6,22 +6,22 @@ The page is set up as a [Gatsby](https://www.gatsbyjs.com/) project utilizing
 starter](https://github.com/oddstronaut/gatsby-starter-tailwind) from oddstronaut. Uses
 [Framer Motion](https://www.framer.com/motion/) to create scroll-based animation effects.
 
-##Table of Contents
-* [Pages](#Page Overview)
-* [Setup](#Setup)
-* [Used Libraries and Frameworks](#Used Libraries and Frameworks)
+## Table of Contents
+* [Page Overview](#page-overview)
+* [Setup](#setup)
+* [Used Libraries and Frameworks](#used-libraries-and-frameworks)
 
-##Page Overview
-###Landing Page
+## Page Overview
+### Landing Page
 On the main page, you can find out what hubblr can do for you.
 
 ![The Contact Page](src/images/example-screens/index.png?raw=true "The Contact Page")
-###Contact Page
+### Contact Page
 The contact page is used to get in touch with hubblr.
 
 ![The Landing Page](src/images/example-screens/contact.png?raw=true "The Landing Page")
 
-##Setup
+## Setup
 
 Clone the repo:
 ```
@@ -40,7 +40,7 @@ Alternatively, build the project and run it in production mode (per default on l
 npm run build && npm run serve
 ```
 
-##Used Libraries and Frameworks
+## Used Libraries and Frameworks
 * Gatsby 2.24.92
 * React 16.13.1
 * Tailwind 1.9.1
