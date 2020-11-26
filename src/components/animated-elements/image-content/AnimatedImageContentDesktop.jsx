@@ -27,7 +27,7 @@ function AnimatedImageContentDesktop({ fadeInImage }) {
 
   return (
     <motion.div
-      className="overflow-hidden absolute -z-10 w-full h-screen transform inset-0 flex justify-center items-center"
+      className="absolute -z-10 w-full h-screen transform inset-0 flex justify-center items-center"
       style={fadeInImageStyle}
     >
       {fadeInImage}

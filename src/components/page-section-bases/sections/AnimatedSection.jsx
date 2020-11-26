@@ -17,7 +17,7 @@ const AnimatedSection = forwardRef(
     const isLg = windowWidth > TabletBreakpoint;
 
     // calculate animation breakpoints + width to add to outer section
-    const { animationStartY, addedSectionHeight } = useAnimationBreakpoints(
+    const { animationStartY, addedSectionHeight, overlapHeight } = useAnimationBreakpoints(
       fullSectionRef,
       animationAreaHeight
     );
@@ -48,13 +48,18 @@ const AnimatedSection = forwardRef(
             <div className="absolute container mx-auto h-full inset-0">{sectionScrollBar}</div>
           )}
           <div
-            ref={contentContainerRef}
-            className="min-h-screen sticky top-0 w-full overflow-hidden flex"
-            style={{
-              paddingTop: `${navBarHeight}px`,
-            }}
+            className="sticky w-full overflow-hidden"
+            style={{ top: `-${overlapHeight}px`, paddingTop: `${overlapHeight}px` }}
           >
-            {children}
+            <div
+              ref={contentContainerRef}
+              className="relative min-h-screen w-full flex"
+              style={{
+                paddingTop: `${navBarHeight}px`,
+              }}
+            >
+              {children}
+            </div>
           </div>
         </div>
       </AnimationAreaContext.Provider>

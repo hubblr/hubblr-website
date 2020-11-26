@@ -17,6 +17,7 @@ function useAnimationBreakpoints(sectionRef, animationAreaHeight) {
   return {
     animationStartY,
     animationEndY: animationStartY + animationAreaHeight,
+    overlapHeight,
     addedSectionHeight: animationAreaHeight - overlapHeight,
   };
 }
