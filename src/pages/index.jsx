@@ -1,7 +1,8 @@
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useLocation, createHistory } from '@reach/router';
 import { useViewportScroll } from 'framer-motion';
-import Layout from '../components/layouts/Layout';
+import LayoutWrapper from '../components/layouts/LayoutWrapper';
+import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
 import IntroductionSection from '../components/page-sections/IntroductionSection';
 import IntroductionSectionContent from '../components/page-sections/IntroductionSectionContent';
 import SoftwareLaboratorySection from '../components/page-sections/SoftwareLaboratorySection';
@@ -198,18 +199,8 @@ function IndexPage() {
   }, [jumpIsEnabled, location, orderLen, revOrder, scrollY]);
 
   return (
-    <PageContext.Provider
-      value={{
-        page: 'index',
-        navBarHeight,
-        sectionContentStarts: {
-          softwareLaboratory: softwareLabContentStartY,
-          consulting: consultingContentStartY,
-          ventures: venturesContentStartY,
-        },
-      }}
-    >
-      <Layout
+    <LayoutWrapper>
+      <MainPageDarkLayout
         navBar={
           <NavBar
             ref={navBarRef}
@@ -223,21 +214,36 @@ function IndexPage() {
         }
       >
         <SEO title="index.seo.title" />
-        <div>
-          <IntroductionSection>
-            <div ref={introContentRef}>
-              <IntroductionSectionContent />
-            </div>
-          </IntroductionSection>
-          <SoftwareLaboratorySection
-            ref={softwareLabSectionRef}
-            animationAreaHeight={animationAreaHeight}
-          />
-          <ConsultingSection ref={consultingSectionRef} animationAreaHeight={animationAreaHeight} />
-          <VenturesSection ref={venturesSectionRef} animationAreaHeight={animationAreaHeight} />
-        </div>
-      </Layout>
-    </PageContext.Provider>
+        <PageContext.Provider
+          value={{
+            page: 'index',
+            navBarHeight,
+            sectionContentStarts: {
+              softwareLaboratory: softwareLabContentStartY,
+              consulting: consultingContentStartY,
+              ventures: venturesContentStartY,
+            },
+          }}
+        >
+          <div>
+            <IntroductionSection>
+              <div ref={introContentRef}>
+                <IntroductionSectionContent />
+              </div>
+            </IntroductionSection>
+            <SoftwareLaboratorySection
+              ref={softwareLabSectionRef}
+              animationAreaHeight={animationAreaHeight}
+            />
+            <ConsultingSection
+              ref={consultingSectionRef}
+              animationAreaHeight={animationAreaHeight}
+            />
+            <VenturesSection ref={venturesSectionRef} animationAreaHeight={animationAreaHeight} />
+          </div>
+        </PageContext.Provider>
+      </MainPageDarkLayout>
+    </LayoutWrapper>
   );
 }
 

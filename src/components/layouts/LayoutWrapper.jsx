@@ -8,7 +8,6 @@ import { useLocalization } from 'gatsby-theme-i18n';
 import messagesDe from '../../translations/de.json';
 import messagesEn from '../../translations/en.json';
 import CookieNotice from '../cookie-notice/CookieNotice';
-import HubblrPageLinks from '../links/HubblrPageLinks';
 import GoogleAnalyticsSetup from '../google-analytics/GoogleAnalyticsSetup';
 
 // language settings
@@ -17,7 +16,7 @@ const messages = {
   en: messagesEn,
 };
 
-const Layout = ({ children, navBar }) => {
+const LayoutWrapper = ({ children }) => {
   const { locale } = useLocalization();
 
   // allowed cookies
@@ -33,14 +32,8 @@ const Layout = ({ children, navBar }) => {
       </Helmet>
       <IntlProvider locale={locale} messages={flatten(messages[locale])}>
         {googleAnalyticsAllowed && <GoogleAnalyticsSetup />}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <div lang={locale} className="flex flex-col min-h-screen bg-black text-white font-sans">
-            {navBar}
-            <div className="flex-grow flex flex-col">{children}</div>
-            <div className="container mx-auto">
-              <HubblrPageLinks />
-            </div>
-          </div>
+        <motion.div lang={locale} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          {children}
           <CookieNotice setGoogleAnalyticsAllowed={setGoogleAnalyticsAllowed} />
         </motion.div>
         <div id="modal-root" />
@@ -49,13 +42,8 @@ const Layout = ({ children, navBar }) => {
   );
 };
 
-Layout.propTypes = {
+LayoutWrapper.propTypes = {
   children: PropTypes.node.isRequired,
-  navBar: PropTypes.element,
 };
 
-Layout.defaultProps = {
-  navBar: null,
-};
-
-export default Layout;
+export default LayoutWrapper;
