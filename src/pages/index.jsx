@@ -1,13 +1,14 @@
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useLocation, createHistory } from '@reach/router';
 import { useViewportScroll } from 'framer-motion';
-import Layout from '../components/layouts/Layout';
-import IntroductionSection from '../components/page-sections/IntroductionSection';
-import IntroductionSectionContent from '../components/page-sections/IntroductionSectionContent';
-import SoftwareLaboratorySection from '../components/page-sections/SoftwareLaboratorySection';
-import ConsultingSection from '../components/page-sections/ConsultingSection';
-import VenturesSection from '../components/page-sections/VenturesSection';
-import NavBar from '../components/nav-bar/NavBar';
+import LayoutWrapper from '../components/layouts/LayoutWrapper';
+import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
+import IntroductionSection from '../components/index/page-sections/IntroductionSection';
+import IntroductionSectionContent from '../components/index/page-sections/IntroductionSectionContent';
+import SoftwareLaboratorySection from '../components/index/page-sections/SoftwareLaboratorySection';
+import ConsultingSection from '../components/index/page-sections/ConsultingSection';
+import VenturesSection from '../components/index/page-sections/VenturesSection';
+import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
 import useYPositions from '../components/hooks/scroll/useYPositions';
 import useWindowResizeInfo from '../components/hooks/window/useWindowResizeInfo';
 import useOffsetHeight from '../components/hooks/dimensions/useOffsetHeight';
@@ -16,6 +17,7 @@ import { ANIMATION_AREA_HEIGHT_DESKTOP, ANIMATION_AREA_HEIGHT_MOBILE } from '../
 import { TabletBreakpoint } from '../util/helpers';
 import SEO from '../components/seo/Seo';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
+import useAnimationBreakpoints from '../components/hooks/animation/useAnimationBreakpoints';
 
 // disable regular scroll restoration on reload
 function useDisableScrollRestoration() {
@@ -78,6 +80,7 @@ function IndexPage() {
   // "jump" to position marked in hash
   const location = useLocation();
   const hash = useRef(location.hash);
+
   const [jumpIsEnabled, setJumpIsEnabled] = useState(true);
 
   // enable jump on history navigation
@@ -89,14 +92,20 @@ function IndexPage() {
 
   // create refs and position info for all sections -> determine jump breakpoints
   const softwareLabSectionRef = useRef();
-  const [softwareLabSectionStartY] = useYPositions(softwareLabSectionRef);
-  const softwareLabContentStartY = softwareLabSectionStartY + animationAreaHeight;
+  const {
+    animationStartY: softwareLabSectionStartY,
+    animationEndY: softwareLabContentStartY,
+  } = useAnimationBreakpoints(softwareLabSectionRef, animationAreaHeight);
   const consultingSectionRef = useRef();
-  const [consultingSectionStartY] = useYPositions(consultingSectionRef);
-  const consultingContentStartY = consultingSectionStartY + animationAreaHeight;
+  const {
+    animationStartY: consultingSectionStartY,
+    animationEndY: consultingContentStartY,
+  } = useAnimationBreakpoints(consultingSectionRef, animationAreaHeight);
   const venturesSectionRef = useRef();
-  const [venturesSectionStartY] = useYPositions(venturesSectionRef);
-  const venturesContentStartY = venturesSectionStartY + animationAreaHeight;
+  const {
+    animationStartY: venturesSectionStartY,
+    animationEndY: venturesContentStartY,
+  } = useAnimationBreakpoints(venturesSectionRef, animationAreaHeight);
   const revOrder = useMemo(() => {
     const softwareLabInfo = {
       ref: softwareLabSectionRef,
@@ -187,26 +196,16 @@ function IndexPage() {
     return () => {
       unsubscribeY();
     };
-  }, [animationAreaHeight, jumpIsEnabled, location, orderLen, revOrder, scrollY]);
+  }, [jumpIsEnabled, location, orderLen, revOrder, scrollY]);
 
   return (
-    <PageContext.Provider
-      value={{
-        page: 'index',
-        navBarHeight,
-        sectionContentStarts: {
-          softwareLaboratory: softwareLabContentStartY,
-          consulting: consultingContentStartY,
-          ventures: venturesContentStartY,
-        },
-      }}
-    >
-      <Layout
+    <LayoutWrapper>
+      <MainPageDarkLayout
         navBar={
-          <NavBar
+          <NavBarMainPage
             ref={navBarRef}
             showNavBar={showNavBar}
-            rightContent={
+            desktopRightContent={
               <div className="flex justify-end items-center">
                 <NavBarContactButton />
               </div>
@@ -215,21 +214,36 @@ function IndexPage() {
         }
       >
         <SEO title="index.seo.title" />
-        <div>
-          <IntroductionSection>
-            <div ref={introContentRef}>
-              <IntroductionSectionContent />
-            </div>
-          </IntroductionSection>
-          <SoftwareLaboratorySection
-            ref={softwareLabSectionRef}
-            animationAreaHeight={animationAreaHeight}
-          />
-          <ConsultingSection ref={consultingSectionRef} animationAreaHeight={animationAreaHeight} />
-          <VenturesSection ref={venturesSectionRef} animationAreaHeight={animationAreaHeight} />
-        </div>
-      </Layout>
-    </PageContext.Provider>
+        <PageContext.Provider
+          value={{
+            page: 'index',
+            navBarHeight,
+            sectionContentStarts: {
+              softwareLaboratory: softwareLabContentStartY,
+              consulting: consultingContentStartY,
+              ventures: venturesContentStartY,
+            },
+          }}
+        >
+          <div>
+            <IntroductionSection>
+              <div ref={introContentRef}>
+                <IntroductionSectionContent />
+              </div>
+            </IntroductionSection>
+            <SoftwareLaboratorySection
+              ref={softwareLabSectionRef}
+              animationAreaHeight={animationAreaHeight}
+            />
+            <ConsultingSection
+              ref={consultingSectionRef}
+              animationAreaHeight={animationAreaHeight}
+            />
+            <VenturesSection ref={venturesSectionRef} animationAreaHeight={animationAreaHeight} />
+          </div>
+        </PageContext.Provider>
+      </MainPageDarkLayout>
+    </LayoutWrapper>
   );
 }
 

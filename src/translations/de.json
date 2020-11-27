@@ -1,12 +1,81 @@
 {
   "index": {
+    "title": "Home",
     "seo": {
       "title": "hubblr - Developing our digital tomorrow."
     },
     "introduction": {
       "heading": "Developing our digital tomorrow",
-      "main": "Um nutzerzentrierte und innovative Softwareprodukte mit der Aufschrift \"Made in Germany\" endlich auch auf der Welt zu sehen, entwickeln wir in drei Sparten herausstechende Produkte",
-      "contact": "Jetzt kontaktieren"
+      "main": "Um nutzerzentrierte und innovative Softwareprodukte mit der Aufschrift \"Made in Germany\" endlich auch auf der Welt zu sehen, entwickeln wir in drei Sparten herausstechende Produkte"
+    },
+    "software-laboratory": {
+      "designed-for": ["Mittelständische Unternehmen", "Großunternehmen", "Post-Seed Startups"],
+      "description": "Gemeinsam konzipieren, entwickeln und testen wir Ihr digitales Projekt.",
+      "title": "Software Laboratory",
+      "content": [
+        {
+          "text": "Projektplanung und Beratung zur Umsetzung, Tech&shy;nologieberatung sowie User-Interface-Design der Anwendung.",
+          "title": "Konzept & Design"
+        },
+        {
+          "text": "Nutzer&shy;zentriertes Testen und iterative Gestaltung des Projektes während der Design- und Entwicklungs&shy;phase.",
+          "title": "Prototyping & User-Testing"
+        },
+        {
+          "text": "Mit Ihrem Entwicklungs&shy;team oder vollständig autark entwickelt unser inter&shy;disziplinäres Team das Projekt.",
+          "title": "Software&shy;entwicklung"
+        },
+        {
+          "text": "Verlassen Sie sich auf einen sicheren und zuverlässigen Betrieb Ihres Projektes.",
+          "title": "Hosting & Support"
+        }
+      ]
+    },
+    "consulting": {
+      "designed-for": ["Business Angels", "Mittelständische Unternehmen", "Startups"],
+      "description": "Wir beurteilen die technische Entwicklung bestehender Produkte",
+      "title": "Solution Assessment",
+      "content": [
+        {
+          "text": "Welche Tech&shy;nologie-Ent&shy;scheidungen wurden getroffen & passen diese zum Status des Projektes? Welche Software&shy;qualität hat das aktuelle Projekt?",
+          "title": "Auf&shy;arbeitung Tech-Stack & Produkt"
+        },
+        {
+          "text": "Welche Hürden liegen im Entwicklungs&shy;prozess und welche Abhängig&shy;keiten liegen bei den Funktio&shy;när*innen des Teams?",
+          "title": "Beur&shy;teilung Ent&shy;wicklungs&shy;prozesse"
+        },
+        {
+          "text": "Wurde das Projekt angemessen entwickelt bzw. ist eine Konzi&shy;pierung für eine angemessen skalier&shy;bare Anwendung erfolgt?",
+          "title": "Zukunfts&shy;sicherheit fest&shy;stellen"
+        },
+        {
+          "text": "Beratung zur Umsetzung neuer Ent&shy;wicklungs&shy;prozesse oder Ein&shy;führung moderner Tech&shy;nolo&shy;gien.",
+          "title": "Umsetzungs&shy;beratung"
+        }
+      ]
+    },
+    "ventures": {
+      "designed-for": ["Pre-Seed Startups"],
+      "description": "Wir glauben an Visionär*innen. Gemeinsam verändern wir die Welt.",
+      "title": "Digital Ventures",
+      "content": [
+        {
+          "text": "Gründen Sie mit uns Ihre B2B SaaS-Solution aus. Wir helfen bei allen nötigen Schritten und bringen ein Work- oder Geld&shy;investment mit.",
+          "title": "Investment & Gründung"
+        },
+        {
+          "text": "Wir entwickeln ein kosten&shy;effizientes MVP und lernen gemeinsam frühzeitig von Ihren Kund*innen.",
+          "title": "User-Testing & Projekt&shy;planung"
+        },
+        {
+          "text": "Auch wenn Ihr Projekt komplex ist, legen wir jederzeit großen Wert auf unsere gemeinsame Zukunft und stellen sicher, dass das Projekt dem Ansturm gerecht wird.",
+          "title": "Skalier&shy;barkeit und Zukunfts&shy;sicherheit"
+        },
+        {
+          "text": "Unser Team ist flexibel und besteht zum großen Teil selber aus Unter&shy;neh&shy;mer*innen. Mit diesem Spirit treiben auch Sie Ihr Projekt voran.",
+          "title": "Starke Partner für die Zukunft"
+        }
+      ]
     }
   },
 
@@ -14,6 +83,30 @@
     "seo": {
       "title": "Kontakt",
       "description": "Kontaktieren Sie uns und planen Sie ihr digitales Software- oder Innovationsprojekt."
+    },
+    "heading": "Let's talk!",
+    "business-card": {
+      "heading": "30-Minuten Online-Austausch planen",
+      "text": "\"Erzählen Sie mir mehr von Ihrem Projekt! Ich freue mich, Sie kennenzulernen.\"",
+      "schedule-appointment": "Termin planen"
+    },
+    "form": {
+      "heading": "Kontaktanfrage",
+      "name": "IHR NAME*",
+      "missing-name": "Bitte geben Sie Ihren Namen ein!",
+      "business": "IHR UNTERNEHMEN",
+      "phone-number": "IHRE TELEFONNUMMER",
+      "invalid-phone-number": "Bitte geben Sie eine valide Telefonnummer ein!",
+      "message": "WIE KÖNNEN WIR HELFEN?*",
+      "missing-message": "Bitte geben Sie einen Text ein!",
+      "send": "Absenden",
+      "success": {
+        "title": "Erfolgreich gesendet!"
+      },
+      "error": {
+        "title": "Fehler!",
+        "text": "Das hat leider nicht geklappt. Versuch es später nochmal!"
+      }
     }
   },
 
@@ -36,5 +129,28 @@
       "title": "404",
       "description": "Seite nicht gefunden!"
     }
+  },
+
+  "software-laboratory": {
+    "seo": {
+      "title": "Software Laboratory",
+      "description": "Bauen Sie bessere, digitale Produkte"
+    },
+    "banner": {
+      "heading": "Bauen Sie bessere, digitale Produkte",
+      "text": "Durch eine am Endnutzer fokussierte Softwareentwicklung und einem Fokus auf den wirtschaftlichen Erfolg des Projektes, helfen wir Ihnen im hubblr Software Laboratory Ihren digitalen Innovationen Schwung zu verleihen."
+    }
+  },
+
+  "links": {
+    "imprint": "Impressum",
+    "privacy-policy": "Datenschutz",
+    "github": "GitHub",
+    "jobs": "Jobs"
+  },
+
+  "generic": {
+    "contact": "Jetzt kontaktieren",
+    "contact-short": "Kontakt"
   }
 }

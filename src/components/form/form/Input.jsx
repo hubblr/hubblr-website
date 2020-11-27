@@ -211,7 +211,7 @@ Input.propTypes = {
   useTextarea: PropTypes.bool,
   enableErrorMessages: PropTypes.bool,
   name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
+  placeholder: PropTypes.node.isRequired,
   inputClasses: PropTypes.string,
   groupClassNames: PropTypes.string,
   labelClassNames: PropTypes.string,

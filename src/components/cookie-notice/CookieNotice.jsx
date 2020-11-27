@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+import { LocalizedLink as Link } from 'gatsby-theme-i18n';
 import AppButton from '../buttons/bases/AppButton';
 
 function CookieNotice({ setGoogleAnalyticsAllowed }) {

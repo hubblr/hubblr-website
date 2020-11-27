@@ -34,6 +34,8 @@ module.exports = {
       },
       screens: {
         'max-sm': { max: '639px' },
+        'max-md': { max: '767px' },
+        '2xl': { min: '1950px' },
       },
       spacing: {
         '1/2': '50%',
@@ -53,6 +55,7 @@ module.exports = {
         'brand-gray': '#7C7C7C',
         'brand-gray-dark': '#464545',
         'brand-gray-darkest': '#2D2D2D',
+        'brand-eggshell': '#f8f8f8',
       },
     },
   },

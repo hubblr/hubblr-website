@@ -9,6 +9,7 @@ module.exports = {
     titleTemplate: `%s | hubblr`,
     description: `Bei hubblr entwickeln wir innovative Softwareprodukte mit der Aufschrift “Made in Germany” und unterstützen Sie vom MVP bis hin zur komplexen Enterprise Software. `,
     url: `https://hubblr.io`,
+    siteUrl: `https://hubblr.io`,
     image: '/images/featured-image.jpg',
     author: `@hubblr`,
   },
@@ -17,6 +18,13 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-theme-i18n`,
+      options: {
+        defaultLang: `en`,
+        configPath: require.resolve(`./i18n/config.json`),
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

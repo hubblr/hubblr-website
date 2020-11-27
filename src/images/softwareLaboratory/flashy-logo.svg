@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="146px" height="94px" viewBox="0 0 146 94" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>12B83178-29EA-48CE-B0DD-6B82ADDA47FB</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.552941 0 0 0 0 0.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter x="-23.1%" y="-47.1%" width="145.3%" height="194.2%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.397984601   0 0 0 0 0.397984601   0 0 0 0 0.397984601  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter id="filter-3">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter x="-23.1%" y="-47.1%" width="145.3%" height="194.2%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.397984601   0 0 0 0 0.397984601   0 0 0 0 0.397984601  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="laboratory-landing" transform="translate(-647.000000, -54.000000)">
+            <g id="Group-3" transform="translate(665.000000, 73.000000)">
+                <g filter="url(#filter-1)" id="Group-13-Copy-2" opacity="0.595930233">
+                    <g filter="url(#filter-2)" transform="translate(1.000000, 4.000000)">
+                        <g id="Group" transform="translate(14.140504, 0.000000)" stroke="#1D1D1B" stroke-width="5.5">
+                            <path d="M53.4959205,2.82440737e-13 C68.1290983,2.82440737e-13 79.991613,11.566174 79.991613,25.8335225 C79.991613,40.1008709 68.1290983,51.6668226 53.4959205,51.6668226 C48.5651215,51.6668226 43.9488839,50.3535991 39.995072,48.0663028 C36.0423909,50.3537528 31.4264309,51.6668226 26.4959205,51.6668226 C11.8627426,51.6668226 8.52651283e-14,40.1008709 8.52651283e-14,25.8335225 C8.52651283e-14,11.566174 11.8627426,2.82440737e-13 26.4959205,2.82440737e-13 C31.4264309,2.82440737e-13 36.0423909,1.3130951 39.9960147,3.600177 C43.9488839,1.31324878 48.5651215,2.82440737e-13 53.4959205,2.82440737e-13 Z" id="Stroke-2"></path>
+                            <path d="M52.991613,25.8335225 C52.991613,40.1008709 41.1290983,51.6668226 26.4959205,51.6668226 C11.8627426,51.6668226 8.52651283e-14,40.1008709 8.52651283e-14,25.8335225 C8.52651283e-14,11.566174 11.8627426,2.82440737e-13 26.4959205,2.82440737e-13 C41.1290983,2.82440737e-13 52.991613,11.566174 52.991613,25.8335225 Z" id="Stroke-1-Copy-2"></path>
+                        </g>
+                        <path d="M-2.27963073e-05,42.3651632 C5.33841654,40.461472 5.32177523,40.4694735 12.9594502,37.6462762" id="Stroke-9" stroke="#1D1D1B" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M68.25,17.25 C68.25,17.25 88.5591417,9.82084597 104.04399,3.70858597" id="Stroke-11" stroke="#1D1D1B" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </g>
+                <g filter="url(#filter-3)" id="Group-13-Copy-4">
+                    <g filter="url(#filter-4)" transform="translate(4.500000, 0.000000)">
+                        <g id="Group" transform="translate(14.140504, 0.000000)" stroke="#1D1D1B" stroke-width="5.5">
+                            <path d="M53.4959205,2.82440737e-13 C68.1290983,2.82440737e-13 79.991613,11.566174 79.991613,25.8335225 C79.991613,40.1008709 68.1290983,51.6668226 53.4959205,51.6668226 C48.5651215,51.6668226 43.9488839,50.3535991 39.995072,48.0663028 C36.0423909,50.3537528 31.4264309,51.6668226 26.4959205,51.6668226 C11.8627426,51.6668226 8.52651283e-14,40.1008709 8.52651283e-14,25.8335225 C8.52651283e-14,11.566174 11.8627426,2.82440737e-13 26.4959205,2.82440737e-13 C31.4264309,2.82440737e-13 36.0423909,1.3130951 39.9960147,3.600177 C43.9488839,1.31324878 48.5651215,2.82440737e-13 53.4959205,2.82440737e-13 Z" id="Stroke-2"></path>
+                            <path d="M52.991613,25.8335225 C52.991613,40.1008709 41.1290983,51.6668226 26.4959205,51.6668226 C11.8627426,51.6668226 8.52651283e-14,40.1008709 8.52651283e-14,25.8335225 C8.52651283e-14,11.566174 11.8627426,2.82440737e-13 26.4959205,2.82440737e-13 C41.1290983,2.82440737e-13 52.991613,11.566174 52.991613,25.8335225 Z" id="Stroke-1-Copy-2"></path>
+                        </g>
+                        <path d="M-2.27963073e-05,42.3651632 C5.33841654,40.461472 5.32177523,40.4694735 12.9594502,37.6462762" id="Stroke-9" stroke="#1D1D1B" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M68.25,17.25 C68.25,17.25 88.5591417,9.82084597 104.04399,3.70858597" id="Stroke-11" stroke="#1D1D1B" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
