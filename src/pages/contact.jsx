@@ -2,10 +2,10 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
-import BusinessCardContactPage from '../components/business-card/BusinessCardContactPage';
-import ContactPageForm from '../components/contact-page-content/ContactPageForm';
+import BusinessCardContactPage from '../components/contact/business-card/BusinessCardContactPage';
+import ContactPageForm from '../components/contact/contact-page-form/ContactPageForm';
 import SEO from '../components/seo/Seo';
-import NavBar from '../components/nav-bar/NavBar';
+import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
 import NavBarHomeButton from '../components/nav-bar/NavBarHomeButton';
 import { MobileAndTabletQuery, DesktopQuery } from '../util/helpers';
 
@@ -14,9 +14,9 @@ function ContactPage() {
     <LayoutWrapper>
       <MainPageDarkLayout
         navBar={
-          <NavBar
+          <NavBarMainPage
             className="sticky"
-            rightContent={
+            desktopRightContent={
               <div className="flex justify-end items-center">
                 <NavBarHomeButton />
               </div>

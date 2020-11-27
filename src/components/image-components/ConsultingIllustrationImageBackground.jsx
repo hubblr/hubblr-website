@@ -1,5 +1,5 @@
 import React from 'react';
-import AnimatedSatelliteImage from '../animated-elements/satellite-image/AnimatedSatelliteImage';
+import AnimatedSatelliteImage from '../index/animated-elements/satellite-image/AnimatedSatelliteImage';
 
 function ConsultingIllustrationImageBackground() {
   return (

@@ -131,6 +131,17 @@
     }
   },
 
+  "software-laboratory": {
+    "seo": {
+      "title": "Software Laboratory",
+      "description": "Bauen Sie bessere, digitale Produkte"
+    },
+    "banner": {
+      "heading": "Bauen Sie bessere, digitale Produkte",
+      "text": "Durch eine am Endnutzer fokussierte Softwareentwicklung und einem Fokus auf den wirtschaftlichen Erfolg des Projektes, helfen wir Ihnen im hubblr Software Laboratory Ihren digitalen Innovationen Schwung zu verleihen."
+    }
+  },
+
   "links": {
     "imprint": "Impressum",
     "privacy-policy": "Datenschutz",
