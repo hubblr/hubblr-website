@@ -34,7 +34,7 @@ const Layout = ({ children, navBar }) => {
       <IntlProvider locale={locale} messages={flatten(messages[locale])}>
         {googleAnalyticsAllowed && <GoogleAnalyticsSetup />}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <div className="flex flex-col min-h-screen bg-black text-white font-sans">
+          <div lang={locale} className="flex flex-col min-h-screen bg-black text-white font-sans">
             {navBar}
             <div className="flex-grow flex flex-col">{children}</div>
             <div className="container mx-auto">

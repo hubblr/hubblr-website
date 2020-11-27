@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// TODO: fix language on div once language support is properly implemented
 function MainContentGridItem({ title, text }) {
   return (
     <div>
