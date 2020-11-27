@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { LocalizedLink as Link } from 'gatsby-theme-i18n';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import PageLinkContent from './PageLinkContent';

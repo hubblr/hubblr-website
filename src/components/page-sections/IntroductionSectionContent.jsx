@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { LocalizedLink as Link } from 'gatsby-theme-i18n';
 import { FormattedMessage } from 'react-intl';
 import HubblrIconImage from '../animated-elements/hubblr-icon-image/AnimatedHubblrIconImage';
 import IndexGradientBorderButtonLongArrow from '../buttons/gradient-border-buttons/IndexGradientBorderButtonLongArrow';

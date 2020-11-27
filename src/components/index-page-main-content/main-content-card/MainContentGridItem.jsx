@@ -14,8 +14,8 @@ function MainContentGridItem({ title, text }) {
 }
 
 MainContentGridItem.propTypes = {
-  title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  title: PropTypes.node.isRequired,
+  text: PropTypes.node.isRequired,
 };
 
 export default MainContentGridItem;

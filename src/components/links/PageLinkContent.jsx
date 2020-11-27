@@ -17,7 +17,7 @@ function PageLinkContent({ children, notificationNumber }) {
 }
 
 PageLinkContent.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   notificationNumber: PropTypes.number,
 };
 

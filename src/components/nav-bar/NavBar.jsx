@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
-import { navigate } from '@reach/router';
-import { Link } from 'gatsby';
+import { LocalizedLink as Link, useLocalization } from 'gatsby-theme-i18n';
 import { FormattedMessage } from 'react-intl';
+import localizedNavigate from '../../util/localizedNavigate';
 import { DesktopQuery, MobileAndTabletQuery } from '../../util/helpers';
 import LightningImage from '../image-components/LightningImage';
 import ConsultingIllustrationImage from '../image-components/ConsultingIllustrationImage';
@@ -19,6 +19,7 @@ import HubblrImage from '../image-components/HubblrImage';
 
 const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNavBar }, ref) => {
   // state of page & nav bar
+  const { locale } = useLocalization();
   const pageInfo = useContext(PageContext);
   const [isCollapsed, setIsCollapsed] = useState(true);
   const isPageScrolled = useIsPageScrolled();
@@ -27,7 +28,7 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
 
   // navigation functions
   function navigateByNavBar(to) {
-    navigate(to).then(() => {
+    localizedNavigate(to, locale).then(() => {
       setIsCollapsed(true);
     });
   }
@@ -143,7 +144,7 @@ const NavBar = React.forwardRef(({ leftContent, rightContent, className, showNav
             <hr className="bg-white h-p" />
             <Button
               onClick={() => {
-                navigate('/contact').then(() => {
+                localizedNavigate('/contact', locale).then(() => {
                   setIsCollapsed(true);
                 });
               }}

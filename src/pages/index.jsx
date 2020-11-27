@@ -79,6 +79,7 @@ function IndexPage() {
   // "jump" to position marked in hash
   const location = useLocation();
   const hash = useRef(location.hash);
+
   const [jumpIsEnabled, setJumpIsEnabled] = useState(true);
 
   // enable jump on history navigation

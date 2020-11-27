@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { IntlProvider } from 'react-intl';
 import { motion } from 'framer-motion';
-import cookies from 'browser-cookies';
 import flatten from 'flat';
 import { Helmet } from 'react-helmet';
+import { useLocalization } from 'gatsby-theme-i18n';
 import messagesDe from '../../translations/de.json';
 import messagesEn from '../../translations/en.json';
 import CookieNotice from '../cookie-notice/CookieNotice';
@@ -18,10 +18,7 @@ const messages = {
 };
 
 const Layout = ({ children, navBar }) => {
-  const [language, setLanguage] = useState('en');
-  useEffect(() => {
-    setLanguage(cookies.get('lang'));
-  }, []);
+  const { locale } = useLocalization();
 
   // allowed cookies
   const [googleAnalyticsAllowed, setGoogleAnalyticsAllowed] = useState(false);
@@ -34,7 +31,7 @@ const Layout = ({ children, navBar }) => {
           src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
         />
       </Helmet>
-      <IntlProvider locale={language} messages={flatten(messages[language])}>
+      <IntlProvider locale={locale} messages={flatten(messages[locale])}>
         {googleAnalyticsAllowed && <GoogleAnalyticsSetup />}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <div className="flex flex-col min-h-screen bg-black text-white font-sans">
