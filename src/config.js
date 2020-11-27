@@ -6,7 +6,7 @@ export const ANIMATION_BREAKPOINTS_DESKTOP = {
     opacity: [0, 61],
   },
   lightningImage: {
-    pathLength: [0, 50], // so far only used by lightning image
+    pathLength: [45, 75], // so far only used by lightning image
   },
   satelliteImage: {
     scale: [20, 61],
