@@ -6,7 +6,7 @@
     },
     "introduction": {
       "heading": "Developing our digital tomorrow",
-      "main": "To finally share user-centered and innovative software \"Made in Germany\" with the whole world, we develop outstanding products in three categories"
+      "main": "To finally share user-centered and innovative software \"Made in Germany\" with the whole world, we develop outstanding digital products in the followinng three categories"
     },
     "software-laboratory": {
       "designed-for": ["Mid-Size Companies", "Large Enterprises", "Post-Seed Startups"],
@@ -14,11 +14,11 @@
       "title": "Software Laboratory",
       "content": [
         {
-          "text": "During planning, we offer advice for the ideal implementation, tech, and UI design for your application.",
+          "text": "We offer advice for the ideal implementation, tech stack, and UI design for your application.",
           "title": "Concept & Design"
         },
         {
-          "text": "During development, we focus on user-centered testing and an iterative design process.",
+          "text": "During product development, we focus on user-centered testing and an iterative design process.",
           "title": "Prototyping & User-Testing"
         },
         {
@@ -60,15 +60,15 @@
       "title": "Digital Ventures",
       "content": [
         {
-          "text": "We help you during all necessary steps and are ready to bring along an investment of work or money.",
-          "title": "Investment & Founding"
+          "text": "We help you during all necessary steps and are will participate with a work or money investment",
+          "title": "Investment & Venture-Founding"
         },
         {
-          "text": "We develop a cost-efficient MVP and stay informed about your customers needs from the start.",
+          "text": "We develop a cost-efficient MVP and while always evaluating our customers needs.",
           "title": "User-Testing & Project Design"
         },
         {
-          "text": "We highly value our shared future and work to ensure that the app is ready for any coming rush - no matter how complex your project.",
+          "text": "We always look into the future and work together to ensure that the product is ready for high demands  - no matter how complex the project is.",
           "title": "Scalability and Future-Proofing"
         },
         {
@@ -97,7 +97,7 @@
       "business": "YOUR BUSINESS",
       "phone-number": "YOUR PHONE NUMBER",
       "invalid-phone-number": "Please enter a valid phone number!",
-      "message": "HOW MAY WE HELP YOU?*",
+      "message": "HOW CAN WE HELP?*",
       "missing-message": "Please enter a message!",
       "send": "Send",
       "success": {
@@ -151,6 +151,6 @@
 
   "generic": {
     "contact": "Contact Now",
-    "contact-short": "Contact"
+    "contact-short": "Contact Us"
   }
 }
