@@ -6,28 +6,19 @@ import {
   SiteContentAccordionHeader,
   SiteContentAccordionItem,
 } from '../../accordion';
-import shortArrowUpBlack from '../../images/shortArrow/short-arrow-up-black.svg';
-import shortArrowDownBlack from '../../images/shortArrow/short-arrow-down-black.svg';
+import SoftwareLaboratoryFlipArrow from './SoftwareLaboratoryAccordionFlipArrow';
 
-function SoftwareLaboratoryAccordionItem({ header, content, sideContent }) {
-  const accordionSectionFlipArrow = (
-    <div className="mr-3">
-      <SiteContentAccordionContent className="mt-1 w-10 h-auto">
-        <img className="w-full h-full" src={shortArrowUpBlack} alt="arrow down" />
-      </SiteContentAccordionContent>
-      <SiteContentAccordionContent className="mt-1 w-10 h-auto" showWhenOpen={false}>
-        <img className="w-full h-full" src={shortArrowDownBlack} alt="arrow up" />
-      </SiteContentAccordionContent>
-    </div>
-  );
-
+function SoftwareLaboratoryAccordionItem({ header, content, sideContent, ...rest }) {
   return (
     <SiteContentAccordionItem
+      {...rest}
       className="grid accordion-item"
       style={{ gridTemplateColumns: 'max-content 1fr' }}
     >
       <SiteContentAccordionHeader className="flex flex-col accordion-heading">
-        {accordionSectionFlipArrow}
+        <div className="mr-3">
+          <SoftwareLaboratoryFlipArrow />
+        </div>
       </SiteContentAccordionHeader>
       <SiteContentAccordionHeader className="accordion-heading">
         {header}
