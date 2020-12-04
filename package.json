@@ -37,7 +37,6 @@
     "react-helmet": "6.1.0",
     "react-intl": "^5.10.6",
     "react-responsive": "^8.1.1",
-    "react-side-content-accordion": "file:../react-side-content-accordion",
     "sass": "^1.29.0",
     "sweetalert2": "^10.10.4",
     "uuid": "^8.3.1",
