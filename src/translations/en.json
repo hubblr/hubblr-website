@@ -132,6 +132,7 @@
   },
 
   "software-laboratory": {
+    "title": "Software Laboratory",
     "seo": {
       "title": "Software Laboratory",
       "description": "Bauen Sie bessere, digitale Produkte"
@@ -139,6 +140,17 @@
     "banner": {
       "heading": "Bauen Sie bessere, digitale Produkte",
       "text": "Durch eine am Endnutzer fokussierte Softwareentwicklung und einem Fokus auf den wirtschaftlichen Erfolg des Projektes, helfen wir Ihnen im hubblr Software Laboratory Ihren digitalen Innovationen Schwung zu verleihen."
+    },
+    "navbar": {
+      "services": "Services",
+      "projects": "Projects",
+      "team": "Team",
+      "open-source": "Open Source",
+      "blog": "Blog"
+    },
+    "services": {
+      "heading-1": "Our Services",
+      "heading-2": "Innovation &<br/> Product Advice"
     }
   },
 
@@ -146,7 +158,8 @@
     "imprint": "Legal Notice",
     "privacy-policy": "Privacy Policy",
     "github": "GitHub",
-    "jobs": "Jobs"
+    "jobs": "Jobs",
+    "services": "All Services"
   },
 
   "generic": {

@@ -1,13 +1,14 @@
 .button {
-  @apply .px-3 py-2 .rounded-lg .leading-none;
+  @apply .px-3 py-1 .rounded-lg;
 
   &.button-dark {
-    // hier dark styling
+    // dark styling
     @extend .animate-bg-brand-gray-darkest;
   }
 
   &.button-light {
-    // hier dark styling
+    // light styling
+    @extend .animate-bg-brand-gray-light;
   }
 }
 

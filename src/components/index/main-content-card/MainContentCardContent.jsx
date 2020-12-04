@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// eslint-disable-next-line no-unused-vars
 import { v4 as uuidv4 } from 'uuid';
 
 function MainContentCardContent({ children, tabledConcepts, padding }) {

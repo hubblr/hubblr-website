@@ -1,0 +1,12 @@
+.accordion-item-container .accordion-item:not(:last-child) {
+  border-bottom: 1px solid black;
+}
+
+.accordion-heading {
+  @apply .text-2xl font-bold .py-5 text-left leading-tight tracking-tight;
+}
+
+.accordion-content {
+  @apply .text-2xl leading-tight font-light;
+  transition: max-height 0.3s ease;
+}
