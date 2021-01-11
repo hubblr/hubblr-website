@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { IntlProvider } from 'react-intl';
 import { motion } from 'framer-motion';
@@ -17,11 +17,15 @@ const messages = {
 };
 
 const LayoutWrapper = ({ children }) => {
-  smoothscroll.polyfill();
   const { locale } = useLocalization();
 
   // allowed cookies
   const [googleAnalyticsAllowed, setGoogleAnalyticsAllowed] = useState(false);
+
+  // polyfill after render to allow SSR
+  useEffect(() => {
+    smoothscroll.polyfill();
+  }, []);
 
   return (
     <>
