@@ -24,7 +24,7 @@ function HubblrPageLinks({ className }) {
           </PageLinkContent>
         </a>
         <a href="http://join.hubblr.io/" className="pr-5">
-          <PageLinkContent notificationNumber={2}>
+          <PageLinkContent notificationNumber={3}>
             <FormattedMessage id="links.jobs" />
           </PageLinkContent>
         </a>
