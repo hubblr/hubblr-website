@@ -21,8 +21,8 @@
     "flat": "^5.0.2",
     "framer-motion": "^2.9.4",
     "gatsby": "^2.24.92",
-    "gatsby-plugin-eslint": "2.0.8",
     "gatsby-plugin-manifest": "^2.4.34",
+    "gatsby-plugin-eslint": "2.0.8",
     "gatsby-plugin-offline": "3.2.31",
     "gatsby-plugin-postcss": "2.3.13",
     "gatsby-plugin-react-helmet": "3.3.14",
@@ -38,6 +38,7 @@
     "react-intl": "^5.10.6",
     "react-responsive": "^8.1.1",
     "sass": "^1.29.0",
+    "smoothscroll-polyfill": "^0.4.4",
     "sweetalert2": "^10.10.4",
     "uuid": "^8.3.1",
     "validator": "^13.1.17"

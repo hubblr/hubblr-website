@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import AnimationAreaContext from '../../../../context/AnimationAreaContext';
 import DesignAdvertisementHeader from '../../design-advertisement-header/DesignAdvertisementHeader';
-import useCreateTransformFromDescription from '../../../hooks/scroll/useCreateTransformFromDescription';
-import usePaddingTop from '../../../hooks/styleQueries/usePaddingTop';
-import useWindowResizeInfo from '../../../hooks/window/useWindowResizeInfo';
+import useCreateTransformFromDescription from '../../../../hooks/scroll/useCreateTransformFromDescription';
+import usePaddingTop from '../../../../hooks/styleQueries/usePaddingTop';
+import useWindowResizeInfo from '../../../../hooks/window/useWindowResizeInfo';
 import { ANIMATION_BREAKPOINTS_DESKTOP } from '../../../../config';
 import ScrollJumper from '../../../scroll-jumper/ScrollJumper';
-import useScrollWidth from '../../../hooks/scroll/useScrollWidth';
+import useScrollWidth from '../../../../hooks/dimensions/useScrollWidth';
 
 const transforms = {
   opacity: {

@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   SiteContent,
-  SiteContentAccordionContent,
   SiteContentAccordionHeader,
   SiteContentAccordionItem,
-} from '../../accordion';
+} from '../../../accordion';
+import SoftwareLaboratoryAccordionTextContent from './SoftwareLaboratoryAccordionTextContent';
 import SoftwareLaboratoryFlipArrow from './SoftwareLaboratoryAccordionFlipArrow';
 
 function SoftwareLaboratoryAccordionItem({ header, content, sideContent, ...rest }) {
@@ -24,9 +24,9 @@ function SoftwareLaboratoryAccordionItem({ header, content, sideContent, ...rest
         {header}
       </SiteContentAccordionHeader>
 
-      <SiteContentAccordionContent className="col-start-2 accordion-content">
+      <SoftwareLaboratoryAccordionTextContent className="col-start-2 accordion-text-content">
         {content}
-      </SiteContentAccordionContent>
+      </SoftwareLaboratoryAccordionTextContent>
       <SiteContent>{sideContent}</SiteContent>
     </SiteContentAccordionItem>
   );

@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 import DesignAdvertisementHeader from '../../design-advertisement-header/DesignAdvertisementHeader';
 import ScrollJumper from '../../../scroll-jumper/ScrollJumper';
 import AnimationAreaContext from '../../../../context/AnimationAreaContext';
-import useScrollWidth from '../../../hooks/scroll/useScrollWidth';
-import useCreateSpringFromDescription from '../../../hooks/scroll/useCreateSpringFromDescription';
-import useCreateTransformFromDescription from '../../../hooks/scroll/useCreateTransformFromDescription';
+import useScrollWidth from '../../../../hooks/dimensions/useScrollWidth';
+import useCreateSpringFromDescription from '../../../../hooks/scroll/useCreateSpringFromDescription';
+import useCreateTransformFromDescription from '../../../../hooks/scroll/useCreateTransformFromDescription';
 import { ANIMATION_BREAKPOINTS_MOBILE } from '../../../../config';
 
 const transforms = {

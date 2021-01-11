@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import AnimationAreaContext from '../../../../context/AnimationAreaContext';
-import useCreateTransformFromDescription from '../../../hooks/scroll/useCreateTransformFromDescription';
-import useWindowResizeInfo from '../../../hooks/window/useWindowResizeInfo';
-import usePaddingTop from '../../../hooks/styleQueries/usePaddingTop';
+import useCreateTransformFromDescription from '../../../../hooks/scroll/useCreateTransformFromDescription';
+import useWindowResizeInfo from '../../../../hooks/window/useWindowResizeInfo';
+import usePaddingTop from '../../../../hooks/styleQueries/usePaddingTop';
 import { ANIMATION_BREAKPOINTS_MOBILE } from '../../../../config';
 
 const transforms = {

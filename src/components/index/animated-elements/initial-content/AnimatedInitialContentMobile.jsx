@@ -2,13 +2,13 @@ import React, { useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import SectionHeading from '../../section-heading/SectionHeading';
-import useClientHeight from '../../../hooks/dimensions/useClientHeight';
-import useCreateTransformFromDescription from '../../../hooks/scroll/useCreateTransformFromDescription';
+import useClientHeight from '../../../../hooks/dimensions/useClientHeight';
+import useCreateTransformFromDescription from '../../../../hooks/scroll/useCreateTransformFromDescription';
 import AnimationAreaContext from '../../../../context/AnimationAreaContext';
-import useWindowResizeInfo from '../../../hooks/window/useWindowResizeInfo';
-import usePaddingTop from '../../../hooks/styleQueries/usePaddingTop';
+import useWindowResizeInfo from '../../../../hooks/window/useWindowResizeInfo';
+import usePaddingTop from '../../../../hooks/styleQueries/usePaddingTop';
 import { ANIMATION_BREAKPOINTS_MOBILE, MOBILE_INITIAL_CONTENT } from '../../../../config';
-import useClientWidth from '../../../hooks/dimensions/useClientWidth';
+import useClientWidth from '../../../../hooks/dimensions/useClientWidth';
 
 const transforms = {
   fadeInImage: {

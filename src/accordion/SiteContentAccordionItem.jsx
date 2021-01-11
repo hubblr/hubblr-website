@@ -5,7 +5,15 @@ import SiteContentAccordionContext from './SiteContentAccordionContext';
 import SiteContentAccordionItemContext from './SiteContentAccordionItemContext';
 
 function SiteContentAccordionItem({ children, className, isFirstSection }) {
+  const isFirstRender = useRef(true);
+  if (isFirstRender.current) {
+    console.log('FIRST ITEM RENDER!');
+  }
+  const { openSections } = useContext(SiteContentAccordionContext);
+
   const uuidRef = useRef(uuidv4());
+  const uuid = uuidRef.current;
+  const sectionIsOpen = (isFirstRender.current && isFirstSection) || openSections.includes(uuid);
 
   const { setFirstSectionUuid } = useContext(SiteContentAccordionContext);
   useEffect(() => {
@@ -13,9 +21,12 @@ function SiteContentAccordionItem({ children, className, isFirstSection }) {
       setFirstSectionUuid(uuidRef.current);
     }
   }, [isFirstSection, setFirstSectionUuid, uuidRef]);
+  useEffect(() => {
+    isFirstRender.current = false;
+  }, []);
 
   return (
-    <SiteContentAccordionItemContext.Provider value={{ uuid: uuidRef.current }}>
+    <SiteContentAccordionItemContext.Provider value={{ sectionIsOpen, uuid }}>
       <div className={className}>{children}</div>
     </SiteContentAccordionItemContext.Provider>
   );

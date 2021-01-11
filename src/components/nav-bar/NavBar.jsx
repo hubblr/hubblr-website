@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DesktopQuery, MobileAndTabletQuery } from '../../util/helpers';
-import useIsPageScrolled from '../hooks/window/useIsPageScrolled';
+import useIsPageScrolled from '../../hooks/window/useIsPageScrolled';
 
 const NavBar = React.forwardRef(
   (

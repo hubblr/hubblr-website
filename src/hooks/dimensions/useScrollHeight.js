@@ -7,9 +7,7 @@ function useScrollHeight(ref) {
   useLayoutEffect(() => {
     if (scrollHeight === 0) {
       setTimeout(() => {
-        console.log('timeout fires');
         if (scrollHeight === 0) {
-          console.log('... and resolves');
           setScrollHeight(1); // force re-render
         }
       }, 1);

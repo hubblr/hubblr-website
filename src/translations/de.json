@@ -139,6 +139,39 @@
     "banner": {
       "heading": "Bauen Sie bessere, digitale Produkte",
       "text": "Durch eine am Endnutzer fokussierte Softwareentwicklung und einem Fokus auf den wirtschaftlichen Erfolg des Projektes, helfen wir Ihnen im hubblr Software Laboratory Ihren digitalen Innovationen Schwung zu verleihen."
+    },
+    "navbar": {
+      "services": "Leistungen",
+      "projects": "Projekte",
+      "team": "Team",
+      "open-source": "Open Source",
+      "blog": "Blog"
+    },
+    "service-sections": {
+      "heading": "Unsere Leistungen",
+      "content": [
+        {
+          "title": "Innovation & Produktberatung",
+          "accordion": [
+            {
+              "title": "Innovations- &<br/> Geschäftsmodell-Beratung",
+              "text": "Gemeinsam mit Ihnen identifizieren wir neue, digitale Geschäftsfelder und Produkt-Innovationen für Ihr Unternehmen und erarbeiten digitale Geschäftsmodelle für einen profitablen Return-Of-Invest."
+            },
+            {
+              "title": "Strategische Beratung zur Validierung",
+              "text": "Unser interdisziplinäres Team entwickelt mit Ihnen Thesen, die das Geschäftsmodell und die Adaption im Markt validieren, sowie Milestones, an denen entsprechende Erfolge gemessen werden. Die Thesen können dann im Projektverlauf iterativ überprüft werden und das Produkt entsprechend zu einem erfolgreichen Markteintritt ausgerichtet werden."
+            },
+            {
+              "title": "Anwendungskonzeption",
+              "text": "Wir entwickeln in einer Sprint-Phase anhand von Wire-Frames eine erste Konzeption der Anwendungen, sodass Umfang & Funktionalität ersichtlich werden. Danach entscheiden wir uns, wieder anhand des Thesen-Boards, welche Teile zunächst große Aufmerksamkeit benötigen, damit das Geschäftsmodell validiert wird."
+            },
+            {
+              "title": "Software-Design & Technologieberatung",
+              "text": "Nachdem Umfang und Produktvision klar sind, beraten wir Sie zur technologischen Realisierbarkeit und geben eine Empfehlung auf welchen Technologien das Produkt gebaut werden sollte. Sie erhalten dabei einen Überblick über Vor- und Nachteile zu entsprechenden Entscheidungen, Geschwindigkeitsprognosen sowie skalierungsfähigkeit der Software und des Entwicklungsteams."
+            }
+          ]
+        }
+      ]
     }
   },
 

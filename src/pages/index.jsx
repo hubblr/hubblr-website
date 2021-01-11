@@ -9,15 +9,15 @@ import SoftwareLaboratorySection from '../components/index/page-sections/Softwar
 import ConsultingSection from '../components/index/page-sections/ConsultingSection';
 import VenturesSection from '../components/index/page-sections/VenturesSection';
 import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
-import useYPositions from '../components/hooks/scroll/useYPositions';
-import useWindowResizeInfo from '../components/hooks/window/useWindowResizeInfo';
-import useOffsetHeight from '../components/hooks/dimensions/useOffsetHeight';
+import useYPositions from '../hooks/scroll/useYPositions';
+import useWindowResizeInfo from '../hooks/window/useWindowResizeInfo';
+import useOffsetHeight from '../hooks/dimensions/useOffsetHeight';
 import PageContext from '../context/PageContext';
 import { ANIMATION_AREA_HEIGHT_DESKTOP, ANIMATION_AREA_HEIGHT_MOBILE } from '../config';
 import { TabletBreakpoint } from '../util/helpers';
 import SEO from '../components/seo/Seo';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
-import useAnimationBreakpoints from '../components/hooks/animation/useAnimationBreakpoints';
+import useAnimationBreakpoints from '../hooks/animation/useAnimationBreakpoints';
 
 // disable regular scroll restoration on reload
 function useDisableScrollRestoration() {
