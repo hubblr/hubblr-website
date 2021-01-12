@@ -32,9 +32,9 @@ const ImprintPage = () => (
           <div className="mt-8 mb-4">
             hubblr - Bals Greinus GbR
             <br />
-            Hafenweg 11A
+            Drubbel 3
             <br />
-            GER-48155 Münster
+            48143 Münster
             <br />
           </div>
           <div className="mb-4">

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { IntlProvider } from 'react-intl';
 import { motion } from 'framer-motion';
 import flatten from 'flat';
-import { Helmet } from 'react-helmet';
+import smoothscroll from 'smoothscroll-polyfill';
 import { useLocalization } from 'gatsby-theme-i18n';
 import messagesDe from '../../translations/de.json';
 import messagesEn from '../../translations/en.json';
@@ -22,14 +22,13 @@ const LayoutWrapper = ({ children }) => {
   // allowed cookies
   const [googleAnalyticsAllowed, setGoogleAnalyticsAllowed] = useState(false);
 
+  // polyfill after render to allow SSR
+  useEffect(() => {
+    smoothscroll.polyfill();
+  }, []);
+
   return (
     <>
-      <Helmet>
-        <script
-          defer
-          src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
-        />
-      </Helmet>
       <IntlProvider locale={locale} messages={flatten(messages[locale])}>
         {googleAnalyticsAllowed && <GoogleAnalyticsSetup />}
         <motion.div lang={locale} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
