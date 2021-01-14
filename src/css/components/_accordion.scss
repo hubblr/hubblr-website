@@ -1,0 +1,11 @@
+.accordion-heading {
+  @apply .text-2xl font-bold .py-5 text-left leading-tight tracking-tight;
+}
+
+.accordion-text-content {
+  @apply .text-2xl leading-tight font-light;
+}
+
+.accordion-img-content:not(.active) {
+  display: none;
+}

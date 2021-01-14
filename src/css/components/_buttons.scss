@@ -1,14 +1,20 @@
+// different types of buttons
 .button {
-  @apply .px-3 py-2 .rounded-lg .leading-none;
+  @apply .px-3 py-1 .rounded-lg;
+}
 
-  &.button-dark {
-    // hier dark styling
-    @extend .animate-bg-brand-gray-darkest;
-  }
+.round-button {
+  @apply .px-3 .py-3 .rounded-full;
+}
 
-  &.button-light {
-    // hier dark styling
-  }
+// dark styling
+.button-dark {
+  @extend .animate-bg-brand-gray-darkest;
+}
+
+// light styling
+.button-light {
+  @extend .animate-bg-brand-gray-light;
 }
 
 @screen lg {

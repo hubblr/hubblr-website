@@ -2,10 +2,10 @@ import React, { forwardRef, useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import PageContext from '../../../../context/PageContext';
 import AnimationAreaContext from '../../../../context/AnimationAreaContext';
-import useWindowResizeInfo from '../../../hooks/window/useWindowResizeInfo';
+import useWindowResizeInfo from '../../../../hooks/window/useWindowResizeInfo';
 import { TabletBreakpoint } from '../../../../util/helpers';
-import useAnimationBreakpoints from '../../../hooks/animation/useAnimationBreakpoints';
-import useClientHeight from '../../../hooks/dimensions/useClientHeight';
+import useAnimationBreakpoints from '../../../../hooks/animation/useAnimationBreakpoints';
+import useClientHeight from '../../../../hooks/dimensions/useClientHeight';
 
 const AnimatedSection = forwardRef(
   ({ children, sectionScrollBar, animationAreaHeight }, fullSectionRef) => {

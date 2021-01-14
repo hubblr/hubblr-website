@@ -2,16 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { LocalizedLink as Link } from 'gatsby-theme-i18n';
 import { FormattedMessage } from 'react-intl';
+import AppKnockoutText from '../text/AppKnockoutText';
 
 function NavBarContactButton({ className }) {
   return (
-    <Link
-      to="/contact"
-      className={`button button-dark text-center font-extrabold tracking-tight ${className}`}
-    >
-      <span className="bg-clip-text text-transparent bg-gradient-to-r bg-gradient-to-r from-teal-400 to-blue-500">
+    <Link to="/contact" className={`button text-center ${className}`}>
+      <AppKnockoutText>
         <FormattedMessage id="generic.contact-short" />
-      </span>
+      </AppKnockoutText>
     </Link>
   );
 }
@@ -21,7 +19,7 @@ NavBarContactButton.propTypes = {
 };
 
 NavBarContactButton.defaultProps = {
-  className: '',
+  className: 'button-dark',
 };
 
 export default NavBarContactButton;

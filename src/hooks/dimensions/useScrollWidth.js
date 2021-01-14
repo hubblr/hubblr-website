@@ -1,10 +1,10 @@
 import { useState, useLayoutEffect } from 'react';
 
 function useScrollWidth(ref) {
-  const [scrollWidth, setscrollWidth] = useState(0);
+  const [scrollWidth, setScrollWidth] = useState(0);
   useLayoutEffect(() => {
     if (ref.current) {
-      setscrollWidth(ref.current?.scrollWidth);
+      setScrollWidth(ref.current?.scrollWidth);
     }
   }, [ref, ref.current?.scrollWidth]);
   return scrollWidth;

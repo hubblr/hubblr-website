@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import AnimationAreaContext from '../../../../context/AnimationAreaContext';
-import useCreateTransformFromDescription from '../../../hooks/scroll/useCreateTransformFromDescription';
+import useCreateTransformFromDescription from '../../../../hooks/scroll/useCreateTransformFromDescription';
 import SatelliteImage from './SatelliteImage';
 import { ANIMATION_BREAKPOINTS_DESKTOP } from '../../../../config';
 

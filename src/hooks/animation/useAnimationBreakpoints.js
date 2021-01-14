@@ -1,6 +1,6 @@
 import useYPositions from '../scroll/useYPositions';
 import useWindowResizeInfo from '../window/useWindowResizeInfo';
-import { TabletBreakpoint } from '../../../util/helpers';
+import { TabletBreakpoint } from '../../util/helpers';
 
 function useAnimationBreakpoints(sectionRef, animationAreaHeight) {
   const { width: windowWidth, height: windowHeight } = useWindowResizeInfo();

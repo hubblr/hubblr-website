@@ -2,10 +2,10 @@ import React, { useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import AnimationAreaContext from '../../../../context/AnimationAreaContext';
-import useWindowResizeInfo from '../../../hooks/window/useWindowResizeInfo';
+import useWindowResizeInfo from '../../../../hooks/window/useWindowResizeInfo';
 import SectionHeading from '../../section-heading/SectionHeading';
-import useClientHeight from '../../../hooks/dimensions/useClientHeight';
-import useCreateTransformFromDescription from '../../../hooks/scroll/useCreateTransformFromDescription';
+import useClientHeight from '../../../../hooks/dimensions/useClientHeight';
+import useCreateTransformFromDescription from '../../../../hooks/scroll/useCreateTransformFromDescription';
 import PageContext from '../../../../context/PageContext';
 import { ANIMATION_BREAKPOINTS_DESKTOP } from '../../../../config';
 
