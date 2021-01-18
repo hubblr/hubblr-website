@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import DangerousIntlSpan from '../../intl/DangerousIntlSpan';
-import { SideContentItemContainer, SiteContentAccordion } from '../../../accordion';
+import { Accordion } from '../../../accordion';
 import SoftwareLaboratoryAccordionItem from '../accordion/SoftwareLaboratoryAccordionItem';
 
 function UIUXSectionContent({ className }) {
@@ -18,9 +18,10 @@ function UIUXSectionContent({ className }) {
         />
       </h2>
 
-      <SiteContentAccordion className="flex w-full mb-24">
-        <SideContentItemContainer className="border-between-children-1 max-md:mr-0 w-1/2 max-md:w-full">
+      <Accordion className="flex w-full mb-24">
+        <div className="border-between-children-1 max-md:mr-0 w-1/2 max-md:w-full">
           <SoftwareLaboratoryAccordionItem
+            initiallyOpen
             header={
               <FormattedMessage id="software-laboratory.service-sections.content.1.accordion.0.title" />
             }
@@ -50,8 +51,8 @@ function UIUXSectionContent({ className }) {
               <FormattedMessage id="software-laboratory.service-sections.content.1.accordion.2.text" />
             }
           />
-        </SideContentItemContainer>
-      </SiteContentAccordion>
+        </div>
+      </Accordion>
     </div>
   );
 }

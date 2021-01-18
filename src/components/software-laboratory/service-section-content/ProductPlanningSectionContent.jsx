@@ -2,11 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import DangerousIntlSpan from '../../intl/DangerousIntlSpan';
-import {
-  SideContentContainer,
-  SideContentItemContainer,
-  SiteContentAccordion,
-} from '../../../accordion';
+import { AccordionSideContentContainer, Accordion } from '../../../accordion';
 import SoftwareLaboratoryAccordionItem from '../accordion/SoftwareLaboratoryAccordionItem';
 import astronautImg from '../../../images/softwareLaboratory/astronaut.jpg';
 import abstractArtImg from '../../../images/softwareLaboratory/art-abstract.jpg';
@@ -26,9 +22,10 @@ function ProductPlanningSectionContent({ className }) {
         />
       </h2>
 
-      <SiteContentAccordion className="flex w-full mb-24">
-        <SideContentItemContainer className="border-between-children-1 max-md:mr-0 w-1/2 max-md:w-full">
+      <Accordion className="flex w-full mb-24">
+        <div className="border-between-children-1 max-md:mr-0 w-1/2 max-md:w-full">
           <SoftwareLaboratoryAccordionItem
+            initiallyOpen
             header={
               <FormattedMessage id="software-laboratory.service-sections.content.0.accordion.0.title" />
             }
@@ -54,7 +51,7 @@ function ProductPlanningSectionContent({ className }) {
 
           <SoftwareLaboratoryAccordionItem
             header={
-              <FormattedMessage id="software-laboratory.service-sections.content.0.accordion.2.title" />
+              <DangerousIntlSpan id="software-laboratory.service-sections.content.0.accordion.2.title" />
             }
             content={
               <div className="pb-5">
@@ -66,16 +63,16 @@ function ProductPlanningSectionContent({ className }) {
 
           <SoftwareLaboratoryAccordionItem
             header={
-              <FormattedMessage id="software-laboratory.service-sections.content.0.accordion.3.title" />
+              <DangerousIntlSpan id="software-laboratory.service-sections.content.0.accordion.3.title" />
             }
             content={
               <FormattedMessage id="software-laboratory.service-sections.content.0.accordion.3.text" />
             }
             sideContent={<img className="w-full h-auto" src={planetArtImg} alt="abstract art" />}
           />
-        </SideContentItemContainer>
-        <SideContentContainer className="max-md:hidden ml-12 w-1/2" />
-      </SiteContentAccordion>
+        </div>
+        <AccordionSideContentContainer className="max-md:hidden ml-12 w-1/2" />
+      </Accordion>
     </div>
   );
 }

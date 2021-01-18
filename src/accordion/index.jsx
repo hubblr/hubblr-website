@@ -1,17 +1,19 @@
-import SiteContentAccordion from './SiteContentAccordion';
-import SideContentItemContainer from './SideContentItemContainer';
-import SiteContentAccordionItem from './SiteContentAccordionItem';
-import SiteContentAccordionHeader from './SiteContentAccordionHeader';
-import SiteContentAccordionContent from './SiteContentAccordionContent';
-import SideContentContainer from './SideContentContainer';
-import SiteContent from './SiteContent';
+import Accordion from './Accordion';
+import AccordionSection from './AccordionSection';
+import AccordionSectionHeader from './AccordionSectionHeader';
+import AccordionSectionTextContent from './AccordionSectionTextContent';
+import AccordionSideContentContainer from './AccordionSideContentContainer';
+import AccordionSideContent from './AccordionSideContent';
+import AccordionContext from './context/AccordionContext';
+import AccordionSectionContext from './context/AccordionSectionContext';
 
 export {
-  SiteContentAccordion,
-  SideContentItemContainer,
-  SiteContentAccordionItem,
-  SiteContentAccordionHeader,
-  SiteContentAccordionContent,
-  SideContentContainer,
-  SiteContent,
+  Accordion,
+  AccordionSection,
+  AccordionSectionHeader,
+  AccordionSectionTextContent,
+  AccordionSideContentContainer,
+  AccordionSideContent,
+  AccordionContext,
+  AccordionSectionContext,
 };

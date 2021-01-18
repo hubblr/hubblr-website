@@ -4,8 +4,30 @@
 
 .accordion-text-content {
   @apply .text-2xl leading-tight font-light;
+  transition: height .8s ease-in-out;
 }
 
 .accordion-img-content:not(.active) {
   display: none;
+}
+
+.transform-arrow {
+  transition: transform .8s ease-in-out;
+}
+
+.side-content-container {
+  position: relative;
+}
+
+.side-content {
+  position: absolute;
+
+  &.active {
+    opacity: 1;
+    transition: opacity .3s ease-in-out;
+  }
+
+  &.inactive {
+    opacity: 0;
+  }
 }

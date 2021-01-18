@@ -1,7 +1,7 @@
 import React from 'react';
 import { LocalizedLink as Link } from 'gatsby-theme-i18n';
 import { FormattedMessage } from 'react-intl';
-import HubblrIconImage from '../animated-elements/hubblr-icon-image/AnimatedHubblrIconImage';
+import HubblrIconImage from '../animated/hubblr-icon-image/AnimatedHubblrIconImage';
 import IndexGradientBorderButtonLongArrow from '../../buttons/gradient-border-buttons/IndexGradientBorderButtonLongArrow';
 
 function IntroductionSectionContent() {
