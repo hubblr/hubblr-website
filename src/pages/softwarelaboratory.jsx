@@ -6,9 +6,9 @@ import ProductPlanningSectionContent from '../components/software-laboratory/ser
 import UIUXSectionContent from '../components/software-laboratory/service-section-content/UIUXSectionContent';
 import AppKnockoutText from '../components/text/AppKnockoutText';
 import AppButton from '../components/buttons/bases/AppButton';
+import Modal from '../components/modal/Modal';
 import shortArrowRight from '../images/shortArrow/short-arrow-right.png';
 import ServiceSectionModalButton from '../components/software-laboratory/service-section-modal/ServiceSectionModalButton';
-import ServiceSectionModal from '../components/software-laboratory/service-section-modal/ServiceSectionModal';
 import SoftwareLaboratoryBanner from '../components/software-laboratory/banner/SoftwareLaboratoryBanner';
 
 const sectionContents = [<ProductPlanningSectionContent />, <UIUXSectionContent />];
@@ -79,23 +79,25 @@ function SoftwareLaboratoryPage() {
           </div>
         </div>
 
-        <ServiceSectionModal
-          onClose={() => setShowModal(false)}
-          className={showModal ? '' : 'hidden'}
-        >
-          <ServiceSectionModalButton onClick={() => setCurDisplayedSection(0)}>
-            <FormattedMessage id="software-laboratory.service-sections.content.0.title" />
-          </ServiceSectionModalButton>
-          <ServiceSectionModalButton onClick={() => setCurDisplayedSection(1)}>
-            <FormattedMessage id="software-laboratory.service-sections.content.1.title" />
-          </ServiceSectionModalButton>
-          <ServiceSectionModalButton>
-            <FormattedMessage id="software-laboratory.service-sections.content.2.title" />
-          </ServiceSectionModalButton>
-          <ServiceSectionModalButton>
-            <FormattedMessage id="software-laboratory.service-sections.content.3.title" />
-          </ServiceSectionModalButton>
-        </ServiceSectionModal>
+        <Modal isOpen={showModal} setOpen={setShowModal}>
+          <h1 className="relative text-center font-extrabold text-2xl mb-16">
+            <FormattedMessage id="software-laboratory.service-sections.title" />
+          </h1>
+          <div className="flex flex-col border-between-children-1">
+            <ServiceSectionModalButton onClick={() => setCurDisplayedSection(0)}>
+              <FormattedMessage id="software-laboratory.service-sections.content.0.title" />
+            </ServiceSectionModalButton>
+            <ServiceSectionModalButton onClick={() => setCurDisplayedSection(1)}>
+              <FormattedMessage id="software-laboratory.service-sections.content.1.title" />
+            </ServiceSectionModalButton>
+            <ServiceSectionModalButton>
+              <FormattedMessage id="software-laboratory.service-sections.content.2.title" />
+            </ServiceSectionModalButton>
+            <ServiceSectionModalButton>
+              <FormattedMessage id="software-laboratory.service-sections.content.3.title" />
+            </ServiceSectionModalButton>
+          </div>
+        </Modal>
       </div>
     </LayoutWrapper>
   );

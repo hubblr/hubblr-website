@@ -5,6 +5,7 @@
 .accordion-text-content {
   @apply .text-2xl leading-tight font-light;
   transition: height .8s ease-in-out;
+  overflow: hidden;
 }
 
 .accordion-img-content:not(.active) {

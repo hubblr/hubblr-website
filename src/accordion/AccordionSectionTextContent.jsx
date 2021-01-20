@@ -39,7 +39,7 @@ function AccordionSectionTextContent({ children, className }) {
     <div
       style={{ height: heightStyle }}
       ref={contentRef}
-      className={`accordion-text-content overflow-hidden ${className}`}
+      className={`accordion-text-content ${className}`}
     >
       {children}
     </div>
