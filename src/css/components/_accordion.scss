@@ -8,20 +8,17 @@
   overflow: hidden;
 }
 
-.accordion-img-content:not(.active) {
-  display: none;
-}
-
 .transform-arrow {
   transition: transform .8s ease-in-out;
 }
 
-.side-content-container {
+.accordion-side-content-container {
   position: relative;
 }
 
-.side-content {
+.accordion-side-content {
   position: absolute;
+  width: 100%;
 
   &.active {
     opacity: 1;

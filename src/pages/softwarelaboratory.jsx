@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import NavBarSoftwareLaboratory from '../components/nav-bar/NavBarSoftwareLaboratory';
@@ -21,13 +21,48 @@ function SoftwareLaboratoryPage() {
   const [curDisplayedSection, setCurDisplayedSection] = useState(0);
   const [showModal, setShowModal] = useState(false);
 
+  const sectionRenderRef = useRef(
+    (() => {
+      const sectionRenderInfo = {};
+      for (let i = 0; i < sectionContents.length; i += 1) {
+        const initiallyRendered = curDisplayedSection === i;
+        sectionRenderInfo[i] = {
+          rendered: initiallyRendered,
+          shown: initiallyRendered,
+        };
+      }
+      return sectionRenderInfo;
+    })()
+  );
+
+  const updateCurDisplayedSection = (sectionId) => {
+    const newRenderInfo = { ...sectionRenderRef.current };
+    Object.keys(newRenderInfo).forEach((key) => {
+      if (parseInt(key, 10) === sectionId) {
+        newRenderInfo[key] = {
+          rendered: true,
+          shown: true,
+        };
+      } else {
+        newRenderInfo[key] = {
+          rendered: newRenderInfo[key].rendered,
+          shown: false,
+        };
+      }
+    });
+    sectionRenderRef.current = newRenderInfo;
+    setCurDisplayedSection(sectionId);
+  };
+
   const advanceSection = () => {
     if (curDisplayedSection === sectionContents.length - 1) {
-      setCurDisplayedSection(0);
+      updateCurDisplayedSection(0);
     } else {
-      setCurDisplayedSection(curDisplayedSection + 1);
+      updateCurDisplayedSection(curDisplayedSection + 1);
     }
   };
+
+  const sectionRenderInfo = sectionRenderRef.current;
 
   return (
     <LayoutWrapper>
@@ -37,8 +72,15 @@ function SoftwareLaboratoryPage() {
 
         <div className="bg-brand-eggshell flex-grow text-black bg-white">
           <div className="container mx-auto">
-            {curDisplayedSection === 0 && <ProductPlanningSectionContent />}
-            {curDisplayedSection === 1 && <UIUXSectionContent />}
+            {sectionRenderInfo[0].rendered && (
+              <ProductPlanningSectionContent
+                className={sectionRenderInfo[0].shown ? '' : 'hidden'}
+              />
+            )}
+
+            {sectionRenderInfo[1].rendered && (
+              <UIUXSectionContent className={sectionRenderInfo[1].shown ? '' : 'hidden'} />
+            )}
 
             <div className="w-full flex h-1 mb-6">
               <div className="w-56 bg-gradient-to-r from-yellow-400 to-orange-500 h-full" />
@@ -84,10 +126,10 @@ function SoftwareLaboratoryPage() {
             <FormattedMessage id="software-laboratory.service-sections.title" />
           </h1>
           <div className="flex flex-col border-between-children-1">
-            <ServiceSectionModalButton onClick={() => setCurDisplayedSection(0)}>
+            <ServiceSectionModalButton onClick={() => updateCurDisplayedSection(0)}>
               <FormattedMessage id="software-laboratory.service-sections.content.0.title" />
             </ServiceSectionModalButton>
-            <ServiceSectionModalButton onClick={() => setCurDisplayedSection(1)}>
+            <ServiceSectionModalButton onClick={() => updateCurDisplayedSection(1)}>
               <FormattedMessage id="software-laboratory.service-sections.content.1.title" />
             </ServiceSectionModalButton>
             <ServiceSectionModalButton>

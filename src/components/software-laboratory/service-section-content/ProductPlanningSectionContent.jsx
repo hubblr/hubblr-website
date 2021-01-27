@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+import { AccordionSideContentContainer, Accordion } from '@hubblr/react-side-content-accordion';
 import DangerousIntlSpan from '../../intl/DangerousIntlSpan';
-import { AccordionSideContentContainer, Accordion } from '../../../accordion';
 import SoftwareLaboratoryAccordionItem from '../accordion/SoftwareLaboratoryAccordionItem';
 import astronautImg from '../../../images/softwareLaboratory/astronaut.jpg';
 import abstractArtImg from '../../../images/softwareLaboratory/art-abstract.jpg';
@@ -25,7 +25,7 @@ function ProductPlanningSectionContent({ className }) {
       <Accordion className="flex w-full mb-24">
         <div className="border-between-children-1 max-md:mr-0 w-1/2 max-md:w-full">
           <SoftwareLaboratoryAccordionItem
-            initiallyOpen
+            initiallyExpanded
             header={
               <FormattedMessage id="software-laboratory.service-sections.content.0.accordion.0.title" />
             }

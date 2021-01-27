@@ -3,24 +3,24 @@ import PropTypes from 'prop-types';
 import {
   AccordionSideContent,
   AccordionSectionTextContent,
-  AccordionSectionHeader,
+  AccordionSectionHeading,
   AccordionSection,
-} from '../../../accordion';
+} from '@hubblr/react-side-content-accordion';
 import SoftwareLaboratoryFlipArrow from './SoftwareLaboratoryAccordionFlipArrow';
 
-function SoftwareLaboratoryAccordionItem({ header, content, sideContent, initiallyOpen }) {
+function SoftwareLaboratoryAccordionItem({ header, content, sideContent, initiallyExpanded }) {
   return (
     <AccordionSection
-      initiallyOpen={initiallyOpen}
+      initiallyExpanded={initiallyExpanded}
       className="grid accordion-item"
       style={{ gridTemplateColumns: 'max-content 1fr' }}
     >
-      <AccordionSectionHeader className="flex flex-col accordion-heading">
+      <AccordionSectionHeading className="flex flex-col accordion-heading">
         <div className="mr-3">
           <SoftwareLaboratoryFlipArrow />
         </div>
-      </AccordionSectionHeader>
-      <AccordionSectionHeader className="accordion-heading">{header}</AccordionSectionHeader>
+      </AccordionSectionHeading>
+      <AccordionSectionHeading className="accordion-heading">{header}</AccordionSectionHeading>
 
       <AccordionSectionTextContent className="col-start-2 accordion-text-content">
         {content}
@@ -34,13 +34,13 @@ SoftwareLaboratoryAccordionItem.propTypes = {
   header: PropTypes.node.isRequired,
   content: PropTypes.node,
   sideContent: PropTypes.node,
-  initiallyOpen: PropTypes.bool,
+  initiallyExpanded: PropTypes.bool,
 };
 
 SoftwareLaboratoryAccordionItem.defaultProps = {
   content: null,
   sideContent: null,
-  initiallyOpen: false,
+  initiallyExpanded: false,
 };
 
 export default SoftwareLaboratoryAccordionItem;

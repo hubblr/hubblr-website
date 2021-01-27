@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { AccordionSectionContext } from '../../../accordion';
+import { AccordionSectionContext } from '@hubblr/react-side-content-accordion';
 import shortArrowUpBlack from '../../../images/shortArrow/short-arrow-up-black.svg';
 
 function SoftwareLaboratoryFlipArrow() {
-  const { isOpen } = useContext(AccordionSectionContext);
-  const transform = isOpen ? {} : { transform: 'rotate(-180deg)' };
+  const { isExpanded } = useContext(AccordionSectionContext);
+  const transform = isExpanded ? {} : { transform: 'rotate(-180deg)' };
 
   return (
     <img
