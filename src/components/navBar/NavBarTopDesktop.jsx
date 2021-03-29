@@ -1,16 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
 import NavigationButtonHubblrIcon from './NavigationButtonHubblrIcon';
-import IndexPageContext from '../../context/IndexPageContext';
 
 function NavBarTopDesktop({ contentWidth }) {
-  const { navBarSizeClass } = useContext(IndexPageContext);
-
   return (
     <div
-      className={`h-${navBarSizeClass} w-full p-5 flex flex-row container mx-auto`}
+      className="sticky h-20 w-full p-5 flex flex-row container mx-auto"
       style={{ width: contentWidth }}
     >
       <div className="w-1/3" />
