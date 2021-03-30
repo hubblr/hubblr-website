@@ -1,0 +1,10 @@
+{
+    "editor.formatOnSave": true,
+    "prettier.jsxBracketSameLine": true,
+    "prettier.jsxSingleQuote": true,
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.renderWhitespace": "all",
+    "eslint.alwaysShowStatus": true,
+    "less.lint.propertyIgnoredDueToDisplay": "error"
+}
