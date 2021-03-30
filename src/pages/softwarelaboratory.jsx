@@ -1,37 +1,58 @@
-import React from 'react';
+import { Link } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
-import LayoutWrapper from '../components/layouts/LayoutWrapper';
-import flashyLogo from '../images/softwareLaboratory/flashy-logo.svg';
-import LightningImageSvg from '../components/image-components/LightningImageSvg';
+import React from 'react';
+import VenturesArrowImage from '../images/ventures/venturesArrow.png';
+import SectionHeading from '../components/index/section-heading/SectionHeading';
+import { DesktopQuery, MobileAndTabletQuery } from '../util/helpers';
+// import MainContentCard from '../components/index/main-content-card/MainContentCard';
+// import MainContentGrid from '../components/index/main-content-card/MainContentGrid';
+// import MainContentGridItem from '../components/index/main-content-card/MainContentGridItem';
+import IndexGradientBorderButtonLongArrow from '../components/buttons/gradient-border-buttons/IndexGradientBorderButtonLongArrow';
+import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
+import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
+import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
+import SoftwareLaboratorySectionContent from '../components/index/page-sections/SoftwareLaboratorySectionContent';
 
 function SoftwareLaboratoryPage() {
-  return (
-    <LayoutWrapper>
-      <div className="flex flex-col min-h-screen w-full">
-        <div className="w-full text-white bg-black overflow-hidden">
-          <div className="relative container mx-auto flex justify-center">
-            <div className="flex-grow" />
-            <div className="mt-12 mb-32 w-full md:w-3/4 xl:w-2/3 flex flex-col items-center text-center">
-              <img className="w-36 h-auto mb-10" src={flashyLogo} alt="hubblr logo" />
-              <h1 className="text-5xl font-extrabold leading-none mb-10 px-12">
-                <FormattedMessage id="software-laboratory.banner.heading" />
-              </h1>
-              <div className="text-2xl font-light leading-tight">
-                <FormattedMessage id="software-laboratory.banner.text" />
-              </div>
-            </div>
-            <div className="flex-grow relative">
-              <LightningImageSvg
-                className="max-md:hidden max-w-none absolute w-auto -ml-4"
-                style={{ height: '125%', bottom: '2rem' }}
-              />
-            </div>
-          </div>
-        </div>
+  // TODO: move duplicated main content text to its own component
 
-        <div className="bg-brand-eggshell flex-grow text-black bg-white">bla</div>
+  return (
+    <MainPageDarkLayout>
+      <NavBarMainPage
+        showNavBar
+        className="sticky w-full navbar-background-blur animate top-0 mb-4"
+        desktopRightContent={
+          <div className="flex justify-end items-center">
+            <NavBarContactButton />
+          </div>
+        }
+      />
+      <div className="container mx-auto flex flex-col justify-center items-center max-w-6xl">
+        <SectionHeading heading="SoftwareLaboratory" />
+        <img className="w-40 h-auto" src={VenturesArrowImage} alt="softwarelaboratory" />
+        <MobileAndTabletQuery>
+          <SoftwareLaboratorySectionContent>
+            <Link to="/contact">
+              <IndexGradientBorderButtonLongArrow
+                theme="light"
+                widthClass="w-full"
+                addedFlexClasses="justify-center"
+              >
+                <FormattedMessage id="generic.contact" />
+              </IndexGradientBorderButtonLongArrow>
+            </Link>
+          </SoftwareLaboratorySectionContent>
+        </MobileAndTabletQuery>
+        <DesktopQuery>
+          <SoftwareLaboratorySectionContent />
+          <Link to="/contact">
+            <IndexGradientBorderButtonLongArrow theme="light">
+              <FormattedMessage id="generic.contact" />
+            </IndexGradientBorderButtonLongArrow>
+          </Link>
+        </DesktopQuery>
       </div>
-    </LayoutWrapper>
+    </MainPageDarkLayout>
   );
 }
 

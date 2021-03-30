@@ -24,7 +24,7 @@ function VenturesPage() {
           </div>
         }
       />
-      <div className="container mx-auto flex flex-col justify-center items-center">
+      <div className="container mx-auto flex flex-col justify-center items-center max-w-6xl">
         <SectionHeading heading="Ventures" />
         <img className="w-40 h-auto" src={VenturesArrowImage} alt="ventures" />
         <MobileAndTabletQuery>
