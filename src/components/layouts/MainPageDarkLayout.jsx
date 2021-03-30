@@ -1,26 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import HubblrPageLinks from '../links/HubblrPageLinks';
+import LayoutWrapper from './LayoutWrapper';
 
-function MainPageDarkLayout({ children, navBar }) {
+function MainPageDarkLayout({ children }) {
   return (
-    <div className="flex flex-col min-h-screen bg-black text-white font-sans">
-      {navBar}
-      <div className="flex-grow flex flex-col">{children}</div>
-      <div className="container mx-auto">
-        <HubblrPageLinks />
+    <LayoutWrapper>
+      <div className="flex flex-col min-h-screen bg-black text-white font-sans">
+        <div className="flex-grow flex flex-col">{children}</div>
+        <div className="container mx-auto">
+          <HubblrPageLinks />
+        </div>
       </div>
-    </div>
+    </LayoutWrapper>
   );
 }
 
 MainPageDarkLayout.propTypes = {
   children: PropTypes.node.isRequired,
-  navBar: PropTypes.element,
-};
-
-MainPageDarkLayout.defaultProps = {
-  navBar: null,
 };
 
 export default MainPageDarkLayout;

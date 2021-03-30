@@ -1,6 +1,5 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
 import BusinessCardContactPage from '../components/contact/business-card/BusinessCardContactPage';
 import ContactPageForm from '../components/contact/contact-page-form/ContactPageForm';
@@ -11,47 +10,43 @@ import { MobileAndTabletQuery, DesktopQuery } from '../util/helpers';
 
 function ContactPage() {
   return (
-    <LayoutWrapper>
-      <MainPageDarkLayout
-        navBar={
-          <NavBarMainPage
-            className="sticky"
-            desktopRightContent={
-              <div className="flex justify-end items-center">
-                <NavBarHomeButton />
-              </div>
-            }
-          />
+    <MainPageDarkLayout>
+      <SEO title="contact.seo.title" description="contact.seo.description" />
+      <NavBarMainPage
+        showNavBar
+        className="sticky"
+        desktopRightContent={
+          <div className="flex justify-end items-center">
+            <NavBarHomeButton />
+          </div>
         }
-      >
-        <SEO title="contact.seo.title" description="contact.seo.description" />
-        <div className="flex-grow container mx-auto h-full flex flex-col items-center">
-          <h1 className="mb-8 lg:mb-0 text-5xl font-extrabold">
-            <FormattedMessage id="contact.heading" />
-          </h1>
-          <div className="flex-grow w-full flex flex-col justify-center items-center">
-            <DesktopQuery>
-              <div className="min-h-1/2 w-full flex justify-between">
-                <div className="flex-grow flex-basis-0 mr-6">
-                  <BusinessCardContactPage />
-                </div>
-                <div className="flex-grow-2 flex-basis-0">
-                  <ContactPageForm />
-                </div>
+      />
+      <div className="flex-grow container mx-auto h-full flex flex-col items-center">
+        <h1 className="mb-8 lg:mb-0 text-5xl font-extrabold">
+          <FormattedMessage id="contact.heading" />
+        </h1>
+        <div className="flex-grow w-full flex flex-col justify-center items-center">
+          <DesktopQuery>
+            <div className="min-h-1/2 w-full flex justify-between">
+              <div className="flex-grow flex-basis-0 mr-6">
+                <BusinessCardContactPage />
               </div>
-            </DesktopQuery>
-            <MobileAndTabletQuery>
-              <div className="w-full flex flex-col">
-                <div className="mb-6">
-                  <BusinessCardContactPage />
-                </div>
+              <div className="flex-grow-2 flex-basis-0">
                 <ContactPageForm />
               </div>
-            </MobileAndTabletQuery>
-          </div>
+            </div>
+          </DesktopQuery>
+          <MobileAndTabletQuery>
+            <div className="w-full flex flex-col">
+              <div className="mb-6">
+                <BusinessCardContactPage />
+              </div>
+              <ContactPageForm />
+            </div>
+          </MobileAndTabletQuery>
         </div>
-      </MainPageDarkLayout>
-    </LayoutWrapper>
+      </div>
+    </MainPageDarkLayout>
   );
 }
 
