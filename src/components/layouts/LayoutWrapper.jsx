@@ -32,6 +32,7 @@ const LayoutWrapper = ({ children }) => {
       <IntlProvider locale={locale} messages={flatten(messages[locale])}>
         {googleAnalyticsAllowed && <GoogleAnalyticsSetup />}
         <motion.div lang={locale} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          {/* Here all children components will be inserted. */}
           {children}
           <CookieNotice setGoogleAnalyticsAllowed={setGoogleAnalyticsAllowed} />
         </motion.div>

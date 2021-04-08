@@ -13,7 +13,7 @@ module.exports = {
         2: '2',
       },
       fontFamily: {
-        sans: ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
+        sans: ['Garet', 'Ubuntu Mono', 'Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
       },
       fontSize: {
         '7xl': '5rem',
