@@ -6,7 +6,7 @@ import ArrowImageDownDouble from '../../image-components/ArrowImageDownDouble';
 
 function IntroductionSection({ children }) {
   return (
-    <div className="container mx-auto min-h-screen flex flex-col mt-4">
+    <div className="container mx-auto min-h-screen flex flex-col h-screen mt-4 ">
       <div className="flex-grow flex flex-col lg:justify-center pt-20 pb-5 lg:pt-0 md:pb-0">
         {children}
       </div>

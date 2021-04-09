@@ -7,13 +7,13 @@ import IndexGradientBorderButtonBasic from '../../buttons/gradient-border-button
 const ServiceSection = () => {
   return (
     // Section Container
-    <div className="m-6">
+    <div className="mx-6 my-10">
       {/* Defining HEADLINE */}
       <h1 className="text-5xl mb-3 mx-5">
         <FormattedMessage id="index.services.title" />
       </h1>
       {/* 3 COL GRID  */}
-      <div className="grid grid-cols-3 grid-rows-2 gap-10 p-4">
+      <div className="grid grid-cols-3 gap-10 p-4">
         {/* EACH CONTENT CARD CAN BE OUTSOURCED INTO SINGLE CONTENT CARD COMPONENT */}
         <div className="row-span-1 flex justify-around items-center md:flex-col bg-gray-primary mx-3 rounded-2xl text-center ">
           <h1 className="text-3xl m-5 px-5">

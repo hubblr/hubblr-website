@@ -66,6 +66,8 @@ module.exports = {
         'gray-primary': '#242323',
         'hubblr-purple': '#5d1c90',
         'hubblr-turkis': '#4ad0d9',
+        'hubblr-link-gradient-1': '#4299e1',
+        'hubblr-link-gradient-2': '#4fd1c5',
       },
     },
   },

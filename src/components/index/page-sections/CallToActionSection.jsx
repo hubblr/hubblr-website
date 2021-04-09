@@ -19,7 +19,7 @@ const CallToActionSection = () => {
     // Section Container
     <div className="flex grid grid-cols-2 gap-10 p-2 ">
       {/* Image */}
-      <div className="flex ">
+      <div className="object-scale-down flex ">
         <img src={CallToActionLogo} alt="" />
       </div>
       {/* Content */}
@@ -29,7 +29,7 @@ const CallToActionSection = () => {
         </h1>
         <Link to="/contact" className="my-5 w-1/2">
           <IndexGradientBorderButtonBasic
-            theme="light"
+            theme="dark"
             widthClass="w-full"
             addedFlexClasses="justify-center"
           >

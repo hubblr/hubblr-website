@@ -21,6 +21,8 @@ import useAnimationBreakpoints from '../components/hooks/animation/useAnimationB
 import CallToActionSection from '../components/index/page-sections/CallToActionSection';
 import ServiceSection from '../components/index/page-sections/ServiceSection';
 import TestimonialSection from '../components/index/page-sections/TestimonialSection';
+import NewsSection from '../components/index/page-sections/NewsSection';
+import StartupSection from '../components/index/page-sections/StartupSection';
 
 // disable regular scroll restoration on reload
 function useDisableScrollRestoration() {
@@ -237,6 +239,8 @@ function IndexPage() {
             <ServiceSection />
             <TestimonialSection />
             <CallToActionSection />
+            <NewsSection />
+            <StartupSection />
             <SoftwareLaboratorySection
               ref={softwareLabSectionRef}
               animationAreaHeight={animationAreaHeight}

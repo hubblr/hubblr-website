@@ -17,7 +17,7 @@ const TestimonialSection = () => {
               <img
                 src={TestimonialPhoto}
                 alt=""
-                className="w-24 h-auto rounded-full border-2 border-hubblr-turkis shadow-box-purple"
+                className="w-24 h-24 rounded-full border-2 border-hubblr-turkis shadow-box-purple"
               />
               <img
                 src={TestimonialLogo}
@@ -45,7 +45,7 @@ const TestimonialSection = () => {
               <img
                 src={TestimonialPhoto}
                 alt=""
-                className="w-24 h-auto rounded-full border-2 border-hubblr-turkis shadow-box-purple"
+                className="w-24 h-24 rounded-full border-2 border-hubblr-turkis shadow-box-purple"
               />
               <img
                 src={TestimonialLogo}

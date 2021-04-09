@@ -29,7 +29,7 @@ function HubblrGradientBorderButtonBase({
   return (
     <GradientBorderButtonBase
       isSubmitButton={isSubmitButton}
-      borderWidth="3px"
+      borderWidth="2px"
       gradientColors={['#bdfff4', '#44ced8', '#0da2ff', '#8d00ff']}
       widthClass={widthClass}
       paddingClasses={paddingClasses}
@@ -38,7 +38,7 @@ function HubblrGradientBorderButtonBase({
       addedFlexClasses={addedFlexClasses}
       onClick={onClick}
     >
-      <span className="text-lg">{children}</span>
+      <span className="text-sm py-1">{children}</span>
       {image}
     </GradientBorderButtonBase>
   );
