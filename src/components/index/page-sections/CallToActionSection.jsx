@@ -17,17 +17,17 @@ import IndexGradientBorderButtonBasic from '../../buttons/gradient-border-button
 const CallToActionSection = () => {
   return (
     // Section Container
-    <div className="grid grid-cols-2 gap-10 border-2 border-green p-2 ">
+    <div className="flex grid grid-cols-2 gap-10 p-2 ">
       {/* Image */}
-      <div className="flex md:flex-col">
+      <div className="flex ">
         <img src={CallToActionLogo} alt="" />
       </div>
       {/* Content */}
-      <div className="flex items-center place-content-center md:flex-colfont-black font-sans">
-        <h1 className="my-5 text-center">
+      <div className="flex flex-col justify-center items-center md:flex-colfont-black font-sans">
+        <h1 className="my-5 text-center w-1/2">
           <FormattedMessage id="index.call-to-action.text" />
         </h1>
-        <Link to="/contact" className="my-5">
+        <Link to="/contact" className="my-5 w-1/2">
           <IndexGradientBorderButtonBasic
             theme="light"
             widthClass="w-full"
