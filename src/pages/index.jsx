@@ -20,6 +20,7 @@ import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 import useAnimationBreakpoints from '../components/hooks/animation/useAnimationBreakpoints';
 import CallToActionSection from '../components/index/page-sections/CallToActionSection';
 import ServiceSection from '../components/index/page-sections/ServiceSection';
+import TestimonialSection from '../components/index/page-sections/TestimonialSection';
 
 // disable regular scroll restoration on reload
 function useDisableScrollRestoration() {
@@ -234,6 +235,7 @@ function IndexPage() {
               </div>
             </IntroductionSection>
             <ServiceSection />
+            <TestimonialSection />
             <CallToActionSection />
             <SoftwareLaboratorySection
               ref={softwareLabSectionRef}

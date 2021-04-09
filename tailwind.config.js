@@ -64,6 +64,8 @@ module.exports = {
         'brand-gray-darkest': '#2D2D2D',
         'brand-eggshell': '#f8f8f8',
         'gray-primary': '#242323',
+        'hubblr-purple': '#5d1c90',
+        'hubblr-turkis': '#4ad0d9',
       },
     },
   },
