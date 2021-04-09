@@ -12,11 +12,12 @@ function GradientBorderButtonBase({
   gradientColors,
   addedFlexClasses,
   onClick,
+  // fontStyleClass,
 }) {
   return (
     <button
       type={isSubmitButton ? 'submit' : 'button'}
-      className={`${widthClass} rounded-lg`}
+      className={`${widthClass} rounded-lg `}
       style={{
         background: `linear-gradient(to right, ${gradientColors.join(',')})`,
       }}
@@ -25,7 +26,8 @@ function GradientBorderButtonBase({
       <div
         className={
           `flex items-center ${addedFlexClasses} rounded-lg ` +
-          `bg-clip-padding ${textColorClass} ${backgroundColorClass}`
+          `bg-clip-padding ${textColorClass} ${backgroundColorClass} ` +
+          `font-sans font-black text-tiny`
         }
         style={{
           border: `solid ${borderWidth} transparent`,
@@ -49,6 +51,7 @@ GradientBorderButtonBase.propTypes = {
   gradientColors: PropTypes.arrayOf(PropTypes.string).isRequired,
   addedFlexClasses: PropTypes.string,
   onClick: PropTypes.func,
+  // fontStyleClass: PropTypes.string,
 };
 
 GradientBorderButtonBase.defaultProps = {
@@ -59,6 +62,7 @@ GradientBorderButtonBase.defaultProps = {
   backgroundColorClass: 'text-white',
   addedFlexClasses: '',
   onClick: null,
+  // fontStyleClass: 'font-sans',
 };
 
 export default GradientBorderButtonBase;

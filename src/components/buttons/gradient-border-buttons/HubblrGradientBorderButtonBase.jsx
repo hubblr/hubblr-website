@@ -30,7 +30,7 @@ function HubblrGradientBorderButtonBase({
     <GradientBorderButtonBase
       isSubmitButton={isSubmitButton}
       borderWidth="3px"
-      gradientColors={['yellow', 'orange', 'red', 'magenta']}
+      gradientColors={['#bdfff4', '#44ced8', '#0da2ff', '#8d00ff']}
       widthClass={widthClass}
       paddingClasses={paddingClasses}
       textColorClass={textColorClass}
@@ -60,7 +60,7 @@ HubblrGradientBorderButtonBase.defaultProps = {
   image: null,
   widthClass: '',
   addedFlexClasses: '',
-  paddingClasses: 'px-8 py-3',
+  paddingClasses: 'px-8 py-1.5',
   onClick: null,
 };
 

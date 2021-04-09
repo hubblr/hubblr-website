@@ -18,6 +18,8 @@ import { TabletBreakpoint } from '../util/helpers';
 import SEO from '../components/seo/Seo';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 import useAnimationBreakpoints from '../components/hooks/animation/useAnimationBreakpoints';
+import CallToActionSection from '../components/index/page-sections/CallToActionSection';
+import ServiceSection from '../components/index/page-sections/ServiceSection';
 
 // disable regular scroll restoration on reload
 function useDisableScrollRestoration() {
@@ -231,6 +233,8 @@ function IndexPage() {
                 <IntroductionSectionContent />
               </div>
             </IntroductionSection>
+            <ServiceSection />
+            <CallToActionSection />
             <SoftwareLaboratorySection
               ref={softwareLabSectionRef}
               animationAreaHeight={animationAreaHeight}

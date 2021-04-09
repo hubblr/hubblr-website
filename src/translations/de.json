@@ -4,9 +4,13 @@
     "seo": {
       "title": "hubblr - Developing our digital tomorrow."
     },
-    "introduction": {
+    "introduction-old": {
       "heading": "Developing our digital tomorrow",
       "main": "Um nutzerzentrierte und innovative Softwareprodukte mit der Aufschrift \"Made in Germany\" endlich auch auf der Welt zu sehen, entwickeln wir in drei Sparten herausstechende Produkte"
+    },
+    "introduction": {
+      "heading": "We service companies that matter to innovate faster",
+      "trust": "trusted by"
     },
     "software-laboratory": {
       "designed-for": ["Mittelständische Unternehmen", "Großunternehmen", "Post-Seed Startups"],
@@ -76,7 +80,56 @@
           "title": "Starke Partner für die Zukunft"
         }
       ]
+    },
+    "services":{
+      "title": "Our Services",
+      "software-laboratory": {
+        "title": "Software Laboratory",
+        "description": "Wir konzipieren, entwickeln und testen Ihr digitales Softwareprojekt",
+        "button": "Mehr erfahren"
+      },
+      "consulting": {
+        "title": "Solution Assessment",
+        "description": "Wir beurteilen die technische Softwareentwicklung bestehender Produkte",
+        "button": "Mehr erfahren"
+      },
+      "ventures": {
+        "title": "Digital Venture",
+        "description": "Gemeinsam mit Visionär*innen investieren wir in digitale Produkte.",
+        "button": "Mehr erfahren"
+      }
+    },
+    "testimonials": {
+      "flink": {
+        "person-full-name": "Saad Saeed",
+        "person-position": "Director of Technology",
+        "quote": "The hubblr team helped us in our earliest stage to bring flink alive. With the heavily commited team we were able to achieve fast pace software development to hit very ambitious scaling goals with our product. The team consulted and activiley participated in technical decision making, software development and helped scaling our globally growing development and QA-Team."
+      }
+    },
+    "call-to-action": {
+      "text": "\"Let’s start building great digital products - together\"",
+      "button": "Contact us"
+    },
+    "news": {
+      "title": "News from our Clients",
+      "client-test": {
+        "heading": "Cooler Titel",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent elementum justo id mollis pretium. Donec mauris odio, molestie in vulputate quis, congue ac ipsum."
+      }
+    },
+    "startups": {
+      "title": "Our Startup Studio",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent elementum justo id mollis pretium. Donec mauris odio, molestie in vulputate quis, congue ac ipsum.",
+      "example1":{
+        "firm": "tryff",
+        "description": "Tryff rethinks retail by connecting online brands with offline retailers through its Retail-as-a-Service platform."
+      },
+      "example2":{
+        "firm": "Inourhands",
+        "description": "Inourhands is a circular economy solution for second hand shops and turns them into a wardrobe by offering a Subscription-App-as-a-Service."
+      }
     }
+
   },
 
   "contact": {
@@ -151,6 +204,8 @@
 
   "generic": {
     "contact": "Jetzt kontaktieren",
-    "contact-short": "Kontakt"
+    "contact-short": "Kontakt",
+    "more": "Mehr erfahren",
+    "read-more": "Mehr lesen"
   }
 }
