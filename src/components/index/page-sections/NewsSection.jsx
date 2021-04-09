@@ -17,7 +17,7 @@ const NewsSection = () => {
         {/* 2 COLS GRID - SEPARATING PHOTO AND TEXT */}
         <div className="grid-cols-2 flex flex-row ">
           {/* EACH CONTENT CARD CAN BE OUTSOURCED INTO SINGLE CONTENT CARD COMPONENT */}
-          <div className="w-full h-auto items-center md:flex-col mx-3 rounded-2xl">
+          <div className="w-full h-auto items-center flex-col mx-3 rounded-2xl">
             {/* FIRST RPW */}
             <img
               src={NewsPlaceholderPhoto}
@@ -25,7 +25,7 @@ const NewsSection = () => {
               className="object-fill border-2 border-hubblr-turkis shadow-box-purple"
             />
           </div>
-          <div className="w-full h-auto items-center md:flex-col mx-3 rounded-2xl">
+          <div className="w-full h-auto items-center flex-col mx-3 rounded-2xl">
             <h1 className="text-3xl m-5 text-left">
               <FormattedMessage id="index.news.client-test.heading" />
             </h1>

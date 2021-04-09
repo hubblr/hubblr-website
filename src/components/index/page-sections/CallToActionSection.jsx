@@ -19,8 +19,8 @@ const CallToActionSection = () => {
     // Section Container
     <div className="flex grid grid-cols-2 gap-10 p-2 ">
       {/* Image */}
-      <div className="object-scale-down flex ">
-        <img src={CallToActionLogo} alt="" />
+      <div className=" flex ">
+        <img src={CallToActionLogo} alt="" className="object-scale-down" />
       </div>
       {/* Content */}
       <div className="flex flex-col justify-center items-center md:flex-colfont-black font-sans">

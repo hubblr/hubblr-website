@@ -11,7 +11,7 @@ const TestimonialSection = () => {
       {/* 2 COL GRID  */}
       <div className="grid grid-cols-2 gap-10 p-4">
         {/* EACH CONTENT CARD CAN BE OUTSOURCED INTO SINGLE CONTENT CARD COMPONENT */}
-        <div className="col-span-1 flex justify-around items-center md:flex-col mx-3 rounded-2xl text-center">
+        <div className="col-span-1 flex justify-around items-center flex-col mx-3 rounded-2xl text-center">
           <div className="grid-cols-2">
             <div className="col-span-1 flex flex-row">
               <img
@@ -39,7 +39,7 @@ const TestimonialSection = () => {
             <FormattedMessage id="index.testimonials.flink.quote" />
           </p>
         </div>
-        <div className="col-span-1 flex justify-around items-center md:flex-col mx-3 rounded-2xl text-center">
+        <div className="col-span-1 flex justify-around items-center flex-col mx-3 rounded-2xl text-center">
           <div className="grid-cols-2">
             <div className="col-span-1 flex flex-row">
               <img
