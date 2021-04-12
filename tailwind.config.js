@@ -13,8 +13,8 @@ module.exports = {
         2: '2',
       },
       fontFamily: {
-        'sans': ['Garet', 'Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
-        'mono': ['Ubuntu Mono', 'Roboto Mono', 'Menlo', 'monospace'],
+        sans: ['Garet', 'Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
+        mono: ['Ubuntu Mono', 'Roboto Mono', 'Menlo', 'monospace'],
       },
       fontSize: {
         '7xl': '5rem',

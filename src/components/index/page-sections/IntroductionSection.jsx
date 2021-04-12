@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MobileAndTabletQuery, DesktopQuery } from '../../../util/helpers';
-import SectionScrollBar from '../section-scroll-bar/SectionScrollBar';
-import ArrowImageDownDouble from '../../image-components/ArrowImageDownDouble';
+// import { MobileAndTabletQuery } from '../../../util/helpers';
+// import { DesktopQuery } from '../../../util/helpers';
+// import SectionScrollBar from '../section-scroll-bar/SectionScrollBar';
+// import ArrowImageDownDouble from '../../image-components/ArrowImageDownDouble';
 
 function IntroductionSection({ children }) {
   return (
@@ -10,12 +11,12 @@ function IntroductionSection({ children }) {
       <div className="flex-grow flex flex-col lg:justify-center pt-20 pb-5 lg:pt-0 md:pb-0">
         {children}
       </div>
-      <MobileAndTabletQuery>
+      {/* <MobileAndTabletQuery>
         <div className="w-full flex justify-center mb-5">
           <ArrowImageDownDouble />
         </div>
-      </MobileAndTabletQuery>
-      <DesktopQuery>
+      </MobileAndTabletQuery> */}
+      {/* <DesktopQuery>
         <div className="mt-4">
           <SectionScrollBar
             upperFlexGrow={0}
@@ -24,7 +25,7 @@ function IntroductionSection({ children }) {
             arrowImage={<ArrowImageDownDouble />}
           />
         </div>
-      </DesktopQuery>
+      </DesktopQuery> */}
     </div>
   );
 }

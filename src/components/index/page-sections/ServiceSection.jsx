@@ -16,7 +16,7 @@ const ServiceSection = () => {
       <div className="grid grid-cols-3 gap-10 p-4">
         {/* EACH CONTENT CARD CAN BE OUTSOURCED INTO SINGLE CONTENT CARD COMPONENT */}
         <div className="row-span-1 flex justify-around items-center flex-col bg-gray-primary mx-3 rounded-2xl text-center ">
-          <h1 className="text-3xl m-5 px-5">
+          <h1 className="text-xl md:text-3xl w-150 m-5 px-5">
             <FormattedMessage id="index.services.software-laboratory.title" />
           </h1>
           <p className="m-5 text-center py-10">
