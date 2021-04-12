@@ -17,7 +17,7 @@ import IndexGradientBorderButtonBasic from '../../buttons/gradient-border-button
 const CallToActionSection = () => {
   return (
     // Section Container
-    <div className="grid grid-cols-2 gap-10 mb-40">
+    <div className="container mx-auto grid grid-cols-2 gap-10 mb-40">
       {/* Image */}
       <div className=" flex px-4 ">
         <img src={CallToActionLogo} alt="" className="object-scale-down" />
