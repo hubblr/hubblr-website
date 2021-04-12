@@ -7,11 +7,11 @@ import TestimonialLogo from '../../../images/flink-logo.png';
 const TestimonialSection = () => {
   return (
     // Section Container
-    <div className="m-6">
+    <div className="container mx-auto mb-40">
       {/* 2 COL GRID  */}
-      <div className="grid grid-cols-2 gap-10 p-4">
+      <div className="grid grid-cols-2 gap-10">
         {/* EACH CONTENT CARD CAN BE OUTSOURCED INTO SINGLE CONTENT CARD COMPONENT */}
-        <div className="col-span-1 flex justify-around items-center flex-col mx-3 rounded-2xl text-center">
+        <div className="col-span-1 flex justify-around items-center flex-col rounded-2xl text-center">
           <div className="grid-cols-2">
             <div className="col-span-1 flex flex-row">
               <img
@@ -35,11 +35,11 @@ const TestimonialSection = () => {
               </h1>
             </div>
           </div>
-          <p className="m-5 text-center py-10">
+          <p className="m-5 text-center my-10">
             <FormattedMessage id="index.testimonials.flink.quote" />
           </p>
         </div>
-        <div className="col-span-1 flex justify-around items-center flex-col mx-3 rounded-2xl text-center">
+        <div className="col-span-1 flex justify-around items-center flex-col rounded-2xl text-center">
           <div className="grid-cols-2">
             <div className="col-span-1 flex flex-row">
               <img

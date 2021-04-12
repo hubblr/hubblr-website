@@ -7,16 +7,16 @@ import IndexGradientBorderButtonBasic from '../../buttons/gradient-border-button
 const ServiceSection = () => {
   return (
     // Section Container
-    <div className="mx-6 my-10">
+    <div className="container mx-auto mb-40">
       {/* Defining HEADLINE */}
-      <h1 className="text-5xl mb-3 mx-5">
+      <h1 className="text-5xl mb-12">
         <FormattedMessage id="index.services.title" />
       </h1>
       {/* 3 COL GRID  */}
-      <div className="grid grid-cols-3 gap-10 p-4">
+      <div className="grid grid-cols-3 gap-10">
         {/* EACH CONTENT CARD CAN BE OUTSOURCED INTO SINGLE CONTENT CARD COMPONENT */}
-        <div className="row-span-1 flex justify-around items-center flex-col bg-gray-primary mx-3 rounded-2xl text-center ">
-          <h1 className="text-xl md:text-3xl w-150 m-5 px-5">
+        <div className="row-span-1 flex justify-around items-center flex-col bg-gray-primary rounded-2xl text-center ">
+          <h1 className="text-xl md:text-3xl m-5 px-5">
             <FormattedMessage id="index.services.software-laboratory.title" />
           </h1>
           <p className="m-5 text-center py-10">
@@ -33,7 +33,7 @@ const ServiceSection = () => {
           </Link>
         </div>
         {/* Content */}
-        <div className="row-span-1 flex justify-around items-center flex-col bg-gray-primary mx-3 rounded-2xl text-center">
+        <div className="row-span-1 flex justify-around items-center flex-col bg-gray-primary rounded-2xl text-center">
           <h1 className="text-3xl m-5 px-5">
             <FormattedMessage id="index.services.consulting.title" />
           </h1>
@@ -50,7 +50,7 @@ const ServiceSection = () => {
             </IndexGradientBorderButtonBasic>
           </Link>
         </div>
-        <div className="row-span-1 flex justify-around items-center flex-col bg-gray-primary mx-3 rounded-2xl text-center">
+        <div className="row-span-1 flex justify-around items-center flex-col bg-gray-primary rounded-2xl text-center">
           <h1 className="text-3xl m-5 px-5">
             <FormattedMessage id="index.services.ventures.title" />
           </h1>
