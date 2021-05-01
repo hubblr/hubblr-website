@@ -2,37 +2,41 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import HubblrGradientBorderButtonBase from './HubblrGradientBorderButtonBase';
 
-function IndexGradientBorderButtonLongArrow({
+function IndexGradientBorderButtonBasic({
   children,
-  addedFlexClasses,
   theme,
   onClick,
-  widthClass,
+  borderButtonClassName,
+  innerOverlayDivClassName,
+  textDivClassName,
 }) {
   return (
     <HubblrGradientBorderButtonBase
-      addedFlexClasses={`${addedFlexClasses}`}
       theme={theme}
       onClick={onClick}
-      widthClass={widthClass}
+      borderButtonClassName={borderButtonClassName}
+      innerOverlayDivClassName={innerOverlayDivClassName}
+      textDivClassName={textDivClassName}
     >
       {children}
     </HubblrGradientBorderButtonBase>
   );
 }
 
-IndexGradientBorderButtonLongArrow.propTypes = {
+IndexGradientBorderButtonBasic.propTypes = {
   children: PropTypes.node.isRequired,
-  addedFlexClasses: PropTypes.string,
   theme: PropTypes.oneOf(['dark', 'light']).isRequired,
   onClick: PropTypes.func,
-  widthClass: PropTypes.string,
+  borderButtonClassName: PropTypes.string,
+  innerOverlayDivClassName: PropTypes.string,
+  textDivClassName: PropTypes.string,
 };
 
-IndexGradientBorderButtonLongArrow.defaultProps = {
-  addedFlexClasses: '',
+IndexGradientBorderButtonBasic.defaultProps = {
   onClick: null,
-  widthClass: '',
+  borderButtonClassName: '',
+  innerOverlayDivClassName: '',
+  textDivClassName: '',
 };
 
-export default IndexGradientBorderButtonLongArrow;
+export default IndexGradientBorderButtonBasic;

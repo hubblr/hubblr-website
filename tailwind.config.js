@@ -42,7 +42,7 @@ module.exports = {
         'box-purple': '-7px 7px 0 rgba(93,28,144, 0.8)',
       },
       textShadow: {
-        'header-purple': '-7px 7px 0 rgba(93,28,144, 0.8)',
+        'headline-purple': '-7px 7px 0 rgba(93,28,144, 0.8)',
       },
       spacing: {
         '1/2': '50%',
@@ -65,9 +65,9 @@ module.exports = {
         'brand-eggshell': '#f8f8f8',
         'gray-primary': '#242323',
         'hubblr-purple': '#5d1c90',
-        'hubblr-turkis': '#4ad0d9',
-        'hubblr-link-gradient-1': '#4299e1',
-        'hubblr-link-gradient-2': '#4fd1c5',
+        'hubblr-turquoise': '#4ad0d9',
+        'hubblr-blue': '#4299e1',
+        'hubblr-green': '#4fd1c5',
       },
     },
   },

@@ -29,6 +29,8 @@
     "gatsby-plugin-react-helmet": "3.3.14",
     "gatsby-plugin-sass": "^2.6.0",
     "gatsby-plugin-sharp": "^2.9.1",
+    "gatsby-source-airtable": "^2.1.1",
+    "gatsby-source-filesystem": "^3.4.0",
     "gatsby-theme-i18n": "^1.0.4",
     "gatsby-transformer-ffmpeg": "^0.3.8",
     "gatsby-transformer-sharp": "^2.7.0",

@@ -6,18 +6,20 @@ function HubblrGradientBorderButtonBase({
   children,
   isSubmitButton,
   image,
-  widthClass,
-  paddingClasses,
-  addedFlexClasses,
   theme,
   onClick,
+  borderButtonClassName,
+  innerOverlayDivClassName,
+  textDivClassName,
 }) {
   let backgroundColorClass;
   let textColorClass;
+  let classNameTheme;
   switch (theme) {
     case 'light':
       backgroundColorClass = 'bg-white';
       textColorClass = 'text-black';
+      classNameTheme = 'hover:text-hubblr-turquoise hover:bg-black';
       break;
     case 'dark':
     default:
@@ -29,16 +31,13 @@ function HubblrGradientBorderButtonBase({
   return (
     <GradientBorderButtonBase
       isSubmitButton={isSubmitButton}
-      borderWidth="2px"
       gradientColors={['#bdfff4', '#44ced8', '#0da2ff', '#8d00ff']}
-      widthClass={widthClass}
-      paddingClasses={paddingClasses}
-      textColorClass={textColorClass}
-      backgroundColorClass={backgroundColorClass}
-      addedFlexClasses={addedFlexClasses}
       onClick={onClick}
+      borderButtonClassName={borderButtonClassName}
+      innerOverlayDivClassName={`${innerOverlayDivClassName} ${backgroundColorClass} ${textColorClass} ${classNameTheme}`}
+      textDivClassName={`${textDivClassName} px-8 py-1`}
     >
-      <span className="text-sm py-1">{children}</span>
+      {children}
       {image}
     </GradientBorderButtonBase>
   );
@@ -48,20 +47,20 @@ HubblrGradientBorderButtonBase.propTypes = {
   children: PropTypes.node.isRequired,
   isSubmitButton: PropTypes.bool,
   image: PropTypes.element,
-  widthClass: PropTypes.string,
-  paddingClasses: PropTypes.string,
-  addedFlexClasses: PropTypes.string,
   theme: PropTypes.oneOf(['dark', 'light']).isRequired,
   onClick: PropTypes.func,
+  borderButtonClassName: PropTypes.string,
+  innerOverlayDivClassName: PropTypes.string,
+  textDivClassName: PropTypes.string,
 };
 
 HubblrGradientBorderButtonBase.defaultProps = {
   isSubmitButton: false,
   image: null,
-  widthClass: '',
-  addedFlexClasses: '',
-  paddingClasses: 'px-8 py-1.5',
   onClick: null,
+  borderButtonClassName: '',
+  innerOverlayDivClassName: '',
+  textDivClassName: '',
 };
 
 export default HubblrGradientBorderButtonBase;

@@ -1,10 +1,10 @@
 @import url('../fonts/OpenSans/stylesheet.css');
 
-/*! purgecss start ignore */
 @tailwind base;
 @tailwind components;
-/*! purgecss end ignore */
 @tailwind utilities;
+
+
 
 @layer utilities {
   .flex-basis-0 {
@@ -17,10 +17,145 @@
   h1 {
     @apply .font-black .font-sans .text-xl;
   }
+  h2 {
+    @apply .font-black .font-sans .text-xl;
+  }
   p {
     @apply .font-mono;
   }
+
+  .testimonial-person {
+    @apply .font-black .font-sans .text-lg;
+  }
+
+  .testimonial-jobtitle {
+    @apply .font-light .font-sans .text-base;
+  }
+
+  .calltoaction-text {
+    @apply .font-black .font-sans .text-xl;
+  }
+
+  .borderless-link-black {
+    @apply .bg-clip-text .text-transparent .bg-gradient-to-r .from-hubblr-blue .to-hubblr-green;
+  }
+
+  .swimmingunderline {
+    padding-bottom: 3px;
+  background: linear-gradient(to bottom, var(--mainColor) 0%, var(--mainColor) 100%);
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 3px 3px;
+  color: #000;
+  text-decoration: none;
 }
+
+.swimmingunderline:hover {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23ff9800' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+  background-position: 0 100%;
+  background-size: auto 6px;
+  background-repeat: repeat-x;
+  text-decoration: none;
+  color: #ff9800;
+}
+}
+
+.rotategradient {
+  animation: none;
+}
+
+.rotategradient:hover {
+  animation:rot 4s linear infinite; 
+  @keyframes rot {
+    0%
+   {
+     background: linear-gradient(90deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    5%
+   {
+     background: linear-gradient(108deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    10%
+   {
+     background: linear-gradient(126deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    15%
+   {
+     background: linear-gradient(144deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    20%
+   {
+     background: linear-gradient(162deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    25%
+   {
+     background: linear-gradient(180deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    30%
+   {
+     background: linear-gradient(198deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    35%
+   {
+     background: linear-gradient(216deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    40%
+   {
+     background: linear-gradient(234deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    45%
+   {
+     background: linear-gradient(252deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    50%
+   {
+     background: linear-gradient(270deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    55%
+   {
+     background: linear-gradient(288deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    60%
+   {
+     background: linear-gradient(306deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    65%
+   {
+     background: linear-gradient(324deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    70%
+   {
+     background: linear-gradient(342deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    75%
+   {
+     background: linear-gradient(360deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    80%
+   {
+     background: linear-gradient(18deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    85%
+   {
+     background: linear-gradient(36deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    90%
+   {
+     background: linear-gradient(54deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    95%
+   {
+     background: linear-gradient(72deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    100%
+   {
+     background: linear-gradient(90deg, #bdfff4, #44ced8, #0da2ff, #8d00ff);
+   }
+    
+ }
+}
+
+
 
 @import "globals/all";
 @import "components/all";

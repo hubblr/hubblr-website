@@ -3,10 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import React from 'react';
 import { DesktopQuery, MobileAndTabletQuery } from '../util/helpers';
 import SectionHeading from '../components/index/section-heading/SectionHeading';
-// import MainContentCard from '../components/index/main-content-card/MainContentCard';
-// import MainContentGrid from '../components/index/main-content-card/MainContentGrid';
-// import MainContentGridItem from '../components/index/main-content-card/MainContentGridItem';
-import IndexGradientBorderButtonLongArrow from '../components/buttons/gradient-border-buttons/IndexGradientBorderButtonLongArrow';
+import IndexGradientBorderButtonBasic from '../components/buttons/gradient-border-buttons/IndexGradientBorderButtonBasic';
 import ConsultingImage from '../images/consulting/consulting-illustration.png';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
 import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
@@ -32,22 +29,22 @@ function ConsultingPage() {
         <MobileAndTabletQuery>
           <ConsultingSectionContent>
             <Link to="/contact">
-              <IndexGradientBorderButtonLongArrow
+              <IndexGradientBorderButtonBasic
                 theme="light"
-                widthClass="w-full"
-                addedFlexClasses="justify-center"
+                borderButtonClassName="w-full"
+                innerOverlayDivClassName="justify-center"
               >
                 <FormattedMessage id="generic.contact" />
-              </IndexGradientBorderButtonLongArrow>
+              </IndexGradientBorderButtonBasic>
             </Link>
           </ConsultingSectionContent>
         </MobileAndTabletQuery>
         <DesktopQuery>
           <ConsultingSectionContent />
           <Link to="/contact">
-            <IndexGradientBorderButtonLongArrow theme="light">
+            <IndexGradientBorderButtonBasic theme="light">
               <FormattedMessage id="generic.contact" />
-            </IndexGradientBorderButtonLongArrow>
+            </IndexGradientBorderButtonBasic>
           </Link>
         </DesktopQuery>
       </div>

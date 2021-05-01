@@ -9,20 +9,20 @@
   }
 
   h1 {
-    @apply .text-2xl .mb-5;
+    @apply .text-2xl .mb-5 font-sans;
   }
   @screen lg {
     h1 {
-      @apply .text-4xl .mb-8;
+      @apply .text-4xl .mb-8 font-sans;
     }
   }
 
   h2 {
-    @apply .text-xl .mb-3;
+    @apply .text-xl .mb-3 font-sans;
   }
   @screen lg {
     h2 {
-      @apply .text-2xl .mt-6 .mb-4;
+      @apply .text-2xl .mt-6 .mb-4 font-sans;
     }
   }
 

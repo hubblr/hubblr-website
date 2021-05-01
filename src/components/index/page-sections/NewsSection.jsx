@@ -2,7 +2,6 @@ import { Link } from '@reach/router';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import NewsPlaceholderPhoto from '../../../images/news-placeholder.jpeg';
-// import SectionHeading from '../section-heading/SectionHeading';
 
 const NewsSection = () => {
   return (
@@ -13,55 +12,56 @@ const NewsSection = () => {
         <FormattedMessage id="index.news.title" />
       </h1>
       {/* 2 ROW GRID - FOR 2 NEWS ARTICLES  */}
-      <div className="grid grid-raws-2 grid-flow-row gap-10">
+      <div className="flex flex-wrap flex-col -mx-1 overflow-hidden">
         {/* 2 COLS GRID - SEPARATING PHOTO AND TEXT */}
-        <div className="grid-cols-2 flex flex-row gap-10">
-          {/* EACH CONTENT CARD CAN BE OUTSOURCED INTO SINGLE CONTENT CARD COMPONENT */}
-          <div className="w-full h-auto items-center flex-col rounded-2xl">
+        {/* EACH CONTENT CARD CAN BE OUTSOURCED INTO SINGLE CONTENT CARD COMPONENT */}
+        <div className="flex flex-wrap flex-row w-full">
+          <div className="p-4 w-full md:w-1/2 h-auto items-center flex-col">
             {/* FIRST RPW */}
             <img
               src={NewsPlaceholderPhoto}
               alt=""
-              className="object-fill border-2 border-hubblr-turkis shadow-box-purple"
+              className="object-fill border-2 border-hubblr-turquoise shadow-box-purple"
             />
           </div>
-          <div className="w-full h-auto items-center flex-col rounded-2xl">
-            <h1 className="text-3xl mb-10 text-left">
+          <div className="p-4 w-full md:w-1/2 h-auto items-center flex-col">
+            <h2 className="text-3xl mb-10 text-left">
               <FormattedMessage id="index.news.client-test.heading" />
-            </h1>
+            </h2>
             <p className="my-5 text-left">
               <FormattedMessage id="index.news.client-test.description" />
             </p>
             <div className="flex ">
-              <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-hubblr-link-gradient-1 to-hubblr-link-gradient-2">
+              <span className="borderless-link-black">
                 <Link to="/contact" className="my-5 w-1/2 ">
                   <FormattedMessage id="generic.read-more" />
                 </Link>
-              </h1>
+              </span>
             </div>
-            {/* SECOND ROW */}
           </div>
+          {/* SECOND ROW */}
         </div>
         {/* 2 COLS GRID - SEPARATING PHOTO AND TEXT */}
-        <div className="grid-cols-2 flex flex-row-reverse gap-10">
-          {/* EACH CONTENT CARD CAN BE OUTSOURCED INTO SINGLE CONTENT CARD COMPONENT */}
-          <div className="w-full h-auto items-center md:flex-col rounded-2xl">
+        {/* EACH CONTENT CARD CAN BE OUTSOURCED INTO SINGLE CONTENT CARD COMPONENT */}
+        {/* <div className="flex-row md:flex-row-reverse"> */}
+        <div className="flex flex-wrap w-full flex-row md:flex-row-reverse">
+          <div className="p-4 w-full md:w-1/2 h-auto items-center md:flex-col">
             {/* FIRST RPW */}
             <img
               src={NewsPlaceholderPhoto}
               alt=""
-              className="object-fill border-2 border-hubblr-turkis shadow-box-purple"
+              className="object-fill border-2 border-hubblr-turquoise shadow-box-purple"
             />
           </div>
-          <div className="w-full h-auto items-center md:flex-col rounded-2xl ">
-            <h1 className="text-3xl mb-10 text-left">
+          <div className="p-4 w-full md:w-1/2 h-auto items-center md:flex-col">
+            <h2 className="text-3xl mb-10 text-left">
               <FormattedMessage id="index.news.client-test.heading" />
-            </h1>
+            </h2>
             <p className="my-5 text-left">
               <FormattedMessage id="index.news.client-test.description" />
             </p>
             <div className="flex ">
-              <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-hubblr-link-gradient-1 to-hubblr-link-gradient-2">
+              <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-hubblr-blue to-hubblr-green">
                 <Link to="/contact" className="my-5 w-1/2 ">
                   <FormattedMessage id="generic.read-more" />
                 </Link>

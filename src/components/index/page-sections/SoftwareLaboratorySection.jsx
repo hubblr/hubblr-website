@@ -35,8 +35,8 @@ const SoftwareLaboratorySection = React.forwardRef(({ animationAreaHeight }, ref
           <Link to="/contact">
             <IndexGradientBorderButtonLongArrow
               theme="light"
-              widthClass="w-full"
-              addedFlexClasses="justify-center"
+              borderButtonClassName="w-full"
+              innerOverlayDivClassName="justify-center"
             >
               <FormattedMessage id="generic.contact" />
             </IndexGradientBorderButtonLongArrow>

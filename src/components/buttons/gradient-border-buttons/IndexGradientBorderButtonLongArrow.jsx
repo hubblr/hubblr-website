@@ -5,18 +5,20 @@ import LongArrowImage from '../../image-components/LongArrowImage';
 
 function IndexGradientBorderButtonLongArrow({
   children,
-  addedFlexClasses,
   theme,
   onClick,
-  widthClass,
+  borderButtonClassName,
+  innerOverlayDivClassName,
+  textDivClassName,
 }) {
   return (
     <HubblrGradientBorderButtonBase
       image={<LongArrowImage theme={theme} className="ml-3" />}
-      addedFlexClasses={`${addedFlexClasses}`}
       theme={theme}
       onClick={onClick}
-      widthClass={widthClass}
+      borderButtonClassName={borderButtonClassName}
+      innerOverlayDivClassName={innerOverlayDivClassName}
+      textDivClassName={textDivClassName}
     >
       {children}
     </HubblrGradientBorderButtonBase>
@@ -25,16 +27,18 @@ function IndexGradientBorderButtonLongArrow({
 
 IndexGradientBorderButtonLongArrow.propTypes = {
   children: PropTypes.node.isRequired,
-  addedFlexClasses: PropTypes.string,
   theme: PropTypes.oneOf(['dark', 'light']).isRequired,
   onClick: PropTypes.func,
-  widthClass: PropTypes.string,
+  borderButtonClassName: PropTypes.string,
+  innerOverlayDivClassName: PropTypes.string,
+  textDivClassName: PropTypes.string,
 };
 
 IndexGradientBorderButtonLongArrow.defaultProps = {
-  addedFlexClasses: '',
   onClick: null,
-  widthClass: '',
+  borderButtonClassName: '',
+  innerOverlayDivClassName: '',
+  textDivClassName: '',
 };
 
 export default IndexGradientBorderButtonLongArrow;

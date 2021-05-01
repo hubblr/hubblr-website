@@ -2,7 +2,6 @@ import { Link } from '@reach/router';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import PlanetImage from '../../../images/planet.png';
-// import SectionHeading from '../section-heading/SectionHeading';
 
 const NewsSection = () => {
   return (
@@ -12,8 +11,8 @@ const NewsSection = () => {
       <h1 className="text-5xl mb-12">
         <FormattedMessage id="index.startups.title" />
       </h1>
-      {/* 2 ROW GRID - FOR 2 NEWS ARTICLES  */}
-      <div className="grid grid-cols-2 grid-flow-row gap-10">
+      {/* 2 COL GRID - For general startup description and 2 startup examples */}
+      <div className="grid grid-cols-1 md:grid-cols-2 grid-flow-row gap-10">
         {/* 2 COLS GRID - SEPARATING PHOTO AND TEXT */}
         <div className="">
           {/* EACH CONTENT CARD CAN BE OUTSOURCED INTO SINGLE CONTENT CARD COMPONENT */}
@@ -38,7 +37,7 @@ const NewsSection = () => {
               <FormattedMessage id="index.startups.example1.description" />
             </p>
             <div className="flex mb-5">
-              <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-hubblr-link-gradient-1 to-hubblr-link-gradient-2">
+              <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-hubblr-blue to-hubblr-green">
                 <Link to="/contact" className="m-5 w-1/2 ">
                   <FormattedMessage id="generic.read-more" />
                 </Link>
@@ -54,8 +53,8 @@ const NewsSection = () => {
               <FormattedMessage id="index.startups.example2.description" />
             </p>
             <div className="flex mb-5">
-              <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-hubblr-link-gradient-1 to-hubblr-link-gradient-2">
-                <Link to="/contact" className="m-5 w-1/2 ">
+              <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-hubblr-blue to-hubblr-green">
+                <Link to="/contact" className="m-5 w-1/2">
                   <FormattedMessage id="generic.read-more" />
                 </Link>
               </h1>

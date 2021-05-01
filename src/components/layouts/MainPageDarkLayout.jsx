@@ -6,7 +6,6 @@ import LayoutWrapper from './LayoutWrapper';
 function MainPageDarkLayout({ children }) {
   return (
     <LayoutWrapper>
-      {/* !!! Change here FONT! */}
       <div className="flex flex-col min-h-screen bg-black text-white font-sans">
         <div className="flex-grow flex flex-col">{children}</div>
         <div className="container mx-auto">

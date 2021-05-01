@@ -26,6 +26,22 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: `keydsUE1ihWxveV3G`,
+        concurrency: 5,
+        tables: [
+          {
+            baseId: `appWU2q4XJ109zetx`,
+            tableName: `blogposts`,
+            tableView: `Main View`,
+            separateNodeType: false,
+            separateMapType: false,
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `hubblr-website`,
