@@ -37,7 +37,10 @@
   }
 
   .borderless-link-black {
-    @apply .bg-clip-text .text-transparent .bg-gradient-to-r .from-hubblr-blue .to-hubblr-green;
+    @apply .font-black .font-sans .text-xl .bg-clip-text .text-transparent .bg-gradient-to-r .from-hubblr-blue .to-hubblr-green;
+    a {
+      @apply .font-black .font-sans .text-xl .bg-clip-text .text-transparent .bg-gradient-to-r .from-hubblr-blue .to-hubblr-green;
+    }
   }
 
   .swimmingunderline {

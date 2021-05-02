@@ -32,11 +32,11 @@ const NewsSection = () => {
               <FormattedMessage id="index.news.client-test.description" />
             </p>
             <div className="flex ">
-              <span className="borderless-link-black">
-                <Link to="/contact" className="my-5 w-1/2 ">
+              <Link to="/contact" className="my-5 w-1/2">
+                <span className=" borderless-link-black">
                   <FormattedMessage id="generic.read-more" />
-                </Link>
-              </span>
+                </span>
+              </Link>
             </div>
           </div>
           {/* SECOND ROW */}

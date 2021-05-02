@@ -7,46 +7,49 @@ import SEO from '../components/seo/Seo';
 import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
 import NavBarHomeButton from '../components/nav-bar/NavBarHomeButton';
 import { MobileAndTabletQuery, DesktopQuery } from '../util/helpers';
+import LayoutWrapper from '../components/layouts/LayoutWrapper';
 
 function ContactPage() {
   return (
-    <MainPageDarkLayout>
-      <SEO title="contact.seo.title" description="contact.seo.description" />
-      <NavBarMainPage
-        showNavBar
-        className="sticky"
-        desktopRightContent={
-          <div className="flex justify-end items-center">
-            <NavBarHomeButton />
-          </div>
-        }
-      />
-      <div className="flex-grow container mx-auto h-full flex flex-col items-center">
-        <h1 className="mb-8 lg:mb-0 text-5xl font-extrabold">
-          <FormattedMessage id="contact.heading" />
-        </h1>
-        <div className="flex-grow w-full flex flex-col justify-center items-center">
-          <DesktopQuery>
-            <div className="min-h-1/2 w-full flex justify-between">
-              <div className="flex-grow flex-basis-0 mr-6">
-                <BusinessCardContactPage />
+    <LayoutWrapper>
+      <MainPageDarkLayout>
+        <SEO title="contact.seo.title" description="contact.seo.description" />
+        <NavBarMainPage
+          showNavBar
+          className="sticky"
+          desktopRightContent={
+            <div className="flex justify-end items-center">
+              <NavBarHomeButton />
+            </div>
+          }
+        />
+        <div className="flex-grow container mx-auto h-full flex flex-col items-center">
+          <h1 className="mb-8 lg:mb-0 text-5xl font-extrabold">
+            <FormattedMessage id="contact.heading" />
+          </h1>
+          <div className="flex-grow w-full flex flex-col justify-center items-center">
+            <DesktopQuery>
+              <div className="min-h-1/2 w-full flex justify-between">
+                <div className="flex-grow flex-basis-0 mr-6">
+                  <BusinessCardContactPage />
+                </div>
+                <div className="flex-grow-2 flex-basis-0">
+                  <ContactPageForm />
+                </div>
               </div>
-              <div className="flex-grow-2 flex-basis-0">
+            </DesktopQuery>
+            <MobileAndTabletQuery>
+              <div className="w-full flex flex-col">
+                <div className="mb-6">
+                  <BusinessCardContactPage />
+                </div>
                 <ContactPageForm />
               </div>
-            </div>
-          </DesktopQuery>
-          <MobileAndTabletQuery>
-            <div className="w-full flex flex-col">
-              <div className="mb-6">
-                <BusinessCardContactPage />
-              </div>
-              <ContactPageForm />
-            </div>
-          </MobileAndTabletQuery>
+            </MobileAndTabletQuery>
+          </div>
         </div>
-      </div>
-    </MainPageDarkLayout>
+      </MainPageDarkLayout>
+    </LayoutWrapper>
   );
 }
 
