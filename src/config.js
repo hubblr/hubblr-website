@@ -64,4 +64,21 @@ export const MOBILE_INITIAL_CONTENT = {
   },
 };
 
+export const ANIMATION_TIMINGS = {
+  IMAGE: {
+    PATH: {
+      DELAY: 0,
+      DURATION: 4,
+    },
+    WRAPPER: {
+      DELAY: 0,
+      DURATION: 6,
+    },
+  },
+  CONTENT: {
+    DELAY: 6,
+    DURATION: 4,
+  },
+};
+
 export const CONTACT_FORM_POST_URL = 'https://hodgepodge.hubblr.io/website/contact';
