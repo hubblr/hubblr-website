@@ -76,7 +76,7 @@ export const ANIMATION_TIMINGS = {
     },
   },
   CONTENT: {
-    DELAY: 6,
+    DELAY: 5,
     DURATION: 4,
   },
 };

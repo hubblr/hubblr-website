@@ -30,7 +30,7 @@ function SoftwareLaboratoryPage() {
         </div>
         <div className="flex-grow relative z-10 container mx-auto flex flex-col justify-center items-center max-w-6xl">
           <AnimatedSectionContainer>
-            <SectionHeading className="mb-6" heading="SoftwareLaboratory" />
+            <SectionHeading className="mb-6" heading="Software Laboratory" />
             <div className="flex flex-col items-center">
               <MobileAndTabletQuery>
                 <SoftwareLaboratorySectionContent>

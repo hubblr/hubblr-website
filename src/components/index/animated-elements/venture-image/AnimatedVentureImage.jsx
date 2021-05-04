@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { motion, useAnimation } from 'framer-motion';
-import SatelliteImage from './SatelliteImage';
 import { ANIMATION_TIMINGS } from '../../../../config';
+import VenturesArrowImage from '../../../image-components/VenturesArrowImage';
+import VenturesArrowImageSource from '../../../../images/ventures/venturesArrow.png';
 
-function AnimatedSatelliteImage({ className }) {
+function AnimatedVenturesImage({ className }) {
   const wrapperControls = useAnimation();
 
   const {
@@ -27,21 +28,20 @@ function AnimatedSatelliteImage({ className }) {
 
   return (
     <motion.div
-      className="flex flex-col items-center justify-center"
+      className="flex justify-center items-center"
       animate={wrapperControls}
       initial={{ scale: 3, opacity: 0 }}
     >
-      <SatelliteImage className={`w-56 h-auto ${className}`} />
+      <VenturesArrowImage className={className} src={VenturesArrowImageSource} alt="ventures" />
     </motion.div>
   );
 }
 
-AnimatedSatelliteImage.propTypes = {
+AnimatedVenturesImage.propTypes = {
   className: PropTypes.string,
 };
 
-AnimatedSatelliteImage.defaultProps = {
+AnimatedVenturesImage.defaultProps = {
   className: 'h-full w-full',
 };
-
-export default AnimatedSatelliteImage;
+export default AnimatedVenturesImage;
