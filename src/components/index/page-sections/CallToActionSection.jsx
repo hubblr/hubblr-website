@@ -15,7 +15,7 @@ const CallToActionSection = () => {
       </div>
       {/* Content */}
       <div className="flex flex-col w-full md:w-1/2 justify-center items-center ">
-        <span className="calltoaction-text my-5 text-center w-full md:w-1/2">
+        <span className="h1 my-5 text-center w-full md:w-1/2">
           <FormattedMessage id="index.call-to-action.text" />
         </span>
         <Link to="/contact" className="my-5 w-full md:w-1/2">

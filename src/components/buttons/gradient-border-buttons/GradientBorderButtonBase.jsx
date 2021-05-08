@@ -11,7 +11,6 @@ function GradientBorderButtonBase({
   textDivClassName,
 }) {
   return (
-    // borderButtonClassName ___ defines the gradient border line (lowest layer) and thereby allows a gradient styling
     <button
       type={isSubmitButton ? 'submit' : 'button'}
       className={`${borderButtonClassName} rounded-lg rotategradient `}
@@ -20,7 +19,6 @@ function GradientBorderButtonBase({
       }}
       onClick={onClick}
     >
-      {/* innerOverlayDivClassName ___ defines the overlay (middle layer) where the border is made transparent to show the buttons gradient effect  */}
       <div
         className={
           `${innerOverlayDivClassName} ` +
@@ -34,7 +32,6 @@ function GradientBorderButtonBase({
           `hover:text-hubblr-turquoise hover:bg-black`
         }
       >
-        {/* textDivClassName ___ defines the actual text content (highest layer) and allows alignments of the text */}
         <div className={`${textDivClassName} flex justify-center text-lg`}>
           <span>{children}</span>
         </div>
@@ -48,9 +45,9 @@ GradientBorderButtonBase.propTypes = {
   isSubmitButton: PropTypes.bool,
   gradientColors: PropTypes.arrayOf(PropTypes.string).isRequired,
   onClick: PropTypes.func,
-  borderButtonClassName: PropTypes.string,
-  innerOverlayDivClassName: PropTypes.string,
-  textDivClassName: PropTypes.string,
+  borderButtonClassName: PropTypes.string, // borderButtonClassName: defines the gradient border line (lowest layer) and thereby allows a gradient styling
+  innerOverlayDivClassName: PropTypes.string, // innerOverlayDivClassName: defines the overlay (middle layer) where the border is made transparent to show the buttons gradient effect
+  textDivClassName: PropTypes.string, // textDivClassName: defines the actual text content (highest layer) and allows alignments of the text,
 };
 
 GradientBorderButtonBase.defaultProps = {

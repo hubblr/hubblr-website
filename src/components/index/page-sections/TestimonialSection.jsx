@@ -11,18 +11,18 @@ const TestimonialSection = () => {
       {/* 2 COL GRID @largerScreen */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <TestimonialSectionContentContainer
-          personasImage={TestimonialPhoto}
+          personaImage={TestimonialPhoto}
           corporateLogo={TestimonialLogo}
-          personasName={<FormattedMessage id="index.testimonials.flink.person-full-name" />}
-          personasJobtitle={<FormattedMessage id="index.testimonials.flink.person-position" />}
-          personasQuoteText={<FormattedMessage id="index.testimonials.flink.quote" />}
+          personaName={<FormattedMessage id="index.testimonials.flink.person-full-name" />}
+          personaJobtitle={<FormattedMessage id="index.testimonials.flink.person-position" />}
+          personaQuoteText={<FormattedMessage id="index.testimonials.flink.quote" />}
         />
         <TestimonialSectionContentContainer
-          personasImage={TestimonialPhoto}
+          personaImage={TestimonialPhoto}
           corporateLogo={TestimonialLogo}
-          personasName={<FormattedMessage id="index.testimonials.flink.person-full-name" />}
-          personasJobtitle={<FormattedMessage id="index.testimonials.flink.person-position" />}
-          personasQuoteText={<FormattedMessage id="index.testimonials.flink.quote" />}
+          personaName={<FormattedMessage id="index.testimonials.flink.person-full-name" />}
+          personaJobtitle={<FormattedMessage id="index.testimonials.flink.person-position" />}
+          personaQuoteText={<FormattedMessage id="index.testimonials.flink.quote" />}
         />
       </div>
     </div>

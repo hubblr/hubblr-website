@@ -18,16 +18,13 @@ const ServiceSectionCard = ({ className, title, content, link, children }) => {
 
 ServiceSectionCard.propTypes = {
   children: PropTypes.node.isRequired,
-  title: PropTypes.string,
-  content: PropTypes.string,
-  link: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
   className: PropTypes.string,
 };
 
 ServiceSectionCard.defaultProps = {
-  title: '',
-  content: '',
-  link: '/',
   className: '',
 };
 

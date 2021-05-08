@@ -3,21 +3,21 @@ import PropTypes from 'prop-types';
 import TestimonialImageContainer from '../../image-components/TestimonialImageContainer';
 
 const TestimonialSectionPersonaRow = ({
-  personasImage,
+  personaImage,
   corporateLogo,
-  personasName,
-  personasJobtitle,
+  personaName,
+  personaJobtitle,
 }) => {
   return (
     <div>
-      <div className="grid-cols-2">
+      <div className="grid grid-cols-2">
         <div className="col-span-1 flex flex-row justify-start">
-          <TestimonialImageContainer image={personasImage} alt="" className="w-24 h-24" />
+          <TestimonialImageContainer image={personaImage} alt="" className="w-24 h-24" />
           <TestimonialImageContainer image={corporateLogo} alt="" className="w-12 h-12 " />
         </div>
         <div className="col-span-1">
-          <div className="testimonial-person w-full pt-2 text-left"> {personasName}</div>
-          <div className="testimonial-jobtitle w-full text-left"> {personasJobtitle}</div>
+          <div className="secondary-title w-full pt-2 text-left"> {personaName}</div>
+          <div className="secondary-subtitle w-full text-left"> {personaJobtitle}</div>
         </div>
       </div>
     </div>
@@ -27,15 +27,15 @@ const TestimonialSectionPersonaRow = ({
 export default TestimonialSectionPersonaRow;
 
 TestimonialSectionPersonaRow.propTypes = {
-  personasImage: PropTypes.string,
+  personaImage: PropTypes.string,
   corporateLogo: PropTypes.string,
-  personasName: PropTypes.string,
-  personasJobtitle: PropTypes.string,
+  personaName: PropTypes.string,
+  personaJobtitle: PropTypes.string,
 };
 
 TestimonialSectionPersonaRow.defaultProps = {
-  personasImage: '',
+  personaImage: '',
   corporateLogo: '',
-  personasName: '',
-  personasJobtitle: '',
+  personaName: '',
+  personaJobtitle: '',
 };

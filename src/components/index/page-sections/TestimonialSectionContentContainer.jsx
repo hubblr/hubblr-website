@@ -5,23 +5,23 @@ import TestimonialSectionPersonaRow from './TestimonialSectionPersonaRow';
 import TestimonialPhoto from '../../../images/cedricBals/cedric-bals.png';
 
 const TestimonialSectionContentContainer = ({
-  personasImage,
+  personaImage,
   corporateLogo,
-  personasName,
-  personasJobtitle,
-  personasQuoteText,
+  personaName,
+  personaJobtitle,
+  personaQuoteText,
 }) => {
   return (
     <div className="col-span-1 flex flex-col justify-around items-center">
       <TestimonialSectionPersonaRow
-        personasImage={personasImage}
+        personaImage={personaImage}
         corporateLogo={corporateLogo}
-        personasName={personasName}
-        personasJobtitle={personasJobtitle}
+        personaName={personaName}
+        personaJobtitle={personaJobtitle}
       />
       <TestimonialSectionText
         className="m-5 text-center my-10"
-        personasQuoteText={personasQuoteText}
+        personaQuoteText={personaQuoteText}
       />
     </div>
   );
@@ -30,17 +30,17 @@ const TestimonialSectionContentContainer = ({
 export default TestimonialSectionContentContainer;
 
 TestimonialSectionContentContainer.propTypes = {
-  personasImage: PropTypes.string,
+  personaImage: PropTypes.string,
   corporateLogo: PropTypes.string,
-  personasName: PropTypes.string,
-  personasJobtitle: PropTypes.string,
-  personasQuoteText: PropTypes.string,
+  personaName: PropTypes.string,
+  personaJobtitle: PropTypes.string,
+  personaQuoteText: PropTypes.string,
 };
 
 TestimonialSectionContentContainer.defaultProps = {
-  personasImage: `${TestimonialPhoto}`,
-  corporateLogo: `${TestimonialPhoto}`,
-  personasName: '',
-  personasJobtitle: '',
-  personasQuoteText: '',
+  personaImage: TestimonialPhoto,
+  corporateLogo: TestimonialPhoto,
+  personaName: '',
+  personaJobtitle: '',
+  personaQuoteText: '',
 };

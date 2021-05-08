@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
 
-const StartupSectionContentCard = ({ firm, description, link }) => {
+const StartupSectionContentCard = ({ firm, description, link, className }) => {
   return (
-    <div className="w-full h-auto items-center bg-gray-primary rounded-2xl">
+    <div className={`${className} w-full h-auto items-center bg-gray-primary rounded-2xl`}>
       <h2 className="text-xl m-5 text-left">{firm}</h2>
       <p className="m-5 text-left">{description}</p>
       <div className="flex mb-5">
@@ -22,12 +22,14 @@ const StartupSectionContentCard = ({ firm, description, link }) => {
 export default StartupSectionContentCard;
 
 StartupSectionContentCard.propTypes = {
+  className: PropTypes.string,
   firm: PropTypes.string,
   description: PropTypes.string,
   link: PropTypes.string,
 };
 
 StartupSectionContentCard.defaultProps = {
+  className: '',
   firm: 'defaultCompany Ltd.',
   description: 'defaultCompany Description',
   link: '/404',

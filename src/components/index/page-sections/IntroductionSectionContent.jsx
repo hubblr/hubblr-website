@@ -9,7 +9,7 @@ import MedikamendoLogo from '../../../images/medikamendo.png';
 function IntroductionSectionContent() {
   return (
     <div className="flex flex-col">
-      <HubblrIconImage className="w-24 md:w-40 mb-10 md:mb-12" />
+      <HubblrIconImage className="w-24 md:w-40 mb-10 md:mb-12 bg-transparent" />
       <h1 className="mb-10 text-4xl md:text-6xl leading-tight md:leading-none max-w-2xl text-shadow-headline-purple">
         <FormattedMessage id="index.introduction.heading" />
       </h1>
@@ -20,15 +20,23 @@ function IntroductionSectionContent() {
         </IndexGradientBorderButtonBasic>
       </Link>
 
-      <p className="flex flex-row items-center mt-20">
-        <FormattedMessage id="index.introduction.trust" />
-        <a href="https://www.goflink.com/">
-          <img src={FlinkLogo} alt="" className="h-8 w-auto mx-4" />
-        </a>
-        <a href="https://medikamendo.com/">
-          <img src={MedikamendoLogo} alt="" className="h-8 w-auto mx-4" />
-        </a>
-      </p>
+      <div className="flex flex-col md:flex-row items-center md:items-start mt-20 w-auto">
+        <div className="flex w-full md:w-auto mb-12 text-xl md:text-base">
+          <p className="flex w-full justify-center md:justify-start items-center">
+            <FormattedMessage id="index.introduction.trust" />
+          </p>
+        </div>
+        <div className="flex w-full md:w-auto justify-center items-center md:mx-4 mb-8 md:mb-0">
+          <a href="https://www.goflink.com/">
+            <img src={FlinkLogo} alt="" className="object-scale-down h-12 md:h-8 w-auto " />
+          </a>
+        </div>
+        <div className="flex relative w-full md:w-auto justify-center md:mx-4 mb-8 md:mb-0">
+          <a href="https://medikamendo.com/">
+            <img src={MedikamendoLogo} alt="" className="object-scale-down h-12 md:h-8 w-auto " />
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
