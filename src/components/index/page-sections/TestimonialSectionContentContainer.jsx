@@ -12,7 +12,7 @@ const TestimonialSectionContentContainer = ({
   personaQuoteText,
 }) => {
   return (
-    <div className="col-span-1 flex flex-col justify-around items-center">
+    <div className="flex flex-col items-center w-full">
       <TestimonialSectionPersonaRow
         personaImage={personaImage}
         corporateLogo={corporateLogo}

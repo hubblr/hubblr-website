@@ -10,14 +10,16 @@ const TestimonialSectionPersonaRow = ({
 }) => {
   return (
     <div>
-      <div className="grid grid-cols-2">
-        <div className="col-span-1 flex flex-row justify-start">
+      <div className="flex flex-col md:flex-row items-center">
+        <div className="flex flex-row w-1/2 justify-start">
           <TestimonialImageContainer image={personaImage} alt="" className="w-24 h-24" />
           <TestimonialImageContainer image={corporateLogo} alt="" className="w-12 h-12 " />
         </div>
-        <div className="col-span-1">
-          <div className="secondary-title w-full pt-2 text-left"> {personaName}</div>
-          <div className="secondary-subtitle w-full text-left"> {personaJobtitle}</div>
+        <div className="flex flex-col w-full md:w-1/2 md:justify-end">
+          <div className="secondary-title w-full pt-2 text-center md:text-left">{personaName}</div>
+          <div className="secondary-subtitle w-full text-center md:text-left">
+            {personaJobtitle}
+          </div>
         </div>
       </div>
     </div>

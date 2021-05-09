@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const ServiceSectionCard = ({ className, title, content, link, children }) => {
   return (
     <div>
-      <div className={`${className}`}>
+      <div className={className}>
         <h2 className="text-xl md:text-3xl m-5 px-5 font-sans">{title}</h2>
         <p className="m-5 text-center py-2 md:py-10">{content}</p>
         <Link to={link} className="m-5">
