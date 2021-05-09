@@ -32,15 +32,12 @@ export default TestimonialSectionContentContainer;
 TestimonialSectionContentContainer.propTypes = {
   personaImage: PropTypes.string,
   corporateLogo: PropTypes.string,
-  personaName: PropTypes.string,
-  personaJobtitle: PropTypes.string,
-  personaQuoteText: PropTypes.string,
+  personaName: PropTypes.string.isRequired,
+  personaJobtitle: PropTypes.string.isRequired,
+  personaQuoteText: PropTypes.string.isRequired,
 };
 
 TestimonialSectionContentContainer.defaultProps = {
   personaImage: TestimonialPhoto,
   corporateLogo: TestimonialPhoto,
-  personaName: '',
-  personaJobtitle: '',
-  personaQuoteText: '',
 };

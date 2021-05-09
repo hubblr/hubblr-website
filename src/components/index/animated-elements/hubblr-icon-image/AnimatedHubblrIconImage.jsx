@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
 function HubblrIconImage({ className }) {
-  const initial = { pathLength: 0, opacity: 0 };
-  const animate = { pathLength: 1, opacity: 1 };
+  const INITIAL = { pathLength: 0, opacity: 0 };
+  const ANIMATE = { pathLength: 1, opacity: 1 };
 
   return (
     <>
@@ -88,15 +88,15 @@ function HubblrIconImage({ className }) {
                       <motion.path
                         d="M53.496 0c14.633 0 26.496 11.566 26.496 25.834 0 14.267-11.863 25.833-26.496 25.833-4.93 0-9.547-1.313-13.5-3.6-3.954 2.287-8.57 3.6-13.5 3.6C11.863 51.667 0 40.1 0 25.834 0 11.566 11.863 0 26.496 0c4.93 0 9.546 1.313 13.5 3.6 3.953-2.287 8.57-3.6 13.5-3.6z"
                         transform="translate(14.14)"
-                        initial={initial}
-                        animate={animate}
+                        initial={INITIAL}
+                        animate={ANIMATE}
                         // transition={{ delay: 7, duration: 0.8 }}
                       />
                       <motion.path
                         d="M52.992 25.834c0 14.267-11.863 25.833-26.496 25.833S0 40.1 0 25.834C0 11.566 11.863 0 26.496 0s26.496 11.566 26.496 25.834z"
                         transform="translate(14.14)"
-                        initial={initial}
-                        animate={animate}
+                        initial={INITIAL}
+                        animate={ANIMATE}
                         // transition={{ delay: 9, duration: 0.8 }}
                       />
                     </g>
@@ -104,8 +104,8 @@ function HubblrIconImage({ className }) {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       d="M0 42.365c5.338-1.904 5.322-1.896 12.96-4.719M68.25 17.25s20.31-7.43 35.794-13.541"
-                      initial={initial}
-                      animate={animate}
+                      initial={INITIAL}
+                      animate={ANIMATE}
                       // transition={{ delay: 11, duration: 0.8 }}
                     />
                   </g>
@@ -123,23 +123,23 @@ function HubblrIconImage({ className }) {
                     <motion.path
                       d="M53.496 0c14.633 0 26.496 11.566 26.496 25.834 0 14.267-11.863 25.833-26.496 25.833-4.93 0-9.547-1.313-13.5-3.6-3.954 2.287-8.57 3.6-13.5 3.6C11.863 51.667 0 40.1 0 25.834 0 11.566 11.863 0 26.496 0c4.93 0 9.546 1.313 13.5 3.6 3.953-2.287 8.57-3.6 13.5-3.6z"
                       transform="translate(14.14)"
-                      initial={initial}
-                      animate={animate}
+                      initial={INITIAL}
+                      animate={ANIMATE}
                       // transition={{ delay: 1, duration: 0.8 }}
                     />
                     <motion.path
                       d="M52.992 25.834c0 14.267-11.863 25.833-26.496 25.833S0 40.1 0 25.834C0 11.566 11.863 0 26.496 0s26.496 11.566 26.496 25.834z"
                       transform="translate(14.14)"
-                      initial={initial}
-                      animate={animate}
+                      initial={INITIAL}
+                      animate={ANIMATE}
                       // transition={{ delay: 3, duration: 0.8 }}
                     />
                     <motion.path
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       d="M0 42.365c5.338-1.904 5.322-1.896 12.96-4.719M68.25 17.25s20.31-7.43 35.794-13.541"
-                      initial={initial}
-                      animate={animate}
+                      initial={INITIAL}
+                      animate={ANIMATE}
                       // transition={{ delay: 5, duration: 0.8 }}
                     />
                   </g>
