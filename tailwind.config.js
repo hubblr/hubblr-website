@@ -62,6 +62,8 @@ module.exports = {
         'brand-gray': '#7C7C7C',
         'brand-gray-dark': '#464545',
         'brand-gray-darkest': '#2D2D2D',
+        'brand-gray-lighter': '#979797',
+        'brand-gray-light': '#F1EFEF',
         'brand-eggshell': '#f8f8f8',
         'gray-primary': '#242323',
         'hubblr-purple': '#5d1c90',

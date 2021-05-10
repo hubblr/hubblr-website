@@ -9,7 +9,7 @@ import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 import SoftwareLaboratorySectionContent from '../components/index/page-sections/SoftwareLaboratorySectionContent';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
-import AnimatedLightningImage from '../components/index/animated-elements/lightning-image/AnimatedLightningImage';
+import AnimatedLightningImage from '../components/index/animated/lightning-image/AnimatedLightningImage';
 import AnimatedSectionContainer from '../components/animation/AnimatedSectionContainer';
 
 function SoftwareLaboratoryPage() {

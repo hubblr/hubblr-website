@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import useOffsetWidth from '../../hooks/dimensions/useOffsetWidth';
+import useOffsetWidth from '../../../hooks/dimensions/useOffsetWidth';
 
 function DesignAdvertisementHeaderPill({ children, colorStyles, setWidth }) {
   const pillRef = useRef();

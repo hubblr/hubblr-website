@@ -31,7 +31,9 @@ const NavBarMainPage = React.forwardRef(
     return (
       <NavBar
         ref={ref}
-        className={className}
+        containerClassName={`navbar ${className}`}
+        expandedClassName="bg-black"
+        scrolledBackgroundClassName="navbar-background-blur"
         showNavBar={showNavBar}
         isCollapsed={isCollapsed}
         mobileLeftContent={
@@ -52,18 +54,22 @@ const NavBarMainPage = React.forwardRef(
             isActive={!isCollapsed}
           />
         }
-        desktopLeftContent={desktopLeftContent}
-        desktopMiddleContent={
-          <AppButton
-            className="button-dark"
-            onClick={() => {
-              navigateByNavBar('/');
-            }}
-          >
-            <HubblrImage className="w-20" />
-          </AppButton>
+        desktopContent={
+          <div className="flex items-center">
+            <div className="w-1/3">{desktopLeftContent}</div>
+            <div className="w-1/3 self-center flex justify-center">
+              <AppButton
+                className="button-dark"
+                onClick={() => {
+                  navigateByNavBar('/');
+                }}
+              >
+                <HubblrImage className="w-20" />
+              </AppButton>
+            </div>
+            <div className="w-1/3">{desktopRightContent}</div>
+          </div>
         }
-        desktopRightContent={desktopRightContent}
         collapsedContent={
           <div
             className={`${isCollapsed ? 'hidden' : ''} w-full px-4 pb-8 flex-grow flex flex-col`}

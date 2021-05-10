@@ -2,16 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { LocalizedLink as Link } from 'gatsby-theme-i18n';
 import { FormattedMessage } from 'react-intl';
+import AppKnockoutText from '../text/AppKnockoutText';
 
 function NavBarHomeButton({ className }) {
   return (
-    <Link
-      to="/"
-      className={`button button-dark text-center font-extrabold tracking-tight ${className}`}
-    >
-      <span className="bg-clip-text text-transparent bg-gradient-to-r bg-gradient-to-r from-teal-400 to-blue-500">
+    <Link to="/" className={`button button-dark text-center ${className}`}>
+      <AppKnockoutText>
         <FormattedMessage id="index.title" />
-      </span>
+      </AppKnockoutText>
     </Link>
   );
 }

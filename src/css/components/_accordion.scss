@@ -1,0 +1,31 @@
+.accordion-heading {
+  @apply .text-2xl font-bold .py-5 text-left leading-tight tracking-tight;
+}
+
+.accordion-text-content {
+  @apply .text-2xl leading-tight font-light;
+  transition: height .8s ease-in-out;
+  overflow: hidden;
+}
+
+.transform-arrow {
+  transition: transform .8s ease-in-out;
+}
+
+.accordion-side-content-container {
+  position: relative;
+}
+
+.accordion-side-content {
+  position: absolute;
+  width: 100%;
+
+  &.active {
+    opacity: 1;
+    transition: opacity .3s ease-in-out;
+  }
+
+  &.inactive {
+    opacity: 0;
+  }
+}

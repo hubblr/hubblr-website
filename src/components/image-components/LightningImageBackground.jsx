@@ -1,5 +1,5 @@
 import React from 'react';
-import AnimatedLightningImage from '../index/animated-elements/lightning-image/AnimatedLightningImage';
+import AnimatedLightningImage from '../index/animated/lightning-image/AnimatedLightningImage';
 import { DesktopQuery, MobileAndTabletQuery } from '../../util/helpers';
 
 function LightningImageBackground() {

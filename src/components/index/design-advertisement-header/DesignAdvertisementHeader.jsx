@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { v4 as uuid } from 'uuid';
 import DesignAdvertisementHeaderPill from './DesignAdvertisementHeaderPill';
 import DesignAdvertisementHeaderDivider from './DesignAdvertisementHeaderDivider';
-import useOffsetWidth from '../../hooks/dimensions/useOffsetWidth';
+import useOffsetWidth from '../../../hooks/dimensions/useOffsetWidth';
 
 const DesignAdvertisementHeader = forwardRef(
   ({ className, targetCustomers, setElementWidths }, givenRef) => {

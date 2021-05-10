@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DesktopQuery, MobileAndTabletQuery } from '../../util/helpers';
-import useIsPageScrolled from '../hooks/window/useIsPageScrolled';
+import useIsPageScrolled from '../../hooks/window/useIsPageScrolled';
 
 const NavBar = React.forwardRef(
   (
     {
       isCollapsed,
-      desktopLeftContent,
-      desktopMiddleContent,
-      desktopRightContent,
+      desktopContent,
       mobileLeftContent,
       mobileRightContent,
       collapsedContent,
-      className,
+      containerClassName,
+      expandedClassName,
+      scrolledBackgroundClassName,
       showNavBar,
     },
     ref
@@ -24,14 +24,14 @@ const NavBar = React.forwardRef(
 
     return (
       <div
-        className={`navbar fixed top-0 w-full z-50 px-1 ${
-          !isCollapsed ? 'h-screen overflow-y-scroll bg-black' : ''
-        } ${isVisible ? '' : 'opacity-0'} ${className}`}
+        className={`fixed top-0 w-full z-50 ${
+          !isCollapsed ? `h-screen overflow-y-scroll ${expandedClassName}` : ''
+        } ${isVisible ? '' : 'opacity-0'} ${containerClassName}`}
       >
         <div
           className={`${
             isBackgroundBlurred ? '' : 'hidden'
-          } absolute inset-0 w-full h-full navbar-background-blur`}
+          } absolute inset-0 w-full h-full ${scrolledBackgroundClassName}`}
         />
         <div className="relative container mx-auto h-full flex flex-col">
           <div ref={ref} className="w-full py-2">
@@ -45,13 +45,7 @@ const NavBar = React.forwardRef(
                 </div>
               </div>
             </MobileAndTabletQuery>
-            <DesktopQuery>
-              <div className="flex items-center">
-                <div className="w-1/3">{desktopLeftContent}</div>
-                <div className="w-1/3 flex justify-center">{desktopMiddleContent}</div>
-                <div className="w-1/3">{desktopRightContent}</div>
-              </div>
-            </DesktopQuery>
+            <DesktopQuery>{desktopContent}</DesktopQuery>
           </div>
           {collapsedContent}
         </div>
@@ -61,26 +55,27 @@ const NavBar = React.forwardRef(
 );
 
 NavBar.propTypes = {
-  desktopLeftContent: PropTypes.node,
-  desktopMiddleContent: PropTypes.node,
-  desktopRightContent: PropTypes.node,
+  desktopContent: PropTypes.node,
   mobileLeftContent: PropTypes.node,
   mobileRightContent: PropTypes.node,
   isCollapsed: PropTypes.bool,
   collapsedContent: PropTypes.node,
-  className: PropTypes.string,
+  containerClassName: PropTypes.string, // class of all navbar, e.g., background
+  expandedClassName: PropTypes.string, // class of all navbar when collapsed content is expanded
+  // class of otherwise unseen background when scrolling the page - useful for e.g., blur
+  scrolledBackgroundClassName: PropTypes.string,
   showNavBar: PropTypes.bool,
 };
 
 NavBar.defaultProps = {
-  desktopLeftContent: null,
-  desktopMiddleContent: null,
-  desktopRightContent: null,
+  desktopContent: null,
   mobileLeftContent: null,
   mobileRightContent: null,
-  isCollapsed: true,
+  isCollapsed: true, // controlled by parent
   collapsedContent: null,
-  className: '',
+  containerClassName: '',
+  expandedClassName: '',
+  scrolledBackgroundClassName: '',
   showNavBar: true,
 };
 

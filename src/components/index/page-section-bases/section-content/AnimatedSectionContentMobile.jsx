@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AnimatedInitialContentMobile from '../../animated-elements/initial-content/AnimatedInitialContentMobile';
-import AnimatedDesignAdvertisementHeaderMobile from '../../animated-elements/design-advertisement-header/AnimatedDesignAdvertisementHeaderMobile';
-import AnimatedMainContentMobile from '../../animated-elements/main-content/AnimatedMainContentMobile';
+import AnimatedInitialContentMobile from '../../animated/initial-content/AnimatedInitialContentMobile';
+import AnimatedDesignAdvertisementHeaderMobile from '../../animated/design-advertisement-header/AnimatedDesignAdvertisementHeaderMobile';
+import AnimatedMainContentMobile from '../../animated/main-content/AnimatedMainContentMobile';
 
 function AnimatedSectionContentMobile({ children, fadeInImage, contentTitle, targetCustomers }) {
   return (
