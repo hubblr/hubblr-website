@@ -8,7 +8,7 @@ import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
 import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 import ConsultingSectionContent from '../components/index/page-sections/ConsultingSectionContent';
-import AnimatedSatelliteImage from '../components/index/animated-elements/satellite-image/AnimatedSatelliteImage';
+import AnimatedSatelliteImage from '../components/index/animated/satellite-image/AnimatedSatelliteImage';
 import AnimatedSectionContainer from '../components/animation/AnimatedSectionContainer';
 
 function ConsultingPage() {

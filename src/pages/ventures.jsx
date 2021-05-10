@@ -9,7 +9,7 @@ import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 import VenturesSectionContent from '../components/index/page-sections/VenturesSectionContent';
 import AnimatedSectionContainer from '../components/animation/AnimatedSectionContainer';
-import AnimatedVentureImage from '../components/index/animated-elements/venture-image/AnimatedVentureImage';
+import AnimatedVentureImage from '../components/index/animated/venture-image/AnimatedVenturesImage';
 
 function VenturesPage() {
   return (
