@@ -5,8 +5,8 @@
       "title": "hubblr - Developing our digital tomorrow."
     },
     "introduction": {
-      "heading": "Developing our digital tomorrow",
-      "main": "To finally share user-centered and innovative software \"Made in Germany\" with the whole world, we develop outstanding digital products in the following three categories"
+      "heading": "We service companies that matter to innovate faster",
+      "trust": "trusted by"
     },
     "software-laboratory": {
       "designed-for": ["Mid-Size Companies", "Large Enterprises", "Post-Seed Startups"],
@@ -76,7 +76,53 @@
           "title": "Strong Partners for the Future"
         }
       ]
+    },
+    "services":{
+      "title": "Our Services",
+      "software-laboratory": {
+        "title": "Software Laboratory",
+        "description": "We conceptualize, develop and test your digital software project."
+      },
+      "consulting": {
+        "title": "Solution Assessment",
+        "description": "We assess the software architecture of your products."
+      },
+      "ventures": {
+        "title": "Digital Ventures",
+        "description": "Together with visionaries we invest into digital products."
+      }
+    },
+    "testimonials": {
+      "flink": {
+        "person-full-name": "Saad Saeed",
+        "person-position": "Director of Technology",
+        "quote": "\"The hubblr team helped us in our earliest stage to bring flink alive. With the heavily commited team we were able to achieve fast pace software development to hit very ambitious scaling goals with our product. The team consulted and activiley participated in technical decision making, software development and helped scaling our globally growing development and QA-Team.\""
+      }
+    },
+    "call-to-action": {
+      "text": "\"Let’s start building great digital products - together\"",
+      "button": "Contact us"
+    },
+    "news": {
+      "title": "News from our Clients",
+      "client-test": {
+        "heading": "Cooler Titel",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent elementum justo id mollis pretium. Donec mauris odio, molestie in vulputate quis, congue ac ipsum."
+      }
+    },
+    "startups": {
+      "title": "Our Startup Studio",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent elementum justo id mollis pretium. Donec mauris odio, molestie in vulputate quis, congue ac ipsum.",
+      "example1": {
+        "firm": "Tryff",
+        "description": "Tryff rethinks retail by connecting online brands with offline retailers through its Retail-as-a-Service platform."
+      },
+      "example2":{
+        "firm": "Inourhands",
+        "description": "Inourhands is a circular economy solution for second hand shops and turns them into a wardrobe by offering a Subscription-App-as-a-Service."
+      }
     }
+    
   },
 
   "contact": {
@@ -210,6 +256,8 @@
 
   "generic": {
     "contact": "Contact Now",
-    "contact-short": "Contact Us"
+    "contact-short": "Contact Us",
+    "more": "Learn more",
+    "read-more": "Read more"
   }
 }

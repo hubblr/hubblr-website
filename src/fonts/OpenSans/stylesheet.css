@@ -82,3 +82,55 @@
   font-style: italic;
   font-display: swap;
 }
+
+/* Garet Font */
+@font-face {
+  font-family: 'Garet';
+  src: url('GaretHeavy.woff2') format('woff2'), 
+    url('GaretHeavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+  font-family: 'Garet';
+  src: url('GaretBook.woff2') format('woff2'), 
+    url('GaretBook.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* Ubuntu Mono */
+
+@font-face {
+  font-family: 'Ubuntu Mono';  
+  src: url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ubuntu Mono';  
+  src: url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital@1&display=swap');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ubuntu Mono';  
+  src: url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ubuntu Mono';  
+  src: url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@1,700&display=swap');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+

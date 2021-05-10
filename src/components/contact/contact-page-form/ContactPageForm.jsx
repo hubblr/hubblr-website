@@ -147,7 +147,7 @@ function ContactPageForm() {
             isSubmitButton
             theme="dark"
             widthClass="max-sm:w-full"
-            addedFlexClasses="justify-center"
+            innerOverlayDivClassName="justify-center"
           >
             <FormattedMessage id="contact.form.send" />
           </HubblrGradientBorderButtonBase>

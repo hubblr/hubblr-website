@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { LocalizedLink as Link } from 'gatsby-theme-i18n/src/components/localized-link';
@@ -15,12 +15,10 @@ import VenturesArrowImage from '../image-components/VenturesArrowImage';
 import localizedNavigate from '../../util/localizedNavigate';
 import HubblrGradientBorderButtonBase from '../buttons/gradient-border-buttons/HubblrGradientBorderButtonBase';
 import LongArrowImage from '../image-components/LongArrowImage';
-import PageContext from '../../context/PageContext';
 
 const NavBarMainPage = React.forwardRef(
   ({ className, showNavBar, desktopLeftContent, desktopRightContent }, ref) => {
     const [isCollapsed, setIsCollapsed] = useState(true);
-    const pageInfo = useContext(PageContext);
     const { locale } = useLocalization();
 
     // navigation functions
@@ -28,19 +26,6 @@ const NavBarMainPage = React.forwardRef(
       localizedNavigate(to, locale).then(() => {
         setIsCollapsed(true);
       });
-    }
-    function navigateToIndexSection(to, fieldName) {
-      if (pageInfo.page === 'index') {
-        // when already on index page, it is much cleaner to scroll
-        if (fieldName) {
-          window.scrollTo(0, pageInfo.sectionContentStarts[fieldName]);
-        } else {
-          window.scrollTo(0, 0);
-        }
-        setIsCollapsed(true);
-      } else {
-        navigateByNavBar(to);
-      }
     }
 
     return (
@@ -55,7 +40,7 @@ const NavBarMainPage = React.forwardRef(
           <AppButton
             className="button-dark"
             onClick={() => {
-              navigateToIndexSection('/');
+              navigateByNavBar('/');
             }}
           >
             <HubblrImage className="w-20 h-auto" />
@@ -76,7 +61,7 @@ const NavBarMainPage = React.forwardRef(
               <AppButton
                 className="button-dark"
                 onClick={() => {
-                  navigateToIndexSection('/');
+                  navigateByNavBar('/');
                 }}
               >
                 <HubblrImage className="w-20" />
@@ -93,7 +78,7 @@ const NavBarMainPage = React.forwardRef(
               <hr className="bg-white h-p" />
               <Button
                 onClick={() => {
-                  navigateToIndexSection('/');
+                  navigateByNavBar('/');
                 }}
               >
                 <NavBarLink>
@@ -103,7 +88,7 @@ const NavBarMainPage = React.forwardRef(
               <hr className="bg-white h-p" />
               <Button
                 onClick={() => {
-                  navigateToIndexSection('/#softwareLaboratory', 'softwareLaboratory');
+                  navigateByNavBar('/softwarelaboratory');
                 }}
               >
                 <NavBarLink linkImage={<LightningImage className="h-full" />}>
@@ -113,7 +98,7 @@ const NavBarMainPage = React.forwardRef(
               <hr className="bg-white h-p" />
               <Button
                 onClick={() => {
-                  navigateToIndexSection('/#consulting', 'consulting');
+                  navigateByNavBar('/consulting');
                 }}
               >
                 <NavBarLink linkImage={<ConsultingIllustrationImage className="h-full" />}>
@@ -123,7 +108,7 @@ const NavBarMainPage = React.forwardRef(
               <hr className="bg-white h-p" />
               <Button
                 onClick={() => {
-                  navigateToIndexSection('/#ventures', 'ventures');
+                  navigateByNavBar('/ventures');
                 }}
               >
                 <NavBarLink linkImage={<VenturesArrowImage className="h-full" />}>
@@ -133,9 +118,7 @@ const NavBarMainPage = React.forwardRef(
               <hr className="bg-white h-p" />
               <Button
                 onClick={() => {
-                  localizedNavigate('/contact', locale).then(() => {
-                    setIsCollapsed(true);
-                  });
+                  navigateByNavBar('/contact');
                 }}
               >
                 <NavBarLink>

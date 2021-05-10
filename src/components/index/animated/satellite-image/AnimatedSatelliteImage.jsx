@@ -1,30 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import AnimatedSatelliteDesktop from './AnimatedSatelliteDesktop';
+import { motion, useAnimation } from 'framer-motion';
 import SatelliteImage from './SatelliteImage';
-import AnimatedOrbit from './AnimatedOrbit';
-import { MobileAndTabletQuery, DesktopQuery } from '../../../../util/helpers';
+import { ANIMATION_TIMINGS } from '../../../../config';
 
 function AnimatedSatelliteImage({ className }) {
+  const wrapperControls = useAnimation();
+
+  const {
+    IMAGE: {
+      WRAPPER: { DELAY: wrapperDelay, DURATION: wrapperDuration },
+    },
+  } = ANIMATION_TIMINGS;
+
+  const triggerWrapperAnimation = async () => {
+    await wrapperControls.start({
+      opacity: 1,
+      scale: 1,
+      transition: { duration: wrapperDuration, delay: wrapperDelay },
+    });
+  };
+
+  useEffect(() => {
+    triggerWrapperAnimation();
+  }, []);
+
   return (
-    <>
-      <MobileAndTabletQuery>
-        <SatelliteImage className="w-56 h-auto" />
-      </MobileAndTabletQuery>
-      <DesktopQuery>
-        <div className={`flex flex-col items-center justify-center ${className}`}>
-          <div>
-            <AnimatedSatelliteDesktop className="relative z-10" />
-            <div
-              style={{ paddingLeft: '50%', marginLeft: '-15px', transform: 'translateY(-50%)' }}
-              className="absolute left-0 z-0"
-            >
-              <AnimatedOrbit />
-            </div>
-          </div>
-        </div>
-      </DesktopQuery>
-    </>
+    <motion.div
+      className="flex flex-col items-center justify-center"
+      animate={wrapperControls}
+      initial={{ scale: 3, opacity: 0 }}
+    >
+      <SatelliteImage className={`w-56 h-auto ${className}`} />
+    </motion.div>
   );
 }
 

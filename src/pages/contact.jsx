@@ -1,6 +1,5 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
 import BusinessCardContactPage from '../components/contact/business-card/BusinessCardContactPage';
 import ContactPageForm from '../components/contact/contact-page-form/ContactPageForm';
@@ -8,23 +7,22 @@ import SEO from '../components/seo/Seo';
 import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
 import NavBarHomeButton from '../components/nav-bar/NavBarHomeButton';
 import { MobileAndTabletQuery, DesktopQuery } from '../util/helpers';
+import LayoutWrapper from '../components/layouts/LayoutWrapper';
 
 function ContactPage() {
   return (
     <LayoutWrapper>
-      <MainPageDarkLayout
-        navBar={
-          <NavBarMainPage
-            className="sticky"
-            desktopRightContent={
-              <div className="flex justify-end items-center">
-                <NavBarHomeButton />
-              </div>
-            }
-          />
-        }
-      >
+      <MainPageDarkLayout>
         <SEO title="contact.seo.title" description="contact.seo.description" />
+        <NavBarMainPage
+          showNavBar
+          className="sticky"
+          desktopRightContent={
+            <div className="flex justify-end items-center">
+              <NavBarHomeButton />
+            </div>
+          }
+        />
         <div className="flex-grow container mx-auto h-full flex flex-col items-center">
           <h1 className="mb-8 lg:mb-0 text-5xl font-extrabold">
             <FormattedMessage id="contact.heading" />

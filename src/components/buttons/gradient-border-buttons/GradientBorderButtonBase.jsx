@@ -4,35 +4,37 @@ import PropTypes from 'prop-types';
 function GradientBorderButtonBase({
   children,
   isSubmitButton,
-  borderWidth,
-  widthClass,
-  paddingClasses,
-  textColorClass,
-  backgroundColorClass,
   gradientColors,
-  addedFlexClasses,
   onClick,
+  borderButtonClassName,
+  innerOverlayDivClassName,
+  textDivClassName,
 }) {
   return (
     <button
       type={isSubmitButton ? 'submit' : 'button'}
-      className={`${widthClass} rounded-lg`}
+      className={`${borderButtonClassName} rounded-lg rotategradient `}
       style={{
-        background: `linear-gradient(to right, ${gradientColors.join(',')})`,
+        background: `linear-gradient(90deg, ${gradientColors.join(',')})`,
       }}
       onClick={onClick}
     >
       <div
         className={
-          `flex items-center ${addedFlexClasses} rounded-lg ` +
-          `bg-clip-padding ${textColorClass} ${backgroundColorClass}`
+          `${innerOverlayDivClassName} ` +
+          // Alignment
+          `flex items-center justify-center rounded-lg ` +
+          // Border Styling
+          `bg-clip-padding border-2 border-transparent border-solid ` +
+          // Text Styling
+          `font-sans font-black text-tiny ` +
+          // Hover-Effects
+          `hover:text-hubblr-turquoise hover:bg-black`
         }
-        style={{
-          border: `solid ${borderWidth} transparent`,
-          boxSizing: 'border-box',
-        }}
       >
-        <div className={`flex ${addedFlexClasses} ${paddingClasses}`}>{children}</div>
+        <div className={`${textDivClassName} flex justify-center text-lg`}>
+          <span>{children}</span>
+        </div>
       </div>
     </button>
   );
@@ -41,24 +43,19 @@ function GradientBorderButtonBase({
 GradientBorderButtonBase.propTypes = {
   children: PropTypes.node.isRequired,
   isSubmitButton: PropTypes.bool,
-  borderWidth: PropTypes.string.isRequired,
-  widthClass: PropTypes.string,
-  paddingClasses: PropTypes.string,
-  textColorClass: PropTypes.string,
-  backgroundColorClass: PropTypes.string,
   gradientColors: PropTypes.arrayOf(PropTypes.string).isRequired,
-  addedFlexClasses: PropTypes.string,
   onClick: PropTypes.func,
+  borderButtonClassName: PropTypes.string, // borderButtonClassName: defines the gradient border line (lowest layer) and thereby allows a gradient styling
+  innerOverlayDivClassName: PropTypes.string, // innerOverlayDivClassName: defines the overlay (middle layer) where the border is made transparent to show the buttons gradient effect
+  textDivClassName: PropTypes.string, // textDivClassName: defines the actual text content (highest layer) and allows alignments of the text,
 };
 
 GradientBorderButtonBase.defaultProps = {
   isSubmitButton: false,
-  widthClass: '',
-  paddingClasses: '',
-  textColorClass: 'text-black',
-  backgroundColorClass: 'text-white',
-  addedFlexClasses: '',
   onClick: null,
+  borderButtonClassName: '',
+  innerOverlayDivClassName: '',
+  textDivClassName: '',
 };
 
 export default GradientBorderButtonBase;

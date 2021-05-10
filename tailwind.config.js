@@ -13,7 +13,8 @@ module.exports = {
         2: '2',
       },
       fontFamily: {
-        sans: ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
+        sans: ['Garet', 'Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
+        mono: ['Ubuntu Mono', 'Roboto Mono', 'Menlo', 'monospace'],
       },
       fontSize: {
         '7xl': '5rem',
@@ -37,6 +38,12 @@ module.exports = {
         'max-md': { max: '767px' },
         '2xl': { min: '1950px' },
       },
+      boxShadow: {
+        'box-purple': '-7px 7px 0 rgba(93,28,144, 0.8)',
+      },
+      textShadow: {
+        'headline-purple': '-7px 7px 0 rgba(93,28,144, 0.8)',
+      },
       spacing: {
         '1/2': '50%',
         '3/4': '75%',
@@ -58,11 +65,15 @@ module.exports = {
         'brand-gray-lighter': '#979797',
         'brand-gray-light': '#F1EFEF',
         'brand-eggshell': '#f8f8f8',
-        'brand-purple': '#8D00FF',
+        'gray-primary': '#242323',
+        'hubblr-purple': '#5d1c90',
+        'hubblr-turquoise': '#4ad0d9',
+        'hubblr-blue': '#4299e1',
+        'hubblr-green': '#4fd1c5',
       },
     },
   },
   variants: {},
   // eslint-disable-next-line global-require
-  plugins: [require('@tailwindcss/custom-forms')],
+  plugins: [require('@tailwindcss/custom-forms'), require('tailwindcss-textshadow')],
 };

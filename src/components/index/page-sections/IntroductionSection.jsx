@@ -1,30 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MobileAndTabletQuery, DesktopQuery } from '../../../util/helpers';
-import SectionScrollBar from '../section-scroll-bar/SectionScrollBar';
-import ArrowImageDownDouble from '../../image-components/ArrowImageDownDouble';
+import WebsiteHeroVideo from '../../videos/web-hero.mp4';
 
 function IntroductionSection({ children }) {
   return (
-    <div className="container mx-auto min-h-screen flex flex-col mt-4">
-      <div className="flex-grow flex flex-col lg:justify-center pt-20 pb-5 lg:pt-0 md:pb-0">
-        {children}
+    <div className="relative overflow-hidden">
+      <div className="absolute z-0">
+        <video
+          muted
+          autoPlay
+          loop
+          className="absolute min-h-full h-screen max-w-none z-0"
+          // className="absolute min-h-full min-w-full w-auto h-screen overflow-hidden max-w-none z-0"
+        >
+          <source src={WebsiteHeroVideo} type="video/mp4" />
+        </video>
       </div>
-      <MobileAndTabletQuery>
-        <div className="w-full flex justify-center mb-5">
-          <ArrowImageDownDouble />
+      {/* DARK OVERLAY FOR VIDEO */}
+      <div className=" absolute flex-grow min-h-screen flex flex-col w-screen h-screen bg-black bg-opacity-75 z-30" />
+      <div className="container mx-auto min-h-screen flex flex-col h-screen mb-40 ">
+        <div className="flex-grow flex flex-col lg:justify-center pt-20 pb-5 lg:pt-0 md:pb-0 z-50">
+          {children}
         </div>
-      </MobileAndTabletQuery>
-      <DesktopQuery>
-        <div className="mt-4">
-          <SectionScrollBar
-            upperFlexGrow={0}
-            lowerFlexGrow={0}
-            lowerClassNames="h-16"
-            arrowImage={<ArrowImageDownDouble />}
-          />
-        </div>
-      </DesktopQuery>
+      </div>
     </div>
   );
 }
