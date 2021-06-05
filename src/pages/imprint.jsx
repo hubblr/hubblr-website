@@ -10,19 +10,18 @@ import SEO from '../components/seo/Seo';
 
 const ImprintPage = () => (
   <LayoutWrapper>
-    <MainPageDarkLayout
-      navBar={
-        <NavBarMainPage
-          className="sticky"
-          desktopRightContent={
-            <div className="flex justify-end items-center">
-              <NavBarHomeButton className="mr-2" />
-              <NavBarContactButton />
-            </div>
-          }
-        />
-      }
-    >
+    <MainPageDarkLayout>
+      <NavBarMainPage
+        showNavBar
+        showAlways
+        className="sticky"
+        desktopRightContent={
+          <div className="flex justify-end items-center">
+            <NavBarHomeButton className="mr-2" />
+            <NavBarContactButton />
+          </div>
+        }
+      />
       <SEO title="imprint.seo.title" />
       <div className="text-content container mx-auto">
         <div className="flex flex-col flex-grow lg:mt-16">

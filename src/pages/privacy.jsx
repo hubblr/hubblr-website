@@ -11,21 +11,19 @@ import SEO from '../components/seo/Seo';
 function PrivacyPolicyPage() {
   return (
     <LayoutWrapper>
-      <MainPageDarkLayout
-        navBar={
-          <NavBarMainPage
-            className="sticky"
-            desktopRightContent={
-              <div className="flex justify-end items-center">
-                <NavBarHomeButton className="mr-2" />
-                <NavBarContactButton />
-              </div>
-            }
-          />
-        }
-      >
+      <MainPageDarkLayout>
+        <NavBarMainPage
+          showAlways
+          className="sticky"
+          desktopRightContent={
+            <div className="flex justify-end items-center">
+              <NavBarHomeButton className="mr-2" />
+              <NavBarContactButton />
+            </div>
+          }
+        />
         <SEO title="privacy.seo.title" />
-        <div className="text-content container mx-auto">
+        <div className="text-content container mx-auto mt-10">
           <h1 className="adsimple-311232323">Datenschutzerklärung</h1>
           <h2 className="adsimple-311232323">Datenschutz</h2>
           <p>

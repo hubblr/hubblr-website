@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const TestimonialSectionText = ({ personaQuoteText, className }) => {
   return (
     <div>
-      <p className={`${className} m-5 text-center my-10`}>{personaQuoteText}</p>
+      <p className={`${className} m-5 text-center my-10 lg:text-xl`}>{personaQuoteText}</p>
     </div>
   );
 };

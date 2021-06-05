@@ -15,7 +15,7 @@ const NewsSectionContentCard = ({ src, alt, header, text, link, className }) => 
       </div>
       <div className="p-4 w-full my-2 px-2 md:my-2 md:px-2 md:w-1/2 h-auto items-center flex-col">
         <h2 className="text-3xl mb-10 text-left">{header}</h2>
-        <p className="my-5 text-left">{text}</p>
+        <p className="my-5 text-left lg:text-xl">{text}</p>
         <div className="flex ">
           <Link to={link} className="my-5 w-1/2">
             <span className="borderless-link-black">

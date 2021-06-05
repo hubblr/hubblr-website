@@ -6,8 +6,8 @@ const ServiceSectionCard = ({ className, title, content, link, children }) => {
   return (
     <div>
       <div className={className}>
-        <h2 className="text-xl md:text-3xl m-5 px-5 font-sans">{title}</h2>
-        <p className="m-5 text-center py-2 md:py-10">{content}</p>
+        <h2 className="text-xl md:text-3xl m-5 px-5 font-sans lg:text-4xl">{title}</h2>
+        <p className="m-5 text-center py-2 md:py-10 lg:text-xl">{content}</p>
         <Link to={link} className="m-5">
           {children}
         </Link>

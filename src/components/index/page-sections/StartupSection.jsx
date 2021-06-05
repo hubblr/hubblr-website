@@ -19,7 +19,7 @@ const NewsSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 grid-flow-row gap-10">
         <div>
           <div className="w-full h-auto items-center md:flex-col rounded-2xl gap-10">
-            <p className="text-left mb-20">
+            <p className="text-left mb-20 lg:text-xl">
               <FormattedMessage id="index.startups.description" />
             </p>
             <div className="w-full h-auto items-center md:flex-col mx-auto rounded-2xl -ml-32">

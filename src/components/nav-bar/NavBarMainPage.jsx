@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { LocalizedLink as Link } from 'gatsby-theme-i18n/src/components/localized-link';
@@ -14,11 +14,11 @@ import ConsultingIllustrationImage from '../image-components/ConsultingIllustrat
 import VenturesArrowImage from '../image-components/VenturesArrowImage';
 import localizedNavigate from '../../util/localizedNavigate';
 import HubblrGradientBorderButtonBase from '../buttons/gradient-border-buttons/HubblrGradientBorderButtonBase';
-import LongArrowImage from '../image-components/LongArrowImage';
 
 const NavBarMainPage = React.forwardRef(
-  ({ className, showNavBar, desktopLeftContent, desktopRightContent }, ref) => {
+  ({ className, desktopLeftContent, desktopRightContent, showAlways }, ref) => {
     const [isCollapsed, setIsCollapsed] = useState(true);
+    const [showNavBar, setShowNavBar] = useState(showAlways);
     const { locale } = useLocalization();
 
     // navigation functions
@@ -28,6 +28,25 @@ const NavBarMainPage = React.forwardRef(
       });
     }
 
+    function updateShowNavBar() {
+      if (window.scrollY > 50 && !showNavBar) {
+        setShowNavBar(true);
+      } else if (window.scrollY <= 50 && showNavBar) {
+        setShowNavBar(false);
+      }
+    }
+
+    useEffect(() => {
+      if (!showAlways) {
+        window.addEventListener('scroll', updateShowNavBar);
+      }
+      return () => {
+        if (!showAlways) {
+          window.removeEventListener('scroll', updateShowNavBar);
+        }
+      };
+    });
+
     return (
       <NavBar
         ref={ref}
@@ -36,6 +55,7 @@ const NavBarMainPage = React.forwardRef(
         scrolledBackgroundClassName="navbar-background-blur"
         showNavBar={showNavBar}
         isCollapsed={isCollapsed}
+        showAlways={showAlways}
         mobileLeftContent={
           <AppButton
             className="button-dark"
@@ -59,7 +79,7 @@ const NavBarMainPage = React.forwardRef(
             <div className="w-1/3">{desktopLeftContent}</div>
             <div className="w-1/3 self-center flex justify-center">
               <AppButton
-                className="button-dark"
+                className="button-dark py-1 px-1"
                 onClick={() => {
                   navigateByNavBar('/');
                 }}
@@ -127,12 +147,11 @@ const NavBarMainPage = React.forwardRef(
               </Button>
               <hr className="bg-white h-p" />
             </div>
-            <Link to="/contact" className="mt-3">
+            <Link to="/contact" className="mt-3 w-full">
               <HubblrGradientBorderButtonBase
-                widthClass="w-full"
+                borderButtonClassName="w-full"
                 addedFlexClasses="w-full justify-between"
                 theme="dark"
-                image={<LongArrowImage theme="dark" className="w-10" />}
               >
                 <div className="text-xl">
                   <FormattedMessage id="generic.contact" />
@@ -148,16 +167,16 @@ const NavBarMainPage = React.forwardRef(
 
 NavBarMainPage.propTypes = {
   className: PropTypes.string,
-  showNavBar: PropTypes.bool,
   desktopLeftContent: PropTypes.node,
   desktopRightContent: PropTypes.node,
+  showAlways: PropTypes.bool,
 };
 
 NavBarMainPage.defaultProps = {
   className: '',
-  showNavBar: true,
   desktopLeftContent: null,
   desktopRightContent: null,
+  showAlways: false,
 };
 
 export default NavBarMainPage;

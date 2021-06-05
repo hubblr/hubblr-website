@@ -1,28 +1,20 @@
 import React from 'react';
-import { LocalizedLink as Link } from 'gatsby-theme-i18n';
 import { FormattedMessage } from 'react-intl';
 import HubblrIconImage from '../animated/hubblr-icon-image/AnimatedHubblrIconImage';
-import IndexGradientBorderButtonBasic from '../../buttons/gradient-border-buttons/IndexGradientBorderButtonBasic';
-import FlinkLogo from '../../../images/flink-logo.png';
+import FlinkLogo from '../../../images/flink-logo.jpeg';
 import MedikamendoLogo from '../../../images/medikamendo.png';
 
 function IntroductionSectionContent() {
   return (
-    <div className="flex flex-col">
-      <HubblrIconImage className="w-24 md:w-40 mb-10 md:mb-12 bg-transparent" />
-      <h1 className="mb-10 text-4xl md:text-6xl leading-tight md:leading-none max-w-2xl text-shadow-headline-purple">
+    <div className="flex flex-col items-center md:items-start">
+      <HubblrIconImage className="mb-10 md:mb-12 bg-transparent" />
+      <h1 className="mb-10 text-4xl md:text-6xl leading-tight md:leading-none max-w-2xl text-shadow-headline-purple text-center md:text-left">
         <FormattedMessage id="index.introduction.heading" />
       </h1>
 
-      <Link to="/contact">
-        <IndexGradientBorderButtonBasic theme="dark">
-          <FormattedMessage id="generic.more" />
-        </IndexGradientBorderButtonBasic>
-      </Link>
-
       <div className="flex flex-col md:flex-row items-center md:items-start mt-20 w-auto">
         <div className="flex w-full md:w-auto mb-12 text-xl md:text-base">
-          <p className="flex w-full justify-center md:justify-start items-center">
+          <p className="flex w-full justify-center md:justify-start items-center lg:text-xl">
             <FormattedMessage id="index.introduction.trust" />
           </p>
         </div>

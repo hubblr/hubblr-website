@@ -37,6 +37,10 @@
     @apply .font-black .font-sans .text-xl .bg-clip-text .text-transparent .bg-gradient-to-r .from-hubblr-blue .to-hubblr-green;
     a {
       @apply .font-black .font-sans .text-xl .bg-clip-text .text-transparent .bg-gradient-to-r .from-hubblr-blue .to-hubblr-green;
+      
+      @screen lg {
+        @apply .text-3xl;
+      }
     }
   }
 

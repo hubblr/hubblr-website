@@ -24,7 +24,7 @@ const NavBar = React.forwardRef(
 
     return (
       <div
-        className={`fixed top-0 w-full z-50 ${
+        className={`fixed top-0 w-full ${
           !isCollapsed ? `h-screen overflow-y-scroll ${expandedClassName}` : ''
         } ${isVisible ? '' : 'opacity-0'} ${containerClassName}`}
       >

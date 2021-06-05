@@ -15,6 +15,7 @@ function ContactPage() {
       <MainPageDarkLayout>
         <SEO title="contact.seo.title" description="contact.seo.description" />
         <NavBarMainPage
+          showAlways
           showNavBar
           className="sticky"
           desktopRightContent={
@@ -23,7 +24,7 @@ function ContactPage() {
             </div>
           }
         />
-        <div className="flex-grow container mx-auto h-full flex flex-col items-center">
+        <div className="flex-grow container mx-auto h-full flex flex-col items-center mt-10">
           <h1 className="mb-8 lg:mb-0 text-5xl font-extrabold">
             <FormattedMessage id="contact.heading" />
           </h1>
