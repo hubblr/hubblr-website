@@ -23,8 +23,8 @@ export default StartupSectionContentCard;
 
 StartupSectionContentCard.propTypes = {
   className: PropTypes.string,
-  firm: PropTypes.string,
-  description: PropTypes.string,
+  firm: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  description: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   link: PropTypes.string,
 };
 

@@ -9,7 +9,7 @@ function IntroductionSection({ children }) {
       <DesktopQuery>
         {/* DARK OVERLAY FOR VIDEO */}
         <div className="absolute top-0 left-0 h-full w-full bg-black bg-opacity-50 z-10" />
-        <video playsinline muted autoPlay loop className="background-video z-0">
+        <video playsInLine muted autoPlay loop className="background-video z-0">
           <source src={WebsiteHeroVideo} type="video/mp4" />
         </video>
       </DesktopQuery>

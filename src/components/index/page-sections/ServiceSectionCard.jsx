@@ -18,8 +18,8 @@ const ServiceSectionCard = ({ className, title, content, link, children }) => {
 
 ServiceSectionCard.propTypes = {
   children: PropTypes.node.isRequired,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+  content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   link: PropTypes.string.isRequired,
   className: PropTypes.string,
 };

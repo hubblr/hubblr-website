@@ -33,8 +33,8 @@ export default TestimonialSectionPersonaRow;
 TestimonialSectionPersonaRow.propTypes = {
   personaImage: PropTypes.string,
   corporateLogo: PropTypes.string,
-  personaName: PropTypes.string,
-  personaJobtitle: PropTypes.string,
+  personaName: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  personaJobtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
 
 TestimonialSectionPersonaRow.defaultProps = {
