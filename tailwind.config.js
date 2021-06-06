@@ -3,6 +3,8 @@ module.exports = {
   future: {
     purgeLayersByDefault: true,
     removeDeprecatedGapUtilities: true,
+    defaultLineHeights: true,
+    standardFontWeights: true,
   },
   purge: {
     content: ['./src/**/*.jsx'],
@@ -36,13 +38,12 @@ module.exports = {
       screens: {
         'max-sm': { max: '639px' },
         'max-md': { max: '767px' },
-        '2xl': { min: '1950px' },
       },
       boxShadow: {
-        'box-purple': '-7px 7px 0 rgba(93,28,144, 0.8)',
+        'box-purple': '-7px 7px 0 rgb(132, 23, 221)',
       },
       textShadow: {
-        'headline-purple': '-7px 7px 0 rgba(93,28,144, 0.8)',
+        'headline-purple': '-4px 4px 0 rgb(132, 23, 221)',
       },
       spacing: {
         '1/2': '50%',
@@ -66,7 +67,7 @@ module.exports = {
         'brand-gray-light': '#F1EFEF',
         'brand-eggshell': '#f8f8f8',
         'gray-primary': '#242323',
-        'hubblr-purple': '#5d1c90',
+        'hubblr-purple': '#8417dd',
         'hubblr-turquoise': '#4ad0d9',
         'hubblr-blue': '#4299e1',
         'hubblr-green': '#4fd1c5',

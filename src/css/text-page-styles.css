@@ -1,0 +1,49 @@
+.text-content * {
+  @apply .text-sm;
+}
+
+@screen lg {
+  .text-content * {
+    @apply .text-base;
+  }
+}
+
+.text-content h1 {
+  @apply .text-2xl .mb-5;
+}
+
+@screen lg {
+  .text-content h1 {
+    @apply .text-4xl .mb-8;
+  }
+}
+
+.text-content h2 {
+  @apply .text-xl .mb-3;
+}
+
+@screen lg {
+  .text-content h2 {
+    @apply .text-2xl .mt-6 .mb-4;
+  }
+}
+
+.text-content p, .text-content ul {
+  @apply .mb-3;
+}
+
+@screen lg {
+  .text-content p
+  @apply
+}
+
+.text-content ul {
+  list-style-type: disc;
+  list-style-position: inside;
+  @apply .px-4;
+}
+
+.text-content a {
+  @apply .underline;
+}
+/*# sourceMappingURL=text-page-styles.css.map */

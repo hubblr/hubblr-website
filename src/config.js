@@ -68,16 +68,16 @@ export const ANIMATION_TIMINGS = {
   IMAGE: {
     PATH: {
       DELAY: 0,
-      DURATION: 4,
+      DURATION: 1.5,
     },
     WRAPPER: {
       DELAY: 0,
-      DURATION: 6,
+      DURATION: 1.5,
     },
   },
   CONTENT: {
-    DELAY: 5,
-    DURATION: 4,
+    DELAY: 1,
+    DURATION: 2,
   },
 };
 

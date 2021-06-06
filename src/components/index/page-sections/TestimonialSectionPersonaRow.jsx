@@ -16,8 +16,10 @@ const TestimonialSectionPersonaRow = ({
           <TestimonialImageContainer image={corporateLogo} alt="" className="w-12 h-12 " />
         </div>
         <div className="flex flex-col w-full md:w-1/2 md:justify-end">
-          <div className="secondary-title w-full pt-2 text-center md:text-left">{personaName}</div>
-          <div className="secondary-subtitle w-full text-center md:text-left">
+          <div className="secondary-title w-full pt-2 text-center md:text-left 2xl:text-2xl">
+            {personaName}
+          </div>
+          <div className="secondary-subtitle w-full text-center md:text-left 2xl:text-2xl">
             {personaJobtitle}
           </div>
         </div>
@@ -31,8 +33,8 @@ export default TestimonialSectionPersonaRow;
 TestimonialSectionPersonaRow.propTypes = {
   personaImage: PropTypes.string,
   corporateLogo: PropTypes.string,
-  personaName: PropTypes.string,
-  personaJobtitle: PropTypes.string,
+  personaName: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  personaJobtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
 
 TestimonialSectionPersonaRow.defaultProps = {

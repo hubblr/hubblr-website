@@ -13,17 +13,16 @@ import StartupSection from '../components/index/page-sections/StartupSection';
 
 function IndexPage() {
   return (
-    <MainPageDarkLayout
-      navBar={
-        <NavBarMainPage
-          desktopRightContent={
-            <div className="flex justify-end items-center">
-              <NavBarContactButton />
-            </div>
-          }
-        />
-      }
-    >
+    <MainPageDarkLayout>
+      <NavBarMainPage
+        showNavBar
+        className="fixed w-full navbar-background-blur animate top-0 mb-4 z-50"
+        desktopRightContent={
+          <div className="flex justify-end items-center">
+            <NavBarContactButton />
+          </div>
+        }
+      />
       <SEO title="index.seo.title" />
       <div>
         <IntroductionSection>
