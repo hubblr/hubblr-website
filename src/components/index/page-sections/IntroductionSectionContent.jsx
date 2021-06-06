@@ -14,7 +14,7 @@ function IntroductionSectionContent() {
 
       <div className="flex flex-col md:flex-row items-center md:items-start mt-20 w-auto">
         <div className="flex w-full md:w-auto mb-12 text-xl md:text-base">
-          <p className="flex w-full justify-center md:justify-start items-center lg:text-xl">
+          <p className="flex w-full justify-center md:justify-start items-center 2xl:text-xl">
             <FormattedMessage id="index.introduction.trust" />
           </p>
         </div>

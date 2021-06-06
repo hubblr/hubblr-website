@@ -3,7 +3,6 @@ import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
 import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
 import '../css/text-page-styles.scss';
-import NavBarHomeButton from '../components/nav-bar/NavBarHomeButton';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 import SEO from '../components/seo/Seo';
 
@@ -17,7 +16,6 @@ function PrivacyPolicyPage() {
           className="sticky"
           desktopRightContent={
             <div className="flex justify-end items-center">
-              <NavBarHomeButton className="mr-2" />
               <NavBarContactButton />
             </div>
           }
