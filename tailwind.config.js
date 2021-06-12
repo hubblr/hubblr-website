@@ -75,6 +75,10 @@ module.exports = {
     },
   },
   variants: {},
-  // eslint-disable-next-line global-require
-  plugins: [require('@tailwindcss/custom-forms'), require('tailwindcss-textshadow')],
+  plugins: [
+    // eslint-disable-next-line global-require
+    require('@tailwindcss/custom-forms'),
+    // eslint-disable-next-line global-require
+    require('tailwindcss-textshadow'),
+  ],
 };
