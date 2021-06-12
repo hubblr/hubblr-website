@@ -20,7 +20,7 @@ function CookieNotice({ setGoogleAnalyticsAllowed }) {
     <div
       className={`${
         isAccepted ? 'hidden ' : ''
-      }bg-brand-gray-dark fixed bottom-0 w-full text-white py-10 px-6`}
+      }bg-brand-gray-dark fixed bottom-0 w-full text-white py-10 px-6 z-30`}
     >
       <div className="container mx-auto flex flex-col justify-center items-center">
         <div className="font-bold text-xl tracking-tight mb-5">Cookie Update</div>
