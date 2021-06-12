@@ -5,11 +5,17 @@ import { DesktopQuery } from '../../../util/helpers';
 
 function IntroductionSection({ children }) {
   return (
-    <div className="relative overflow-hidden mb-40">
+    <div className="relative overflow-hidden items-center justify-center h-screen mb-40">
       <DesktopQuery>
         {/* DARK OVERLAY FOR VIDEO */}
         <div className="absolute top-0 left-0 h-full w-full bg-black bg-opacity-50 z-10" />
-        <video playsInline muted autoPlay loop className="background-video z-0">
+        <video
+          playsInline
+          muted
+          autoPlay
+          loop
+          className="absolute w-auto min-w-full min-h-full max-w-none background-video z-0"
+        >
           <source src={WebsiteHeroVideo} type="video/mp4" />
         </video>
       </DesktopQuery>
