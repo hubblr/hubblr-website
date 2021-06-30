@@ -5,24 +5,26 @@ import { DesktopQuery } from '../../../util/helpers';
 
 function IntroductionSection({ children }) {
   return (
-    <div className="relative overflow-hidden items-center justify-center h-screen mb-40">
+    <div className="relative overflow-hidden items-center justify-center w-screen h-screen mb-40">
       <DesktopQuery>
-        {/* DARK OVERLAY FOR VIDEO */}
-        <div className="absolute top-0 left-0 h-full w-full bg-black bg-opacity-50 z-10" />
-        <video
-          playsInline
-          muted
-          autoPlay
-          loop
-          posterImage="../../../images/hubblr-website-hero-video-poster-image.jpeg"
-          className="absolute w-auto min-w-full min-h-full max-w-none background-video z-0"
-        >
-          <source src={WebsiteHeroVideo} type="video/mp4" />
-        </video>
+        <div className="relative w-full h-full">
+          <video
+            playsInline
+            muted
+            autoPlay
+            loop
+            className="absolute top-0 left-0 w-auto min-w-full min-h-full max-w-none background-video"
+          >
+            <source src={WebsiteHeroVideo} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 z-10 h-screen w-screen bg-black bg-opacity-50" />
+        </div>
       </DesktopQuery>
-      <div className="relative container mx-auto min-h-screen flex flex-col h-screen z-20">
-        <div className="flex-grow flex flex-col lg:justify-center pt-20 pb-5 lg:pt-0 md:pb-0 z-0">
-          {children}
+      <div className="absolute top-0 left-0 z-20 h-full w-full">
+        <div className="container mx-auto flex flex-col h-screen">
+          <div className="flex-grow flex flex-col lg:justify-center pt-20 pb-5 lg:pt-0 md:pb-0">
+            {children}
+          </div>
         </div>
       </div>
     </div>

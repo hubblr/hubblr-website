@@ -125,7 +125,7 @@ export const IsScreenMD = typeof window !== 'undefined' && window.innerWidth > M
 export const IsScreenLG = typeof window !== 'undefined' && window.innerWidth > TabletBreakpoint;
 
 /* eslint-disable react/jsx-filename-extension,react/jsx-props-no-spreading */
-export const DesktopQuery = (props) => <Responsive {...props} minWidth={TabletBreakpoint + 1} />;
+export const DesktopQuery = (props) => <div {...props} className="desktop-only" />;
 
 export const MobileQuery = (props) => <Responsive {...props} maxWidth={MobileBreakpoint} />;
 
