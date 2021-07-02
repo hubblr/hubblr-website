@@ -48,11 +48,13 @@ function SoftwareLaboratoryPage() {
               </MobileAndTabletQuery>
               <DesktopQuery>
                 <SoftwareLaboratorySectionContent />
-                <Link to="/contact">
-                  <IndexGradientBorderButtonBasic theme="light">
-                    <FormattedMessage id="generic.contact" />
-                  </IndexGradientBorderButtonBasic>
-                </Link>
+                <div className="w-full flex flex-row justify-center">
+                  <Link to="/contact">
+                    <IndexGradientBorderButtonBasic theme="light">
+                      <FormattedMessage id="generic.contact" />
+                    </IndexGradientBorderButtonBasic>
+                  </Link>
+                </div>
               </DesktopQuery>
             </div>
           </AnimatedSectionContainer>
