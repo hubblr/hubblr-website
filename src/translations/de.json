@@ -114,15 +114,15 @@
       }
     },
     "startups": {
-      "title": "Our Startup Studio",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent elementum justo id mollis pretium. Donec mauris odio, molestie in vulputate quis, congue ac ipsum.",
+      "title": "Unser Startup Studio",
+      "description": "Das Hubblr Start-Up Studio ist ein visionäres Hub, in dem Ideen geformt und in digitale Produkte umgesetzt werden. Wir bringen unsere Software Development und Managementkompetenzen an ihre Grenzen, um Strukturen zu hinterfragen und die nächste Generation an digitalen Ventures mit Impact zu schaffen.",
       "example1":{
         "firm": "Tryff",
-        "description": "Tryff rethinks retail by connecting online brands with offline retailers through its Retail-as-a-Service platform."
+        "description": "Tryff denkt den Einzelhandel neu, indem es über seine Retail-as-a-Service-Plattform digitale Brands mit Offline-Händlern verbindet."
       },
       "example2":{
         "firm": "Inourhands",
-        "description": "Inourhands is a circular economy solution for second hand shops and turns them into a wardrobe by offering a Subscription-App-as-a-Service."
+        "description": "Inourhands ist eine Kreislaufwirtschaftslösung für Second-Hand-Läden und macht diese mit einer Subscription-App-as-a-Service zu einem Kleiderschrank."
       }
     }
 
