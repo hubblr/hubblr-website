@@ -1,6 +1,5 @@
 /* eslint import/prefer-default-export: "off" */
 import React from 'react';
-import Responsive from 'react-responsive';
 
 export const RFC3339 = 'YYYY-MM-DD\\THH:mm:ssZ';
 
