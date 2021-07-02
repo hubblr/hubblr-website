@@ -1,6 +1,5 @@
 /* eslint import/prefer-default-export: "off" */
 import React from 'react';
-import Responsive from 'react-responsive';
 
 export const RFC3339 = 'YYYY-MM-DD\\THH:mm:ssZ';
 
@@ -127,13 +126,12 @@ export const IsScreenLG = typeof window !== 'undefined' && window.innerWidth > T
 /* eslint-disable react/jsx-filename-extension,react/jsx-props-no-spreading */
 export const DesktopQuery = (props) => <div {...props} className="desktop-only" />;
 
-export const MobileQuery = (props) => <Responsive {...props} maxWidth={MobileBreakpoint} />;
+export const TabletQuery = (props) => <div {...props} className="tablet-only" />;
 
-export const MobileAndTabletQuery = (props) => (
-  <Responsive {...props} maxWidth={TabletBreakpoint} />
-);
+export const MobileAndTabletQuery = (props) => <div {...props} className="mobile-and-tablet" />;
 
-export const TabletQuery = (props) => <Responsive {...props} minWidth={MobileBreakpoint + 1} />;
+export const MobileQuery = (props) => <div {...props} className="mobile-only" />;
+
 /* eslint-enable react/jsx-filename-extension,react/jsx-props-no-spreading */
 
 export const addClassToBody = (cl) => {

@@ -24,7 +24,7 @@ const NavBarMainPage = React.forwardRef(
     // navigation functions
     function navigateByNavBar(to) {
       localizedNavigate(to, locale).then(() => {
-        setIsCollapsed(true);
+        setIsCollapsed(!isCollapsed);
       });
     }
 

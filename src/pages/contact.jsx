@@ -24,7 +24,7 @@ function ContactPage() {
             </div>
           }
         />
-        <div className="flex-grow container mx-auto h-full flex flex-col items-center mt-10">
+        <div className="flex-grow overflow-hidden container mx-auto h-full flex flex-col items-center mt-10">
           <h1 className="mb-8 lg:mb-0 text-5xl font-extrabold">
             <FormattedMessage id="contact.heading" />
           </h1>
