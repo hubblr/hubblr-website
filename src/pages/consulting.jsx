@@ -17,7 +17,7 @@ function ConsultingPage() {
       <NavBarMainPage
         showNavBar
         showAlways
-        className="z-10 sticky w-full navbar-background-blur animate top-0 mb-4"
+        className="z-20 sticky w-full navbar-background-blur animate top-0 mb-4"
         desktopRightContent={
           <div className="flex justify-end items-center">
             <NavBarContactButton />
@@ -27,7 +27,7 @@ function ConsultingPage() {
       <div className="absolute z-0 h-screen w-screen flex justify-center items-center">
         <AnimatedSatelliteImage className="w-40 h-auto" />
       </div>
-      <div className="flex-grow relative z-10 container mx-auto flex flex-col justify-center items-center max-w-6xl">
+      <div className="flex-grow overflow-hidden relative z-10 container mx-auto flex flex-col justify-center items-center max-w-6xl">
         <AnimatedSectionContainer>
           <SectionHeading className="mb-6" heading="Consulting" />
           <div className="flex flex-col items-center">
