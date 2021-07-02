@@ -21,7 +21,7 @@ function IntroductionSection({ children }) {
         </video>
       </DesktopQuery>
       <div className="relative container mx-auto min-h-screen flex flex-col h-screen z-20">
-        <div className="flex-grow flex flex-col lg:justify-center pt-20 pb-5 lg:pt-0 md:pb-0 z-0">
+        <div className="flex-grow flex flex-col lg:justify-center pt-20 pb-5 lg:pt-0 md:pb-0 z-20">
           {children}
         </div>
       </div>
