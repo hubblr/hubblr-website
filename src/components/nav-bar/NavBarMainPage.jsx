@@ -5,7 +5,6 @@ import { LocalizedLink as Link } from 'gatsby-theme-i18n/src/components/localize
 import { useLocalization } from 'gatsby-theme-i18n';
 import NavBar from './NavBar';
 import HubblrImage from '../image-components/HubblrImage';
-import AppButton from '../buttons/bases/AppButton';
 import HamburgerMenuIcon from '../image-components/HamburgerMenuIcon';
 import Button from '../buttons/bases/Button';
 import NavBarLink from './NavBarLink';
@@ -16,7 +15,10 @@ import localizedNavigate from '../../util/localizedNavigate';
 import HubblrGradientBorderButtonBase from '../buttons/gradient-border-buttons/HubblrGradientBorderButtonBase';
 
 const NavBarMainPage = React.forwardRef(
-  ({ className, desktopLeftContent, desktopRightContent, showAlways }, ref) => {
+  (
+    { className, desktopLeftContent, desktopRightContent, desktopCenterContent, showAlways },
+    ref
+  ) => {
     const [isCollapsed, setIsCollapsed] = useState(true);
     const [showNavBar, setShowNavBar] = useState(showAlways);
     const { locale } = useLocalization();
@@ -56,16 +58,7 @@ const NavBarMainPage = React.forwardRef(
         showNavBar={showNavBar}
         isCollapsed={isCollapsed}
         showAlways={showAlways}
-        mobileLeftContent={
-          <AppButton
-            className="button-dark"
-            onClick={() => {
-              navigateByNavBar('/');
-            }}
-          >
-            <HubblrImage className="w-20 h-auto" />
-          </AppButton>
-        }
+        mobileLeftContent={<HubblrImage className="w-20 h-auto" />}
         mobileRightContent={
           <HamburgerMenuIcon
             onClick={() => {
@@ -77,16 +70,7 @@ const NavBarMainPage = React.forwardRef(
         desktopContent={
           <div className="flex items-center">
             <div className="w-1/3">{desktopLeftContent}</div>
-            <div className="w-1/3 self-center flex justify-center">
-              <AppButton
-                className="button-dark py-1 px-1"
-                onClick={() => {
-                  navigateByNavBar('/');
-                }}
-              >
-                <HubblrImage className="w-20" />
-              </AppButton>
-            </div>
+            <div className="w-1/3 self-center flex justify-center">{desktopCenterContent}</div>
             <div className="w-1/3">{desktopRightContent}</div>
           </div>
         }
@@ -168,6 +152,7 @@ const NavBarMainPage = React.forwardRef(
 NavBarMainPage.propTypes = {
   className: PropTypes.string,
   desktopLeftContent: PropTypes.node,
+  desktopCenterContent: PropTypes.node,
   desktopRightContent: PropTypes.node,
   showAlways: PropTypes.bool,
 };
@@ -175,6 +160,7 @@ NavBarMainPage.propTypes = {
 NavBarMainPage.defaultProps = {
   className: '',
   desktopLeftContent: null,
+  desktopCenterContent: null,
   desktopRightContent: null,
   showAlways: false,
 };
