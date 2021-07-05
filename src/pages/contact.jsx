@@ -8,6 +8,8 @@ import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
 import NavBarHomeButton from '../components/nav-bar/NavBarHomeButton';
 import { MobileAndTabletQuery, DesktopQuery } from '../util/helpers';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
+import AppButton from '../components/buttons/bases/AppButton';
+import HubblrImage from '../components/image-components/HubblrImage';
 
 function ContactPage() {
   return (
@@ -18,6 +20,17 @@ function ContactPage() {
           showAlways
           showNavBar
           className="sticky"
+          desktopCenterContent={
+            <AppButton
+              className="button-dark"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = '/';
+              }}
+            >
+              <HubblrImage className="w-20 h-auto" />
+            </AppButton>
+          }
           desktopRightContent={
             <div className="flex justify-end items-center">
               <NavBarHomeButton />
