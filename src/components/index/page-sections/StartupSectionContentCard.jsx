@@ -9,8 +9,8 @@ const StartupSectionContentCard = ({ firm, description, link, className }) => {
       <p className="m-5 text-left 2xl:text-xl">{description}</p>
       <div className="flex mb-5">
         <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-hubblr-blue to-hubblr-green">
-          <div className="m-5 w-1/2 ">
-            <a href={link}>
+          <div>
+            <a href={link} className="m-5 w-1/2 ">
               <FormattedMessage id="generic.read-more" />
             </a>
           </div>
