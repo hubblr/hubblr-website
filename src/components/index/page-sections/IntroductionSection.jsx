@@ -5,7 +5,7 @@ import { DesktopQuery } from '../../../util/helpers';
 
 function IntroductionSection({ children }) {
   return (
-    <div className="relative overflow-hidden items-center justify-center w-screen h-screen mb-40">
+    <div className="relative overflow-hidden items-center justify-center w-full h-screen mb-40">
       <DesktopQuery>
         <div className="relative w-full h-full">
           <video
