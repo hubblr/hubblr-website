@@ -5,7 +5,6 @@ import { LocalizedLink as Link } from 'gatsby-theme-i18n/src/components/localize
 import { useLocalization } from 'gatsby-theme-i18n';
 import NavBar from './NavBar';
 import HubblrImage from '../image-components/HubblrImage';
-import AppButton from '../buttons/bases/AppButton';
 import HamburgerMenuIcon from '../image-components/HamburgerMenuIcon';
 import Button from '../buttons/bases/Button';
 import NavBarLink from './NavBarLink';
@@ -14,6 +13,7 @@ import ConsultingIllustrationImage from '../image-components/ConsultingIllustrat
 import VenturesArrowImage from '../image-components/VenturesArrowImage';
 import localizedNavigate from '../../util/localizedNavigate';
 import HubblrGradientBorderButtonBase from '../buttons/gradient-border-buttons/HubblrGradientBorderButtonBase';
+import AppButton from '../buttons/bases/AppButton';
 
 const NavBarMainPage = React.forwardRef(
   ({ className, desktopLeftContent, desktopRightContent, showAlways }, ref) => {
@@ -24,7 +24,7 @@ const NavBarMainPage = React.forwardRef(
     // navigation functions
     function navigateByNavBar(to) {
       localizedNavigate(to, locale).then(() => {
-        setIsCollapsed(true);
+        setIsCollapsed(!isCollapsed);
       });
     }
 
@@ -59,8 +59,9 @@ const NavBarMainPage = React.forwardRef(
         mobileLeftContent={
           <AppButton
             className="button-dark"
-            onClick={() => {
-              navigateByNavBar('/');
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = '/';
             }}
           >
             <HubblrImage className="w-20 h-auto" />
@@ -79,12 +80,13 @@ const NavBarMainPage = React.forwardRef(
             <div className="w-1/3">{desktopLeftContent}</div>
             <div className="w-1/3 self-center flex justify-center">
               <AppButton
-                className="button-dark py-1 px-1"
-                onClick={() => {
-                  navigateByNavBar('/');
+                className="button-dark"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = '/';
                 }}
               >
-                <HubblrImage className="w-20" />
+                <HubblrImage className="w-20 h-auto" />
               </AppButton>
             </div>
             <div className="w-1/3">{desktopRightContent}</div>

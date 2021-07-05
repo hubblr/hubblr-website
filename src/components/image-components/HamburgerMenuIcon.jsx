@@ -10,7 +10,7 @@ function HamburgerMenuIcon({ isActive, className, onClick }) {
       } ${className}`}
       onClick={onClick}
     >
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center py-2">
         <span className="hamburger-box">
           <span className="hamburger-inner" />
         </span>

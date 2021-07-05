@@ -28,17 +28,17 @@ const NewsSection = () => {
           </div>
         </div>
         <div className="flex flex-col gap-10">
-          {/* FIRST STARTUP */}
+          {/* TRYFF */}
           <StartupSectionContentCard
             firm={<FormattedMessage id="index.startups.example1.firm" />}
             description={<FormattedMessage id="index.startups.example1.description" />}
-            link="/contact"
+            link="https://tryff.de/"
           />
-          {/* SECOND STARTUP */}
+          {/* INOURHANDS */}
           <StartupSectionContentCard
             firm={<FormattedMessage id="index.startups.example2.firm" />}
             description={<FormattedMessage id="index.startups.example2.description" />}
-            link="/contact"
+            link="https://inourhands.io/"
           />
         </div>
       </div>
