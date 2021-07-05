@@ -37,7 +37,7 @@ function VenturesPage() {
           </div>
         }
       />
-      <div className="absolute z-0 h-screen w-screen flex justify-center items-center">
+      <div className="fixed z-0 h-screen w-screen flex justify-center items-center">
         <AnimatedVentureImage className="w-40 h-auto" />
       </div>
       <div className="flex-grow overflow-hidden relative z-10 container mx-auto flex flex-col justify-center items-center max-w-6xl">
