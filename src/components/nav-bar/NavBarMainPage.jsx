@@ -13,6 +13,7 @@ import ConsultingIllustrationImage from '../image-components/ConsultingIllustrat
 import VenturesArrowImage from '../image-components/VenturesArrowImage';
 import localizedNavigate from '../../util/localizedNavigate';
 import HubblrGradientBorderButtonBase from '../buttons/gradient-border-buttons/HubblrGradientBorderButtonBase';
+import AppButton from '../buttons/bases/AppButton';
 
 const NavBarMainPage = React.forwardRef(
   (
@@ -58,7 +59,17 @@ const NavBarMainPage = React.forwardRef(
         showNavBar={showNavBar}
         isCollapsed={isCollapsed}
         showAlways={showAlways}
-        mobileLeftContent={<HubblrImage className="w-20 h-auto" />}
+        mobileLeftContent={
+          <AppButton
+            className="button-dark"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = '/';
+            }}
+          >
+            <HubblrImage className="w-20 h-auto" />
+          </AppButton>
+        }
         mobileRightContent={
           <HamburgerMenuIcon
             onClick={() => {
