@@ -10,8 +10,6 @@ import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 import VenturesSectionContent from '../components/index/page-sections/VenturesSectionContent';
 import AnimatedSectionContainer from '../components/animation/AnimatedSectionContainer';
 import AnimatedVentureImage from '../components/index/animated/venture-image/AnimatedVenturesImage';
-import AppButton from '../components/buttons/bases/AppButton';
-import HubblrImage from '../components/image-components/HubblrImage';
 
 function VenturesPage() {
   return (
@@ -20,17 +18,6 @@ function VenturesPage() {
         showNavBar
         showAlways
         className="z-20 sticky w-full navbar-background-blur animate top-0 mb-4"
-        desktopCenterContent={
-          <AppButton
-            className="button-dark"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = '/';
-            }}
-          >
-            <HubblrImage className="w-20 h-auto" />
-          </AppButton>
-        }
         desktopRightContent={
           <div className="flex justify-end items-center">
             <NavBarContactButton />

@@ -10,8 +10,6 @@ import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 import ConsultingSectionContent from '../components/index/page-sections/ConsultingSectionContent';
 import AnimatedSatelliteImage from '../components/index/animated/satellite-image/AnimatedSatelliteImage';
 import AnimatedSectionContainer from '../components/animation/AnimatedSectionContainer';
-import AppButton from '../components/buttons/bases/AppButton';
-import HubblrImage from '../components/image-components/HubblrImage';
 
 function ConsultingPage() {
   return (
@@ -20,17 +18,6 @@ function ConsultingPage() {
         showNavBar
         showAlways
         className="z-20 sticky w-full navbar-background-blur animate top-0 mb-4"
-        desktopCenterContent={
-          <AppButton
-            className="button-dark"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = '/';
-            }}
-          >
-            <HubblrImage className="w-20 h-auto" />
-          </AppButton>
-        }
         desktopRightContent={
           <div className="flex justify-end items-center">
             <NavBarContactButton />

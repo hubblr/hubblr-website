@@ -16,10 +16,7 @@ import HubblrGradientBorderButtonBase from '../buttons/gradient-border-buttons/H
 import AppButton from '../buttons/bases/AppButton';
 
 const NavBarMainPage = React.forwardRef(
-  (
-    { className, desktopLeftContent, desktopRightContent, desktopCenterContent, showAlways },
-    ref
-  ) => {
+  ({ className, desktopLeftContent, desktopRightContent, showAlways }, ref) => {
     const [isCollapsed, setIsCollapsed] = useState(true);
     const [showNavBar, setShowNavBar] = useState(showAlways);
     const { locale } = useLocalization();
@@ -81,7 +78,17 @@ const NavBarMainPage = React.forwardRef(
         desktopContent={
           <div className="flex items-center">
             <div className="w-1/3">{desktopLeftContent}</div>
-            <div className="w-1/3 self-center flex justify-center">{desktopCenterContent}</div>
+            <div className="w-1/3 self-center flex justify-center">
+              <AppButton
+                className="button-dark"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = '/';
+                }}
+              >
+                <HubblrImage className="w-20 h-auto" />
+              </AppButton>
+            </div>
             <div className="w-1/3">{desktopRightContent}</div>
           </div>
         }
@@ -163,7 +170,6 @@ const NavBarMainPage = React.forwardRef(
 NavBarMainPage.propTypes = {
   className: PropTypes.string,
   desktopLeftContent: PropTypes.node,
-  desktopCenterContent: PropTypes.node,
   desktopRightContent: PropTypes.node,
   showAlways: PropTypes.bool,
 };
@@ -171,7 +177,6 @@ NavBarMainPage.propTypes = {
 NavBarMainPage.defaultProps = {
   className: '',
   desktopLeftContent: null,
-  desktopCenterContent: null,
   desktopRightContent: null,
   showAlways: false,
 };

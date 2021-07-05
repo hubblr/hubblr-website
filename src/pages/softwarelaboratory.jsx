@@ -11,8 +11,6 @@ import SoftwareLaboratorySectionContent from '../components/index/page-sections/
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import AnimatedLightningImage from '../components/index/animated/lightning-image/AnimatedLightningImage';
 import AnimatedSectionContainer from '../components/animation/AnimatedSectionContainer';
-import HubblrImage from '../components/image-components/HubblrImage';
-import AppButton from '../components/buttons/bases/AppButton';
 
 function SoftwareLaboratoryPage() {
   return (
@@ -22,17 +20,6 @@ function SoftwareLaboratoryPage() {
           showNavBar
           showAlways
           className="z-20 sticky w-full navbar-background-blur animate top-0 mb-4"
-          desktopCenterContent={
-            <AppButton
-              className="button-dark"
-              onClick={(e) => {
-                e.preventDefault();
-                window.location.href = '/';
-              }}
-            >
-              <HubblrImage className="w-20 h-auto" />
-            </AppButton>
-          }
           desktopRightContent={
             <div className="flex justify-end items-center">
               <NavBarContactButton />
