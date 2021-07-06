@@ -2,9 +2,9 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import TestimonialPhoto from '../../../images/testimonial_profile.jpeg';
 import TestimonialLogo from '../../../images/flink-logo.png';
-import HannoBehrens from '../../../images/testimonial_hanno_behrens.png'
+import HannoBehrens from '../../../images/testimonial_hanno_behrens.png';
 import TestimonialSectionContentContainer from './TestimonialSectionContentContainer';
-import MedikamentoLogo from '../../../images/medikamendo.png'
+import MedikamentoLogo from '../../../images/medikamendo.png';
 
 const TestimonialSection = () => {
   return (
