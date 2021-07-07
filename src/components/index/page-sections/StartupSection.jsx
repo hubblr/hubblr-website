@@ -33,12 +33,14 @@ const NewsSection = () => {
             firm={<FormattedMessage id="index.startups.example1.firm" />}
             description={<FormattedMessage id="index.startups.example1.description" />}
             link="https://tryff.de/"
+            target="_blank"
           />
           {/* INOURHANDS */}
           <StartupSectionContentCard
             firm={<FormattedMessage id="index.startups.example2.firm" />}
             description={<FormattedMessage id="index.startups.example2.description" />}
             link="https://inourhands.io/"
+            target="_blank"
           />
         </div>
       </div>
