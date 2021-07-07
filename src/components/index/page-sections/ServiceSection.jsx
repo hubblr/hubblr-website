@@ -6,9 +6,9 @@ import ServiceSectionCard from './ServiceSectionCard';
 const ServiceSection = () => {
   return (
     <div className="container mx-auto mb-40">
-      <h1 className="flex flex-row w-full justify-center md:justify-start text-4xl md:text-5xl mb-12">
+      <h2 className="flex flex-row w-full justify-center md:justify-start text-4xl md:text-5xl mb-12">
         <FormattedMessage id="index.services.title" />
-      </h1>
+      </h2>
       {/* 3 COL GRID @SMALL SCREEN 1 COL */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         <ServiceSectionCard
