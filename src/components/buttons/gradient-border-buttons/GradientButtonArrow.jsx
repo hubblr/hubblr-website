@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import LongArrowImage from '../../image-components/LongArrowImage';
 import GradientButton from './GradientButton';
 
-function IndexGradientBorderButtonLongArrow({
+function GradientButtonArrow({
   children,
   onClick,
   borderButtonClassName,
@@ -26,7 +26,7 @@ function IndexGradientBorderButtonLongArrow({
   );
 }
 
-IndexGradientBorderButtonLongArrow.propTypes = {
+GradientButtonArrow.propTypes = {
   children: PropTypes.node.isRequired,
   isSubmitButton: PropTypes.bool,
   onClick: PropTypes.func,
@@ -35,7 +35,7 @@ IndexGradientBorderButtonLongArrow.propTypes = {
   textDivClassName: PropTypes.string,
 };
 
-IndexGradientBorderButtonLongArrow.defaultProps = {
+GradientButtonArrow.defaultProps = {
   isSubmitButton: false,
   onClick: null,
   borderButtonClassName: '',
@@ -43,4 +43,4 @@ IndexGradientBorderButtonLongArrow.defaultProps = {
   textDivClassName: '',
 };
 
-export default IndexGradientBorderButtonLongArrow;
+export default GradientButtonArrow;
