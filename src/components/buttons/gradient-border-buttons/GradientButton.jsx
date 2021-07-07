@@ -3,13 +3,31 @@ import PropTypes from 'prop-types';
 
 function GradientButton({
   children,
-  isSubmitButton,
-  gradientColors,
+  image,
+  theme,
   onClick,
   borderButtonClassName,
   innerOverlayDivClassName,
   textDivClassName,
+  isSubmitButton,
 }) {
+  let backgroundColorClass;
+  let textColorClass;
+  let classNameTheme;
+  const gradientColors = ['#bdfff4', '#44ced8', '#0da2ff', '#8d00ff'];
+  switch (theme) {
+    case 'light':
+      backgroundColorClass = 'bg-white';
+      textColorClass = 'text-black';
+      classNameTheme = 'hover:text-hubblr-turquoise hover:bg-black';
+      break;
+    case 'dark':
+    default:
+      backgroundColorClass = 'bg-brand-gray-darkest';
+      textColorClass = 'text-white';
+      break;
+  }
+
   return (
     <button
       type={isSubmitButton ? 'submit' : 'button'}
@@ -18,10 +36,11 @@ function GradientButton({
         background: `linear-gradient(90deg, ${gradientColors.join(',')})`,
       }}
       onClick={onClick}
+      theme={theme}
     >
       <div
         className={
-          `${innerOverlayDivClassName} ` +
+          `${innerOverlayDivClassName} ${backgroundColorClass} ${textColorClass} ${classNameTheme} ` +
           // Alignment
           `flex items-center justify-center rounded-lg ` +
           // Border Styling
@@ -32,8 +51,11 @@ function GradientButton({
           `hover:text-hubblr-turquoise hover:bg-black`
         }
       >
-        <div className={`${textDivClassName} flex justify-center text-lg`}>
-          <span>{children}</span>
+        <div className={`${textDivClassName} flex justify-center text-lg px-8 py-1 `}>
+          <span>
+            {children}
+            {image}
+          </span>
         </div>
       </div>
     </button>
@@ -43,7 +65,8 @@ function GradientButton({
 GradientButton.propTypes = {
   children: PropTypes.node.isRequired,
   isSubmitButton: PropTypes.bool,
-  gradientColors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  image: PropTypes.element,
+  theme: PropTypes.oneOf(['dark', 'light']).isRequired,
   onClick: PropTypes.func,
   borderButtonClassName: PropTypes.string, // borderButtonClassName: defines the gradient border line (lowest layer) and thereby allows a gradient styling
   innerOverlayDivClassName: PropTypes.string, // innerOverlayDivClassName: defines the overlay (middle layer) where the border is made transparent to show the buttons gradient effect
@@ -53,6 +76,7 @@ GradientButton.propTypes = {
 GradientButton.defaultProps = {
   isSubmitButton: false,
   onClick: null,
+  image: null,
   borderButtonClassName: '',
   innerOverlayDivClassName: '',
   textDivClassName: '',

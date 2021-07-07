@@ -36,6 +36,7 @@ function HubblrGradientBorderButtonBase({
       borderButtonClassName={borderButtonClassName}
       innerOverlayDivClassName={`${innerOverlayDivClassName} ${backgroundColorClass} ${textColorClass} ${classNameTheme}`}
       textDivClassName={`${textDivClassName} px-8 py-1`}
+      theme="light"
     >
       {children}
       {image}

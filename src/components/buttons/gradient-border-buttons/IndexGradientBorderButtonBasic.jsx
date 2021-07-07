@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HubblrGradientBorderButtonBase from './HubblrGradientBorderButtonBase';
+import GradientButton from './GradientButton';
 
 function IndexGradientBorderButtonBasic({
   children,
@@ -9,9 +9,11 @@ function IndexGradientBorderButtonBasic({
   borderButtonClassName,
   innerOverlayDivClassName,
   textDivClassName,
+  isSubmitButton,
 }) {
   return (
-    <HubblrGradientBorderButtonBase
+    <GradientButton
+      type={isSubmitButton}
       theme={theme}
       onClick={onClick}
       borderButtonClassName={borderButtonClassName}
@@ -19,12 +21,13 @@ function IndexGradientBorderButtonBasic({
       textDivClassName={textDivClassName}
     >
       {children}
-    </HubblrGradientBorderButtonBase>
+    </GradientButton>
   );
 }
 
 IndexGradientBorderButtonBasic.propTypes = {
   children: PropTypes.node.isRequired,
+  isSubmitButton: PropTypes.bool,
   theme: PropTypes.oneOf(['dark', 'light']).isRequired,
   onClick: PropTypes.func,
   borderButtonClassName: PropTypes.string,
@@ -33,6 +36,7 @@ IndexGradientBorderButtonBasic.propTypes = {
 };
 
 IndexGradientBorderButtonBasic.defaultProps = {
+  isSubmitButton: false,
   onClick: null,
   borderButtonClassName: '',
   innerOverlayDivClassName: '',
