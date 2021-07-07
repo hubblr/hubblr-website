@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GradientBorderButtonBase from './GradientBorderButtonBase';
+import GradientButton from './GradientButton';
 
 function HubblrGradientBorderButtonBase({
   children,
@@ -29,7 +29,7 @@ function HubblrGradientBorderButtonBase({
   }
 
   return (
-    <GradientBorderButtonBase
+    <GradientButton
       isSubmitButton={isSubmitButton}
       gradientColors={['#bdfff4', '#44ced8', '#0da2ff', '#8d00ff']}
       onClick={onClick}
@@ -39,7 +39,7 @@ function HubblrGradientBorderButtonBase({
     >
       {children}
       {image}
-    </GradientBorderButtonBase>
+    </GradientButton>
   );
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function GradientBorderButtonBase({
+function GradientButton({
   children,
   isSubmitButton,
   gradientColors,
@@ -40,7 +40,7 @@ function GradientBorderButtonBase({
   );
 }
 
-GradientBorderButtonBase.propTypes = {
+GradientButton.propTypes = {
   children: PropTypes.node.isRequired,
   isSubmitButton: PropTypes.bool,
   gradientColors: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -50,7 +50,7 @@ GradientBorderButtonBase.propTypes = {
   textDivClassName: PropTypes.string, // textDivClassName: defines the actual text content (highest layer) and allows alignments of the text,
 };
 
-GradientBorderButtonBase.defaultProps = {
+GradientButton.defaultProps = {
   isSubmitButton: false,
   onClick: null,
   borderButtonClassName: '',
@@ -58,4 +58,4 @@ GradientBorderButtonBase.defaultProps = {
   textDivClassName: '',
 };
 
-export default GradientBorderButtonBase;
+export default GradientButton;
