@@ -5,7 +5,6 @@ import GradientButton from './GradientButton';
 
 function IndexGradientBorderButtonLongArrow({
   children,
-  theme,
   onClick,
   borderButtonClassName,
   innerOverlayDivClassName,
@@ -15,7 +14,7 @@ function IndexGradientBorderButtonLongArrow({
   return (
     <GradientButton
       type={isSubmitButton}
-      image={<LongArrowImage theme={theme} className="ml-3" />}
+      image={<LongArrowImage theme="light" className="ml-3" />}
       theme="light"
       onClick={onClick}
       borderButtonClassName={borderButtonClassName}
@@ -30,7 +29,6 @@ function IndexGradientBorderButtonLongArrow({
 IndexGradientBorderButtonLongArrow.propTypes = {
   children: PropTypes.node.isRequired,
   isSubmitButton: PropTypes.bool,
-  theme: PropTypes.oneOf(['dark', 'light']).isRequired,
   onClick: PropTypes.func,
   borderButtonClassName: PropTypes.string,
   innerOverlayDivClassName: PropTypes.string,

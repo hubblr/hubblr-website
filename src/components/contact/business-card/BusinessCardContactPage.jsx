@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import CedricBalsImage from '../../image-components/CedricBalsImage';
-import HubblrGradientBorderButtonBase from '../../buttons/gradient-border-buttons/HubblrGradientBorderButtonBase';
+import GradientButton from '../../buttons/gradient-border-buttons/GradientButton';
 
 function BusinessCardContactPage() {
   return (
@@ -22,7 +22,7 @@ function BusinessCardContactPage() {
         </div>
       </div>
       <a href="https://calendly.com/cbals/30min" className="flex justify-center w-full">
-        <HubblrGradientBorderButtonBase
+        <GradientButton
           widthClass="max-sm:w-full"
           innerOverlayDivClassName="w-full justify-between"
           theme="dark"
@@ -30,7 +30,7 @@ function BusinessCardContactPage() {
           <div>
             <FormattedMessage id="contact.business-card.schedule-appointment" />
           </div>
-        </HubblrGradientBorderButtonBase>
+        </GradientButton>
       </a>
     </div>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import GradientButton from './GradientButton';
 
-function IndexGradientBorderButtonBasic({
+function GradientButtonBasic({
   children,
   theme,
   onClick,
@@ -25,7 +25,7 @@ function IndexGradientBorderButtonBasic({
   );
 }
 
-IndexGradientBorderButtonBasic.propTypes = {
+GradientButtonBasic.propTypes = {
   children: PropTypes.node.isRequired,
   isSubmitButton: PropTypes.bool,
   theme: PropTypes.oneOf(['dark', 'light']).isRequired,
@@ -35,7 +35,7 @@ IndexGradientBorderButtonBasic.propTypes = {
   textDivClassName: PropTypes.string,
 };
 
-IndexGradientBorderButtonBasic.defaultProps = {
+GradientButtonBasic.defaultProps = {
   isSubmitButton: false,
   onClick: null,
   borderButtonClassName: '',
@@ -43,4 +43,4 @@ IndexGradientBorderButtonBasic.defaultProps = {
   textDivClassName: '',
 };
 
-export default IndexGradientBorderButtonBasic;
+export default GradientButtonBasic;

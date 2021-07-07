@@ -4,7 +4,7 @@ import { LocalizedLink as Link } from 'gatsby-theme-i18n';
 import { FormattedMessage } from 'react-intl';
 import HubblrMainContentSection from '../page-section-bases/sections/HubblrMainContentSection';
 import VenturesArrowImageBackground from '../../image-components/VenturesArrowImageBackground';
-import IndexGradientBorderButtonBasic from '../../buttons/gradient-border-buttons/IndexGradientBorderButtonBasic';
+import GradientButtonBasic from '../../buttons/gradient-border-buttons/GradientButtonBasic';
 import { MobileAndTabletQuery, DesktopQuery } from '../../../util/helpers';
 import VenturesSectionContent from './VenturesSectionContent';
 import SectionScrollBar from '../section-scroll-bar/SectionScrollBar';
@@ -23,22 +23,22 @@ const VenturesSection = React.forwardRef(({ animationAreaHeight }, ref) => {
       <MobileAndTabletQuery>
         <VenturesSectionContent>
           <Link to="/contact">
-            <IndexGradientBorderButtonBasic
+            <GradientButtonBasic
               theme="light"
               widthClass="w-full"
               innerOverlayDivClassName="justify-center"
             >
               <FormattedMessage id="generic.contact" />
-            </IndexGradientBorderButtonBasic>
+            </GradientButtonBasic>
           </Link>
         </VenturesSectionContent>
       </MobileAndTabletQuery>
       <DesktopQuery>
         <VenturesSectionContent />
         <Link to="/contact">
-          <IndexGradientBorderButtonBasic theme="light">
+          <GradientButtonBasic theme="light">
             <FormattedMessage id="generic.contact" />
-          </IndexGradientBorderButtonBasic>
+          </GradientButtonBasic>
         </Link>
       </DesktopQuery>
     </HubblrMainContentSection>

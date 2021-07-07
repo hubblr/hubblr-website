@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import IndexGradientBorderButtonBasic from '../../buttons/gradient-border-buttons/IndexGradientBorderButtonBasic';
+import GradientButtonBasic from '../../buttons/gradient-border-buttons/GradientButtonBasic';
 import ServiceSectionCard from './ServiceSectionCard';
 
 const ServiceSection = () => {
@@ -17,9 +17,9 @@ const ServiceSection = () => {
           link="/softwarelaboratory"
           className="flex justify-around items-center flex-col bg-gray-primary rounded-2xl text-center h-full"
         >
-          <IndexGradientBorderButtonBasic theme="dark" borderButtonClassName="w-full">
+          <GradientButtonBasic theme="dark" borderButtonClassName="w-full">
             <FormattedMessage id="generic.more" />
-          </IndexGradientBorderButtonBasic>
+          </GradientButtonBasic>
         </ServiceSectionCard>
 
         <ServiceSectionCard
@@ -28,9 +28,9 @@ const ServiceSection = () => {
           link="/consulting"
           className="flex justify-around items-center flex-col bg-gray-primary rounded-2xl text-center h-full"
         >
-          <IndexGradientBorderButtonBasic theme="dark" borderButtonClassName="w-full">
+          <GradientButtonBasic theme="dark" borderButtonClassName="w-full">
             <FormattedMessage id="generic.more" />
-          </IndexGradientBorderButtonBasic>
+          </GradientButtonBasic>
         </ServiceSectionCard>
 
         <ServiceSectionCard
@@ -39,9 +39,9 @@ const ServiceSection = () => {
           link="/ventures"
           className="flex justify-around items-center flex-col bg-gray-primary rounded-2xl text-center h-full"
         >
-          <IndexGradientBorderButtonBasic theme="dark" borderButtonClassName="w-full">
+          <GradientButtonBasic theme="dark" borderButtonClassName="w-full">
             <FormattedMessage id="generic.more" />
-          </IndexGradientBorderButtonBasic>
+          </GradientButtonBasic>
         </ServiceSectionCard>
       </div>
     </div>

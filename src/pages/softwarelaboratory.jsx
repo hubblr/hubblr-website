@@ -3,7 +3,7 @@ import { Link } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
 import SectionHeading from '../components/index/section-heading/SectionHeading';
 import { DesktopQuery, MobileAndTabletQuery } from '../util/helpers';
-import IndexGradientBorderButtonBasic from '../components/buttons/gradient-border-buttons/IndexGradientBorderButtonBasic';
+import GradientButtonBasic from '../components/buttons/gradient-border-buttons/GradientButtonBasic';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
 import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
@@ -36,13 +36,13 @@ function SoftwareLaboratoryPage() {
               <MobileAndTabletQuery>
                 <SoftwareLaboratorySectionContent>
                   <Link to="/contact">
-                    <IndexGradientBorderButtonBasic
+                    <GradientButtonBasic
                       theme="light"
                       borderButtonClassName="w-full"
                       innerOverlayDivClassName="justify-center"
                     >
                       <FormattedMessage id="generic.contact" />
-                    </IndexGradientBorderButtonBasic>
+                    </GradientButtonBasic>
                   </Link>
                 </SoftwareLaboratorySectionContent>
               </MobileAndTabletQuery>
@@ -50,9 +50,9 @@ function SoftwareLaboratoryPage() {
                 <SoftwareLaboratorySectionContent />
                 <div className="w-full flex flex-row justify-center">
                   <Link to="/contact">
-                    <IndexGradientBorderButtonBasic theme="light">
+                    <GradientButtonBasic theme="light">
                       <FormattedMessage id="generic.contact" />
-                    </IndexGradientBorderButtonBasic>
+                    </GradientButtonBasic>
                   </Link>
                 </div>
               </DesktopQuery>

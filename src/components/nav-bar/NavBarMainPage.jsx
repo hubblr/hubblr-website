@@ -12,7 +12,7 @@ import LightningImage from '../image-components/LightningImage';
 import ConsultingIllustrationImage from '../image-components/ConsultingIllustrationImage';
 import VenturesArrowImage from '../image-components/VenturesArrowImage';
 import localizedNavigate from '../../util/localizedNavigate';
-import HubblrGradientBorderButtonBase from '../buttons/gradient-border-buttons/HubblrGradientBorderButtonBase';
+import GradientButton from '../buttons/gradient-border-buttons/GradientButton';
 import AppButton from '../buttons/bases/AppButton';
 
 const NavBarMainPage = React.forwardRef(
@@ -150,7 +150,7 @@ const NavBarMainPage = React.forwardRef(
               <hr className="bg-white h-p" />
             </div>
             <Link to="/contact" className="mt-3 w-full">
-              <HubblrGradientBorderButtonBase
+              <GradientButton
                 borderButtonClassName="w-full"
                 addedFlexClasses="w-full justify-between"
                 theme="dark"
@@ -158,7 +158,7 @@ const NavBarMainPage = React.forwardRef(
                 <div className="text-xl">
                   <FormattedMessage id="generic.contact" />
                 </div>
-              </HubblrGradientBorderButtonBase>
+              </GradientButton>
             </Link>
           </div>
         }
