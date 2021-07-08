@@ -25,7 +25,7 @@ function MainContentCard({ children, title, description, className, padding }) {
             <h3 className="text-lg uppercase text-purple-700 leading-none font-bold mb-2">
               {title}
             </h3>
-            <p className="text-3xl font-bold leading-7">{description}</p>
+            <h2 className="text-3xl font-bold leading-7">{description}</h2>
           </div>
         </div>
         <div className="row-start-1 col-start-1 row-end-3 col-end-3 h-16 lg:h-auto">
