@@ -2,7 +2,7 @@ import { Link } from '@reach/router';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import CallToActionLogo from '../../../images/call-to-action.png';
-import GradientButtonBasic from '../../buttons/gradient-border-buttons/GradientButtonBasic';
+import GradientButton from '../../buttons/gradient-border-buttons/GradientButton';
 
 const CallToActionSection = () => {
   return (
@@ -19,9 +19,9 @@ const CallToActionSection = () => {
           <FormattedMessage id="index.call-to-action.text" />
         </span>
         <Link to="/contact" className="my-5 w-full md:w-1/2">
-          <GradientButtonBasic theme="dark" borderButtonClassName="w-full">
+          <GradientButton theme="dark" borderButtonClassName="w-full">
             <FormattedMessage id="generic.contact" />
-          </GradientButtonBasic>
+          </GradientButton>
         </Link>
       </div>
     </div>

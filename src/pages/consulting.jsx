@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import React from 'react';
 import { DesktopQuery, MobileAndTabletQuery } from '../util/helpers';
 import SectionHeading from '../components/index/section-heading/SectionHeading';
-import GradientButtonBasic from '../components/buttons/gradient-border-buttons/GradientButtonBasic';
+import GradientButton from '../components/buttons/gradient-border-buttons/GradientButton';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
 import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
@@ -34,13 +34,13 @@ function ConsultingPage() {
             <MobileAndTabletQuery>
               <ConsultingSectionContent>
                 <Link to="/contact">
-                  <GradientButtonBasic
+                  <GradientButton
                     theme="light"
                     borderButtonClassName="w-full"
                     innerOverlayDivClassName="justify-center"
                   >
                     <FormattedMessage id="generic.contact" />
-                  </GradientButtonBasic>
+                  </GradientButton>
                 </Link>
               </ConsultingSectionContent>
             </MobileAndTabletQuery>
@@ -48,9 +48,9 @@ function ConsultingPage() {
               <ConsultingSectionContent />
               <div className="w-full flex flex-row justify-center">
                 <Link to="/contact">
-                  <GradientButtonBasic theme="light">
+                  <GradientButton theme="light">
                     <FormattedMessage id="generic.contact" />
-                  </GradientButtonBasic>
+                  </GradientButton>
                 </Link>
               </div>
             </DesktopQuery>

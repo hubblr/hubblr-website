@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import GradientButtonBasic from '../../buttons/gradient-border-buttons/GradientButtonBasic';
+import GradientButton from '../../buttons/gradient-border-buttons/GradientButton';
 import ServiceSectionCard from './ServiceSectionCard';
 
 const ServiceSection = () => {
@@ -17,9 +17,9 @@ const ServiceSection = () => {
           link="/softwarelaboratory"
           className="flex justify-around items-center flex-col bg-gray-primary rounded-2xl text-center h-full"
         >
-          <GradientButtonBasic theme="dark" borderButtonClassName="w-full">
+          <GradientButton theme="dark" borderButtonClassName="w-full">
             <FormattedMessage id="generic.more" />
-          </GradientButtonBasic>
+          </GradientButton>
         </ServiceSectionCard>
 
         <ServiceSectionCard
@@ -28,9 +28,9 @@ const ServiceSection = () => {
           link="/consulting"
           className="flex justify-around items-center flex-col bg-gray-primary rounded-2xl text-center h-full"
         >
-          <GradientButtonBasic theme="dark" borderButtonClassName="w-full">
+          <GradientButton theme="dark" borderButtonClassName="w-full">
             <FormattedMessage id="generic.more" />
-          </GradientButtonBasic>
+          </GradientButton>
         </ServiceSectionCard>
 
         <ServiceSectionCard
@@ -39,9 +39,9 @@ const ServiceSection = () => {
           link="/ventures"
           className="flex justify-around items-center flex-col bg-gray-primary rounded-2xl text-center h-full"
         >
-          <GradientButtonBasic theme="dark" borderButtonClassName="w-full">
+          <GradientButton theme="dark" borderButtonClassName="w-full">
             <FormattedMessage id="generic.more" />
-          </GradientButtonBasic>
+          </GradientButton>
         </ServiceSectionCard>
       </div>
     </div>
