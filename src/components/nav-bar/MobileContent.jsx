@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { LocalizedLink as Link } from 'gatsby-theme-i18n';
 import AppButton from '../buttons/bases/AppButton';
 import HubblrImage from '../image-components/HubblrImage';
 import HamburgerMenuIcon from '../image-components/HamburgerMenuIcon';
@@ -12,10 +13,11 @@ const MobileContent = ({ isCollapsed, menuOnClick }) => {
           className="button-dark"
           onClick={(e) => {
             e.preventDefault();
-            window.location.href = '/';
           }}
         >
-          <HubblrImage className="w-20 h-auto" />
+          <Link to="/">
+            <HubblrImage className="w-20 h-auto" />
+          </Link>
         </AppButton>
       </div>
 

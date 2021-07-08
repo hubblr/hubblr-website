@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { LocalizedLink as Link } from 'gatsby-theme-i18n';
 import AppButton from '../buttons/bases/AppButton';
 import HubblrImage from '../image-components/HubblrImage';
 
@@ -13,10 +14,11 @@ const DesktopContent = ({ desktopLeftContent, desktopRightContent }) => {
             className="button-dark"
             onClick={(e) => {
               e.preventDefault();
-              window.location.href = '/';
             }}
           >
-            <HubblrImage className="w-20 h-auto" />
+            <Link to="/">
+              <HubblrImage className="w-20 h-auto" />
+            </Link>
           </AppButton>
         </div>
         <div className="w-1/3">{desktopRightContent}</div>
