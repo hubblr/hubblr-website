@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import NavBar from './NavBar';
+import NavBarMain from './NavBarMain';
 import AppButton from '../buttons/bases/AppButton';
 import NavBarContactButton from './NavBarContactButton';
 import hubblrIcon from '../../images/hubblr-icon-black.png';
@@ -10,10 +10,10 @@ const NavBarSoftwareLaboratory = React.forwardRef(({ className }, ref) => {
   const leftContentRef = useRef();
 
   return (
-    <NavBar
+    <NavBarMain
       ref={ref}
       containerClassName={`bg-white ${className}`}
-      desktopContent={
+      desktopLeftContent={
         <div
           className="grid items-center"
           style={{

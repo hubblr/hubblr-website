@@ -5,7 +5,7 @@ import SectionHeading from '../components/index/section-heading/SectionHeading';
 import { DesktopQuery, MobileAndTabletQuery } from '../util/helpers';
 import GradientButton from '../components/buttons/gradient-border-buttons/GradientButton';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
-import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
+import NavBarMain from '../components/nav-bar/NavBarMain';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 import VenturesSectionContent from '../components/index/page-sections/VenturesSectionContent';
 import AnimatedSectionContainer from '../components/animation/AnimatedSectionContainer';
@@ -14,10 +14,9 @@ import AnimatedVentureImage from '../components/index/animated/venture-image/Ani
 function VenturesPage() {
   return (
     <MainPageDarkLayout>
-      <NavBarMainPage
-        showNavBar
+      <NavBarMain
         showAlways
-        className="z-20 sticky w-full navbar-background-blur animate top-0 mb-4"
+        classNameProp="z-20 sticky w-full navbar-background-blur animate top-0 mb-4"
         desktopRightContent={
           <div className="flex justify-end items-center">
             <NavBarContactButton />
