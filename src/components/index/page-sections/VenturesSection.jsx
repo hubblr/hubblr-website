@@ -25,7 +25,6 @@ const VenturesSection = React.forwardRef(({ animationAreaHeight }, ref) => {
           <Link to="/contact">
             <GradientButton
               theme="light"
-              widthClass="w-full"
               innerOverlayDivClassName="justify-center"
             >
               <FormattedMessage id="generic.contact" />

@@ -35,7 +35,6 @@ const ConsultingSection = React.forwardRef(({ animationAreaHeight }, ref) => {
           <Link to="/contact">
             <GradientButtonArrow
               theme="light"
-              widthClass="w-full"
               addedFlexClasses="justify-center"
             >
               <FormattedMessage id="generic.contact" />

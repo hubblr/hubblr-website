@@ -23,7 +23,6 @@ function BusinessCardContactPage() {
       </div>
       <a href="https://calendly.com/cbals/30min" className="flex justify-center w-full">
         <GradientButton
-          widthClass="max-sm:w-full"
           innerOverlayDivClassName="w-full justify-between"
           theme="dark"
         >
