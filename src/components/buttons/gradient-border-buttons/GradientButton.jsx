@@ -51,11 +51,9 @@ function GradientButton({
           `hover:text-hubblr-turquoise hover:bg-black`
         }
       >
-        <div className={`${textDivClassName} flex justify-center text-lg px-8 py-1 `}>
-          <span>
-            {children}
-            {image}
-          </span>
+        <div className={`${textDivClassName} text-center flex justify-center text-lg px-8 py-1 `}>
+          {children}
+          {image}
         </div>
       </div>
     </button>
