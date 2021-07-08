@@ -27,9 +27,7 @@ function BusinessCardContactPage() {
           innerOverlayDivClassName="w-full justify-between"
           theme="dark"
         >
-          <div>
-            <FormattedMessage id="contact.business-card.schedule-appointment" />
-          </div>
+          <FormattedMessage id="contact.business-card.schedule-appointment" />
         </GradientButton>
       </a>
     </div>
