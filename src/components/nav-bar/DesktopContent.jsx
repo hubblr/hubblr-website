@@ -1,21 +1,25 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { LocalizedLink as Link } from 'gatsby-theme-i18n';
+import { navigate } from '@reach/router';
 import HubblrImage from '../image-components/HubblrImage';
+import AppButton from '../buttons/bases/AppButton';
 
 const DesktopContent = ({ desktopLeftContent, desktopRightContent }) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <>
       <div className="flex items-center">
         <div className="w-1/3">{desktopLeftContent}</div>
         <div className="w-1/3 self-center flex justify-center">
-          <Link to="/" className="button button-dark">
+          <AppButton
+            className="button-dark"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate('/');
+              window.scrollTo(0, 0);
+            }}
+          >
             <HubblrImage className="w-20 h-auto" />
-          </Link>
+          </AppButton>
         </div>
         <div className="w-1/3">{desktopRightContent}</div>
       </div>
