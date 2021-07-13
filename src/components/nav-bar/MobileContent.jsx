@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { LocalizedLink as Link } from 'gatsby-theme-i18n';
 import HubblrImage from '../image-components/HubblrImage';
 import HamburgerMenuIcon from '../image-components/HamburgerMenuIcon';
 
 const MobileContent = ({ isCollapsed, menuOnClick }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <>
       <div className="w-1/2 flex flex-col justify-center items-start">
