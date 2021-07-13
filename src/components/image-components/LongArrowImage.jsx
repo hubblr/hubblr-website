@@ -34,6 +34,7 @@ LongArrowImage.propTypes = {
 };
 
 LongArrowImage.defaultProps = {
+  theme: 'light',
   className: '',
   orientation: 'right',
 };

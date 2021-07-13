@@ -8,9 +8,9 @@ const NewsSection = () => {
     // Section Content Container
     <div className="container mx-auto mb-40">
       {/* Section Header */}
-      <h1 className="text-5xl mb-12">
+      <h2 className="text-5xl mb-12">
         <FormattedMessage id="index.startups.title" />
-      </h1>
+      </h2>
       {/* 
       @LARGE DISPLAYS:    2 COL GRID 
         --> For general startup description and 2 startup examples 

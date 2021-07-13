@@ -1,42 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HubblrGradientBorderButtonBase from './HubblrGradientBorderButtonBase';
+import LongArrowImage from '../../image-components/LongArrowImage';
+import GradientButton from './GradientButton';
 
-function IndexGradientBorderButtonBasic({
+function GradientButtonArrow({
   children,
-  theme,
   onClick,
   borderButtonClassName,
   innerOverlayDivClassName,
   textDivClassName,
+  isSubmitButton,
 }) {
   return (
-    <HubblrGradientBorderButtonBase
-      theme={theme}
+    <GradientButton
+      type={isSubmitButton}
+      image={<LongArrowImage theme="light" className="ml-3" />}
+      theme="light"
       onClick={onClick}
       borderButtonClassName={borderButtonClassName}
       innerOverlayDivClassName={innerOverlayDivClassName}
       textDivClassName={textDivClassName}
     >
       {children}
-    </HubblrGradientBorderButtonBase>
+    </GradientButton>
   );
 }
 
-IndexGradientBorderButtonBasic.propTypes = {
+GradientButtonArrow.propTypes = {
   children: PropTypes.node.isRequired,
-  theme: PropTypes.oneOf(['dark', 'light']).isRequired,
+  isSubmitButton: PropTypes.bool,
   onClick: PropTypes.func,
   borderButtonClassName: PropTypes.string,
   innerOverlayDivClassName: PropTypes.string,
   textDivClassName: PropTypes.string,
 };
 
-IndexGradientBorderButtonBasic.defaultProps = {
+GradientButtonArrow.defaultProps = {
+  isSubmitButton: false,
   onClick: null,
   borderButtonClassName: '',
   innerOverlayDivClassName: '',
   textDivClassName: '',
 };
 
-export default IndexGradientBorderButtonBasic;
+export default GradientButtonArrow;
