@@ -13,7 +13,7 @@ const ImprintPage = () => (
       <NavBar
         showNavBar
         showAlways
-        classNameProp="sticky"
+        className="sticky"
         desktopRightContent={
           <div className="flex justify-end items-center">
             <NavBarContactButton />

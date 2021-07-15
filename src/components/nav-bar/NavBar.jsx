@@ -16,7 +16,7 @@ const NavBar = React.forwardRef(
       desktopLeftContent,
       desktopRightContent,
       containerClassName,
-      classNameProp,
+      className,
     },
     ref
   ) => {
@@ -59,7 +59,7 @@ const NavBar = React.forwardRef(
 
     return (
       <div
-        className={`fixed top-0 w-full ${classNameProp} ${
+        className={`fixed top-0 w-full ${className} ${
           !isCollapsed ? `h-screen overflow-y-scroll bg-black` : ''
         } ${isVisible ? '' : 'opacity-0'} ${containerClassName}`}
       >
@@ -90,7 +90,7 @@ const NavBar = React.forwardRef(
 );
 
 NavBar.propTypes = {
-  classNameProp: PropTypes.string,
+  className: PropTypes.string,
   desktopLeftContent: PropTypes.node,
   desktopRightContent: PropTypes.node,
   containerClassName: PropTypes.string, // class of all navbar, e.g., background
@@ -100,7 +100,7 @@ NavBar.propTypes = {
 };
 
 NavBar.defaultProps = {
-  classNameProp: '',
+  className: '',
   desktopLeftContent: null,
   desktopRightContent: null,
   containerClassName: '',
