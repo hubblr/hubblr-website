@@ -6,7 +6,7 @@ import AppKnockoutText from '../text/AppKnockoutText';
 
 function NavBarHomeButton({ className }) {
   return (
-    <Link to="/" className={`button button-dark text-center ${className}`}>
+    <Link to="/" className={`button button-theme-transparent text-center ${className}`}>
       <AppKnockoutText>
         <FormattedMessage id="index.title" />
       </AppKnockoutText>

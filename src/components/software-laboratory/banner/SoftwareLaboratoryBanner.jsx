@@ -10,9 +10,9 @@ function SoftwareLaboratoryBanner() {
         <div className="flex-grow" />
         <div className="mt-12 mb-32 w-full md:w-3/4 xl:w-2/3 flex flex-col items-center text-center">
           <img className="w-36 h-auto mb-10" src={flashyLogo} alt="hubblr logo" />
-          <h1 className="text-5xl font-extrabold leading-none mb-10 px-12">
+          <h2 className="text-5xl font-extrabold leading-none mb-10 px-12">
             <FormattedMessage id="software-laboratory.banner.heading" />
-          </h1>
+          </h2>
           <div className="text-2xl font-light leading-tight">
             <FormattedMessage id="software-laboratory.banner.text" />
           </div>

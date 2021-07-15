@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AppButtonRound from '../buttons/bases/AppButtonRound';
+import ButtonRound from '../buttons/bases/AppButtonRound';
 import xImage from '../../images/x-img.svg';
 
 function Modal({ children, className, isOpen, setOpen }) {
@@ -10,14 +10,14 @@ function Modal({ children, className, isOpen, setOpen }) {
       <div className="absolute inset-0 h-full w-full flex justify-center items-center">
         <div className="relative flex flex-col bg-white px-10 py-12 rounded-xl">
           <div className="absolute" style={{ top: '1rem', right: '1rem' }}>
-            <AppButtonRound
+            <ButtonRound
               onClick={() => {
                 setOpen(false);
               }}
-              className="button-light"
+              className="button-theme-light"
             >
               <img className="w-4 h-auto" src={xImage} alt="x" />
-            </AppButtonRound>
+            </ButtonRound>
           </div>
           {children}
         </div>

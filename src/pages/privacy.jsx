@@ -1,7 +1,7 @@
 import React from 'react';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
-import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
+import NavBar from '../components/nav-bar/NavBar';
 import '../css/text-page-styles.scss';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 import SEO from '../components/seo/Seo';
@@ -11,7 +11,7 @@ function PrivacyPolicyPage() {
   return (
     <LayoutWrapper>
       <MainPageDarkLayout>
-        <NavBarMainPage
+        <NavBar
           showNavBar
           showAlways
           className="sticky w-full navbar-background-blur animate top-0 mb-4"

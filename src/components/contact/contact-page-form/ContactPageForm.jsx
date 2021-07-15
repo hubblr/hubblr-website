@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import isEmpty from 'validator/es/lib/isEmpty';
 import isMobilePhone from 'validator/es/lib/isMobilePhone';
 import Form from '../../form/form/Form';
-import HubblrGradientBorderButtonBase from '../../buttons/gradient-border-buttons/HubblrGradientBorderButtonBase';
+import GradientButton from '../../buttons/gradient-border-buttons/GradientButton';
 import ContactPageInput from './ContactPageInput';
 import { MobileAndTabletQuery } from '../../../util/helpers';
 import { CONTACT_FORM_POST_URL } from '../../../config';
@@ -143,14 +143,9 @@ function ContactPageForm() {
           />
         </div>
         <div className="flex justify-center w-full">
-          <HubblrGradientBorderButtonBase
-            isSubmitButton
-            theme="dark"
-            widthClass="max-sm:w-full"
-            innerOverlayDivClassName="justify-center"
-          >
+          <GradientButton isSubmitButton className="button-theme-dark">
             <FormattedMessage id="contact.form.send" />
-          </HubblrGradientBorderButtonBase>
+          </GradientButton>
         </div>
       </Form>
     </div>

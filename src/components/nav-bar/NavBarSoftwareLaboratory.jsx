@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import NavBar from './NavBar';
-import AppButton from '../buttons/bases/AppButton';
+import Button from '../buttons/bases/Button';
 import NavBarContactButton from './NavBarContactButton';
 import hubblrIcon from '../../images/hubblr-icon-black.png';
 
@@ -13,7 +13,7 @@ const NavBarSoftwareLaboratory = React.forwardRef(({ className }, ref) => {
     <NavBar
       ref={ref}
       containerClassName={`bg-white ${className}`}
-      desktopContent={
+      desktopLeftContent={
         <div
           className="grid items-center"
           style={{
@@ -25,24 +25,24 @@ const NavBarSoftwareLaboratory = React.forwardRef(({ className }, ref) => {
             <span className="text-lg font-bold">Software Laboratory</span>
           </div>
           <div className="flex flex-wrap justify-center text-lg font-light">
-            <AppButton className="button-light mr-2">
+            <Button className="button-theme-light mr-2">
               <FormattedMessage id="software-laboratory.navbar.services" />
-            </AppButton>
-            <AppButton className="button-light mr-2">
+            </Button>
+            <Button className="button-theme-light mr-2">
               <FormattedMessage id="software-laboratory.navbar.projects" />
-            </AppButton>
-            <AppButton className="button-light mr-2">
+            </Button>
+            <Button className="button-theme-light mr-2">
               <FormattedMessage id="software-laboratory.navbar.team" />
-            </AppButton>
-            <AppButton className="button-light mr-2">
+            </Button>
+            <Button className="button-theme-light mr-2">
               <FormattedMessage id="software-laboratory.navbar.open-source" />
-            </AppButton>
-            <AppButton className="button-light">
+            </Button>
+            <Button className="button-theme-light">
               <FormattedMessage id="software-laboratory.navbar.blog" />
-            </AppButton>
+            </Button>
           </div>
           <div className="flex justify-end">
-            <NavBarContactButton className="button-light" />
+            <NavBarContactButton className="button-theme-light" />
           </div>
         </div>
       }

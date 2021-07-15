@@ -19,7 +19,7 @@ NavBarContactButton.propTypes = {
 };
 
 NavBarContactButton.defaultProps = {
-  className: 'button-dark',
+  className: 'button-theme-transparent',
 };
 
 export default NavBarContactButton;
