@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import TestimonialPhoto from '../../../images/testimonial_profile.jpeg';
 import TestimonialLogo from '../../../images/flink-logo.png';
-import HannoBehrens from '../../../images/testimonial_hanno_behrens.png';
+import HelgePlehn from '../../../images/testimonial_helge_plehn.png';
 import TestimonialSectionContentContainer from './TestimonialSectionContentContainer';
 import MedikamentoLogo from '../../../images/medikamendo.png';
 
@@ -20,7 +20,7 @@ const TestimonialSection = () => {
           personaQuoteText={<FormattedMessage id="index.testimonials.flink.quote" />}
         />
         <TestimonialSectionContentContainer
-          personaImage={HannoBehrens}
+          personaImage={HelgePlehn}
           corporateLogo={MedikamentoLogo}
           personaName={<FormattedMessage id="index.testimonials.medikamento.person-full-name" />}
           personaJobtitle={<FormattedMessage id="index.testimonials.medikamento.person-position" />}
