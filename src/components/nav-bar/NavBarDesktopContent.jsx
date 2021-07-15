@@ -4,7 +4,7 @@ import { navigate } from '@reach/router';
 import HubblrImage from '../image-components/HubblrImage';
 import AppButton from '../buttons/bases/AppButton';
 
-const DesktopContent = ({ desktopLeftContent, desktopRightContent }) => {
+const NavBarDesktopContent = ({ desktopLeftContent, desktopRightContent }) => {
   return (
     <>
       <div className="flex items-center">
@@ -27,14 +27,14 @@ const DesktopContent = ({ desktopLeftContent, desktopRightContent }) => {
   );
 };
 
-DesktopContent.propTypes = {
+NavBarDesktopContent.propTypes = {
   desktopLeftContent: PropTypes.node,
   desktopRightContent: PropTypes.node,
 };
 
-DesktopContent.defaultProps = {
+NavBarDesktopContent.defaultProps = {
   desktopLeftContent: null,
   desktopRightContent: null,
 };
 
-export default DesktopContent;
+export default NavBarDesktopContent;

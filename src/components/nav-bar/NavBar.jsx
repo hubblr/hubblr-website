@@ -6,7 +6,7 @@ import useIsPageScrolled from '../../hooks/window/useIsPageScrolled';
 import localizedNavigate from '../../util/localizedNavigate';
 import CollapsedContent from './CollapsedContent';
 import NavBarMobileContent from './NavBarMobileContent';
-import DesktopContent from './DesktopContent';
+import NavBarDesktopContent from './NavBarDesktopContent';
 
 const NavBar = React.forwardRef(
   (
@@ -76,7 +76,7 @@ const NavBar = React.forwardRef(
               </div>
             </MobileAndTabletQuery>
             <DesktopQuery>
-              <DesktopContent
+              <NavBarDesktopContent
                 desktopLeftContent={desktopLeftContent}
                 desktopRightContent={desktopRightContent}
               />
