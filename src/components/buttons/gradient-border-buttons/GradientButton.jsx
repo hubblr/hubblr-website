@@ -10,7 +10,7 @@ function GradientButton({
   innerOverlayDivClassName,
   textDivClassName,
   isSubmitButton,
-  GRADIENT_COLORS
+  GRADIENT_COLORS,
 }) {
   let backgroundColorClass;
   let textColorClass;
