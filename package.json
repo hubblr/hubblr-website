@@ -9,6 +9,7 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-module-resolver": "^4.0.0",
     "browser-cookies": "^1.2.0",
+    "contentful": "^8.4.2",
     "cssnano": "4.1.10",
     "eslint": "7.11.0",
     "eslint-config-airbnb": "^18.2.1",
