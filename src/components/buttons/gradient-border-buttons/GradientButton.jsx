@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 
 function GradientButton({
   children,
-  image,
   theme,
   onClick,
   borderButtonClassName,
   innerOverlayDivClassName,
-  textDivClassName,
   isSubmitButton,
   GRADIENT_COLORS,
 }) {
@@ -51,9 +49,8 @@ function GradientButton({
           `hover:text-hubblr-turquoise hover:bg-black`
         }
       >
-        <div className={`${textDivClassName} text-center flex justify-center text-lg px-8 py-1 `}>
+        <div className={`text-center flex justify-center text-lg px-8 py-1 `}>
           {children}
-          {image}
         </div>
       </div>
     </button>
@@ -63,22 +60,18 @@ function GradientButton({
 GradientButton.propTypes = {
   children: PropTypes.node.isRequired,
   isSubmitButton: PropTypes.bool,
-  image: PropTypes.element,
   theme: PropTypes.oneOf(['dark', 'light']).isRequired,
   onClick: PropTypes.func,
   borderButtonClassName: PropTypes.string, // borderButtonClassName: defines the gradient border line (lowest layer) and thereby allows a gradient styling
   innerOverlayDivClassName: PropTypes.string, // innerOverlayDivClassName: defines the overlay (middle layer) where the border is made transparent to show the buttons gradient effect
-  textDivClassName: PropTypes.string, // textDivClassName: defines the actual text content (highest layer) and allows alignments of the text,
   GRADIENT_COLORS: PropTypes.array,
 };
 
 GradientButton.defaultProps = {
   isSubmitButton: false,
   onClick: null,
-  image: null,
   borderButtonClassName: '',
   innerOverlayDivClassName: '',
-  textDivClassName: '',
   GRADIENT_COLORS: ['#bdfff4', '#44ced8', '#0da2ff', '#8d00ff'],
 };
 
