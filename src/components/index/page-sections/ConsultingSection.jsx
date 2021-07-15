@@ -4,7 +4,7 @@ import { LocalizedLink as Link } from 'gatsby-theme-i18n';
 import { FormattedMessage } from 'react-intl';
 import HubblrMainContentSection from '../page-section-bases/sections/HubblrMainContentSection';
 import ConsultingIllustrationImageBackground from '../../image-components/ConsultingIllustrationImageBackground';
-import GradientButtonArrow from '../../buttons/gradient-border-buttons/GradientButtonArrow';
+import GradientButton from '../../buttons/gradient-border-buttons/GradientButton';
 import { MobileAndTabletQuery, DesktopQuery } from '../../../util/helpers';
 import ConsultingSectionContent from './ConsultingSectionContent';
 import SectionScrollBar from '../section-scroll-bar/SectionScrollBar';
@@ -33,18 +33,18 @@ const ConsultingSection = React.forwardRef(({ animationAreaHeight }, ref) => {
       <MobileAndTabletQuery>
         <ConsultingSectionContent>
           <Link to="/contact">
-            <GradientButtonArrow className="light" addedFlexClasses="justify-center">
+            <GradientButton className="light" addedFlexClasses="justify-center">
               <FormattedMessage id="generic.contact" />
-            </GradientButtonArrow>
+            </GradientButton>
           </Link>
         </ConsultingSectionContent>
       </MobileAndTabletQuery>
       <DesktopQuery>
         <ConsultingSectionContent />
         <Link to="/contact">
-          <GradientButtonArrow className="light">
+          <GradientButton className="light">
             <FormattedMessage id="generic.contact" />
-          </GradientButtonArrow>
+          </GradientButton>
         </Link>
       </DesktopQuery>
     </HubblrMainContentSection>

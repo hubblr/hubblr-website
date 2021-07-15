@@ -19,7 +19,7 @@ function GradientButtonArrow({
       innerOverlayDivClassName={innerOverlayDivClassName}
       textDivClassName={textDivClassName}
     >
-    <LongArrowImage theme="light" className="ml-3" />
+      <LongArrowImage theme="light" className="ml-3" />
       {children}
     </GradientButton>
   );

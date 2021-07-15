@@ -4,7 +4,7 @@ import { LocalizedLink as Link } from 'gatsby-theme-i18n';
 import { FormattedMessage } from 'react-intl';
 import HubblrMainContentSection from '../page-section-bases/sections/HubblrMainContentSection';
 import LightningImageBackground from '../../image-components/LightningImageBackground';
-import GradientButtonArrow from '../../buttons/gradient-border-buttons/GradientButtonArrow';
+import GradientButton from '../../buttons/gradient-border-buttons/GradientButton';
 import { MobileAndTabletQuery, DesktopQuery } from '../../../util/helpers';
 import SoftwareLaboratorySectionContent from './SoftwareLaboratorySectionContent';
 import SectionScrollBar from '../section-scroll-bar/SectionScrollBar';
@@ -33,18 +33,18 @@ const SoftwareLaboratorySection = React.forwardRef(({ animationAreaHeight }, ref
       <MobileAndTabletQuery>
         <SoftwareLaboratorySectionContent>
           <Link to="/contact">
-            <GradientButtonArrow className="light w-full" innerOverlayDivClassName="justify-center">
+            <GradientButton className="light w-full" innerOverlayDivClassName="justify-center">
               <FormattedMessage id="generic.contact" />
-            </GradientButtonArrow>
+            </GradientButton>
           </Link>
         </SoftwareLaboratorySectionContent>
       </MobileAndTabletQuery>
       <DesktopQuery>
         <SoftwareLaboratorySectionContent />
         <Link to="/contact">
-          <GradientButtonArrow className="light">
+          <GradientButton className="light">
             <FormattedMessage id="generic.contact" />
-          </GradientButtonArrow>
+          </GradientButton>
         </Link>
       </DesktopQuery>
     </HubblrMainContentSection>
