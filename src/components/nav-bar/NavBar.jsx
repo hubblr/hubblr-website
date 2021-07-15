@@ -11,7 +11,6 @@ import NavBarDesktopContent from './NavBarDesktopContent';
 const NavBar = React.forwardRef(
   (
     {
-      scrolledBackgroundClassName,
       showAlways,
       desktopLeftContent,
       desktopRightContent,
@@ -66,7 +65,7 @@ const NavBar = React.forwardRef(
         <div
           className={`${
             isBackgroundBlurred ? '' : 'hidden'
-          } absolute inset-0 w-full h-full ${scrolledBackgroundClassName}`}
+          } absolute inset-0 w-full h-full`}
         />
         <div className="relative container mx-auto h-full flex flex-col">
           <div ref={ref} className="w-full py-2">
@@ -95,7 +94,6 @@ NavBar.propTypes = {
   desktopRightContent: PropTypes.node,
   containerClassName: PropTypes.string, // class of all navbar, e.g., background
   // class of otherwise unseen background when scrolling the page - useful for e.g., blur
-  scrolledBackgroundClassName: PropTypes.string,
   showAlways: PropTypes.bool,
 };
 
@@ -104,7 +102,6 @@ NavBar.defaultProps = {
   desktopLeftContent: null,
   desktopRightContent: null,
   containerClassName: '',
-  scrolledBackgroundClassName: '',
   showAlways: false,
 };
 
