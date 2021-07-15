@@ -10,10 +10,12 @@
 }
 
 @layer base {
-  h1 {
+  h1,
+  .h1 {
     @apply .font-black .font-sans .text-xl;
   }
-  h2 {
+  h2,
+  .h2 {
     @apply .font-black .font-sans .text-xl;
   }
   p {
@@ -24,9 +26,6 @@
   }
   .secondary-subtitle {
     @apply .font-light .font-sans .text-base;
-  }
-  .h1 {
-    @apply .font-black .font-sans .text-xl;
   }
   .borderless-link-black {
     @apply .font-black .font-sans .text-xl .bg-clip-text .text-transparent .bg-gradient-to-r .from-hubblr-blue .to-hubblr-green;
