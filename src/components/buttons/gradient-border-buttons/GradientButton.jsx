@@ -10,11 +10,11 @@ function GradientButton({
   innerOverlayDivClassName,
   textDivClassName,
   isSubmitButton,
+  GRADIENT_COLORS
 }) {
   let backgroundColorClass;
   let textColorClass;
   let classNameTheme;
-  const GRADIENT_COLORS = ['#bdfff4', '#44ced8', '#0da2ff', '#8d00ff'];
   switch (theme) {
     case 'light':
       backgroundColorClass = 'bg-white';
@@ -69,6 +69,7 @@ GradientButton.propTypes = {
   borderButtonClassName: PropTypes.string, // borderButtonClassName: defines the gradient border line (lowest layer) and thereby allows a gradient styling
   innerOverlayDivClassName: PropTypes.string, // innerOverlayDivClassName: defines the overlay (middle layer) where the border is made transparent to show the buttons gradient effect
   textDivClassName: PropTypes.string, // textDivClassName: defines the actual text content (highest layer) and allows alignments of the text,
+  GRADIENT_COLORS: PropTypes.array,
 };
 
 GradientButton.defaultProps = {
@@ -78,6 +79,7 @@ GradientButton.defaultProps = {
   borderButtonClassName: '',
   innerOverlayDivClassName: '',
   textDivClassName: '',
+  GRADIENT_COLORS: ['#bdfff4', '#44ced8', '#0da2ff', '#8d00ff'],
 };
 
 export default GradientButton;
