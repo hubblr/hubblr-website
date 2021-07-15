@@ -49,7 +49,7 @@ GradientButton.propTypes = {
 GradientButton.defaultProps = {
   isSubmitButton: false,
   onClick: null,
-  className: 'light',
+  className: 'button-light',
   innerOverlayDivClassName: '',
   gradientColors: ['#bdfff4', '#44ced8', '#0da2ff', '#8d00ff'],
 };

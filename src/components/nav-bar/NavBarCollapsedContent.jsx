@@ -66,7 +66,10 @@ const NavBarCollapsedContent = ({ isCollapsed, navigate }) => {
         <hr className="bg-white h-p" />
       </div>
       <Link to="/contact" className="mt-3 w-full">
-        <GradientButton addedFlexClasses="w-full justify-between" className="button-dark w-full">
+        <GradientButton
+          addedFlexClasses="w-full justify-between"
+          className="button-theme-dark w-full"
+        >
           <div className="text-xl">
             <FormattedMessage id="generic.contact" />
           </div>

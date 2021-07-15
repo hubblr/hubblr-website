@@ -7,11 +7,11 @@
   @apply .rounded-lg;
 }
 
-.button-light {
+.button-theme-light {
   @apply .bg-white .text-black .text-hubblr-turquoise .bg-black;
 }
 
-.button-dark {
+.button-theme-dark {
   @apply .bg-brand-gray-darkest .text-white;
 }
 

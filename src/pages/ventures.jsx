@@ -34,7 +34,7 @@ function VenturesPage() {
               <VenturesSectionContent>
                 <Link to="/contact">
                   <GradientButton
-                    className="button-light w-full"
+                    className="button-theme-light w-full"
                     innerOverlayDivClassName="justify-center"
                   >
                     <FormattedMessage id="generic.contact" />
@@ -46,7 +46,7 @@ function VenturesPage() {
               <VenturesSectionContent />
               <div className="w-full flex flex-row justify-center">
                 <Link to="/contact">
-                  <GradientButton className="button-light">
+                  <GradientButton className="button-theme-light">
                     <FormattedMessage id="generic.contact" />
                   </GradientButton>
                 </Link>

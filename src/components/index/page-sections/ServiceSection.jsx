@@ -17,7 +17,7 @@ const ServiceSection = () => {
           link="/softwarelaboratory"
           className="flex justify-around items-center flex-col bg-gray-primary rounded-2xl text-center h-full"
         >
-          <GradientButton className="button-dark w-full">
+          <GradientButton className="button-theme-dark w-full">
             <FormattedMessage id="generic.more" />
           </GradientButton>
         </ServiceSectionCard>
@@ -28,7 +28,7 @@ const ServiceSection = () => {
           link="/consulting"
           className="flex justify-around items-center flex-col bg-gray-primary rounded-2xl text-center h-full"
         >
-          <GradientButton className="button-dark w-full">
+          <GradientButton className="button-theme-dark w-full">
             <FormattedMessage id="generic.more" />
           </GradientButton>
         </ServiceSectionCard>
@@ -39,7 +39,7 @@ const ServiceSection = () => {
           link="/ventures"
           className="flex justify-around items-center flex-col bg-gray-primary rounded-2xl text-center h-full"
         >
-          <GradientButton className="button-dark w-full">
+          <GradientButton className="button-theme-dark w-full">
             <FormattedMessage id="generic.more" />
           </GradientButton>
         </ServiceSectionCard>
