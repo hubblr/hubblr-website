@@ -19,7 +19,7 @@ const CallToActionSection = () => {
           <FormattedMessage id="index.call-to-action.text" />
         </span>
         <Link to="/contact" className="my-5 w-full md:w-1/2">
-          <GradientButton className="dark w-full">
+          <GradientButton className="button-dark w-full">
             <FormattedMessage id="generic.contact" />
           </GradientButton>
         </Link>

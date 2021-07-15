@@ -34,7 +34,7 @@ function ConsultingPage() {
               <ConsultingSectionContent>
                 <Link to="/contact">
                   <GradientButton
-                    className="light w-full"
+                    className="button-light w-full"
                     innerOverlayDivClassName="justify-center"
                   >
                     <FormattedMessage id="generic.contact" />
@@ -46,7 +46,7 @@ function ConsultingPage() {
               <ConsultingSectionContent />
               <div className="w-full flex flex-row justify-center">
                 <Link to="/contact">
-                  <GradientButton className="light">
+                  <GradientButton className="button-light">
                     <FormattedMessage id="generic.contact" />
                   </GradientButton>
                 </Link>
