@@ -7,6 +7,14 @@
   @apply .rounded-lg;
 }
 
+.light {
+  @apply .bg-white .text-black .text-hubblr-turquoise .bg-black;
+}
+
+.dark {
+  @apply .bg-brand-gray-darkest .text-white;
+}
+
 .round-button {
   &:not([class*="p-"]) {
     @apply .px-3 .py-3;
