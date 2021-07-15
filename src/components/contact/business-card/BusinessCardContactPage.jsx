@@ -7,7 +7,7 @@ function BusinessCardContactPage() {
   return (
     <div className="w-full h-full bg-brand-gray-darkest rounded-lg p-4 md:p-6 flex flex-col items-center">
       <div className="mb-5">
-        <CedricBalsImage widthClass="w-24" />
+        <CedricBalsImage className="w-24" />
       </div>
       <div className="flex-grow flex flex-col justify-between items-center mb-5">
         <h2 className="text-center text-2xl font-extrabold leading-none mb-10">

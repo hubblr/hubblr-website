@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import HeadlinerBoxImageDesktop from '../image-components/HeadlinerBoxImageDesktopDesktop';
 
 const pushLeft = 1 / 20;
 const pushDown = 1 / 18;
@@ -25,7 +24,6 @@ const HeadlinerBox = forwardRef(({ scaleFactor }, containerRef) => {
         left: `calc(${offsetLeft}%)`,
       }}
     >
-      <HeadlinerBoxImageDesktop widthClass="w-full h-full" />
     </div>
   );
 });
