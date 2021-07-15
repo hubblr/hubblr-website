@@ -4,7 +4,7 @@ import { useLocalization } from 'gatsby-theme-i18n';
 import { DesktopQuery, MobileAndTabletQuery } from '../../util/helpers';
 import useIsPageScrolled from '../../hooks/window/useIsPageScrolled';
 import localizedNavigate from '../../util/localizedNavigate';
-import CollapsedContent from './CollapsedContent';
+import NavBarCollapsedContent from './NavBarCollapsedContent';
 import NavBarMobileContent from './NavBarMobileContent';
 import NavBarDesktopContent from './NavBarDesktopContent';
 
@@ -82,7 +82,7 @@ const NavBar = React.forwardRef(
               />
             </DesktopQuery>
           </div>
-          <CollapsedContent isCollapsed={isCollapsed} navigate={navigateByNavBar} />
+          <NavBarCollapsedContent isCollapsed={isCollapsed} navigate={navigateByNavBar} />
         </div>
       </div>
     );

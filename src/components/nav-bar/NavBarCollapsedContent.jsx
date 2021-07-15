@@ -9,7 +9,7 @@ import ConsultingIllustrationImage from '../image-components/ConsultingIllustrat
 import VenturesArrowImage from '../image-components/VenturesArrowImage';
 import GradientButton from '../buttons/gradient-border-buttons/GradientButton';
 
-const CollapsedContent = ({ isCollapsed, navigate }) => {
+const NavBarCollapsedContent = ({ isCollapsed, navigate }) => {
   return (
     <div className={`${isCollapsed ? 'hidden' : ''} w-full px-4 pb-8 flex-grow flex flex-col`}>
       <div className="flex-grow flex flex-col">
@@ -80,13 +80,13 @@ const CollapsedContent = ({ isCollapsed, navigate }) => {
   );
 };
 
-CollapsedContent.propTypes = {
+NavBarCollapsedContent.propTypes = {
   isCollapsed: PropTypes.bool,
   navigate: PropTypes.func.isRequired,
 };
 
-CollapsedContent.defaultProps = {
+NavBarCollapsedContent.defaultProps = {
   isCollapsed: true,
 };
 
-export default CollapsedContent;
+export default NavBarCollapsedContent;
