@@ -5,7 +5,7 @@ import { DesktopQuery, MobileAndTabletQuery } from '../../util/helpers';
 import useIsPageScrolled from '../../hooks/window/useIsPageScrolled';
 import localizedNavigate from '../../util/localizedNavigate';
 import CollapsedContent from './CollapsedContent';
-import MobileContent from './MobileContent';
+import NavBarMobileContent from './NavBarMobileContent';
 import DesktopContent from './DesktopContent';
 
 const NavBar = React.forwardRef(
@@ -72,7 +72,7 @@ const NavBar = React.forwardRef(
           <div ref={ref} className="w-full py-2">
             <MobileAndTabletQuery>
               <div className="flex justify-between items-center">
-                <MobileContent isCollapsed={isCollapsed} onClick={onClick} />
+                <NavBarMobileContent isCollapsed={isCollapsed} onClick={onClick} />
               </div>
             </MobileAndTabletQuery>
             <DesktopQuery>

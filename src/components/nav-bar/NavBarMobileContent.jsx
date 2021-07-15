@@ -5,7 +5,7 @@ import HubblrImage from '../image-components/HubblrImage';
 import HamburgerMenuIcon from '../image-components/HamburgerMenuIcon';
 import AppButton from '../buttons/bases/AppButton';
 
-const MobileContent = ({ isCollapsed, onClick }) => {
+const NavBarMobileContent = ({ isCollapsed, onClick }) => {
   return (
     <>
       <div className="w-1/2 flex flex-col justify-center items-start">
@@ -28,13 +28,13 @@ const MobileContent = ({ isCollapsed, onClick }) => {
   );
 };
 
-MobileContent.propTypes = {
+NavBarMobileContent.propTypes = {
   isCollapsed: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
 };
 
-MobileContent.defaultProps = {
+NavBarMobileContent.defaultProps = {
   isCollapsed: true,
 };
 
-export default MobileContent;
+export default NavBarMobileContent;
