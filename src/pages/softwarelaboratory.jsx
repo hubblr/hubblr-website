@@ -37,8 +37,7 @@ function SoftwareLaboratoryPage() {
                 <SoftwareLaboratorySectionContent>
                   <Link to="/contact">
                     <GradientButton
-                      theme="light"
-                      borderButtonClassName="w-full"
+                      className="light w-full"
                       innerOverlayDivClassName="justify-center"
                     >
                       <FormattedMessage id="generic.contact" />
@@ -50,7 +49,7 @@ function SoftwareLaboratoryPage() {
                 <SoftwareLaboratorySectionContent />
                 <div className="w-full flex flex-row justify-center">
                   <Link to="/contact">
-                    <GradientButton theme="light">
+                    <GradientButton className="light">
                       <FormattedMessage id="generic.contact" />
                     </GradientButton>
                   </Link>

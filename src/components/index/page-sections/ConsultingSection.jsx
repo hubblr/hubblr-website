@@ -33,7 +33,7 @@ const ConsultingSection = React.forwardRef(({ animationAreaHeight }, ref) => {
       <MobileAndTabletQuery>
         <ConsultingSectionContent>
           <Link to="/contact">
-            <GradientButtonArrow theme="light" addedFlexClasses="justify-center">
+            <GradientButtonArrow className="light" addedFlexClasses="justify-center">
               <FormattedMessage id="generic.contact" />
             </GradientButtonArrow>
           </Link>
@@ -42,7 +42,7 @@ const ConsultingSection = React.forwardRef(({ animationAreaHeight }, ref) => {
       <DesktopQuery>
         <ConsultingSectionContent />
         <Link to="/contact">
-          <GradientButtonArrow theme="light">
+          <GradientButtonArrow className="light">
             <FormattedMessage id="generic.contact" />
           </GradientButtonArrow>
         </Link>

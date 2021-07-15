@@ -33,11 +33,7 @@ const SoftwareLaboratorySection = React.forwardRef(({ animationAreaHeight }, ref
       <MobileAndTabletQuery>
         <SoftwareLaboratorySectionContent>
           <Link to="/contact">
-            <GradientButtonArrow
-              theme="light"
-              borderButtonClassName="w-full"
-              innerOverlayDivClassName="justify-center"
-            >
+            <GradientButtonArrow className="light w-full" innerOverlayDivClassName="justify-center">
               <FormattedMessage id="generic.contact" />
             </GradientButtonArrow>
           </Link>
@@ -46,7 +42,7 @@ const SoftwareLaboratorySection = React.forwardRef(({ animationAreaHeight }, ref
       <DesktopQuery>
         <SoftwareLaboratorySectionContent />
         <Link to="/contact">
-          <GradientButtonArrow theme="light">
+          <GradientButtonArrow className="light">
             <FormattedMessage id="generic.contact" />
           </GradientButtonArrow>
         </Link>

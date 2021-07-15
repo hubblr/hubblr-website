@@ -143,7 +143,7 @@ function ContactPageForm() {
           />
         </div>
         <div className="flex justify-center w-full">
-          <GradientButton isSubmitButton theme="dark" innerOverlayDivClassName="justify-center">
+          <GradientButton isSubmitButton className="dark" innerOverlayDivClassName="justify-center">
             <FormattedMessage id="contact.form.send" />
           </GradientButton>
         </div>
