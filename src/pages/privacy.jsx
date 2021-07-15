@@ -14,7 +14,7 @@ function PrivacyPolicyPage() {
         <NavBar
           showNavBar
           showAlways
-          classNameProp="sticky w-full navbar-background-blur animate top-0 mb-4"
+          className="sticky w-full navbar-background-blur animate top-0 mb-4"
           desktopRightContent={
             <div className="flex justify-end items-center">
               <NavBarContactButton />

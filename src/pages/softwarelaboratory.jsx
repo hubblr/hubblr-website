@@ -19,7 +19,7 @@ function SoftwareLaboratoryPage() {
         <NavBar
           showNavBar
           showAlways
-          classNameProp="z-20 sticky w-full navbar-background-blur animate top-0 mb-4"
+          className="z-20 sticky w-full navbar-background-blur animate top-0 mb-4"
           desktopRightContent={
             <div className="flex justify-end items-center">
               <NavBarContactButton />

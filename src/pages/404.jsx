@@ -12,7 +12,7 @@ function NotFoundPage() {
       <MainPageDarkLayout
         navBar={
           <NavBar
-            classNameProp="sticky"
+            className="sticky"
             desktopRightContent={
               <div className="flex justify-end items-center">
                 <NavBarHomeButton className="mr-2" />

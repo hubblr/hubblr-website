@@ -16,7 +16,7 @@ function ContactPage() {
         <SEO title="contact.seo.title" description="contact.seo.description" />
         <NavBar
           showAlways
-          classNameProp="sticky"
+          className="sticky"
           desktopRightContent={
             <div className="flex justify-end items-center">
               <NavBarHomeButton />
