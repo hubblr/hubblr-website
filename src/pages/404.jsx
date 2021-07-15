@@ -2,7 +2,7 @@ import React from 'react';
 import SEO from '../components/seo/Seo';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
-import NavBarMain from '../components/nav-bar/NavBarMain';
+import NavBar from '../components/nav-bar/NavBar';
 import NavBarHomeButton from '../components/nav-bar/NavBarHomeButton';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 
@@ -11,7 +11,7 @@ function NotFoundPage() {
     <LayoutWrapper>
       <MainPageDarkLayout
         navBar={
-          <NavBarMain
+          <NavBar
             classNameProp="sticky"
             desktopRightContent={
               <div className="flex justify-end items-center">

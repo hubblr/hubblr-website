@@ -4,7 +4,7 @@ import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
 import BusinessCardContactPage from '../components/contact/business-card/BusinessCardContactPage';
 import ContactPageForm from '../components/contact/contact-page-form/ContactPageForm';
 import SEO from '../components/seo/Seo';
-import NavBarMain from '../components/nav-bar/NavBarMain';
+import NavBar from '../components/nav-bar/NavBar';
 import NavBarHomeButton from '../components/nav-bar/NavBarHomeButton';
 import { MobileAndTabletQuery, DesktopQuery } from '../util/helpers';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
@@ -14,7 +14,7 @@ function ContactPage() {
     <LayoutWrapper>
       <MainPageDarkLayout>
         <SEO title="contact.seo.title" description="contact.seo.description" />
-        <NavBarMain
+        <NavBar
           showAlways
           classNameProp="sticky"
           desktopRightContent={

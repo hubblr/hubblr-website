@@ -5,7 +5,7 @@ import { DesktopQuery, MobileAndTabletQuery } from '../util/helpers';
 import SectionHeading from '../components/index/section-heading/SectionHeading';
 import GradientButton from '../components/buttons/gradient-border-buttons/GradientButton';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
-import NavBarMain from '../components/nav-bar/NavBarMain';
+import NavBar from '../components/nav-bar/NavBar';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 import ConsultingSectionContent from '../components/index/page-sections/ConsultingSectionContent';
 import AnimatedSatelliteImage from '../components/index/animated/satellite-image/AnimatedSatelliteImage';
@@ -14,7 +14,7 @@ import AnimatedSectionContainer from '../components/animation/AnimatedSectionCon
 function ConsultingPage() {
   return (
     <MainPageDarkLayout>
-      <NavBarMain
+      <NavBar
         showAlways
         classNameProp="z-20 sticky w-full navbar-background-blur animate top-0 mb-4"
         desktopRightContent={

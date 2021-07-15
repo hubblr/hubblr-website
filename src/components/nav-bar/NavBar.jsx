@@ -8,7 +8,7 @@ import CollapsedContent from './CollapsedContent';
 import MobileContent from './MobileContent';
 import DesktopContent from './DesktopContent';
 
-const NavBarMain = React.forwardRef(
+const NavBar = React.forwardRef(
   (
     {
       scrolledBackgroundClassName,
@@ -89,7 +89,7 @@ const NavBarMain = React.forwardRef(
   }
 );
 
-NavBarMain.propTypes = {
+NavBar.propTypes = {
   classNameProp: PropTypes.string,
   desktopLeftContent: PropTypes.node,
   desktopRightContent: PropTypes.node,
@@ -99,7 +99,7 @@ NavBarMain.propTypes = {
   showAlways: PropTypes.bool,
 };
 
-NavBarMain.defaultProps = {
+NavBar.defaultProps = {
   classNameProp: '',
   desktopLeftContent: null,
   desktopRightContent: null,
@@ -108,4 +108,4 @@ NavBarMain.defaultProps = {
   showAlways: false,
 };
 
-export default NavBarMain;
+export default NavBar;

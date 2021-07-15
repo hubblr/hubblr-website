@@ -5,7 +5,7 @@ import SectionHeading from '../components/index/section-heading/SectionHeading';
 import { DesktopQuery, MobileAndTabletQuery } from '../util/helpers';
 import GradientButton from '../components/buttons/gradient-border-buttons/GradientButton';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
-import NavBarMain from '../components/nav-bar/NavBarMain';
+import NavBar from '../components/nav-bar/NavBar';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 import SoftwareLaboratorySectionContent from '../components/index/page-sections/SoftwareLaboratorySectionContent';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
@@ -16,7 +16,7 @@ function SoftwareLaboratoryPage() {
   return (
     <LayoutWrapper>
       <MainPageDarkLayout>
-        <NavBarMain
+        <NavBar
           showNavBar
           showAlways
           classNameProp="z-20 sticky w-full navbar-background-blur animate top-0 mb-4"
