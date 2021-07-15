@@ -6,7 +6,7 @@ function GradientButton({
   onClick,
   innerOverlayDivClassName,
   isSubmitButton,
-  GRADIENT_COLORS,
+  gradientColors,
   className,
 }) {
   return (
@@ -14,7 +14,7 @@ function GradientButton({
       type={isSubmitButton ? 'submit' : 'button'}
       className={`${className} rounded-lg rotategradient `}
       style={{
-        background: `linear-gradient(90deg, ${GRADIENT_COLORS.join(',')})`,
+        background: `linear-gradient(90deg, ${gradientColors.join(',')})`,
       }}
       onClick={onClick}
     >
@@ -43,7 +43,7 @@ GradientButton.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string, // defines the gradient border line (lowest layer) and thereby allows a gradient styling
   innerOverlayDivClassName: PropTypes.string, // innerOverlayDivClassName: defines the overlay (middle layer) where the border is made transparent to show the buttons gradient effect
-  GRADIENT_COLORS: PropTypes.array,
+  gradientColors: PropTypes.array,
 };
 
 GradientButton.defaultProps = {
@@ -51,7 +51,7 @@ GradientButton.defaultProps = {
   onClick: null,
   className: 'light',
   innerOverlayDivClassName: '',
-  GRADIENT_COLORS: ['#bdfff4', '#44ced8', '#0da2ff', '#8d00ff'],
+  gradientColors: ['#bdfff4', '#44ced8', '#0da2ff', '#8d00ff'],
 };
 
 export default GradientButton;
