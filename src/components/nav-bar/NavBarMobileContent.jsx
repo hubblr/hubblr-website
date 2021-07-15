@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { navigate } from '@reach/router';
 import HubblrImage from '../image-components/HubblrImage';
 import HamburgerMenuIcon from '../image-components/HamburgerMenuIcon';
-import AppButton from '../buttons/bases/AppButton';
+import Button from '../buttons/bases/Button';
 
 const NavBarMobileContent = ({ isCollapsed, onClick }) => {
   return (
     <>
       <div className="w-1/2 flex flex-col justify-center items-start">
-        <AppButton
-          className="button-dark"
+        <Button
+          className="button-theme-transparent"
           onClick={(e) => {
             e.preventDefault();
             navigate('/');
@@ -18,7 +18,7 @@ const NavBarMobileContent = ({ isCollapsed, onClick }) => {
           }}
         >
           <HubblrImage className="w-20 h-auto" />
-        </AppButton>
+        </Button>
       </div>
 
       <div className="w-1/2 flex flex-col justify-center items-end">

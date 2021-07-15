@@ -36,10 +36,7 @@ function SoftwareLaboratoryPage() {
               <MobileAndTabletQuery>
                 <SoftwareLaboratorySectionContent>
                   <Link to="/contact">
-                    <GradientButton
-                      className="button-theme-light w-full"
-                      innerOverlayDivClassName="justify-center"
-                    >
+                    <GradientButton className="button-theme-light w-full">
                       <FormattedMessage id="generic.contact" />
                     </GradientButton>
                   </Link>

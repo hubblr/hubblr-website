@@ -3,24 +3,17 @@ import PropTypes from 'prop-types';
 import LongArrowImage from '../../image-components/LongArrowImage';
 import GradientButton from './GradientButton';
 
-function GradientButtonArrow({
-  children,
-  onClick,
-  className,
-  innerOverlayDivClassName,
-  textDivClassName,
-  isSubmitButton,
-}) {
+function GradientButtonArrow({ children, onClick, className, isSubmitButton }) {
   return (
     <GradientButton
       type={isSubmitButton}
       onClick={onClick}
-      className={`light ${className}`}
-      innerOverlayDivClassName={innerOverlayDivClassName}
-      textDivClassName={textDivClassName}
+      className={`button-theme-light ${className}`}
     >
-      <LongArrowImage theme="light" className="ml-3" />
-      {children}
+      <div className="flex flex-row items-center">
+        <LongArrowImage theme="light" className="ml-3" />
+        {children}
+      </div>
     </GradientButton>
   );
 }
@@ -30,16 +23,12 @@ GradientButtonArrow.propTypes = {
   isSubmitButton: PropTypes.bool,
   onClick: PropTypes.func,
   className: PropTypes.string,
-  innerOverlayDivClassName: PropTypes.string,
-  textDivClassName: PropTypes.string,
 };
 
 GradientButtonArrow.defaultProps = {
   isSubmitButton: false,
   onClick: null,
   className: '',
-  innerOverlayDivClassName: '',
-  textDivClassName: '',
 };
 
 export default GradientButtonArrow;

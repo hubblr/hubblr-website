@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { navigate } from '@reach/router';
 import HubblrImage from '../image-components/HubblrImage';
-import AppButton from '../buttons/bases/AppButton';
+import Button from '../buttons/bases/Button';
 
 const NavBarDesktopContent = ({ desktopLeftContent, desktopRightContent }) => {
   return (
@@ -10,8 +10,8 @@ const NavBarDesktopContent = ({ desktopLeftContent, desktopRightContent }) => {
       <div className="flex items-center">
         <div className="w-1/3">{desktopLeftContent}</div>
         <div className="w-1/3 self-center flex justify-center">
-          <AppButton
-            className="button-dark"
+          <Button
+            className="button-theme-transparent"
             onClick={(e) => {
               e.preventDefault();
               navigate('/');
@@ -19,7 +19,7 @@ const NavBarDesktopContent = ({ desktopLeftContent, desktopRightContent }) => {
             }}
           >
             <HubblrImage className="w-20 h-auto" />
-          </AppButton>
+          </Button>
         </div>
         <div className="w-1/3">{desktopRightContent}</div>
       </div>
