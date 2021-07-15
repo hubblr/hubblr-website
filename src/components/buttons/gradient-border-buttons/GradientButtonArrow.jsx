@@ -6,7 +6,7 @@ import GradientButton from './GradientButton';
 function GradientButtonArrow({
   children,
   onClick,
-  borderButtonClassName,
+  className,
   innerOverlayDivClassName,
   textDivClassName,
   isSubmitButton,
@@ -15,9 +15,8 @@ function GradientButtonArrow({
     <GradientButton
       type={isSubmitButton}
       image={<LongArrowImage theme="light" className="ml-3" />}
-      theme="light"
       onClick={onClick}
-      borderButtonClassName={borderButtonClassName}
+      className={`light ${className}`}
       innerOverlayDivClassName={innerOverlayDivClassName}
       textDivClassName={textDivClassName}
     >
@@ -30,7 +29,7 @@ GradientButtonArrow.propTypes = {
   children: PropTypes.node.isRequired,
   isSubmitButton: PropTypes.bool,
   onClick: PropTypes.func,
-  borderButtonClassName: PropTypes.string,
+  className: PropTypes.string,
   innerOverlayDivClassName: PropTypes.string,
   textDivClassName: PropTypes.string,
 };
@@ -38,7 +37,7 @@ GradientButtonArrow.propTypes = {
 GradientButtonArrow.defaultProps = {
   isSubmitButton: false,
   onClick: null,
-  borderButtonClassName: '',
+  className: '',
   innerOverlayDivClassName: '',
   textDivClassName: '',
 };
