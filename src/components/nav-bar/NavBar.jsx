@@ -42,7 +42,7 @@ const NavBar = React.forwardRef(
       }
     }
 
-    function menuOnClick() {
+    function onClick() {
       setIsCollapsed(!isCollapsed);
     }
 
@@ -72,7 +72,7 @@ const NavBar = React.forwardRef(
           <div ref={ref} className="w-full py-2">
             <MobileAndTabletQuery>
               <div className="flex justify-between items-center">
-                <MobileContent isCollapsed={isCollapsed} menuOnClick={menuOnClick} />
+                <MobileContent isCollapsed={isCollapsed} onClick={onClick} />
               </div>
             </MobileAndTabletQuery>
             <DesktopQuery>
