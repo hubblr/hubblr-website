@@ -14,12 +14,12 @@ function GradientButtonArrow({
   return (
     <GradientButton
       type={isSubmitButton}
-      image={<LongArrowImage theme="light" className="ml-3" />}
       onClick={onClick}
       className={`light ${className}`}
       innerOverlayDivClassName={innerOverlayDivClassName}
       textDivClassName={textDivClassName}
     >
+    <LongArrowImage theme="light" className="ml-3" />
       {children}
     </GradientButton>
   );
