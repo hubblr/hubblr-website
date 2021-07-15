@@ -9,16 +9,7 @@ import NavBarMobileContent from './NavBarMobileContent';
 import NavBarDesktopContent from './NavBarDesktopContent';
 
 const NavBar = React.forwardRef(
-  (
-    {
-      showAlways,
-      desktopLeftContent,
-      desktopRightContent,
-      containerClassName,
-      className,
-    },
-    ref
-  ) => {
+  ({ showAlways, desktopLeftContent, desktopRightContent, containerClassName, className }, ref) => {
     const isPageScrolled = useIsPageScrolled();
     const [isCollapsed, setIsCollapsed] = useState(true);
     const isBackgroundBlurred = isCollapsed && isPageScrolled;
@@ -62,11 +53,7 @@ const NavBar = React.forwardRef(
           !isCollapsed ? `h-screen overflow-y-scroll bg-black` : ''
         } ${isVisible ? '' : 'opacity-0'} ${containerClassName}`}
       >
-        <div
-          className={`${
-            isBackgroundBlurred ? '' : 'hidden'
-          } absolute inset-0 w-full h-full`}
-        />
+        <div className={`${isBackgroundBlurred ? '' : 'hidden'} absolute inset-0 w-full h-full`} />
         <div className="relative container mx-auto h-full flex flex-col">
           <div ref={ref} className="w-full py-2">
             <MobileAndTabletQuery>
