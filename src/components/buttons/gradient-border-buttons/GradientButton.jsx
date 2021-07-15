@@ -14,7 +14,7 @@ function GradientButton({
   let backgroundColorClass;
   let textColorClass;
   let classNameTheme;
-  const gradientColors = ['#bdfff4', '#44ced8', '#0da2ff', '#8d00ff'];
+  const GRADIENT_COLORS = ['#bdfff4', '#44ced8', '#0da2ff', '#8d00ff'];
   switch (theme) {
     case 'light':
       backgroundColorClass = 'bg-white';
@@ -33,7 +33,7 @@ function GradientButton({
       type={isSubmitButton ? 'submit' : 'button'}
       className={`${borderButtonClassName} rounded-lg rotategradient `}
       style={{
-        background: `linear-gradient(90deg, ${gradientColors.join(',')})`,
+        background: `linear-gradient(90deg, ${GRADIENT_COLORS.join(',')})`,
       }}
       onClick={onClick}
       theme={theme}
