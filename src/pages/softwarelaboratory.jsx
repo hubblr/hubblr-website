@@ -46,7 +46,7 @@ function SoftwareLaboratoryPage() {
                 <SoftwareLaboratorySectionContent />
                 <div className="w-full flex flex-row justify-center">
                   <Link to="/contact">
-                    <GradientButton className="button-theme-light">
+                    <GradientButton className="button-theme-dark">
                       <FormattedMessage id="generic.contact" />
                     </GradientButton>
                   </Link>
