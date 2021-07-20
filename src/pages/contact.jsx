@@ -16,7 +16,6 @@ function ContactPage() {
         <SEO title="contact.seo.title" description="contact.seo.description" />
         <NavBar
           showAlways
-          className="sticky"
           desktopRightContent={
             <div className="flex justify-end items-center">
               <NavBarHomeButton />
@@ -24,7 +23,7 @@ function ContactPage() {
           }
         />
         <div className="flex-grow overflow-hidden container mx-auto h-full flex flex-col items-center mt-10">
-          <h1 className="mb-8 lg:mb-0 text-5xl font-extrabold">
+          <h1 className="mb-8 text-5xl font-extrabold">
             <FormattedMessage id="contact.heading" />
           </h1>
           <div className="flex-grow w-full flex flex-col justify-center items-center">

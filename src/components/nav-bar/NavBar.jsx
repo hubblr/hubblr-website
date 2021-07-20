@@ -49,9 +49,11 @@ const NavBar = React.forwardRef(
 
     return (
       <div
-        className={`fixed top-0 w-full ${className} ${
+        className={`z-20 mb-4 sticky animate top-0 w-full ${className} ${
           !isCollapsed ? `h-screen overflow-y-scroll bg-black` : ''
-        } ${isVisible ? '' : 'opacity-0'} ${containerClassName}`}
+        } ${isVisible ? '' : 'opacity-0'} ${containerClassName} ${
+          isPageScrolled ? 'navbar-background-blur' : ''
+        }`}
       >
         <div className={`${isBackgroundBlurred ? '' : 'hidden'} absolute inset-0 w-full h-full`} />
         <div className="relative container mx-auto h-full flex flex-col">

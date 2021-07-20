@@ -11,9 +11,7 @@ const ImprintPage = () => (
   <LayoutWrapper>
     <MainPageDarkLayout>
       <NavBar
-        showNavBar
         showAlways
-        className="sticky"
         desktopRightContent={
           <div className="flex justify-end items-center">
             <NavBarContactButton />
