@@ -9,7 +9,10 @@ import NavBarMobileContent from './NavBarMobileContent';
 import NavBarDesktopContent from './NavBarDesktopContent';
 
 const NavBar = React.forwardRef(
-  ({ showAlways, desktopLeftContent, desktopRightContent, containerClassName, className }, ref) => {
+  (
+    { showAlways, desktopLeftContent, desktopRightContent, containerClassName, className, isFixed },
+    ref
+  ) => {
     const isPageScrolled = useIsPageScrolled();
     const [isCollapsed, setIsCollapsed] = useState(true);
     const isBackgroundBlurred = isCollapsed && isPageScrolled;
@@ -49,7 +52,7 @@ const NavBar = React.forwardRef(
 
     return (
       <div
-        className={`z-20 mb-4 sticky animate top-0 w-full ${className} ${
+        className={`z-20 mb-4 ${isFixed ? 'fixed' : 'sticky'} animate top-0 w-full ${className} ${
           !isCollapsed ? `h-screen overflow-y-scroll bg-black` : ''
         } ${isVisible ? '' : 'opacity-0'} ${containerClassName} ${
           isPageScrolled ? 'navbar-background-blur' : ''
@@ -81,6 +84,7 @@ NavBar.propTypes = {
   className: PropTypes.string,
   desktopLeftContent: PropTypes.node,
   desktopRightContent: PropTypes.node,
+  isFixed: PropTypes.bool,
   containerClassName: PropTypes.string, // class of all navbar, e.g., background
   // class of otherwise unseen background when scrolling the page - useful for e.g., blur
   showAlways: PropTypes.bool,
@@ -90,6 +94,7 @@ NavBar.defaultProps = {
   className: '',
   desktopLeftContent: null,
   desktopRightContent: null,
+  isFixed: false,
   containerClassName: '',
   showAlways: false,
 };

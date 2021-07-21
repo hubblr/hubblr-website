@@ -14,7 +14,8 @@ function IndexPage() {
     <MainPageDarkLayout>
       <NavBar
         showNavBar
-        className="fixed w-full navbar-background-blur animate top-0 mb-4 z-50"
+        className="z-50"
+        isFixed
         desktopRightContent={
           <div className="flex justify-end items-center">
             <NavBarContactButton />
