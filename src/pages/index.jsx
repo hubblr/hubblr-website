@@ -9,6 +9,7 @@ import CallToActionSection from '../components/index/page-sections/CallToActionS
 import ServiceSection from '../components/index/page-sections/ServiceSection';
 import StartupSection from '../components/index/page-sections/StartupSection';
 import HubblrImage from '../components/image-components/HubblrImage';
+import TestimonialSection from '../components/index/page-sections/TestimonialSection';
 
 function IndexPage() {
   return (
@@ -33,6 +34,7 @@ function IndexPage() {
           <IntroductionSectionContent />
         </IntroductionSection>
         <ServiceSection />
+        <TestimonialSection />
         <CallToActionSection />
         <StartupSection />
       </div>
