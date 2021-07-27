@@ -4,7 +4,7 @@ import { LocalizedLink as Link } from 'gatsby-theme-i18n';
 import { FormattedMessage } from 'react-intl';
 import HubblrMainContentSection from '../page-section-bases/sections/HubblrMainContentSection';
 import LightningImageBackground from '../../image-components/LightningImageBackground';
-import IndexGradientBorderButtonLongArrow from '../../buttons/gradient-border-buttons/IndexGradientBorderButtonLongArrow';
+import GradientButton from '../../buttons/gradient-border-buttons/GradientButton';
 import { MobileAndTabletQuery, DesktopQuery } from '../../../util/helpers';
 import SoftwareLaboratorySectionContent from './SoftwareLaboratorySectionContent';
 import SectionScrollBar from '../section-scroll-bar/SectionScrollBar';
@@ -33,22 +33,18 @@ const SoftwareLaboratorySection = React.forwardRef(({ animationAreaHeight }, ref
       <MobileAndTabletQuery>
         <SoftwareLaboratorySectionContent>
           <Link to="/contact">
-            <IndexGradientBorderButtonLongArrow
-              theme="light"
-              borderButtonClassName="w-full"
-              innerOverlayDivClassName="justify-center"
-            >
+            <GradientButton className="button-theme-light w-full">
               <FormattedMessage id="generic.contact" />
-            </IndexGradientBorderButtonLongArrow>
+            </GradientButton>
           </Link>
         </SoftwareLaboratorySectionContent>
       </MobileAndTabletQuery>
       <DesktopQuery>
         <SoftwareLaboratorySectionContent />
         <Link to="/contact">
-          <IndexGradientBorderButtonLongArrow theme="light">
+          <GradientButton className="button-theme-light">
             <FormattedMessage id="generic.contact" />
-          </IndexGradientBorderButtonLongArrow>
+          </GradientButton>
         </Link>
       </DesktopQuery>
     </HubblrMainContentSection>

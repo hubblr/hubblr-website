@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
-import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
+import NavBar from '../components/nav-bar/NavBar';
 import '../css/text-page-styles.scss';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 import SEO from '../components/seo/Seo';
@@ -10,10 +10,8 @@ import SEO from '../components/seo/Seo';
 const ImprintPage = () => (
   <LayoutWrapper>
     <MainPageDarkLayout>
-      <NavBarMainPage
-        showNavBar
+      <NavBar
         showAlways
-        className="sticky"
         desktopRightContent={
           <div className="flex justify-end items-center">
             <NavBarContactButton />

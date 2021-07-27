@@ -1,35 +1,76 @@
 // different types of buttons
 .button {
-  &:not([class*="p-"]) {
-    @apply .px-3 .py-1;
+  @apply .rounded-lg;
+
+  &:not(.button-gradient) {
+    &:not([class*='p-']) {
+      @apply .px-3 .py-1;
+    }
   }
 
-  @apply .rounded-lg;
+  &.button-theme-light {
+    @apply .text-hubblr-turquoise;
+
+    &:not(.button-gradient) {
+      @apply .bg-white;
+      @extend .animate-bg-brand-gray-light;
+    }
+
+    &.button-gradient > .button-content-container {
+      @apply .bg-white;
+      @include animate-bg;
+    }
+
+    &:hover {
+      &.button-gradient > .button-content-container {
+        @apply .bg-brand-gray-light;
+      }
+    }
+  }
+
+  &.button-theme-dark {
+    @apply .text-white;
+
+    &:not(.button-gradient) {
+      @apply .bg-brand-gray-darkest;
+      @extend .animate-bg-brand-gray-darkest;
+    }
+
+    &.button-gradient > .button-content-container {
+      @apply .bg-brand-gray-darkest;
+      @include animate-bg;
+    }
+
+    &:hover {
+      &.button-gradient > .button-content-container {
+        @apply .bg-black;
+      }
+    }
+  }
+
+  &.button-theme-transparent {
+    @apply .text-white;
+
+    &:not(.button-gradient) {
+      @extend .animate-bg-brand-gray-darkest;
+    }
+
+    &.button-gradient > .button-content-container {
+      @include animate-bg;
+    }
+
+    &:hover {
+      &.button-gradient > .button-content-container {
+        @apply .bg-black;
+      }
+    }
+  }
 }
 
 .round-button {
-  &:not([class*="p-"]) {
+  &:not([class*='p-']) {
     @apply .px-3 .py-3;
   }
 
   @apply .rounded-full;
 }
-
-// dark styling
-.button-dark {
-  @extend .animate-bg-brand-gray-darkest;
-}
-
-// light styling
-.button-light {
-  @extend .animate-bg-brand-gray-light;
-}
-
-
-@screen lg {
-  .button:not([class*="p-"]) {
-    @apply .px-6 .py-4;
-  }
-}
-
-
