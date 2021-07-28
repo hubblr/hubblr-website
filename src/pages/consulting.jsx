@@ -3,9 +3,9 @@ import { FormattedMessage } from 'react-intl';
 import React from 'react';
 import { DesktopQuery, MobileAndTabletQuery } from '../util/helpers';
 import SectionHeading from '../components/index/section-heading/SectionHeading';
-import IndexGradientBorderButtonBasic from '../components/buttons/gradient-border-buttons/IndexGradientBorderButtonBasic';
+import GradientButton from '../components/buttons/gradient-border-buttons/GradientButton';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
-import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
+import NavBar from '../components/nav-bar/NavBar';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 import ConsultingSectionContent from '../components/index/page-sections/ConsultingSectionContent';
 import AnimatedSatelliteImage from '../components/index/animated/satellite-image/AnimatedSatelliteImage';
@@ -14,10 +14,8 @@ import AnimatedSectionContainer from '../components/animation/AnimatedSectionCon
 function ConsultingPage() {
   return (
     <MainPageDarkLayout>
-      <NavBarMainPage
-        showNavBar
+      <NavBar
         showAlways
-        className="z-20 sticky w-full navbar-background-blur animate top-0 mb-4"
         desktopRightContent={
           <div className="flex justify-end items-center">
             <NavBarContactButton />
@@ -34,13 +32,9 @@ function ConsultingPage() {
             <MobileAndTabletQuery>
               <ConsultingSectionContent>
                 <Link to="/contact">
-                  <IndexGradientBorderButtonBasic
-                    theme="light"
-                    borderButtonClassName="w-full"
-                    innerOverlayDivClassName="justify-center"
-                  >
+                  <GradientButton className="button-theme-light w-full">
                     <FormattedMessage id="generic.contact" />
-                  </IndexGradientBorderButtonBasic>
+                  </GradientButton>
                 </Link>
               </ConsultingSectionContent>
             </MobileAndTabletQuery>
@@ -48,9 +42,9 @@ function ConsultingPage() {
               <ConsultingSectionContent />
               <div className="w-full flex flex-row justify-center">
                 <Link to="/contact">
-                  <IndexGradientBorderButtonBasic theme="light">
+                  <GradientButton className="button-theme-dark">
                     <FormattedMessage id="generic.contact" />
-                  </IndexGradientBorderButtonBasic>
+                  </GradientButton>
                 </Link>
               </div>
             </DesktopQuery>

@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import arrowImageDown from '../../images/shortArrow/short-arrow-down.svg';
 
-function ArrowImageDownDouble({ widthClass }) {
+function ArrowImageDownDouble({ className }) {
   const singleArrowImage = <img src={arrowImageDown} alt="arrow down" className="w-full" />;
 
   return (
-    <div className={widthClass}>
+    <div className={className}>
       {singleArrowImage}
       {singleArrowImage}
     </div>
@@ -14,11 +14,11 @@ function ArrowImageDownDouble({ widthClass }) {
 }
 
 ArrowImageDownDouble.propTypes = {
-  widthClass: PropTypes.string,
+  className: PropTypes.string,
 };
 
 ArrowImageDownDouble.defaultProps = {
-  widthClass: '',
+  className: '',
 };
 
 export default ArrowImageDownDouble;

@@ -3,9 +3,9 @@ import { Link } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
 import SectionHeading from '../components/index/section-heading/SectionHeading';
 import { DesktopQuery, MobileAndTabletQuery } from '../util/helpers';
-import IndexGradientBorderButtonBasic from '../components/buttons/gradient-border-buttons/IndexGradientBorderButtonBasic';
+import GradientButton from '../components/buttons/gradient-border-buttons/GradientButton';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
-import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
+import NavBar from '../components/nav-bar/NavBar';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 import VenturesSectionContent from '../components/index/page-sections/VenturesSectionContent';
 import AnimatedSectionContainer from '../components/animation/AnimatedSectionContainer';
@@ -14,10 +14,8 @@ import AnimatedVentureImage from '../components/index/animated/venture-image/Ani
 function VenturesPage() {
   return (
     <MainPageDarkLayout>
-      <NavBarMainPage
-        showNavBar
+      <NavBar
         showAlways
-        className="z-20 sticky w-full navbar-background-blur animate top-0 mb-4"
         desktopRightContent={
           <div className="flex justify-end items-center">
             <NavBarContactButton />
@@ -34,13 +32,9 @@ function VenturesPage() {
             <MobileAndTabletQuery>
               <VenturesSectionContent>
                 <Link to="/contact">
-                  <IndexGradientBorderButtonBasic
-                    theme="light"
-                    borderButtonClassName="w-full"
-                    innerOverlayDivClassName="justify-center"
-                  >
+                  <GradientButton className="button-theme-light w-full">
                     <FormattedMessage id="generic.contact" />
-                  </IndexGradientBorderButtonBasic>
+                  </GradientButton>
                 </Link>
               </VenturesSectionContent>
             </MobileAndTabletQuery>
@@ -48,9 +42,9 @@ function VenturesPage() {
               <VenturesSectionContent />
               <div className="w-full flex flex-row justify-center">
                 <Link to="/contact">
-                  <IndexGradientBorderButtonBasic theme="light">
+                  <GradientButton className="button-theme-dark">
                     <FormattedMessage id="generic.contact" />
-                  </IndexGradientBorderButtonBasic>
+                  </GradientButton>
                 </Link>
               </div>
             </DesktopQuery>

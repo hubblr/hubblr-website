@@ -1,14 +1,14 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import IndexGradientBorderButtonBasic from '../../buttons/gradient-border-buttons/IndexGradientBorderButtonBasic';
+import GradientButton from '../../buttons/gradient-border-buttons/GradientButton';
 import ServiceSectionCard from './ServiceSectionCard';
 
 const ServiceSection = () => {
   return (
     <div className="container mx-auto mb-40">
-      <h1 className="flex flex-row w-full justify-center md:justify-start text-4xl md:text-5xl mb-12">
+      <h2 className="flex flex-row w-full justify-center md:justify-start text-4xl md:text-5xl mb-12">
         <FormattedMessage id="index.services.title" />
-      </h1>
+      </h2>
       {/* 3 COL GRID @SMALL SCREEN 1 COL */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         <ServiceSectionCard
@@ -17,9 +17,9 @@ const ServiceSection = () => {
           link="/softwarelaboratory"
           className="flex justify-around items-center flex-col bg-gray-primary rounded-2xl text-center h-full"
         >
-          <IndexGradientBorderButtonBasic theme="dark" borderButtonClassName="w-full">
+          <GradientButton className="button-theme-dark w-full">
             <FormattedMessage id="generic.more" />
-          </IndexGradientBorderButtonBasic>
+          </GradientButton>
         </ServiceSectionCard>
 
         <ServiceSectionCard
@@ -28,9 +28,9 @@ const ServiceSection = () => {
           link="/consulting"
           className="flex justify-around items-center flex-col bg-gray-primary rounded-2xl text-center h-full"
         >
-          <IndexGradientBorderButtonBasic theme="dark" borderButtonClassName="w-full">
+          <GradientButton className="button-theme-dark w-full">
             <FormattedMessage id="generic.more" />
-          </IndexGradientBorderButtonBasic>
+          </GradientButton>
         </ServiceSectionCard>
 
         <ServiceSectionCard
@@ -39,9 +39,9 @@ const ServiceSection = () => {
           link="/ventures"
           className="flex justify-around items-center flex-col bg-gray-primary rounded-2xl text-center h-full"
         >
-          <IndexGradientBorderButtonBasic theme="dark" borderButtonClassName="w-full">
+          <GradientButton className="button-theme-dark w-full">
             <FormattedMessage id="generic.more" />
-          </IndexGradientBorderButtonBasic>
+          </GradientButton>
         </ServiceSectionCard>
       </div>
     </div>
