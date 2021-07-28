@@ -14,13 +14,21 @@ const TestimonialSection = () => {
             testimonial {
               testimonial
             }
+            profileImage {
+              file {
+                url
+              }
+            }
+            logo {
+              file {
+                url
+              }
+            }
           }
         }
       }
     }
   `);
-
-  console.log(data.allContentfulCustomerTestimonial.edges);
 
   return (
     // Section Container
@@ -32,6 +40,8 @@ const TestimonialSection = () => {
           return (
             <TestimonialSectionContentContainer
               key={`testimonial-${edge.node.id}`}
+              personaImage={edge.node.profileImage.file.url}
+              corporateLogo={edge.node.logo.file.url}
               personaName={edge.node.name}
               personaJobtitle={edge.node.jobRole}
               personaQuoteText={edge.node.testimonial.testimonial}
