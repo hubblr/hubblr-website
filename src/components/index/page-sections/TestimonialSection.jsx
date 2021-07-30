@@ -1,11 +1,13 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import { useLocalization } from 'gatsby-theme-i18n';
 import TestimonialSectionContentContainer from './TestimonialSectionContentContainer';
 
 const TestimonialSection = () => {
+  const { locale } = useLocalization();
   const data = useStaticQuery(graphql`
-    query allContentfulCustomerTestimonial {
-      allContentfulCustomerTestimonial {
+    query allContentfulCustomerTestimonial($intlLocale: String) {
+      allContentfulCustomerTestimonial(node_locale: { eq: $intlLocale }) {
         edges {
           node {
             id
@@ -23,6 +25,7 @@ const TestimonialSection = () => {
               file {
                 url
               }
+              node_locale
             }
           }
         }
@@ -36,7 +39,6 @@ const TestimonialSection = () => {
       {/* 2 COL GRID @largerScreen */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {data.allContentfulCustomerTestimonial.edges.map((edge) => {
-          console.log(edge.node);
           return (
             <TestimonialSectionContentContainer
               key={`testimonial-${edge.node.id}`}
