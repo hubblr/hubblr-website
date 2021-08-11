@@ -77,5 +77,8 @@
   "prettier": {
     "printWidth": 100,
     "singleQuote": true
+  },
+  "engines": {
+    "node": ">=14"
   }
 }
