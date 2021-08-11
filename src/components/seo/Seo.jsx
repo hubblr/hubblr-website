@@ -23,13 +23,8 @@ const SEO = ({ title, description, image }) => {
   const intl = useIntl();
   const { pathname } = useLocation();
   const { site } = useStaticQuery(query);
-  const {
-    defaultTitle,
-    titleTemplate,
-    defaultDescription,
-    siteUrl,
-    defaultImage,
-  } = site.siteMetadata;
+  const { defaultTitle, titleTemplate, defaultDescription, siteUrl, defaultImage } =
+    site.siteMetadata;
 
   const seo = {
     title: title ? intl.formatMessage({ id: title }) : defaultTitle,

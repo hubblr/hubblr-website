@@ -1,5 +1,6 @@
 const resolveConfig = require('tailwindcss/resolveConfig');
-const tailwindConfig = require('./tailwind.config.js');
+const tailwindConfig = require('./tailwind.config');
+require('dotenv').config();
 
 const fullConfig = resolveConfig(tailwindConfig);
 
@@ -40,9 +41,18 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
+        // eslint-disable-next-line
         postCssPlugins: [require('tailwindcss')('./tailwind.config.js'), require('autoprefixer')],
       },
     },
     `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
   ],
 };
