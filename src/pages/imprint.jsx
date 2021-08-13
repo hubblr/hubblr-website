@@ -51,7 +51,7 @@ const ImprintPage = () => (
             </a>
           </div>
           <div className="mb-4">
-            Umsatzsteuer-Identifikationsnummer gem. § 27a UStG: DE 312816042
+            Umsatzsteuer-Identifikationsnummer gem. § 27a UStG: DE 327908691
             <br />
           </div>
         </div>
