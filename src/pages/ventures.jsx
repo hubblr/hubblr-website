@@ -3,9 +3,9 @@ import { Link } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
 import SectionHeading from '../components/index/section-heading/SectionHeading';
 import { DesktopQuery, MobileAndTabletQuery } from '../util/helpers';
-import IndexGradientBorderButtonBasic from '../components/buttons/gradient-border-buttons/IndexGradientBorderButtonBasic';
+import GradientButton from '../components/buttons/gradient-border-buttons/GradientButton';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
-import NavBarMainPage from '../components/nav-bar/NavBarMainPage';
+import NavBar from '../components/nav-bar/NavBar';
 import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 import VenturesSectionContent from '../components/index/page-sections/VenturesSectionContent';
 import AnimatedSectionContainer from '../components/animation/AnimatedSectionContainer';
@@ -14,42 +14,39 @@ import AnimatedVentureImage from '../components/index/animated/venture-image/Ani
 function VenturesPage() {
   return (
     <MainPageDarkLayout>
-      <NavBarMainPage
-        showNavBar
-        className="sticky w-full navbar-background-blur animate top-0 mb-4"
+      <NavBar
+        showAlways
         desktopRightContent={
           <div className="flex justify-end items-center">
             <NavBarContactButton />
           </div>
         }
       />
-      <div className="absolute z-0 h-screen w-screen flex justify-center items-center">
+      <div className="fixed z-0 h-screen w-screen flex justify-center items-center">
         <AnimatedVentureImage className="w-40 h-auto" />
       </div>
-      <div className="flex-grow relative z-10 container mx-auto flex flex-col justify-center items-center max-w-6xl">
+      <div className="flex-grow overflow-hidden relative z-10 container mx-auto flex flex-col justify-center items-center max-w-6xl">
         <AnimatedSectionContainer>
           <SectionHeading className="mb-6" heading="Ventures" />
           <div className="flex flex-col items-center">
             <MobileAndTabletQuery>
               <VenturesSectionContent>
                 <Link to="/contact">
-                  <IndexGradientBorderButtonBasic
-                    theme="light"
-                    borderButtonClassName="w-full"
-                    innerOverlayDivClassName="justify-center"
-                  >
+                  <GradientButton className="button-theme-light w-full">
                     <FormattedMessage id="generic.contact" />
-                  </IndexGradientBorderButtonBasic>
+                  </GradientButton>
                 </Link>
               </VenturesSectionContent>
             </MobileAndTabletQuery>
             <DesktopQuery>
               <VenturesSectionContent />
-              <Link to="/contact">
-                <IndexGradientBorderButtonBasic theme="light">
-                  <FormattedMessage id="generic.contact" />
-                </IndexGradientBorderButtonBasic>
-              </Link>
+              <div className="w-full flex flex-row justify-center">
+                <Link to="/contact">
+                  <GradientButton className="button-theme-dark">
+                    <FormattedMessage id="generic.contact" />
+                  </GradientButton>
+                </Link>
+              </div>
             </DesktopQuery>
           </div>
         </AnimatedSectionContainer>

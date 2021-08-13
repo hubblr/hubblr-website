@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AppButton from '../buttons/bases/AppButton';
+import Button from '../buttons/bases/Button';
 
 function HamburgerMenuIcon({ isActive, className, onClick }) {
   return (
-    <AppButton
-      className={`button-dark hamburger hamburger--spring ${
+    <Button
+      className={`button-theme-transparent hamburger hamburger--spring ${
         isActive ? 'is-active' : ''
       } ${className}`}
       onClick={onClick}
     >
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center py-2">
         <span className="hamburger-box">
           <span className="hamburger-inner" />
         </span>
       </div>
-    </AppButton>
+    </Button>
   );
 }
 

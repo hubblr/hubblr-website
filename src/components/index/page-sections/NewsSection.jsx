@@ -8,9 +8,9 @@ const NewsSection = () => {
     // Section Content Container
     <div className="container mx-auto mb-40">
       {/* Section Header */}
-      <h1 className="text-5xl mb-12">
+      <h2 className="text-5xl mb-12">
         <FormattedMessage id="index.news.title" />
-      </h1>
+      </h2>
       <div className="flex flex-wrap flex-col -mx-1 overflow-hidden">
         <NewsSectionContentCard
           className=""

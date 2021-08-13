@@ -1,7 +1,7 @@
 import React, { useState, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import { LocalizedLink as Link } from 'gatsby-theme-i18n';
-import AppButton from '../buttons/bases/AppButton';
+import Button from '../buttons/bases/Button';
 
 function CookieNotice({ setGoogleAnalyticsAllowed }) {
   const [isAccepted, setIsAccepted] = useState(false);
@@ -20,7 +20,7 @@ function CookieNotice({ setGoogleAnalyticsAllowed }) {
     <div
       className={`${
         isAccepted ? 'hidden ' : ''
-      }bg-brand-gray-dark fixed bottom-0 w-full text-white py-10 px-6`}
+      } bg-brand-gray-dark fixed bottom-0 w-full text-white py-10 px-6 z-30`}
     >
       <div className="container mx-auto flex flex-col justify-center items-center">
         <div className="font-bold text-xl tracking-tight mb-5">Cookie Update</div>
@@ -38,17 +38,17 @@ function CookieNotice({ setGoogleAnalyticsAllowed }) {
           </div>
 
           <div className="flex justify-center">
-            <AppButton
-              className="button-dark font-extrabold tracking-tight pr-1"
+            <Button
+              className="button-theme-transparent font-extrabold tracking-tight"
               onClick={() => {
                 window.localStorage.setItem('cookiesAccepted', 'noneAllowed');
                 setIsAccepted(true);
               }}
             >
               <div className="text-center text-black">Cookies ablehnen</div>
-            </AppButton>
-            <AppButton
-              className="button-dark font-extrabold tracking-tight"
+            </Button>
+            <Button
+              className="button-theme-transparent font-extrabold tracking-tight"
               onClick={() => {
                 window.localStorage.setItem('cookiesAccepted', 'allAllowed');
                 setIsAccepted(true);
@@ -57,7 +57,7 @@ function CookieNotice({ setGoogleAnalyticsAllowed }) {
               <div className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500 text-center">
                 Alle akzeptieren
               </div>
-            </AppButton>
+            </Button>
           </div>
         </div>
       </div>

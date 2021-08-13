@@ -6,8 +6,8 @@ import LayoutWrapper from './LayoutWrapper';
 function MainPageDarkLayout({ children }) {
   return (
     <LayoutWrapper>
-      <div className="overflow-hidden flex flex-col min-h-screen bg-black text-white font-sans">
-        {children}
+      <div className="flex flex-col min-h-screen bg-black text-white font-sans">
+        <div className="flex flex-col flex-grow">{children}</div>
         <div className="container mx-auto">
           <HubblrPageLinks />
         </div>
