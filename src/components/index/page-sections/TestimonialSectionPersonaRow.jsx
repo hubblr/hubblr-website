@@ -11,11 +11,11 @@ const TestimonialSectionPersonaRow = ({
   return (
     <div>
       <div className="flex flex-col md:flex-row items-center">
-        <div className="flex flex-row w-1/2 justify-start">
-          <TestimonialImageContainer image={personaImage} alt="" className="w-24 h-24" />
-          <TestimonialImageContainer image={corporateLogo} alt="" className="w-12 h-12 " />
+        <div className="flex flex-row justify-start">
+          <TestimonialImageContainer image={personaImage} alt="" className="w-24 h-24 z-20" />
+          <TestimonialImageContainer image={corporateLogo} alt="" className="w-12 h-12 z-10" />
         </div>
-        <div className="flex flex-col w-full md:w-1/2 md:justify-end">
+        <div className="flex flex-col md:justify-end px-2">
           <div className="secondary-title w-full pt-2 text-center md:text-left 2xl:text-2xl">
             {personaName}
           </div>
