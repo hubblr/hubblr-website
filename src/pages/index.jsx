@@ -14,25 +14,26 @@ import TestimonialSection from '../components/index/page-sections/TestimonialSec
 
 export const query = graphql`
   query allContentfulCustomerTestimonial($locale: String) {
-    allContentfulCustomerTestimonial(
-      filter: { node_locale: { eq: $locale }, name: { ne: "DoNotShowWorkaround" } }
-    ) {
+    allContentfulCustomerTestimonial(filter: { node_locale: { eq: $locale } }) {
       edges {
-        node {
-          id
-          name
-          jobRole
-          testimonial {
-            testimonial
-          }
-          profileImage {
-            file {
-              url
+        __typename
+        ... on Node {
+          node {
+            id
+            name
+            jobRole
+            testimonial {
+              testimonial
             }
-          }
-          logo {
-            file {
-              url
+            profileImage {
+              file {
+                url
+              }
+            }
+            logo {
+              file {
+                url
+              }
             }
           }
         }
@@ -40,6 +41,8 @@ export const query = graphql`
     }
   }
 `;
+
+// name: { ne: "DoNotShowWorkaround" }
 
 // eslint-disable-next-line react/prop-types
 function IndexPage({ data }) {
