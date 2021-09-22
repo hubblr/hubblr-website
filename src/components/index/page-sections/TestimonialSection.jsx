@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import TestimonialSectionContentContainer from './TestimonialSectionContentContainer';
 
 const TestimonialSection = ({ testimonials }) => {
+  if (testimonials.length < 1) {
+    return null;
+  }
+
   return (
     // Section Container
     <div className="container mx-auto mb-40">
