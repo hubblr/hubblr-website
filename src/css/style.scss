@@ -12,51 +12,51 @@
 
 @layer base {
   h1 {
-    @apply .font-black .font-sans .text-xl;
+    @apply font-black font-sans text-xl;
   }
   h2 {
-    @apply .font-black .font-sans .text-xl;
+    @apply font-black font-sans text-xl;
   }
 
   h3 {
-    @apply .font-black .font-sans .text-xl;
+    @apply font-black font-sans text-xl;
   }
   
   p {
-    @apply .font-mono;
+    @apply font-mono;
   }
 
   .secondary-title {
-    @apply .font-black .font-sans .text-lg;
+    @apply font-black font-sans text-lg;
   }
 
   .secondary-subtitle {
-    @apply .font-light .font-sans .text-base;
+    @apply font-light font-sans text-base;
   }
 
   .h1 {
-    @apply .font-black .font-sans .text-xl;
+    @apply font-black font-sans text-xl;
   }
 
   .borderless-link-black {
-    @apply .font-black .font-sans .text-xl .bg-clip-text .text-transparent .bg-gradient-to-r .from-hubblr-blue .to-hubblr-green;
+    @apply font-black font-sans text-xl bg-clip-text text-transparent bg-gradient-to-r from-hubblr-blue to-hubblr-green;
     a {
-      @apply .font-black .font-sans .text-xl .bg-clip-text .text-transparent .bg-gradient-to-r .from-hubblr-blue .to-hubblr-green;
+      @apply font-black font-sans text-xl bg-clip-text text-transparent bg-gradient-to-r from-hubblr-blue to-hubblr-green;
       
       @screen lg {
-        @apply .text-3xl;
+        @apply text-3xl;
       }
     }
   }
 
   .swimmingunderline {
     padding-bottom: 3px;
-  background: linear-gradient(to bottom, var(--mainColor) 0%, var(--mainColor) 100%);
-  background-position: 0 100%;
-  background-repeat: repeat-x;
-  background-size: 3px 3px;
-  color: #000;
-  text-decoration: none;
+    background: linear-gradient(to bottom, var(--mainColor) 0%, var(--mainColor) 100%);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 3px 3px;
+    color: #000;
+    text-decoration: none;
 }
 
 .swimmingunderline:hover {
