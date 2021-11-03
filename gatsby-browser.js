@@ -10,7 +10,6 @@ const supportedLanguagePaths = langConfig
 // eslint-disable-next-line import/prefer-default-export
 export const onInitialClientRender = () => {
   let currentPath = window.location.pathname + window.location.hash;
-  console.log(currentPath);
 
   // get language to use
   let language = window.navigator.language.substr(0, 2);
