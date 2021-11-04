@@ -32,6 +32,7 @@
     "gatsby-plugin-sass": "5.0.0",
     "gatsby-plugin-sharp": "^4.0.1",
     "gatsby-source-airtable": "^2.2.1",
+    "gatsby-source-contentful": "^6.1.0",
     "gatsby-source-filesystem": "4.0.0",
     "gatsby-theme-i18n": "^1.0.4",
     "gatsby-transformer-ffmpeg": "0.4.0",
