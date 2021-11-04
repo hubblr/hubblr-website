@@ -1,11 +1,11 @@
 // See https://tailwindcss.com/docs/configuration for details
 module.exports = {
-  future: {
-    purgeLayersByDefault: true,
-    removeDeprecatedGapUtilities: true,
-    defaultLineHeights: true,
-    standardFontWeights: true,
-  },
+  // future: {
+  //   purgeLayersByDefault: true,
+  //   removeDeprecatedGapUtilities: true,
+  //   defaultLineHeights: true,
+  //   standardFontWeights: true,
+  // },
   purge: {
     content: ['./src/**/*.jsx'],
   },
@@ -72,12 +72,15 @@ module.exports = {
         'hubblr-blue': '#4299e1',
         'hubblr-green': '#4fd1c5',
       },
+      gradientColorStops: (theme) => ({
+        ...theme('colors'),
+      }),
     },
   },
   variants: {},
   plugins: [
     // eslint-disable-next-line global-require
-    require('@tailwindcss/custom-forms'),
+    require('@tailwindcss/forms'),
     // eslint-disable-next-line global-require
     require('tailwindcss-textshadow'),
   ],
