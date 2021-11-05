@@ -58,7 +58,7 @@ typings/
 *.tgz
 
 # dotenv environment variable files
-.env*
+.env
 
 # gatsby files
 .cache/
@@ -75,3 +75,4 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 /.idea/
+package-lock.json

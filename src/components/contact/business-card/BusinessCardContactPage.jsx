@@ -1,13 +1,13 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import CedricBalsImage from '../../image-components/CedricBalsImage';
 import GradientButton from '../../buttons/gradient-border-buttons/GradientButton';
+import SimonHagedornImage from '../../image-components/SimonHagedornImage';
 
 function BusinessCardContactPage() {
   return (
     <div className="w-full h-full bg-brand-gray-darkest rounded-lg p-4 md:p-6 flex flex-col items-center">
       <div className="mb-5">
-        <CedricBalsImage className="w-24" />
+        <SimonHagedornImage className="w-24 h-24 flex items-center justify-center rounded-full" />
       </div>
       <div className="flex-grow flex flex-col justify-between items-center mb-5">
         <h2 className="text-center text-2xl font-extrabold leading-none mb-10">
@@ -17,8 +17,8 @@ function BusinessCardContactPage() {
           <FormattedMessage id="contact.business-card.text" />
         </div>
         <div className="flex flex-col items-center">
-          <p className="text-lg font-extrabold">Cedric Bals</p>
-          <p className="text-base">CEO</p>
+          <p className="text-lg font-extrabold">Simon Hagedorn</p>
+          <p className="text-base">BizDev/Sales</p>
         </div>
       </div>
       <a href="https://calendly.com/cbals/30min" className="flex justify-center w-full">

@@ -1,4 +1,6 @@
 import React from 'react';
+import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
 import IntroductionSection from '../components/index/page-sections/IntroductionSection';
 import IntroductionSectionContent from '../components/index/page-sections/IntroductionSectionContent';
@@ -8,8 +10,37 @@ import NavBarContactButton from '../components/nav-bar/NavBarContactButton';
 import CallToActionSection from '../components/index/page-sections/CallToActionSection';
 import ServiceSection from '../components/index/page-sections/ServiceSection';
 import StartupSection from '../components/index/page-sections/StartupSection';
+import TestimonialSection from '../components/index/page-sections/TestimonialSection';
 
-function IndexPage() {
+export const query = graphql`
+  query allContentfulCustomerTestimonial($locale: String) {
+    allContentfulCustomerTestimonial(filter: { node_locale: { eq: $locale } }) {
+      edges {
+        node {
+          id
+          name
+          jobRole
+          testimonial {
+            testimonial
+          }
+          profileImage {
+            file {
+              url
+            }
+          }
+          logo {
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+// eslint-disable-next-line react/prop-types
+function IndexPage({ data }) {
   return (
     <MainPageDarkLayout>
       <NavBar
@@ -28,11 +59,20 @@ function IndexPage() {
           <IntroductionSectionContent />
         </IntroductionSection>
         <ServiceSection />
+        <TestimonialSection testimonials={data?.allContentfulCustomerTestimonial?.edges} />
         <CallToActionSection />
         <StartupSection />
       </div>
     </MainPageDarkLayout>
   );
 }
+
+IndexPage.propTypes = {
+  data: PropTypes.shape({
+    allContentfulCustomerTestimonial: PropTypes.shape({
+      edges: PropTypes.array.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default IndexPage;

@@ -19,13 +19,13 @@
 .animate-bg-brand-gray-light {
   @include animate-bg;
   &:hover {
-    @apply .bg-brand-gray-light;
+    @apply bg-brand-gray-light;
   }
 }
 
 .animate-bg-brand-gray-darkest {
   @include animate-bg;
   &:hover {
-    @apply .bg-brand-gray-darkest;
+    @apply bg-brand-gray-darkest;
   }
 }
