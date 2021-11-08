@@ -1,4 +1,6 @@
 import React from 'react';
+import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import MainPageDarkLayout from '../components/layouts/MainPageDarkLayout';
 import BusinessCardContactPage from '../components/contact/business-card/BusinessCardContactPage';
@@ -9,7 +11,27 @@ import NavBarHomeButton from '../components/nav-bar/NavBarHomeButton';
 import { MobileAndTabletQuery, DesktopQuery } from '../util/helpers';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 
-function ContactPage() {
+export const query = graphql`
+  query allContentfulContactCard($locale: String) {
+    allContentfulContactCard(filter: { node_locale: { eq: $locale } }) {
+      edges {
+        node {
+          name
+          position
+          image {
+            file {
+              fileName
+              url
+            }
+            title
+          }
+        }
+      }
+    }
+  }
+`;
+
+function ContactPage({ data }) {
   return (
     <LayoutWrapper>
       <MainPageDarkLayout>
@@ -30,7 +52,7 @@ function ContactPage() {
             <DesktopQuery>
               <div className="min-h-1/2 w-full flex justify-between">
                 <div className="flex-grow flex-basis-0 mr-6">
-                  <BusinessCardContactPage />
+                  <BusinessCardContactPage contact={data.allContentfulContactCard.edges.node} />
                 </div>
                 <div className="flex-grow-2 flex-basis-0">
                   <ContactPageForm />
@@ -51,5 +73,13 @@ function ContactPage() {
     </LayoutWrapper>
   );
 }
+
+ContactPage.propTypes = {
+  data: PropTypes.shape({
+    allContentfulContactCard: PropTypes.shape({
+      edges: PropTypes.array.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default ContactPage;
